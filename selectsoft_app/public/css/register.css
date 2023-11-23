@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+}
+main {
+    background-color: #f0f0f0;
+    padding: 0px;
+}
+header {
+    text-align: center;
+    padding: 0px;
+}
+#datos_personales h2 {
+    background-color:#2193B0;
+    color: #fff;
+    padding: 10px;
+    border-radius: 0px;
+    text-align: center;
+    margin: 10 -4px;
+    width: 98.7%;
+}
+#ubicacion h2 {
+    background-color:#2193B0;
+    color: #fff;
+    padding: 10px;
+    border-radius: 0px;
+    text-align: center;
+    margin: 10 -5px;
+    width: 98.7%;
+}
+#educacion h2 {
+    background-color:#2193B0;
+    color: #fff;
+    padding: 10px;
+    border-radius: 0px;
+    text-align: center;
+    margin: 10 -5px;
+    width: 98.7%;
+}
+#experiencia h2 {
+    background-color:#2193B0;
+    color: #fff;
+    padding: 10px;
+    border-radius: 0px;
+    text-align: center;
+    margin: 10 -5px;
+    width: 98.7%;
+}
+#soportes h2 {
+    background-color:#2193B0;
+    color: #fff;
+    padding: 10px;
+    border-radius: 0px;
+    text-align: center;
+    margin: 10 -5px;
+    width: 98.7%;
+}
+.info {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+.info article {
+    padding: 20px 50px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+button {
+    padding: 10px 40px;
+    background-color: #2193B0;
+    color: #fff;
+    cursor: pointer;
+}
+footer {
+    text-align: center;
+    background-color: #f0f0f0;
+}

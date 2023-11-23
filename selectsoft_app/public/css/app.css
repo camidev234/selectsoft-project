@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.create {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create a {
+    padding: 20px 25px;
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    margin-bottom: 90px;
+}
+
+
+.table_container {
+    width: 70%;
+    border-collapse: collapse;
+}
+
+
+
+.table_head tr th {
+    background-color: rgb(14, 14, 16);
+    height: 40px;
+    border: 1px solid #eee;
+    color: white;
+}
+
+.table_body tr td {
+    height: 50px;
+    text-align: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.actions form button {
+    border: none;
+    outline: none;
+    width: 80px;
+    height: 33px;
+}
+
+.actions .deleteBtn {
+    background-color: rgb(255, 51, 15);
+    color: white;
+}
+
+.actions .updateBtn {
+    background-color: rgb(0, 138, 62);
+    color: white;
+}
+
+
+
+/* Estilo para filas pares */
+table tr:nth-child(even) {
+    background-color: #eee; /* Color de fondo para filas pares */
+}
+
+/* Estilo para filas impares */
+table tr:nth-child(odd) {
+    background-color: #ffffff; /* Color de fondo para filas impares */
+}
