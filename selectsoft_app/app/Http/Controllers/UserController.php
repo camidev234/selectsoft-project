@@ -10,6 +10,7 @@ use App\Models\Document_type;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -18,7 +19,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+
+        return view('/user/indexUser', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -64,7 +69,7 @@ class UserController extends Controller
 
         $newUser->save();
 
-        return redirect()->route('user.login');
+        return view('/auth/welcome');
 
     }
 

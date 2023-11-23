@@ -23,7 +23,7 @@
             <nav class="bar-nav" id="bar">
                 <ul class="ul-list">
                     <li><a href="#">Inicio</a></li>
-                    <li><a href="iniciosesion.html">Login</a></li>
+                    <li><a href="{{route('user.login')}}">Login</a></li>
                     <li><a href="{{route('users.create')}}">Sign In</a></li>
                     <li><a href="#">Sobre Nosotros</a></li>
                 </ul>
@@ -79,7 +79,7 @@
                         <img src="img/personIcon.jpg" alt="icono-persona">
                     </article>
                     <article class="hiper">
-                        <a href="">Registrarse</a>
+                        <a href="{{route('users.create')}}">Registrarse</a>
                     </article>
                 </section>
                 <section class="log-in cd">
@@ -87,7 +87,7 @@
                         <img src="img/keyIcon.png" alt="icono-inicio-sesion">
                     </article>
                     <article class="hiper">
-                        <a href="">Iniciar Sesion</a>
+                        <a href="{{route('user.login')}}">Iniciar Sesion</a>
                     </article>
                 </section>
             </section>
