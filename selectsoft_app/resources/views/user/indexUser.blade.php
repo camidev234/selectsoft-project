@@ -25,6 +25,20 @@
                 </form>
             </h5>
         </div>
+
+        <div class="principal_content">
+            <section class="card-user">
+                <section class="card-header">
+                    <h3>{{$user->name}} {{$user->last_name}}</h3>
+                </section>
+                <section class="card-body">
+                    <article class="experiencies">
+                        <h5>Experiencias: {{$experiences}} </h5>
+                        <a href="">Añadir nueva experiencia</a>
+                    </article>
+                </section>
+            </section>
+        </div>
     </header>
 </body>
 </html>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Person_experience;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PersonExperienceController extends Controller
 {
@@ -36,7 +38,6 @@ class PersonExperienceController extends Controller
      */
     public function show(Person_experience $person_experience)
     {
-        //
     }
 
     /**

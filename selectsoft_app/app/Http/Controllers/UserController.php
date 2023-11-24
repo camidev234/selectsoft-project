@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
+use App\Models\Candidate;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Departament;
@@ -21,8 +22,17 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
+        $experiencies = $user->experiences;
+
+        if (empty($experiencies)) {
+            $countExperiencies = 0;
+        } else {
+            $countExperiencies = count($experiencies);
+        }
+
         return view('/user/indexUser', [
-            'user' => $user
+            'user' => $user,
+            'experiences' => $countExperiencies
         ]);
     }
 
@@ -68,6 +78,14 @@ class UserController extends Controller
         $newUser->role_id = $request->input('role_id');
 
         $newUser->save();
+
+        if($request->role_id == 1) {
+            $newCandidate = new Candidate();
+
+            $newCandidate->user_id = $newUser->id;
+
+            $newCandidate->save();
+        }
 
         return view('/auth/welcome');
 

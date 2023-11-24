@@ -11,6 +11,6 @@ class Person_experience extends Model
     use HasFactory;
 
     public function candidate() :BelongsTo {
-        return $this->belongsTo(Candidate::class, 'candidate_id', 'id');
+        return $this->belongsTo(User::class);
     }
 }
