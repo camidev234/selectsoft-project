@@ -22,7 +22,7 @@
                     <label for="contrasena"><input type="password" id="contrasena" name="password" placeholder="Contraseña" required></label>
                 </section>
                 <a href="./olvidocontraseña.html">¿Olvidó su contraseña?</a>
-                <p>¿No se encuentra registrado?<a href="./identificacion.html"> Registrese aquí</a></p>
+                <p>¿No se encuentra registrado?<a href="{{route('users.create')}}"> Registrese aquí</a></p>
                 <button type="submit">Iniciar sesión</button>
             </form>
         </main>

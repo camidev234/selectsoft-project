@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{asset('css/indexUser.css')}}">
     <title>Selectsoft</title>
 </head>
 <body>
@@ -10,7 +11,7 @@
     @extends('layout.header')
     </header>
     @section('content')
-        <div class="principal_content">
+        <main class="principal_content">
             <section class="card-user">
                 <section class="card-header">
                     <h3>{{$user->name}} {{$user->last_name}}</h3>
@@ -22,15 +23,15 @@
                     </article>
                     <article class="educations">
                         <h5>Educacion: </h5>
-                        <a href="">Añadir nueva educacio</a>
+                        <a href="">Añadir nueva educacion</a>
                     </article>
-                    <arcicle class="supports">
+                    <article class="supports">
                         <h5>Soportes: </h5>
                         <a href="">Añadir nuevo soporte</a>
-                    </arcicle>
+                    </article>
                 </section>
             </section>
-        </div>
+    </main>
     @endsection
 </body>
 </html>
