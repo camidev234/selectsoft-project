@@ -7,25 +7,9 @@
 </head>
 <body>
     <header class="header">
-        <div class="logo">
-            <img src="{{asset('img/SELECTSOFTGenericIcon.png')}}" alt="">
-        </div>
-        <div class="find">
-            <form action="" method="post">
-                @csrf
-                <input type="search" name="find_vacant" id="">
-            </form>
-        </div>
-        <div class="actions">
-            <h5>Usuario: {{$user->name}}</h5>
-            <h5>
-                <form action="{{route('user.logout')}}" method="post">
-                    @csrf
-                    <button>Cerrar sesion</button>
-                </form>
-            </h5>
-        </div>
-
+    @extends('layout.header')
+    </header>
+    @section('content')
         <div class="principal_content">
             <section class="card-user">
                 <section class="card-header">
@@ -36,9 +20,17 @@
                         <h5>Experiencias: {{$experiences}} </h5>
                         <a href="">Añadir nueva experiencia</a>
                     </article>
+                    <article class="educations">
+                        <h5>Educacion: </h5>
+                        <a href="">Añadir nueva educacio</a>
+                    </article>
+                    <arcicle class="supports">
+                        <h5>Soportes: </h5>
+                        <a href="">Añadir nuevo soporte</a>
+                    </arcicle>
                 </section>
             </section>
         </div>
-    </header>
+    @endsection
 </body>
 </html>

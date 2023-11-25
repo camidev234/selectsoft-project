@@ -22,6 +22,13 @@ class LoginController extends Controller
             return back()->with('mensaje', 'Credenciales incorrectas');
         }
 
-        return redirect()->route('user.index');
+        $user = Auth::user();
+
+        if($user->id == 1) {
+            return redirect()->route('user.index');
+        } else if($user->id == 2) {
+            return redirect()->route('selector.index');
+        }
+
     }
 }

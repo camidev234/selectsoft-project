@@ -20,20 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
 
-        $experiencies = $user->experiences;
-
-        if (empty($experiencies)) {
-            $countExperiencies = 0;
-        } else {
-            $countExperiencies = count($experiencies);
-        }
-
-        return view('/user/indexUser', [
-            'user' => $user,
-            'experiences' => $countExperiencies
-        ]);
     }
 
     /**

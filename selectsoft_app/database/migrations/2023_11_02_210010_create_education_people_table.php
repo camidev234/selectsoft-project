@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('studyLevel_id');
             $table->foreign('status_id')->references('id')->on('study_statuses');
             $table->foreign('studyLevel_id')->references('id')->on('study_levels');
-            $table->foreignId('candidate_id')->references('id')->on('candidates');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Candidate;
+use App\Models\Selector;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CandidateController extends Controller
+class SelectorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,18 +15,10 @@ class CandidateController extends Controller
     {
         $user = Auth::user();
         $role_id = $user->id;
-        $experiencies = $user->experiences;
 
-        if (empty($experiencies)) {
-            $countExperiencies = 0;
-        } else {
-            $countExperiencies = count($experiencies);
-        }
-
-        return view('/user/indexUser', [
+        return view('/selector/indexSelector', [
             'user' => $user,
-            'role_id' => $role_id,
-            'experiences' => $countExperiencies
+            'role_id' => $role_id
         ]);
     }
 
@@ -49,7 +41,7 @@ class CandidateController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Candidate $candidate)
+    public function show(Selector $selector)
     {
         //
     }
@@ -57,7 +49,7 @@ class CandidateController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Candidate $candidate)
+    public function edit(Selector $selector)
     {
         //
     }
@@ -65,7 +57,7 @@ class CandidateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Candidate $candidate)
+    public function update(Request $request, Selector $selector)
     {
         //
     }
@@ -73,7 +65,7 @@ class CandidateController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Candidate $candidate)
+    public function destroy(Selector $selector)
     {
         //
     }
