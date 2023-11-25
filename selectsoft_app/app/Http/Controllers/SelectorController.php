@@ -14,7 +14,7 @@ class SelectorController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $role_id = $user->id;
+        $role_id = $user->role_id;
 
         return view('/selector/indexSelector', [
             'user' => $user,

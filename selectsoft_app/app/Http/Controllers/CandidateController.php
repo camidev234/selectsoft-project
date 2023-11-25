@@ -14,7 +14,7 @@ class CandidateController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $role_id = $user->id;
+        $role_id = $user->role_id;
         $experiencies = $user->experiences;
 
         if (empty($experiencies)) {
