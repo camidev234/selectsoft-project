@@ -19,15 +19,36 @@
                 <section class="card-body">
                     <article class="experiencies">
                         <h5>Experiencias: {{$experiences}} </h5>
-                        <a href="">Añadir nueva experiencia</a>
+                        <section class="actions-card">
+                            <div class="action">
+                                <a href="{{route('education.create')}}">Añadir nueva educacion</a>
+                            </div>
+                            <form action="" method="get">
+                                <button>Ver</button>
+                            </form>
+                        </section>
                     </article>
                     <article class="educations">
                         <h5>Educacion: {{$educations}}</h5>
-                        <a href="{{route('education.create')}}">Añadir nueva educacion</a>
+                        <section class="actions-card">
+                            <div class="action">
+                                <a href="{{route('education.create')}}">Añadir nueva educacion</a>
+                            </div>
+                            <form action="" method="get">
+                                <button>Ver</button>
+                            </form>
+                        </section>
                     </article>
                     <article class="supports">
                         <h5>Soportes: </h5>
-                        <a href="">Añadir nuevo soporte</a>
+                        <section class="actions-card">
+                            <div class="action">
+                                <a href="{{route('education.create')}}">Añadir nueva educacion</a>
+                            </div>
+                            <form action="" method="get">
+                                <button>Ver</button>
+                            </form>
+                        </section>
                     </article>
                 </section>
             </section>

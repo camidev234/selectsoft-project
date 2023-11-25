@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EducationRequest;
 use App\Models\Education_person;
 use App\Models\study_level;
 use App\Models\study_status;
@@ -39,12 +40,12 @@ class EducationPersonController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(EducationRequest $request)
     {
         $user = Auth::user();
         $newEducation = new Education_person();
 
-        $newEducation->shcool_name = $request->school_name;
+        $newEducation->shcool_name = $request->shcool_name;
         $newEducation->obtained_title = $request->obtained_title;
         $newEducation->studyLevel_id = $request->studyLevel_id;
         $newEducation->status_id = $request->status_id;

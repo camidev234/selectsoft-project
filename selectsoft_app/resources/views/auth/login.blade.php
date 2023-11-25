@@ -16,10 +16,20 @@
             <form action="{{route('user.auth')}}" method="post">
                 @csrf
                 <section class="form-group">
-                    <label for="email"><input type="email" id="numero_documento" name="email" placeholder="Digite su correo electronico" required></label>
+                    <label for="email"><input type="email" id="numero_documento" name="email" placeholder="Digite su correo electronico" value="{{old('email')}}"></label>
+                    @error('email')
+                    <br>
+                        <span style="color:red;">{{$message}}</span>
+                    <br>
+                        @enderror
                 </section>
                 <section class="form-group">
-                    <label for="contrasena"><input type="password" id="contrasena" name="password" placeholder="Contraseña" required></label>
+                    <label for="contrasena"><input type="password" id="contrasena" name="password" placeholder="Contraseña" value="{{old('password')}}"></label>
+                    @error('password')
+                    <br>
+                        <span style="color:red;">{{$message}}</span>
+                        <br>
+                    @enderror
                 </section>
                 <a href="./olvidocontraseña.html">¿Olvidó su contraseña?</a>
                 <p>¿No se encuentra registrado?<a href="{{route('users.create')}}"> Registrese aquí</a></p>

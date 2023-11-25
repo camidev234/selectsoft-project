@@ -16,7 +16,7 @@
                 <div class="find">
                     <form action="" method="post">
                     @csrf
-                        <input type="search" name="find_vacant" id="" class="input" placeholder="Buscar Vacantes">
+                        <input type="search" name="find_vacant" id="" class="input-search" placeholder="Buscar Vacantes">
                     </form>
                 </div>
                 <div class="actions">
