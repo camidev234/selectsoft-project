@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Education_person;
+use App\Models\study_level;
+use App\Models\study_status;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EducationPersonController extends Controller
 {
@@ -20,7 +23,17 @@ class EducationPersonController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        $study_levels = study_level::all();
+        $study_statuses = study_status::all();
+
+        return view('/educations_person/create', [
+            'study_levels' => $study_levels,
+            'statuses' => $study_statuses,
+            'role_id' => $role_id,
+            'user' => $user
+        ]);
     }
 
     /**
@@ -28,7 +41,18 @@ class EducationPersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+        $newEducation = new Education_person();
+
+        $newEducation->shcool_name = $request->school_name;
+        $newEducation->obtained_title = $request->obtained_title;
+        $newEducation->studyLevel_id = $request->studyLevel_id;
+        $newEducation->status_id = $request->status_id;
+        $newEducation->user_id = $user->id;
+
+        $newEducation->save();
+
+        return redirect()->route('user.index');
     }
 
     /**

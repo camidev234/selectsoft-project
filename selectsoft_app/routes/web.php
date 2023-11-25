@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\EducationPersonController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -46,7 +47,8 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('user.logout')
 // candidate routes
 
 Route::get('/candidate/home', [CandidateController::class, 'index'])->name('user.index')->middleware('auth');
-
+Route::get('/education/addEducation', [EducationPersonController::class, 'create'])->name('education.create')->middleware('auth');
+Route::post('/education/store', [EducationPersonController::class, 'store'])->name('education.store');
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');

@@ -16,6 +16,7 @@ class CandidateController extends Controller
         $user = Auth::user();
         $role_id = $user->role_id;
         $experiencies = $user->experiences;
+        $educations = $user->educations;
 
         if (empty($experiencies)) {
             $countExperiencies = 0;
@@ -23,10 +24,17 @@ class CandidateController extends Controller
             $countExperiencies = count($experiencies);
         }
 
+        if (empty($educations)){
+            $countEducations = 0;
+        } else {
+            $countEducations = count($educations);
+        }
+
         return view('/user/indexUser', [
             'user' => $user,
             'role_id' => $role_id,
-            'experiences' => $countExperiencies
+            'experiences' => $countExperiencies,
+            'educations' => $countEducations
         ]);
     }
 

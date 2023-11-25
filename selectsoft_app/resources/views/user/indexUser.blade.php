@@ -22,8 +22,8 @@
                         <a href="">Añadir nueva experiencia</a>
                     </article>
                     <article class="educations">
-                        <h5>Educacion: </h5>
-                        <a href="">Añadir nueva educacion</a>
+                        <h5>Educacion: {{$educations}}</h5>
+                        <a href="{{route('education.create')}}">Añadir nueva educacion</a>
                     </article>
                     <article class="supports">
                         <h5>Soportes: </h5>
