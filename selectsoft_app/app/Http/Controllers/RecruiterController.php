@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Recruiter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RecruiterController extends Controller
 {
@@ -12,8 +13,15 @@ class RecruiterController extends Controller
      */
     public function index()
     {
-        $recruiters = Recruiter::all();
-        return view("recruiter.index",compact("recruiters"));
+        $user = Auth::user();
+        $role_id = $user->id;
+
+        return view('/recruiter/indexRecruiter', [
+            'user' => $user,
+            'role_id' => $role_id
+        ]);
+
+
     }
 
     /**
@@ -21,7 +29,7 @@ class RecruiterController extends Controller
      */
     public function create()
     {
-        return view("recruiter/create");
+
     }
 
     /**
@@ -29,21 +37,6 @@ class RecruiterController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'document_type_id'=>'required|string|min:2|max:20',
-            'document_number'=>'required|string|min:2|max:15',
-            'names'=>'required|string|min:2|max:100',
-            'surnames'=>'required|string|min:2|max:4100'
-        ]);
-
-        Recruiter::create([
-            'document_type_id'=>$request->document_type_id,
-            'document_number'=>$request->document_number,
-            'names'=>$request->names,
-            'surnames'=>$request->surnames
-        ]);
-        return redirect()->back()
-        ->with('success','Reclutador creado correctamente');
     }
 
     /**

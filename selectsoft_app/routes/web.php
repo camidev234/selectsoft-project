@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\OccupationController;
+use App\Http\Controllers\RecruiterController;
 use App\Http\Controllers\SelectorController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -48,3 +50,11 @@ Route::get('/candidate/home', [CandidateController::class, 'index'])->name('user
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');
+
+// recruiter routes
+
+Route::get('/recruiter/home', [RecruiterController::class, 'index'])->name('recruiter.index')->middleware('auth');
+
+// instructor routes
+
+Route::get('/admin/home', [InstructorController::class, 'index'])->name('instructor.index')->middleware('auth');

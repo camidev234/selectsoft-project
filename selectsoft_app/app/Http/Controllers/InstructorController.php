@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Instructor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class InstructorController extends Controller
 {
@@ -12,7 +13,12 @@ class InstructorController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $role_id = $user->id;
+
+        return view('/instructor/adminPanel', [
+            'user' => $user
+        ]);
     }
 
     /**

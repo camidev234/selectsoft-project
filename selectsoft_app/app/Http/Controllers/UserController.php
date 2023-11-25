@@ -8,7 +8,9 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\Departament;
 use App\Models\Document_type;
+use App\Models\Recruiter;
 use App\Models\Role;
+use App\Models\Selector;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -68,10 +70,19 @@ class UserController extends Controller
 
         if($request->role_id == 1) {
             $newCandidate = new Candidate();
-
             $newCandidate->user_id = $newUser->id;
 
             $newCandidate->save();
+        }else if ($request->role_id == 2) {
+            $newSelector = new Selector();
+            $newSelector->user_id = $newUser->id;
+
+            $newSelector->save();
+        } else if($request->role_id == 3) {
+            $newRecruiter = new Recruiter();
+            $newRecruiter->user_id = $newUser->id;
+
+            $newRecruiter->save();
         }
 
         return view('/auth/welcome');
