@@ -14,11 +14,9 @@ return new class extends Migration
         Schema::create('education_people', function (Blueprint $table) {
             $table->id();
             $table->string('shcool_name', 100);
-            $table->unsignedBigInteger('status_id');
-            $table->unsignedBigInteger('studyLevel_id');
             $table->string('obtained_title');
-            $table->foreign('status_id')->references('id')->on('study_statuses');
-            $table->foreign('studyLevel_id')->references('id')->on('study_levels');
+            $table->foreignId('study_status_id')->references('id')->on('study_statuses');
+            $table->foreignId('study_level_id')->references('id')->on('study_levels');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });

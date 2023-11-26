@@ -24,8 +24,8 @@ class EducationRequest extends FormRequest
         return [
             'shcool_name' => ['required', 'min:4', 'max:40'],
             'obtained_title' => ['required', 'max: 70'],
-            'studyLevel_id' => 'required|exists:study_levels,id',
-            'status_id' => 'required|exists:study_statuses,id'
+            'study_level_id' => 'required|exists:study_levels,id',
+            'study_status_id' => 'required|exists:study_statuses,id'
         ];
     }
 }

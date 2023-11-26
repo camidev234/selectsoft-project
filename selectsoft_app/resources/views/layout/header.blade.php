@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/layout.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
                     </form>
                 </div>
                 <div class="actions">
-                    <h5>Usuario: {{$user->name}}</h5>
+                    <h5><i class="bi bi-person-fill"></i> {{$user->name}}</h5>
                     <h5>Rol: {{$user->role->name}}</h5>
                     <h5>
                         <form action="{{route('user.logout')}}" method="post">

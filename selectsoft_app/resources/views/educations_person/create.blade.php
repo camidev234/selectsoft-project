@@ -25,13 +25,13 @@
                 <span style="color:red;">{{$message}}</span><br>
             @enderror
             <label for="status_id">Estado: </label><br>
-            <select name="status_id" id="">
+            <select name="study_status_id" id="">
                 @foreach($statuses as $status)
                     <option value="{{$status->id}}">{{$status->study_status}}</option>
                 @endforeach
             </select><br>
             <label for="studyLevel_id">Nivel de estudio</label><br>
-            <select name="studyLevel_id" id="">
+            <select name="study_level_id" id="">
                 @foreach($study_levels as $level)
                     <option value="{{$level->id}}">{{$level->study_level}}</option>
                 @endforeach

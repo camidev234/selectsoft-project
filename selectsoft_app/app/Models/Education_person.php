@@ -11,6 +11,14 @@ class Education_person extends Model
     use HasFactory;
 
     public function candidate():BelongsTo {
-        return $this->belongsTo(User::class, 'candidate_id', 'id');
+        return $this->belongsTo(User::class);
+    }
+
+    public function study_level() :BelongsTo {
+        return $this->belongsTo(study_level::class);
+    }
+
+    public function study_status() :BelongsTo {
+        return $this->belongsTo(study_status::class);
     }
 }

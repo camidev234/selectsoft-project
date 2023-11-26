@@ -9,6 +9,9 @@ use App\Http\Controllers\OccupationController;
 use App\Http\Controllers\RecruiterController;
 use App\Http\Controllers\SelectorController;
 use App\Http\Controllers\UserController;
+use App\Mail\WelcomeMailable;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +52,7 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('user.logout')
 Route::get('/candidate/home', [CandidateController::class, 'index'])->name('user.index')->middleware('auth');
 Route::get('/education/addEducation', [EducationPersonController::class, 'create'])->name('education.create')->middleware('auth');
 Route::post('/education/store', [EducationPersonController::class, 'store'])->name('education.store');
+Route::get('/myeducations', [EducationPersonController::class, 'index'])->name('educations.index');
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');
@@ -60,3 +64,6 @@ Route::get('/recruiter/home', [RecruiterController::class, 'index'])->name('recr
 // instructor routes
 
 Route::get('/admin/home', [InstructorController::class, 'index'])->name('instructor.index')->middleware('auth');
+
+//mail
+

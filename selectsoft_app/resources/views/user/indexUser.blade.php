@@ -21,7 +21,7 @@
                         <h5>Experiencias: {{$experiences}} </h5>
                         <section class="actions-card">
                             <div class="action">
-                                <a href="{{route('education.create')}}">Añadir nueva educacion</a>
+                                <a href="{{route('education.create')}}">Añadir nueva experiencia</a>
                             </div>
                             <form action="" method="get">
                                 <button>Ver</button>
@@ -34,7 +34,7 @@
                             <div class="action">
                                 <a href="{{route('education.create')}}">Añadir nueva educacion</a>
                             </div>
-                            <form action="" method="get">
+                            <form action="{{route('educations.index')}}" method="get">
                                 <button>Ver</button>
                             </form>
                         </section>
@@ -43,12 +43,17 @@
                         <h5>Soportes: </h5>
                         <section class="actions-card">
                             <div class="action">
-                                <a href="{{route('education.create')}}">Añadir nueva educacion</a>
+                                <a href="{{route('education.create')}}">Añadir nuevo soporte</a>
                             </div>
                             <form action="" method="get">
                                 <button>Ver</button>
                             </form>
                         </section>
+                    </article>
+                    <article class="hdv">
+                        <form action="" method="get">
+                            <button>Ver HDV completa</button>
+                        </form>
                     </article>
                 </section>
             </section>

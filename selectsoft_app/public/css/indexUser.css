@@ -85,3 +85,37 @@ article .action {
     color: white;
     cursor: pointer;
 }
+
+.actions-card form button:hover{
+    background-color: #3e8842;
+}
+
+.hdv {
+    height: 40px;
+    width: 100%;
+}
+
+.hdv form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hdv form button {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-color: #2193b0;
+    color: white;
+    outline: none;
+    border: 1px solid #eee;
+}
+
+.hdv form button:hover {
+    background-color: rgb(29, 29, 29);
+
+}
+
+

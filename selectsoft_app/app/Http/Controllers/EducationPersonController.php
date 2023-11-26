@@ -16,7 +16,16 @@ class EducationPersonController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        $educations = $user->educations;
+
+        return view('/educations_person/indexEducations' , [
+            'educations' => $educations,
+            'role_id' => $role_id,
+            'user' => $user,
+
+        ]);
     }
 
     /**
@@ -47,13 +56,13 @@ class EducationPersonController extends Controller
 
         $newEducation->shcool_name = $request->shcool_name;
         $newEducation->obtained_title = $request->obtained_title;
-        $newEducation->studyLevel_id = $request->studyLevel_id;
-        $newEducation->status_id = $request->status_id;
+        $newEducation->study_level_id = $request->study_level_id;
+        $newEducation->study_status_id = $request->study_status_id;
         $newEducation->user_id = $user->id;
 
         $newEducation->save();
 
-        return redirect()->route('user.index');
+        return redirect()->route('educations.index');
     }
 
     /**

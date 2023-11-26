@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    margin-top: 70px;
+}
+
+.card {
+    width: 30%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card a {
+    text-decoration: none;
+    color: white;
+    background-color: #2193b0;
+    padding: 15px 23px;
+    border-radius: 10px;
+}
+.card a:hover {
+    background-color: rgb(27, 27, 27);
+}
+
+.content {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para la tabla */
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Estilo para las celdas del encabezado */
+th {
+    background-color: #2193b0;
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Estilo para las celdas de datos */
+td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para las filas alternas */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilo para los botones en la columna de Acciones */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Estilo para el icono dentro del botón */
+i {
+    font-size: 1.2em;
+    color: #2196F3;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Estilo para cambiar el color de los botones al pasar el ratón sobre ellos */
+button:hover i, button:hover {
+    color: #1565c0;
+}
+
+/* Estilo para el formulario en la columna de Acciones (opcional) */
+form {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* Estilo para las animaciones al pasar el ratón sobre las celdas de datos */
+td:hover {
+    background-color: #e3f2fd;
+    cursor: default;
+}

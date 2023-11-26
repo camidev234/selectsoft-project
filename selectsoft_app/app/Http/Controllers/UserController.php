@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
+use App\Mail\WelcomeMailable;
 use App\Models\Candidate;
 use App\Models\City;
 use App\Models\Country;
@@ -14,6 +15,7 @@ use App\Models\Selector;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -67,6 +69,14 @@ class UserController extends Controller
         $newUser->role_id = $request->input('role_id');
 
         $newUser->save();
+
+
+        $mail = $newUser->email;
+
+        $userName = $newUser->name." ".$newUser->last_name;
+
+        Mail::to($mail)->send(new WelcomeMailable($userName));
+
 
         if($request->role_id == 1) {
             $newCandidate = new Candidate();
