@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\EducationPersonController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -45,7 +46,7 @@ Route::get('/register', [UserController::class, 'create'])->name('users.create')
 Route::post('/user/register', [UserController::class, 'store'])->name('user.store');
 Route::get('/selectsoft/login', [LoginController::class, 'index'])->name('user.login')->middleware('guest');
 Route::post('/selectsoft/login/authenticate', [LoginController::class, 'authenticate'])->name('user.auth');
-
+Route::get('/forgotPassword', [ForgotPasswordController::class, 'index'])->name('forgotPassword.index');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('user.logout');
 // candidate routes
 
@@ -67,3 +68,4 @@ Route::get('/admin/home', [InstructorController::class, 'index'])->name('instruc
 
 //mail
 
+Route::patch('/updatePassword', [ForgotPasswordController::class, 'findUser'])->name('forgotPassword.find');

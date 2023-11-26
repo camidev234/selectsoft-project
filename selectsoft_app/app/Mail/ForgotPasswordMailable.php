@@ -5,6 +5,7 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -16,9 +17,12 @@ class ForgotPasswordMailable extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    private $newPassword;
+    private $userName;
+    public function __construct($newPassword, $userName)
     {
-        //
+        $this->newPassword = $newPassword;
+        $this->userName = $userName;
     }
 
     /**
@@ -27,7 +31,8 @@ class ForgotPasswordMailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Forgot Password Mailable',
+            from: new Address('soporteTecnico@selectsoft.com'),
+            subject: 'SelectSoft-Recuperar Contraseña',
         );
     }
 
@@ -37,7 +42,7 @@ class ForgotPasswordMailable extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.newPassword',
         );
     }
 
@@ -49,5 +54,14 @@ class ForgotPasswordMailable extends Mailable
     public function attachments(): array
     {
         return [];
+    }
+
+    public function build()
+    {
+        return $this->view('emails.newPassword')
+                    ->with([
+                        'password' => $this->newPassword,
+                        'name' => $this->userName
+                    ]);
     }
 }

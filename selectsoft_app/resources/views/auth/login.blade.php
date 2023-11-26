@@ -31,7 +31,7 @@
                         <br>
                     @enderror
                 </section>
-                <a href="./olvidocontraseña.html">¿Olvidó su contraseña?</a>
+                <a href="{{route('forgotPassword.index')}}">¿Olvidó su contraseña?</a>
                 <p>¿No se encuentra registrado?<a href="{{route('users.create')}}"> Registrese aquí</a></p>
                 <button type="submit">Iniciar sesión</button>
             </form>
