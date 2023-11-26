@@ -60,6 +60,11 @@
     margin-right: 10px;
 }
 
+.actions h5 a {
+    text-decoration: none;
+    color: black;
+}
+
 .actions form {
     margin-left: auto; /* Push the form to the right */
 }
@@ -76,6 +81,8 @@
 .actions button:hover {
     background-color: rgb(29, 29, 29);
 }
+
+
 
 
 

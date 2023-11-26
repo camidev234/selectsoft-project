@@ -78,7 +78,18 @@ class EducationPersonController extends Controller
      */
     public function edit(Education_person $education_person)
     {
-        //
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        $study_levels = study_level::all();
+        $study_statuses = study_status::all();
+
+        return view('/educations_person/edit', [
+            'study_levels' => $study_levels,
+            'statuses' => $study_statuses,
+            'role_id' => $role_id,
+            'user' => $user,
+            'education' => $education_person
+        ]);
     }
 
     /**
@@ -86,7 +97,14 @@ class EducationPersonController extends Controller
      */
     public function update(Request $request, Education_person $education_person)
     {
-        //
+        $education_person->shcool_name = $request->shcool_name;
+        $education_person->obtained_title = $request->obtained_title;
+        $education_person->study_level_id = $request->study_level_id;
+        $education_person->study_status_id = $request->study_status_id;
+
+        $education_person->save();
+
+        return redirect()->route('educations.index');
     }
 
     /**
@@ -94,6 +112,8 @@ class EducationPersonController extends Controller
      */
     public function destroy(Education_person $education_person)
     {
-        //
+        $education_person->delete();
+
+        return redirect()->route('educations.index');
     }
 }

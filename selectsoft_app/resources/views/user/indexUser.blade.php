@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/indexUser.css')}}">
-    <title>Selectsoft</title>
+    <title>Selectsoft-Home</title>
 </head>
 <body>
     <header class="header">
@@ -58,6 +58,9 @@
                 </section>
             </section>
     </main>
+
     @endsection
+
+
 </body>
 </html>

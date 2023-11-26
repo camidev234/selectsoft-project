@@ -53,7 +53,10 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('user.logout')
 Route::get('/candidate/home', [CandidateController::class, 'index'])->name('user.index')->middleware('auth');
 Route::get('/education/addEducation', [EducationPersonController::class, 'create'])->name('education.create')->middleware('auth');
 Route::post('/education/store', [EducationPersonController::class, 'store'])->name('education.store');
-Route::get('/myeducations', [EducationPersonController::class, 'index'])->name('educations.index');
+Route::get('/myeducations/index', [EducationPersonController::class, 'index'])->name('educations.index');
+Route::delete('/educations/delete/{education_person}', [EducationPersonController::class, 'destroy'])->name('educations.destroy');
+Route::get('/myeducations/edit/{education_person}', [EducationPersonController::class, 'edit'])->name('educations.edit');
+Route::patch('/myeducations/update/{education_person}',[EducationPersonController::class, 'update'])->name('educations.update');
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');

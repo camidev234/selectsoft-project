@@ -21,7 +21,7 @@
                     </form>
                 </div>
                 <div class="actions">
-                    <h5><i class="bi bi-person-fill"></i> {{$user->name}}</h5>
+                    <h5><i class="bi bi-person-fill"></i> <a href="{{route('user.index')}}">{{$user->name}}</a></h5>
                     <h5>Rol: {{$user->role->name}}</h5>
                     <h5>
                         <form action="{{route('user.logout')}}" method="post">

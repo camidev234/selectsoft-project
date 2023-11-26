@@ -44,10 +44,12 @@
                         <td>{{$education->study_level->study_level}}</td>
                         <td>{{$education->study_status->study_status}}</td>
                         <td>
-                            <form action="">
+                            <form action="{{route('educations.destroy', ['education_person' => $education->id])}}" method="POST">
+                            @csrf
+                            @method('DELETE')
                                 <button><i class="bi bi-trash-fill"></i></button>
                             </form>
-                            <form action="">
+                            <form action="{{route('educations.edit', ['education_person' => $education->id])}}" method="get">
                                 <button><i class="bi bi-pencil-fill"></i></button>
                             </form>
                         </td>
