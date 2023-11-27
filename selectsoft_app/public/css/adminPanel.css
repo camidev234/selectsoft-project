@@ -151,13 +151,49 @@
     align-items: flex-start;
 }
 
-.table-content table {
-    border: 1px solid #eee;
-    overflow: auto;
-    margin-top: 33px;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.table-content table th {
-    padding: 17px 37px;
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para los botones de acción */
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+}
+
+button i {
+    font-size: 1.2rem;/* Cambia el color según tu preferencia */
+}
+
+/* Añade algún espacio entre los botones */
+button + button {
+    margin-left: 10px;
+}
+
+.actions-table form {
+    display: inline-block; /* Hace que los formularios sean elementos en línea */
+    margin-right: 15px;
+}
+
+.btn {
+    color: tomato;
+}
+
+.btn2 {
+    color: blue;
 }
 

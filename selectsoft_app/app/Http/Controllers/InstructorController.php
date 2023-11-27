@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidate;
 use App\Models\Instructor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,9 +16,11 @@ class InstructorController extends Controller
     {
         $user = Auth::user();
         $role_id = $user->id;
+        $candidates = Candidate::all();
 
         return view('/instructor/adminPanel', [
-            'user' => $user
+            'user' => $user,
+            'candidates' => $candidates
         ]);
     }
 

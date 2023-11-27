@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{asset('css/adminPanel.css')}}">
     <title>Panel de administrador</title>
 </head>
@@ -63,13 +64,38 @@
             </section>
             <section class="table-content">
                 <table>
-                    <tr>
-                        <th><h5>Documento</h5></th>
-                        <th><h5>Nombres</h5></th>
-                        <th><h5>Primer Apellido</h5></th>
-                        <th><h5>Segundo Apellido</h5></th>
-                        <th><h5>Acciones</h5></th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th><h5>Tipo De Documento</h5></th>
+                            <th><h5>Documento</h5></th>
+                            <th><h5>Nombres</h5></th>
+                        <!-- <th><h5>Primer Apellido</h5></th> -->
+                            <th><h5>Apellidos</h5></th>
+                            <th><h5>Acciones</h5></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($candidates as $candidate)
+                            <tr>
+                                <td>{{$candidate->user->document_type->document_type}}</td>
+                                <td>{{$candidate->user->number_document}}</td>
+                                <td>{{$candidate->user->name}}</td>
+                                <td>{{$candidate->user->last_name}}</td>
+                                <td class="actions-table">
+                                    <form action="">
+                                        <button><i class="bi bi-trash-fill btn"></i></button>
+                                    </form>
+                                    <form action="">
+                                        <button><i class="bi bi-pencil-fill btn2"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td>No hay Candidatos para mostrar</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
                 </table>
             </section>
         </section>

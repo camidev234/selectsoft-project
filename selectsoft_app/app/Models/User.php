@@ -4,7 +4,9 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -47,10 +49,6 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'role_id', 'id');
     }
 
-    public function candidates()
-    {
-        return $this->hasMany(Candidate::class);
-    }
 
     public function experiences() {
         return $this->hasMany(Person_experience::class);
@@ -58,5 +56,13 @@ class User extends Authenticatable
 
     public function educations(): HasMany {
         return $this->hasMany(Education_person::class);
+    }
+
+    public function candidate():HasOne {
+        return $this->hasOne(Candidate::class);
+    }
+
+    public function document_type():BelongsTo {
+        return $this->belongsTo(Document_type::class);
     }
 }
