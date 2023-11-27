@@ -26,17 +26,17 @@
         </header>
 
         <section class="sidebar">
-            <a href=""><article class="option-admin modi">
+            <a href="{{route('instructor.index')}}"><article class="option-admin modi">
                 <img src="{{asset('img/personIcon.jpg')}}" alt="icono_persona">
                 <h3>Ver candidatos</h3>
             </article></a>
 
-            <a href=""><article class="option-admin">
+            <a href="{{route('instructor.recruiters')}}" style="background-color: white;"><article class="option-admin">
                 <img src="{{asset('img/img-recruiter.png')}}" alt="icono_verr">
                 <h3>Ver Reclutadores</h3>
             </article></a>
 
-            <a href=""><article class="option-admin">
+            <a href="{{route('instructor.selectors')}}"><article class="option-admin">
                 <img src="{{asset('img/descarga__13_-removebg-preview.png')}}" alt="icono_verS">
                 <h3>Ver Seleccionadores</h3>
             </article></a>
@@ -75,12 +75,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($candidates as $candidate)
+                        @forelse($recruiters as $recruiter)
                             <tr>
-                                <td>{{$candidate->user->document_type->document_type}}</td>
-                                <td>{{$candidate->user->number_document}}</td>
-                                <td>{{$candidate->user->name}}</td>
-                                <td>{{$candidate->user->last_name}}</td>
+                                <td>{{$recruiter->user->document_type->document_type}}</td>
+                                <td>{{$recruiter->user->number_document}}</td>
+                                <td>{{$recruiter->user->name}}</td>
+                                <td>{{$recruiter->user->last_name}}</td>
                                 <td class="actions-table">
                                     <form action="">
                                         <button><i class="bi bi-trash-fill btn"></i></button>
@@ -92,7 +92,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td>No hay Candidatos para mostrar</td>
+                                <td>No hay Reclutadores para mostrar</td>
                             </tr>
                         @endforelse
                     </tbody>

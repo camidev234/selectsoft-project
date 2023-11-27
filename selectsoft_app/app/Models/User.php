@@ -50,11 +50,11 @@ class User extends Authenticatable
     }
 
 
-    public function experiences() {
+    public function experiences() :HasMany{
         return $this->hasMany(Person_experience::class);
     }
 
-    public function educations(): HasMany {
+    public function educations():HasMany {
         return $this->hasMany(Education_person::class);
     }
 
@@ -64,5 +64,13 @@ class User extends Authenticatable
 
     public function document_type():BelongsTo {
         return $this->belongsTo(Document_type::class);
+    }
+
+    public function recruiter() {
+        return $this->hasOne(Recruiter::class);
+    }
+
+    public function selector() :HasOne {
+        return $this->hasOne(Selector::class);
     }
 }

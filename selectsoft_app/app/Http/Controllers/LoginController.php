@@ -7,6 +7,7 @@ use App\Models\Document_type;
 use Illuminate\Http\Request;
 use App\Models\Person_experience;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -17,7 +18,7 @@ class LoginController extends Controller
         return  view('/auth/login');
     }
 
-    public function authenticate(LoginRequest $request) {
+    public function authenticate(LoginRequest $request) :RedirectResponse {
         if(!auth()->attempt($request->only('email', 'password'))){
             return back()->with('mensaje', 'Credenciales incorrectas');
         }

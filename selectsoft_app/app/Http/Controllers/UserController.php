@@ -9,6 +9,7 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\Departament;
 use App\Models\Document_type;
+use App\Models\Instructor;
 use App\Models\Recruiter;
 use App\Models\Role;
 use App\Models\Selector;
@@ -93,6 +94,11 @@ class UserController extends Controller
             $newRecruiter->user_id = $newUser->id;
 
             $newRecruiter->save();
+        } else if($request->role_id == 4) {
+            $newInstructor = new Instructor();
+            $newInstructor->user_id = $newUser->id;
+
+            $newInstructor->save();
         }
 
         return view('/auth/welcome');

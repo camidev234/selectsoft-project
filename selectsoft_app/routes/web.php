@@ -46,16 +46,16 @@ Route::get('/register', [UserController::class, 'create'])->name('users.create')
 Route::post('/user/register', [UserController::class, 'store'])->name('user.store');
 Route::get('/selectsoft/login', [LoginController::class, 'index'])->name('user.login')->middleware('guest');
 Route::post('/selectsoft/login/authenticate', [LoginController::class, 'authenticate'])->name('user.auth');
-Route::get('/forgotPassword', [ForgotPasswordController::class, 'index'])->name('forgotPassword.index');
+Route::get('/forgotPassword', [ForgotPasswordController::class, 'index'])->name('forgotPassword.index')->middleware('guest');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('user.logout');
 // candidate routes
 
 Route::get('/candidate/home', [CandidateController::class, 'index'])->name('user.index')->middleware('auth');
 Route::get('/education/addEducation', [EducationPersonController::class, 'create'])->name('education.create')->middleware('auth');
 Route::post('/education/store', [EducationPersonController::class, 'store'])->name('education.store');
-Route::get('/myeducations/index', [EducationPersonController::class, 'index'])->name('educations.index');
+Route::get('/myeducations/index', [EducationPersonController::class, 'index'])->name('educations.index')->middleware('auth');
 Route::delete('/educations/delete/{education_person}', [EducationPersonController::class, 'destroy'])->name('educations.destroy');
-Route::get('/myeducations/edit/{education_person}', [EducationPersonController::class, 'edit'])->name('educations.edit');
+Route::get('/myeducations/edit/{education_person}', [EducationPersonController::class, 'edit'])->name('educations.edit')->middleware('auth');
 Route::patch('/myeducations/update/{education_person}',[EducationPersonController::class, 'update'])->name('educations.update');
 // selector routes
 
@@ -67,8 +67,9 @@ Route::get('/recruiter/home', [RecruiterController::class, 'index'])->name('recr
 
 // instructor routes
 
-Route::get('/admin/home', [InstructorController::class, 'index'])->name('instructor.index')->middleware('auth');
-
+Route::get('/admin/home/candidates', [InstructorController::class, 'indexlistCandidates'])->name('instructor.index')->middleware('auth');
+Route::get('/admin/home/recruiters', [InstructorController::class, 'indexListRecruiters'])->name('instructor.recruiters')->middleware('auth');
+Route::get('/admin/home/selectors', [InstructorController::class, 'indexListSelectors'])->name('instructor.selectors');
 //mail
 
 Route::patch('/updatePassword', [ForgotPasswordController::class, 'findUser'])->name('forgotPassword.find');

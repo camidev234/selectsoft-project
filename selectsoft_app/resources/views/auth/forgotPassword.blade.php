@@ -9,7 +9,7 @@
     <body>
         <main class="flex">
             <img src="img/selectsoft.jpeg" alt="Logo Selectsoft">
-            <h2>¿OLVIDO SU CONTRASEÑA?</h2>
+            <h2>REESTABLECER CONTRASEÑA</h2>
             @if(session()->has('mensaje'))
                 <p style="color:red;">{{ session('mensaje') }}</p>
             @endif
