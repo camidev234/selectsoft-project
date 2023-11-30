@@ -40,7 +40,7 @@
                         </section>
                     </article>
                     <article class="supports">
-                        <h5>Soportes: </h5>
+                        <h5>Soportes: {{$supports}}</h5>
                         <section class="actions-card">
                             <div class="action">
                                 <a href="{{route('supports.create')}}">Añadir nuevo soporte <i class="bi bi-file-plus"></i></a>

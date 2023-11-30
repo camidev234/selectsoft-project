@@ -17,6 +17,7 @@ class CandidateController extends Controller
         $role_id = $user->role_id;
         $experiencies = $user->experiences;
         $educations = $user->educations;
+        $supports = $user->supports;
 
         if (empty($experiencies)) {
             $countExperiencies = 0;
@@ -30,11 +31,18 @@ class CandidateController extends Controller
             $countEducations = count($educations);
         }
 
+        if (empty($supports)) {
+            $countSupports = 0;
+        } else {
+            $countSupports = count($supports);
+        }
+
         return view('/user/indexUser', [
             'user' => $user,
             'role_id' => $role_id,
             'experiences' => $countExperiencies,
-            'educations' => $countEducations
+            'educations' => $countEducations,
+            'supports' => $countSupports
         ]);
     }
 

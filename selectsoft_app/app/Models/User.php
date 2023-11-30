@@ -58,6 +58,10 @@ class User extends Authenticatable
         return $this->hasMany(Education_person::class);
     }
 
+    public function supports() :HasMany {
+        return $this->hasMany(Candidate_support::class);
+    }
+
     public function candidate():HasOne {
         return $this->hasOne(Candidate::class);
     }
