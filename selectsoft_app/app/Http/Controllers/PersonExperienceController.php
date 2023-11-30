@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PersonExperiencieRequest;
 use App\Models\Person_experience;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,15 +23,29 @@ class PersonExperienceController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        return view('/person_exp/create', [
+            'role_id' => $role_id,
+            'user' => $user
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PersonExperiencieRequest $request)
     {
-        //
+        $newExperiencie = new Person_experience();
+
+        $newExperiencie->company_experience = $request->company_experience;
+        $newExperiencie->months_experience = $request->months_experience;
+        $user = Auth::user();
+        $newExperiencie->user_id = $user->id;
+
+        $newExperiencie->save();
+
+        return redirect()->route('user.index');
     }
 
     /**

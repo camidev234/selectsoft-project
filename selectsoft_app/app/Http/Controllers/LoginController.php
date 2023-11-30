@@ -34,6 +34,5 @@ class LoginController extends Controller
         } else if ($user->role_id == 4) {
             return redirect()->route('instructor.index');
         }
-
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\OccupationController;
+use App\Http\Controllers\PersonExperienceController;
 use App\Http\Controllers\RecruiterController;
 use App\Http\Controllers\SelectorController;
 use App\Http\Controllers\UserController;
@@ -57,6 +58,9 @@ Route::get('/myeducations/index', [EducationPersonController::class, 'index'])->
 Route::delete('/educations/delete/{education_person}', [EducationPersonController::class, 'destroy'])->name('educations.destroy');
 Route::get('/myeducations/edit/{education_person}', [EducationPersonController::class, 'edit'])->name('educations.edit')->middleware('auth');
 Route::patch('/myeducations/update/{education_person}',[EducationPersonController::class, 'update'])->name('educations.update');
+Route::get('/experiencies/create', [PersonExperienceController::class, 'create'])->name('exp.create')->middleware('auth');
+Route::post('/experiencies/store', [PersonExperienceController::class, 'store'])->name('exp.store');
+
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');

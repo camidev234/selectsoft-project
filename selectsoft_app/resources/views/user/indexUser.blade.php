@@ -21,7 +21,7 @@
                         <h5>Experiencias: {{$experiences}} </h5>
                         <section class="actions-card">
                             <div class="action">
-                                <a href="{{route('education.create')}}">Añadir nueva experiencia</a>
+                                <a href="{{route('exp.create')}}">Añadir nueva experiencia</a>
                             </div>
                             <form action="" method="get">
                                 <button>Ver</button>
