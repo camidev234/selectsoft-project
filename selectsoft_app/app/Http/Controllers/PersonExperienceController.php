@@ -48,6 +48,7 @@ class PersonExperienceController extends Controller
 
         $newExperiencie->company_experience = $request->company_experience;
         $newExperiencie->months_experience = $request->months_experience;
+        $newExperiencie->functions = $request->functions;
         $user = Auth::user();
         $newExperiencie->user_id = $user->id;
 
@@ -68,15 +69,28 @@ class PersonExperienceController extends Controller
      */
     public function edit(Person_experience $person_experience)
     {
-        //
+        $user = Auth::user();
+        $role_id = $user->role_id;
+
+        return view('/person_exp/edit', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'experience' => $person_experience
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Person_experience $person_experience)
+    public function update(PersonExperiencieRequest $request, Person_experience $person_experience)
     {
-        //
+        $person_experience->company_experience = $request->company_experience;
+        $person_experience->months_experience = $request->months_experience;
+        $person_experience->functions = $request->functions;
+
+        $person_experience->save();
+
+        return redirect()->route('exp.index');
     }
 
     /**

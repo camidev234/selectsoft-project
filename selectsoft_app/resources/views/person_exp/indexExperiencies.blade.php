@@ -28,6 +28,7 @@
                     <tr>
                         <th>Empresa</th>
                         <th>Meses de experiencia</th>
+                        <th>Funciones</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -36,13 +37,14 @@
                         <tr>
                             <td>{{$experiencie->company_experience}}</td>
                             <td>{{$experiencie->months_experience}}</td>
+                            <td>{{$experiencie->functions}}</td>
                             <td>
                                 <form action="{{route('exp.destroy', ['person_experience' => $experiencie->id])}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                     <button><i class="bi bi-trash-fill"></i></button>
                                 </form>
-                                <form action="" method="get">
+                                <form action="{{route('exp.edit', ['person_experience' => $experiencie->id])}}" method="get">
                                     <button><i class="bi bi-pencil-fill"></i></button>
                                 </form>
                         </td>

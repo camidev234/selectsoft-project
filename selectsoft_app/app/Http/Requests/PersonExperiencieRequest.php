@@ -23,7 +23,8 @@ class PersonExperiencieRequest extends FormRequest
     {
         return [
             'company_experience' => ['required', 'string', 'max:30'],
-            'months_experience' => ['required', 'string', 'max:4']
+            'months_experience' => ['required', 'string', 'max:4'],
+            'functions' => ['required', 'string', 'max:900']
         ];
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('company_experience',80);
             $table->string('months_experience',45);
+            $table->string('functions', 900);
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });

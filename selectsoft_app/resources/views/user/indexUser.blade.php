@@ -21,10 +21,10 @@
                         <h5>Experiencias: {{$experiences}} </h5>
                         <section class="actions-card">
                             <div class="action">
-                                <a href="{{route('exp.create')}}">Añadir nueva experiencia</a>
+                                <a href="{{route('exp.create')}}">Añadir nueva experiencia <i class="bi bi-file-plus"></i></a>
                             </div>
                             <form action="{{route('exp.index')}}" method="get">
-                                <button>Ver</button>
+                                <button>Ver <i class="bi bi-eye"></i></button>
                             </form>
                         </section>
                     </article>
@@ -32,10 +32,10 @@
                         <h5>Educacion: {{$educations}}</h5>
                         <section class="actions-card">
                             <div class="action">
-                                <a href="{{route('education.create')}}">Añadir nueva educacion</a>
+                                <a href="{{route('education.create')}}">Añadir nueva educacion <i class="bi bi-file-plus"></i></a>
                             </div>
                             <form action="{{route('educations.index')}}" method="get">
-                                <button>Ver</button>
+                                <button>Ver <i class="bi bi-eye"></i></button>
                             </form>
                         </section>
                     </article>
@@ -43,16 +43,16 @@
                         <h5>Soportes: </h5>
                         <section class="actions-card">
                             <div class="action">
-                                <a href="{{route('education.create')}}">Añadir nuevo soporte</a>
+                                <a href="{{route('education.create')}}">Añadir nuevo soporte <i class="bi bi-file-plus"></i></a>
                             </div>
                             <form action="" method="get">
-                                <button>Ver</button>
+                                <button>Ver <i class="bi bi-eye"></i></button>
                             </form>
                         </section>
                     </article>
                     <article class="hdv">
                         <form action="" method="get">
-                            <button>Ver HDV completa</button>
+                            <button>Ver HDV completa <i class="bi bi-file-text-fill"></i></button>
                         </form>
                     </article>
                 </section>
