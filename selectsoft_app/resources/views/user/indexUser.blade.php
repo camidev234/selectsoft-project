@@ -43,7 +43,7 @@
                         <h5>Soportes: </h5>
                         <section class="actions-card">
                             <div class="action">
-                                <a href="{{route('education.create')}}">Añadir nuevo soporte <i class="bi bi-file-plus"></i></a>
+                                <a href="{{route('supports.create')}}">Añadir nuevo soporte <i class="bi bi-file-plus"></i></a>
                             </div>
                             <form action="" method="get">
                                 <button>Ver <i class="bi bi-eye"></i></button>

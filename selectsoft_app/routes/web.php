@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\CandidateSupportController;
 use App\Http\Controllers\EducationPersonController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\InstructorController;
@@ -64,6 +65,8 @@ Route::get('/myexperiencies/index', [PersonExperienceController::class, 'index']
 Route::delete('/myexperiencies/delete/{person_experience}', [PersonExperienceController::class, 'destroy'])->name('exp.destroy');
 Route::get('/myexperiences/edit/{person_experience}', [PersonExperienceController::class, 'edit'])->name('exp.edit')->middleware('auth');
 Route::patch('/myexperiences/update/{person_experience}', [PersonExperienceController::class, 'update'])->name('exp.update');
+Route::get('/supports/create', [CandidateSupportController::class, 'create'])->name('supports.create')->middleware('auth');
+Route::post('/supports/store', [CandidateSupportController::class, 'store'])->name('supports.store');
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');
