@@ -25,7 +25,7 @@ class RegisterRequest extends FormRequest
             'name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'document_type_id' => 'required|exists:document_types,id',
-            'number_document' => 'required|string|max:255',
+            'number_document' => 'required|string|max:255|unique:users',
             'telephone' => 'required|string|max:255',
             'phone_number' => 'min:0|max:255',
             'address' => 'required|string|max:255',
