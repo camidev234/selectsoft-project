@@ -60,7 +60,8 @@ Route::get('/myeducations/edit/{education_person}', [EducationPersonController::
 Route::patch('/myeducations/update/{education_person}',[EducationPersonController::class, 'update'])->name('educations.update');
 Route::get('/experiencies/create', [PersonExperienceController::class, 'create'])->name('exp.create')->middleware('auth');
 Route::post('/experiencies/store', [PersonExperienceController::class, 'store'])->name('exp.store');
-
+Route::get('/myexperiencies/index', [PersonExperienceController::class, 'index'])->name('exp.index')->middleware('auth');
+Route::delete('/myexperiencies/delete/{person_experience}', [PersonExperienceController::class, 'destroy'])->name('exp.destroy');
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');

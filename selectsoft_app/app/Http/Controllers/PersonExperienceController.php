@@ -15,7 +15,15 @@ class PersonExperienceController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        $experiencies = $user->experiences;
+
+        return view('/person_exp/indexExperiencies', [
+            'role_id' => $role_id,
+            'user' => $user,
+            'experiencies' => $experiencies
+        ]);
     }
 
     /**
@@ -45,7 +53,7 @@ class PersonExperienceController extends Controller
 
         $newExperiencie->save();
 
-        return redirect()->route('user.index');
+        return redirect()->route('exp.index');
     }
 
     /**
@@ -76,6 +84,8 @@ class PersonExperienceController extends Controller
      */
     public function destroy(Person_experience $person_experience)
     {
-        //
+        $person_experience->delete();
+
+        return redirect()->route('exp.index');
     }
 }

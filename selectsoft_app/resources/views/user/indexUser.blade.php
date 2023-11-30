@@ -23,7 +23,7 @@
                             <div class="action">
                                 <a href="{{route('exp.create')}}">Añadir nueva experiencia</a>
                             </div>
-                            <form action="" method="get">
+                            <form action="{{route('exp.index')}}" method="get">
                                 <button>Ver</button>
                             </form>
                         </section>
