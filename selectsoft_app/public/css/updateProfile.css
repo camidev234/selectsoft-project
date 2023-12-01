@@ -24,7 +24,7 @@
     border-radius: 4px;
 }
 
-.form button {
+.btn-sub {
     padding: 10px 15px;
     background-color: #2193b0;
     color: white;
@@ -33,9 +33,6 @@
     cursor: pointer;
 }
 
-.form button:hover {
+button:hover {
     background-color: #1e7fa0;
 }
-
-
-

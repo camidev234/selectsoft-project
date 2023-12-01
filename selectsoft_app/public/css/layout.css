@@ -29,12 +29,19 @@
     align-items: center;
 }
 
-.find form {
+.find #form {
     width: 100%;
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
+}
+
+.find #form button {
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .input-search {
@@ -45,6 +52,8 @@
     border: 1px solid black;
     padding-left: 20px;
 }
+
+
 
 .actions {
     display: flex;

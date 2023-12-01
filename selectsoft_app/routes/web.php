@@ -67,6 +67,10 @@ Route::get('/myexperiences/edit/{person_experience}', [PersonExperienceControlle
 Route::patch('/myexperiences/update/{person_experience}', [PersonExperienceController::class, 'update'])->name('exp.update');
 Route::get('/supports/create', [CandidateSupportController::class, 'create'])->name('supports.create')->middleware('auth');
 Route::post('/supports/store', [CandidateSupportController::class, 'store'])->name('supports.store');
+Route::get('/user/updatePassword', [UserController::class, 'updatePassword'])->name('user.updatePassword')->middleware('auth');
+Route::patch('/user/updatingPassword', [UserController::class, 'storePassword'])->name('user.storePassword');
+Route::get('/user/updateProfile', [CandidateController::class, 'editProfile'])->name('candidate.editProfile')->middleware('auth');
+Route::patch('/user/saveProfile', [CandidateController::class, 'updateProfile'])->name('candidate.saveProfile');
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');

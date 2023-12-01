@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @stack('styles')
     <link rel="stylesheet" href="{{asset('css/layout.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <title>Document</title>
@@ -15,9 +16,10 @@
         @auth
             @if($role_id == 1)
                 <div class="find">
-                    <form action="" method="post">
+                    <form action="" method="" id="form">
                     @csrf
                         <input type="search" name="find_vacant" id="" class="input-search" placeholder="Buscar Vacantes">
+                        <button id="btn-search"><i class="bi bi-search"></i></button>
                     </form>
                 </div>
                 <div class="actions">

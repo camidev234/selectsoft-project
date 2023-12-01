@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Candidate;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,6 +20,15 @@ class CandidateController extends Controller
         $experiencies = $user->experiences;
         $educations = $user->educations;
         $supports = $user->supports;
+
+        // Candidate::where('user_id', $user->id)->first();
+        $candidate = $user->candidate;
+
+        $profile = $candidate->occupational_profile;
+
+        if($profile == 'NULL'){
+            $profile = 'Perfil Sin Completar';
+        }
 
         if (empty($experiencies)) {
             $countExperiencies = 0;
@@ -42,8 +53,33 @@ class CandidateController extends Controller
             'role_id' => $role_id,
             'experiences' => $countExperiencies,
             'educations' => $countEducations,
-            'supports' => $countSupports
+            'supports' => $countSupports,
+            'profile' => $profile
         ]);
+    }
+
+    public function editProfile() {
+        $user = Auth::user();
+        $role_id = $user->role_id;
+
+        $profile = $user->candidate->occupational_profile;
+
+        return view('user/updateProfile', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'profile' => $profile
+        ]);
+    }
+
+    public function updateProfile(UpdateProfileRequest $request) {
+        $user = Auth::user();
+        $candidateToUpdate = $user->candidate;
+
+        $candidateToUpdate->occupational_profile = $request->occupational_profile;
+
+        $candidateToUpdate->save();
+
+        return redirect()->route('user.index');
     }
 
     /**

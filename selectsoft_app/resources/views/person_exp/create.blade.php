@@ -12,7 +12,7 @@
     </header>
     @section('content')
     <main class="container">
-        <form action="{{route('exp.store')}}" method="post">
+        <form action="{{route('exp.store')}}" method="post" class="form">
             @csrf
             <label for="company_experience">Empresa: </label><br>
             <input type="text" placeholder="Empresa" name="company_experience" value="{{old('company_experience')}}"><br>

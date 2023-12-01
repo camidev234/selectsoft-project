@@ -12,7 +12,7 @@
     </header>
     @section('content')
     <main class="container">
-        <form action="{{route('education.store')}}" method="post">
+        <form action="{{route('education.store')}}" method="post" class="form">
             @csrf
             <label for="school_name">Institucion educativa: </label><br>
             <input type="text" placeholder="institucion" name="shcool_name" value="{{old('shcool_name')}}"><br>

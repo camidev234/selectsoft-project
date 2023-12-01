@@ -17,6 +17,30 @@
                     <h3>{{$user->name}} {{$user->last_name}}</h3>
                 </section>
                 <section class="card-body">
+                    <article class="button_password">
+                        <section class="actions-card">
+                            <div class="action" id="actionTwo">
+                                <a href="{{route('user.updatePassword')}}">Cambiar contraseña <i class="bi bi-key-fill"></i></a>
+                            </div>
+                        </section>
+                    </article>
+                    <article class="button_password">
+                        <section class="actions-card">
+                            <div class="action" id="actionTwo">
+                                <a href="{{route('user.updatePassword')}}">Actualizar Informacion <i class="bi bi-person-fill-up"></i></a>
+                            </div>
+                        </section>
+                    </article>
+                    <section class="card-header-two">
+                        <h3>Hoja de vida</h3>
+                    </section>
+                    <article class="button_password">
+                        <section class="actions-card">
+                            <div class="action" id="actionTwo">
+                                <a href="{{route('candidate.editProfile')}}">Actualizar Perfil <i class="bi bi-person-fill"></i></a>
+                            </div>
+                        </section>
+                    </article>
                     <article class="experiencies">
                         <h5>Experiencias: {{$experiences}} </h5>
                         <section class="actions-card">
@@ -55,6 +79,14 @@
                             <button>Ver HDV completa <i class="bi bi-file-text-fill"></i></button>
                         </form>
                     </article>
+                </section>
+            </section>
+            <section class="user-content">
+                <section class="user_c_container">
+                    <div class="profile">
+                        <h3>Perfil Profesional: </h3>
+                        <p>{{$profile}}</p>
+                    </div>
                 </section>
             </section>
     </main>

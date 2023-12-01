@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\UpdatePasswordRequest;
 use App\Mail\WelcomeMailable;
 use App\Models\Candidate;
 use App\Models\City;
@@ -69,19 +70,23 @@ class UserController extends Controller
         $newUser->password = $request->input('password');
         $newUser->role_id = $request->input('role_id');
 
+
+        $mail = $request->email;
+
+        $userName = $request->name." ".$request->last_name;
+
+        Mail::to($mail)->send(new WelcomeMailable($userName));
+
         $newUser->save();
 
 
-        $mail = $newUser->email;
 
-        $userName = $newUser->name." ".$newUser->last_name;
-
-        Mail::to($mail)->send(new WelcomeMailable($userName));
 
 
         if($request->role_id == 1) {
             $newCandidate = new Candidate();
             $newCandidate->user_id = $newUser->id;
+            $newCandidate->occupational_profile = 'NULL';
 
             $newCandidate->save();
         }else if ($request->role_id == 2) {
@@ -102,6 +107,29 @@ class UserController extends Controller
         }
 
         return view('/auth/welcome');
+
+    }
+
+    public function updatePassword() {
+        $user = Auth::user();
+        $role_id = $user->role_id;
+
+        return view('/update_password/updatePassword', [
+            'user' => $user,
+            'role_id' => $role_id
+        ]);
+    }
+
+    public function storePassword(UpdatePasswordRequest $request) {
+        $user = Auth::user();
+        $userToUpdate = User::find($user->id);
+
+        $userToUpdate->password = $request->password;
+        $userToUpdate->save();
+
+        auth()->logout();
+
+        return redirect()->route('user.login');
 
     }
 

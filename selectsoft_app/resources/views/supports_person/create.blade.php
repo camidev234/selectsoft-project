@@ -13,7 +13,7 @@
 
     @section('content')
     <main class="container">
-        <form action="{{route('supports.store')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('supports.store')}}" method="post" enctype="multipart/form-data" class="form">
             @csrf
             <label for="">Tipo de soporte: </label><br>
             <select name="support_type_id" id="">
@@ -24,7 +24,7 @@
                 @endforelse
             </select><br>
             <label for="">Archivo: </label><br>
-            <input type="file" name="support_file" id="" accept="application/pdf"><br>
+            <input type="file" name="support_file" id="file" accept="application/pdf"><br>
             @error('support_file')
                 <span style="color: red;">{{$message}}</span>
             @enderror
