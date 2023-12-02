@@ -8,24 +8,9 @@
     <title>Panel de administrador</title>
 </head>
 <body>
-    <main class="page">
-        <header class="header">
-            <section class="logo">
-                <img src="{{asset('img/SELECTSOFTFooterIcon.png')}}" alt="">
-            </section>
-            <section class="user-log">
-                <img src="{{asset('img/personIcon.jpg')}}" alt="">
-                <h5>{{$user->name}} {{$user->last_name}}</h5>
-            </section>
-            <section class="logout">
-                <form action="{{route('user.logout')}}" method="post">
-                    @csrf
-                    <button>Cerrar sesion</button>
-                </form>
-            </section>
-        </header>
-
-        <section class="sidebar">
+    @extends('layout.headerAdmin')
+    @section('content')
+    <section class="sidebar">
             <a href="{{route('instructor.index')}}"><article class="option-admin modi">
                 <img src="{{asset('img/personIcon.jpg')}}" alt="icono_persona">
                 <h3>Ver candidatos</h3>
@@ -82,10 +67,7 @@
                                 <td>{{$selector->user->name}}</td>
                                 <td>{{$selector->user->last_name}}</td>
                                 <td class="actions-table">
-                                    <form action="">
-                                        <button><i class="bi bi-trash-fill btn"></i></button>
-                                    </form>
-                                    <form action="">
+                                    <form action="{{route('instructor.editUserRole', ['user' => $selector->user->id])}}" method="get">
                                         <button><i class="bi bi-pencil-fill btn2"></i></button>
                                     </form>
                                 </td>
@@ -99,7 +81,7 @@
                 </table>
             </section>
         </section>
-    </main>
+    @endsection
 </body>
 </html>
 

@@ -79,10 +79,6 @@ class UserController extends Controller
 
         $newUser->save();
 
-
-
-
-
         if($request->role_id == 1) {
             $newCandidate = new Candidate();
             $newCandidate->user_id = $newUser->id;
@@ -131,6 +127,65 @@ class UserController extends Controller
 
         return redirect()->route('user.login');
 
+    }
+
+    public function editUserRole(User $user) {
+        $userAuth = Auth::user();
+        $roles = Role::all();
+        $rolesReturn = [];
+
+        foreach($roles as $role) {
+            if ($role->id == $user->role_id ){
+                continue;
+            } else {
+                $rolesReturn[] = $role;
+            }
+        }
+
+        return view('/instructor/editRole', [
+            'userToMod' => $user,
+            'user' => $userAuth,
+            'roles' => $rolesReturn
+        ]);
+    }
+
+    public function updateUserRole(User $userMod, Request $request) {
+        if($userMod->role_id ==1){
+            $candidate = Candidate::where('user_id', $userMod->id)->first();
+
+            $candidate->delete();
+        }else if ($userMod->role_id == 2) {
+            $selector = Selector::where('user_id', $userMod->id)->first();
+            $selector->delete();
+        } else if($userMod->role_id == 3){
+            $recruiter = Recruiter::where('user_id', $userMod->id)->first();
+            $recruiter->delete();
+        }
+
+
+        $userMod->role_id = $request->role_id;
+
+
+        $userMod->save();
+
+        if($userMod->role_id == 1) {
+            $newcandidate = new Candidate();
+            $newcandidate->user_id = $userMod->id;
+            $newcandidate->occupational_profile = 'NULL';
+            $newcandidate->save();
+        } else if ($userMod->role_id == 2) {
+            $newselector = new Selector();
+            $newselector->user_id = $userMod->id;
+            $newselector->save();
+        } else if($userMod->role_id == 3) {
+            $newRecruiter = new Recruiter();
+            $newRecruiter->user_id = $userMod->id;
+            $newRecruiter->save();
+        }
+
+
+
+        return redirect()->route('instructor.index');
     }
 
     /**
