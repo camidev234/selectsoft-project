@@ -35,7 +35,11 @@
 
                 @else
                 <div class="actions">
-                    <h5>Usuario: {{$user->name}}</h5>
+                    @if($role_id == 2)
+                    <h5><i class="bi bi-house-fill"></i> <a href="{{route('selector.index')}}">{{$user->name}}</a></h5>
+                    @elseif($role_id == 3)
+                    <h5><i class="bi bi-house-fill"></i> <a href="{{route('recruiter.index')}}">{{$user->name}}</a></h5>
+                    @endif
                     <h5>Rol: {{$user->role->name}}</h5>
                     <h5>
                         <form action="{{route('user.logout')}}" method="post">
@@ -49,6 +53,30 @@
     </header>
 
     @yield('content')
+
+    <footer class="site-footer">
+            <section class="Index">
+                <h4><a href="">Volver Al Inicio</a></h4>
+            </section>
+            <section class="content-footer">
+                <section class="container-footer">
+                    <section class="cont one">
+                        <h2>Conocenos</h2>
+                        <h5><a href="">Sobre Nosotros</a></h5>
+                    </section>
+                    <section class="cont two">
+                        <h2>Soporte</h2>
+                        <h5><a href="">Manual De Usuario</a></h5>
+                    </section>
+                    <section class="cont three">
+                        <img src="img/SELECTSOFTFooterIcon.png" alt="log-selectsoft">
+                    </section>
+                </section>
+                <section class="copy">
+                    <h3>Todos los derechos reservados &copy; 2023</h3>
+                </section>
+            </section>
+        </footer>
 
 </body>
 </html>

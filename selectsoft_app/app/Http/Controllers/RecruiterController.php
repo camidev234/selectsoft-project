@@ -30,9 +30,11 @@ class RecruiterController extends Controller
                 'countries' => $countries
             ]);
         } else {
+            $company = $recruiter->company->business_name;
             return view('/recruiter/indexRecruiter', [
             'user' => $user,
-            'role_id' => $role_id
+            'role_id' => $role_id,
+            'company' => $company
         ]);
         }
 

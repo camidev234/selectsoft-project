@@ -1,0 +1,86 @@
+.container {
+    width: 100%;
+
+}
+
+.container .info {
+    width: 100%;
+    padding-left: 70px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+}
+
+.options {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info_view {
+    width: 60%;
+}
+
+.recruiter_card {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.card-body .option {
+    width: 90%;
+    height: 40px;
+    display: flex;
+    gap: 10px;
+}
+
+
+
+.option a{
+    width: 21%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.add {
+    background-color: #45a049;
+}
+
+.view {
+    background-color: #45a049;
+}
+
+.option h5 {
+    width: 65%;
+    height: 100%;
+    background-color: #2193b0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.mod {
+    width: 100%;
+    padding-left: 40px;
+}
+
