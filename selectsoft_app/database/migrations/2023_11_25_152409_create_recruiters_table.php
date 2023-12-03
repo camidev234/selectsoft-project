@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('recruiters', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('company_id')->nullable()->references('id')->on('companies');
             $table->timestamps();
         });
     }

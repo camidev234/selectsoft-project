@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
+use App\Models\Country;
 use App\Models\Recruiter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,10 +18,24 @@ class RecruiterController extends Controller
         $user = Auth::user();
         $role_id = $user->role_id;
 
-        return view('/recruiter/indexRecruiter', [
+        $recruiter = $user->recruiter;
+
+        if($recruiter->company_id == null) {
+            $countries = Country::all();
+            $cities = City::all();
+            return view('/company/create', [
+                'user' => $user,
+                'role_id' => $role_id,
+                'cities' => $cities,
+                'countries' => $countries
+            ]);
+        } else {
+            return view('/recruiter/indexRecruiter', [
             'user' => $user,
             'role_id' => $role_id
         ]);
+        }
+
 
 
     }

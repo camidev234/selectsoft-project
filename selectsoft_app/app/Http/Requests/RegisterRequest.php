@@ -35,7 +35,6 @@ class RegisterRequest extends FormRequest
             'birthdate' => 'required|date',
             'email' => 'required|email|max:255',
             'password' => 'required|string|min:8',
-            'role_id' => 'required|exists:roles,id',
         ];
     }
 }

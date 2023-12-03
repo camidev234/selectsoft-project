@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CandidateSupportController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EducationPersonController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\InstructorController;
@@ -77,13 +78,15 @@ Route::get('/selector/home', [SelectorController::class, 'index'])->name('select
 
 // recruiter routes
 
-Route::get('/recruiter/home', [RecruiterController::class, 'index'])->name('recruiter.index')->middleware('auth');
 
+Route::get('/recruiter/home', [RecruiterController::class, 'index'])->name('recruiter.index')->middleware('auth');
+Route::post('/createCompany', [CompanyController::class, 'store'])->name('company.store');
 // instructor routes
 
 Route::get('/admin/home/candidates', [InstructorController::class, 'indexlistCandidates'])->name('instructor.index')->middleware('auth');
 Route::get('/admin/home/recruiters', [InstructorController::class, 'indexListRecruiters'])->name('instructor.recruiters')->middleware('auth');
-Route::get('/admin/home/selectors', [InstructorController::class, 'indexListSelectors'])->name('instructor.selectors');
+Route::get('/admin/home/selectors', [InstructorController::class, 'indexListSelectors'])->name('instructor.selectors')->middleware('auth');
+Route::get('/admin/home/instructors', [InstructorCOntroller::class, 'indexListInstructors'])->name('instructor.instructors')->middleware('auth');
 Route::get('/admin/edirUserRole/{user}', [UserController::class, 'editUserRole'])->name('instructor.editUserRole')->middleware('auth');
 Route::patch('/admin/updateUserRole/{userMod}', [UserController::class, 'updateUserRole'])->name('instructor.updateRole');
 

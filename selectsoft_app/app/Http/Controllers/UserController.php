@@ -68,7 +68,7 @@ class UserController extends Controller
         $newUser->birthdate = $request->input('birthdate');
         $newUser->email = $request->input('email');
         $newUser->password = $request->input('password');
-        $newUser->role_id = $request->input('role_id');
+        $newUser->role_id = 1;
 
 
         $mail = $request->email;
@@ -79,27 +79,12 @@ class UserController extends Controller
 
         $newUser->save();
 
-        if($request->role_id == 1) {
+        if($newUser->role_id == 1) {
             $newCandidate = new Candidate();
             $newCandidate->user_id = $newUser->id;
             $newCandidate->occupational_profile = 'NULL';
 
             $newCandidate->save();
-        }else if ($request->role_id == 2) {
-            $newSelector = new Selector();
-            $newSelector->user_id = $newUser->id;
-
-            $newSelector->save();
-        } else if($request->role_id == 3) {
-            $newRecruiter = new Recruiter();
-            $newRecruiter->user_id = $newUser->id;
-
-            $newRecruiter->save();
-        } else if($request->role_id == 4) {
-            $newInstructor = new Instructor();
-            $newInstructor->user_id = $newUser->id;
-
-            $newInstructor->save();
         }
 
         return view('/auth/welcome');
@@ -160,6 +145,9 @@ class UserController extends Controller
         } else if($userMod->role_id == 3){
             $recruiter = Recruiter::where('user_id', $userMod->id)->first();
             $recruiter->delete();
+        } else if($userMod->role_id == 4){
+            $instructor = Instructor::where('user_id', $userMod->id)->first();
+            $instructor->delete();
         }
 
 
@@ -181,6 +169,10 @@ class UserController extends Controller
             $newRecruiter = new Recruiter();
             $newRecruiter->user_id = $userMod->id;
             $newRecruiter->save();
+        } else if($userMod->role_id == 4) {
+            $newInstructor = new Instructor();
+            $newInstructor->user_id = $userMod->id;
+            $newInstructor->save();
         }
 
 

@@ -17,14 +17,6 @@
                     <h2>DATOS PERSONALES</h2>
                     <section class="info">
                         <article>
-                            <label for="nombres">Rol</label>
-                            <select name="role_id" id="">
-                            @foreach($roles as $rol)
-                                <option value="{{$rol->id}}">{{$rol->name}}</option>
-                            @endforeach
-                            </select>
-                        </article>
-                        <article>
                             <label for="nombres">NOMBRES</label>
                             <input type="text" id="nombres" name="name" value="{{old('name')}}">
                             @error('name')

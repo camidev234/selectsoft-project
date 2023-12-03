@@ -9,5 +9,9 @@
     <header class="header">
         @extends('layout.header')
     </header>
+
+    @section('content')
+        <h1>Index del reclutador</h1>
+    @endsection
 </body>
 </html>

@@ -27,7 +27,7 @@
                 <h3>Ver Seleccionadores</h3>
             </article></a>
 
-            <a href=""><article class="option-admin">
+            <a href="{{route('instructor.instructors')}}"><article class="option-admin">
                 <img src="{{asset('img/descarga__12_-removebg-preview.png')}}" alt="icono_verA">
                 <h3>Ver Administradores</h3>
             </article></a>
