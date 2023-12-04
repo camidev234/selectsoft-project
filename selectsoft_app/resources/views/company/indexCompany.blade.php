@@ -11,11 +11,21 @@
 <body>
     @extends('layout.header')
     @section('content')
-
+    @if(session()->has('message'))
+    <p id="message" style="display: none;">{{ session('message') }}</p>
+    <script>
+        const mes = document.getElementById('message')
+        alert(mes.textContent);
+    </script>
+    @endif
     <section class="container">
         <section class="findCom">
             <form action="{{route('company.findCompany')}}" method="get">
                 <input type="search" name="search" id="" placeholder="Buscar empresa por nit">
+                @error('search')
+                <br>
+                <span style="color: red;">{{$message}}</span>
+                @enderror
                 <button><i class="bi bi-search"></i></button>
             </form>
         </section>

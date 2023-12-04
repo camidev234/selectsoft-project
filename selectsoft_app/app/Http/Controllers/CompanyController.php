@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CompanyRequest;
+use App\Http\Requests\FindCompanyRequest;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,7 @@ class CompanyController extends Controller
     }
 
 
-    public function findCompany(Request $request)
+    public function findCompany(FindCompanyRequest $request)
     {
         $search = $request->input('search');
         $user = Auth::user();
