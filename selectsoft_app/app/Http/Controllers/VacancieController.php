@@ -20,7 +20,7 @@ class VacancieController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

@@ -13,6 +13,15 @@
             @if(session()->has('error'))
                 <p style="color:red;">{{ session('error') }}</p>
             @endif
+
+        <section class="viaCompany">
+            <h1>Vincularse a una empresa</h1>
+            <br>
+            <a href="{{route('company.index')}}">Ver empresas</a>
+        </section><br>
+        <section class="text">
+            <h2>Crear empresa</h2><br>
+        </section>
         <form action="{{route('company.store')}}" method="post">
             @csrf
             <label for="">Nit:</label><br>

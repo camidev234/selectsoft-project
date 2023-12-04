@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('occupation_code');
             $table->string('occupation_name');
             $table->string('description');
+            $table->foreignId('company_id')->references('id')->on('companies');
             $table->timestamps();
         });
     }

@@ -14,15 +14,48 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::all();
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        $withFind = false;
+        return view('/company/indexCompany', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'allCompanies' => $companies,
+            'find' => $withFind
+        ]);
     }
 
+
+    public function findCompany(Request $request)
+    {
+        $search = $request->input('search');
+        $user = Auth::user();
+        $role_id = $user->role_id;
+
+        if ($search) {
+            $companies = Company::where('nit', 'LIKE', "%{$search}%")->get();
+
+            if ($companies->isEmpty()) {
+                return redirect()->route('company.index')->with('message', 'No se encontraron empresas para la búsqueda: ' . $search);
+            } else {
+                $find = true;
+                return view('/company/indexCompany', [
+                    'companyFind' => $companies,
+                    'find' => $find,
+                    'user' => $user,
+                    'role_id' => $role_id
+                ]);
+            }
+        } else {
+            return back()->with('message', 'Introduzca un valor para buscar.');
+        }
+    }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-
     }
 
     /**
@@ -47,7 +80,7 @@ class CompanyController extends Controller
         $recruiter = $user->recruiter;
 
 
-        if ($recruiter){
+        if ($recruiter) {
             $newCompany->save();
             $recruiter->company_id = $newCompany->id;
 
@@ -57,8 +90,6 @@ class CompanyController extends Controller
         } else {
             return redirect()->back()->with('error', 'Hubo un problema al momento de crear la empresa');
         }
-
-
     }
 
     /**

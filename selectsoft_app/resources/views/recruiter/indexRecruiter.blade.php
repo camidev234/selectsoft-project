@@ -35,6 +35,11 @@
                                 <a href="" class="add"><i class="bi bi-plus-square"></i></a>
                                 <a href="" class="view"><i class="bi bi-eye"></i></a>
                             </article>
+                            <article class="option op-4">
+                                <h5>Ocupaciones</h5>
+                                <a href="{{route('create_occupation')}}" class="add"><i class="bi bi-plus-square"></i></a>
+                                <a href="" class="view"><i class="bi bi-eye"></i></a>
+                            </article>
                         </section>
                     </section>
                 </section>

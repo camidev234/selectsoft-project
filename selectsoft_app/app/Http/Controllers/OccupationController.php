@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Occupation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OccupationController extends Controller
 {
@@ -24,7 +25,12 @@ class OccupationController extends Controller
      */
     public function create()
     {
-        return view('/occupation/create_occupation');
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        return view('/occupation/create_occupation', [
+            'user' => $user,
+            'role_id' => $role_id
+        ]);
     }
 
     /**
@@ -40,7 +46,7 @@ class OccupationController extends Controller
 
         $new1->save();
 
-        return redirect()->route('occupations.index');
+        return redirect()->route('recruiter.index');
     }
 
     /**
@@ -56,7 +62,7 @@ class OccupationController extends Controller
      */
     public function edit(Occupation $occupation)
     {
-    
+
         return view('/occupation/updateOccupation',[
             'occupation' => $occupation
         ]);

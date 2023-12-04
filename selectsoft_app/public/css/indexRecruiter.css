@@ -68,16 +68,21 @@
     background-color: #45a049;
 }
 
+.view:hover, .add:hover {
+    background-color: #247928;
+}
+
 .option h5 {
     width: 65%;
     height: 100%;
-    background-color: #2193b0;
-    color: white;
+    background-color: #eee;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
+
+
 
 .mod {
     width: 100%;

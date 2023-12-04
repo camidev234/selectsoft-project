@@ -35,7 +35,7 @@ Route::get('/', function() {
     return view('index');
 })->name('system.index');
 
-Route::get('create_occupation',[OccupationController::class,'create'])->name('create_occupation');
+Route::get('/createOccupation',[OccupationController::class,'create'])->name('create_occupation');
 Route::post('save_occupation',[OccupationController::class,'store'])->name('save_occupation');
 Route::get('/occupations/index',[OccupationController::class, 'index'])->name('occupations.index');
 Route::get('/updateOccupation/{occupation}',[OccupationController::class, 'edit'])->name('occupations.edit');
@@ -81,6 +81,8 @@ Route::get('/selector/home', [SelectorController::class, 'index'])->name('select
 
 Route::get('/recruiter/home', [RecruiterController::class, 'index'])->name('recruiter.index')->middleware('auth');
 Route::post('/createCompany', [CompanyController::class, 'store'])->name('company.store');
+Route::get('/companies/allCompanies', [CompanyController::class, 'index'])->name('company.index')->middleware('auth');
+Route::get('/companies/findCompany', [CompanyController::class, 'findCompany'])->name('company.findCompany');
 // instructor routes
 
 Route::get('/admin/home/candidates', [InstructorController::class, 'indexlistCandidates'])->name('instructor.index')->middleware('auth');
