@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Occupation;
@@ -14,9 +13,12 @@ class OccupationController extends Controller
     public function index()
     {
         $allOccupations = Occupation::all();
-
+        $user = Auth::user();
+        $role_id = $user->role_id;
         return view('/occupation/indexOccupation', [
-            'allOccupations' => $allOccupations
+            'allOccupations' => $allOccupations,
+            'user' => $user,
+            'role_id' => $role_id
         ]);
     }
 
@@ -46,7 +48,7 @@ class OccupationController extends Controller
 
         $new1->save();
 
-        return redirect()->route('recruiter.index');
+        return redirect()->route('occupations.index');
     }
 
     /**
@@ -62,9 +64,12 @@ class OccupationController extends Controller
      */
     public function edit(Occupation $occupation)
     {
-
+        $user = Auth::user();
+        $role_id = $user->role_id;
         return view('/occupation/updateOccupation',[
-            'occupation' => $occupation
+            'occupation' => $occupation,
+            'user' => $user,
+            'role_id' => $role_id
         ]);
     }
 

@@ -1,86 +1,72 @@
-* {
+
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-
-.create {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.create a {
-    padding: 20px 25px;
-    background-color: green;
-    border-radius: 10px;
-    color: white;
-    text-decoration: none;
 }
 
 .container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+.table_container {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table_head {
+    background-color: black;
+    color: white;
+}
+
+.table_container th, .table_container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table_body tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.actions-l {
+    display: flex;
+    justify-content: space-between;
+}
+
+.deleteBtn, .updateBtn {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+.updateBtn {
+    background-color: #007bff;
+}
+
+.create {
+    margin-top: 20px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 70px;
-    margin-bottom: 90px;
+    margin-bottom: 150px;
 }
 
-
-.table_container {
-    width: 70%;
-    border-collapse: collapse;
-}
-
-
-
-.table_head tr th {
-    background-color: rgb(14, 14, 16);
-    height: 40px;
-    border: 1px solid #eee;
+.create a {
+    padding: 10px 20px;
+    background-color: #28a745;
     color: white;
+    text-decoration: none;
+    border-radius: 3px;
 }
 
-.table_body tr td {
-    height: 50px;
-    text-align: center;
-}
-
-.actions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.actions form button {
-    border: none;
-    outline: none;
-    width: 80px;
-    height: 33px;
-}
-
-.actions .deleteBtn {
-    background-color: rgb(255, 51, 15);
-    color: white;
-}
-
-.actions .updateBtn {
-    background-color: rgb(0, 138, 62);
-    color: white;
-}
-
-
-
-/* Estilo para filas pares */
-table tr:nth-child(even) {
-    background-color: #eee; /* Color de fondo para filas pares */
-}
-
-/* Estilo para filas impares */
-table tr:nth-child(odd) {
-    background-color: #ffffff; /* Color de fondo para filas impares */
+.create a:hover {
+    background-color: #218838;
 }

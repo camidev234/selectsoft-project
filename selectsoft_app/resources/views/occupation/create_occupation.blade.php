@@ -9,7 +9,7 @@
 <body>
     @extends('layout.header')
     @section('content')
-    <form method="post" action="{{route('save_occupation')}}" class="form">
+    <form method="post" action="{{route('occupations.store')}}" class="form">
         @csrf
         <label for="occupation_code">Código de ocupación:</label>
         <input type="text" name="occupation_code" id="occupation_code">
@@ -17,7 +17,7 @@
         <input type="text" name="occupation_name" id="occupation_name">
         <label for="description">Descripción:</label>
         <input type="text" name="description" id="description">
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Crear Ocupacion">
     </form>
     @endsection
 </body>
