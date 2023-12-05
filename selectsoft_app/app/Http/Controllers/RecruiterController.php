@@ -41,9 +41,6 @@ class RecruiterController extends Controller
             'company' => $company
         ]);
         }
-
-
-
     }
 
 
@@ -69,7 +66,7 @@ class RecruiterController extends Controller
 
         $recruiters = Recruiter::where('company_id', $company->id)->get();
         $selectors = Selector::where('company_id', $company->id)->get();
-        if ($recruiters->isEmpty() || $selectors->isEmpty()){
+        if ($recruiters->isEmpty() && $selectors->isEmpty()){
             $company->delete();
         }
 

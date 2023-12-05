@@ -35,10 +35,12 @@ Route::get('/', function() {
     return view('index');
 })->name('system.index');
 
-Route::get('/createOccupation',[OccupationController::class,'create'])->name('occupations.create');
+//occupations routes
+
+Route::get('/createOccupation',[OccupationController::class,'create'])->name('occupations.create')->middleware('auth');
 Route::post('save_occupation',[OccupationController::class,'store'])->name('occupations.store');
-Route::get('/occupations/index',[OccupationController::class, 'index'])->name('occupations.index');
-Route::get('/updateOccupation/{occupation}',[OccupationController::class, 'edit'])->name('occupations.edit');
+Route::get('/occupations/index',[OccupationController::class, 'index'])->name('occupations.index')->middleware('auth');
+Route::get('/updateOccupation/{occupation}',[OccupationController::class, 'edit'])->name('occupations.edit')->middleware('auth');
 Route::put('/occupations/{id}',[OccupationController::class, 'update'])->name('occupations.update');
 Route::delete('/occupations/deleteoccupation/{id}',[OccupationController::class, 'destroy'])->name('occupations.destroy');
 
