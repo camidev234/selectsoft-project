@@ -8,7 +8,30 @@
     padding-left: 70px;
     margin-top: 50px;
     margin-bottom: 50px;
+    display: flex;
+    gap: 30px;
 }
+
+.info form  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    text-decoration: none;
+}
+
+.info form button {
+    border: none;
+    outline: none;
+    background-color: #2193b0;
+    width: 100%;
+    color: white;
+    height: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
 
 .content {
     display: flex;

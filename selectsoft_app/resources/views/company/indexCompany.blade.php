@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/indexCompany.css')}}">
-    <title>Document</title>
+    <title>Empresas</title>
 </head>
 
 <body>
@@ -48,7 +48,7 @@
                         <td>{{$company->nit}}</td>
                         <td>{{$company->business_name}}</td>
                         <td>
-                            <form action="">
+                            <form action="{{route('recruiter.joinCompany', ['company' => $company->id])}}" method="get">
                                 <button>Vincularse</button>
                             </form>
                         </td>
@@ -71,7 +71,7 @@
                         <td>{{$company->nit}}</td>
                         <td>{{$company->business_name}}</td>
                         <td>
-                            <form action="">
+                            <form action="{{route('recruiter.joinCompany', ['company' => $company->id])}}" method="get">
                                 <button>Vincularse</button>
                             </form>
                         </td>

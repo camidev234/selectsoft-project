@@ -83,6 +83,8 @@ Route::get('/recruiter/home', [RecruiterController::class, 'index'])->name('recr
 Route::post('/createCompany', [CompanyController::class, 'store'])->name('company.store');
 Route::get('/companies/allCompanies', [CompanyController::class, 'index'])->name('company.index')->middleware('auth');
 Route::get('/companies/findCompany', [CompanyController::class, 'findCompany'])->name('company.findCompany');
+Route::get('/recruiter/joinCompany/{company}', [RecruiterController::class, 'joinCompany'])->name('recruiter.joinCompany');
+Route::get('/company/viewCompany/{company}/info', [CompanyController::class, 'show'])->name('company.show')->middleware('auth');
 // instructor routes
 
 Route::get('/admin/home/candidates', [InstructorController::class, 'indexlistCandidates'])->name('instructor.index')->middleware('auth');

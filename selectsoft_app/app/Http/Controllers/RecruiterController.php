@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Company;
 use App\Models\Country;
 use App\Models\Recruiter;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +16,7 @@ class RecruiterController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() :View
     {
         $user = Auth::user();
         $role_id = $user->role_id;
@@ -30,7 +33,7 @@ class RecruiterController extends Controller
                 'countries' => $countries
             ]);
         } else {
-            $company = $recruiter->company->business_name;
+            $company = $recruiter->company;
             return view('/recruiter/indexRecruiter', [
             'user' => $user,
             'role_id' => $role_id,
@@ -42,6 +45,19 @@ class RecruiterController extends Controller
 
     }
 
+
+    public function joinCompany(Company $company) :RedirectResponse {
+        $user = Auth::user();
+
+        $recruiter = $user->recruiter;
+
+        $recruiter->company_id = $company->id;
+
+        $recruiter->save();
+
+        return redirect()->route('recruiter.index');
+
+    }
     /**
      * Show the form for creating a new resource.
      */

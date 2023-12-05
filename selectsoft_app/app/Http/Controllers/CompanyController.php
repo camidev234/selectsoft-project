@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CompanyRequest;
 use App\Http\Requests\FindCompanyRequest;
 use App\Models\Company;
+use App\Models\Recruiter;
+use App\Models\Selector;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +17,7 @@ class CompanyController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() :View
     {
         $companies = Company::all();
         $user = Auth::user();
@@ -62,7 +66,7 @@ class CompanyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CompanyRequest $request)
+    public function store(CompanyRequest $request) :RedirectResponse
     {
         $newCompany = new Company();
 
@@ -96,9 +100,32 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Company $company)
+    public function show(Company $company) :View
     {
-        //
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        $recruiters = Recruiter::where('company_id', $company->id)->get();
+        $selectors = Selector::where('company_id', $company->id)->get();
+        if (empty($recruiters)){
+            $countRecruiters = 0;
+        }else {
+            $countRecruiters = count($recruiters);
+        }
+
+        if (empty($selectors)){
+            $countSelectors = 0;
+        }else{
+            $countSelectors = count($selectors);
+        }
+
+
+        return view('/company/show', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'company' => $company,
+            'selectors' => $countSelectors,
+            'recruiters' => $countRecruiters
+        ]);
     }
 
     /**
