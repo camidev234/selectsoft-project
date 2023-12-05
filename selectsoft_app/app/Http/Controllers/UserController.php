@@ -15,6 +15,7 @@ use App\Models\Recruiter;
 use App\Models\Role;
 use App\Models\Selector;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -134,17 +135,26 @@ class UserController extends Controller
         ]);
     }
 
-    public function updateUserRole(User $userMod, Request $request) {
+    public function updateUserRole(User $userMod, Request $request) :RedirectResponse {
         if($userMod->role_id ==1){
             $candidate = Candidate::where('user_id', $userMod->id)->first();
 
             $candidate->delete();
         }else if ($userMod->role_id == 2) {
             $selector = Selector::where('user_id', $userMod->id)->first();
-            $selector->delete();
+            if ($selector->company_id == null){
+                $selector->delete();
+            }else{
+                return redirect()->route('instructor.selectors')->with('message', 'El seleccionador aun esta asociado a una empresa');
+            }
         } else if($userMod->role_id == 3){
             $recruiter = Recruiter::where('user_id', $userMod->id)->first();
-            $recruiter->delete();
+            if($recruiter->company_id == null){
+                $recruiter->delete();
+            }else{
+                return redirect()->route('instructor.recruiters')->with('message', 'El reclutador aun esta asociado a una empresa');
+            }
+
         } else if($userMod->role_id == 4){
             $instructor = Instructor::where('user_id', $userMod->id)->first();
             $instructor->delete();

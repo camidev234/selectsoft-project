@@ -82,6 +82,10 @@
                 <tbody>
                     @forelse($instructors as $instructor)
                     <tr>
+                        @if($instructor->user_id == 1)
+                            <td>No hay instructores para mostrar</td>
+                            @continue
+                        @else
                         <td>{{$instructor->user->document_type->document_type}}</td>
                         <td>{{$instructor->user->number_document}}</td>
                         <td>{{$instructor->user->name}}</td>
@@ -91,6 +95,7 @@
                                 <button><i class="bi bi-pencil-fill btn2"></i></button>
                             </form>
                         </td>
+                        @endif
                     </tr>
                     @empty
                     <tr>

@@ -11,6 +11,13 @@
     @extends('layout.headerAdmin')
 
     @section('content')
+    @if(session()->has('message'))
+    <p id="message" style="display: none;">{{ session('message') }}</p>
+    <script>
+        const mes = document.getElementById('message')
+        alert(mes.textContent);
+    </script>
+    @endif
     <section class="sidebar">
             <a href="{{route('instructor.index')}}"><article class="option-admin modi">
                 <img src="{{asset('img/personIcon.jpg')}}" alt="icono_persona">
