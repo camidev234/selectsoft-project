@@ -85,6 +85,7 @@ Route::get('/companies/allCompanies', [CompanyController::class, 'index'])->name
 Route::get('/companies/findCompany', [CompanyController::class, 'findCompany'])->name('company.findCompany');
 Route::get('/recruiter/joinCompany/{company}', [RecruiterController::class, 'joinCompany'])->name('recruiter.joinCompany');
 Route::get('/company/viewCompany/{company}/info', [CompanyController::class, 'show'])->name('company.show')->middleware('auth');
+Route::post('/recruiter/disCompany/{company}', [RecruiterController::class, 'disassociateCompany'])->name('recruiter.disassociate');
 // instructor routes
 
 Route::get('/admin/home/candidates', [InstructorController::class, 'indexlistCandidates'])->name('instructor.index')->middleware('auth');

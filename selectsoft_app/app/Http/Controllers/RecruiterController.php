@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Company;
 use App\Models\Country;
 use App\Models\Recruiter;
+use App\Models\Selector;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -57,6 +58,22 @@ class RecruiterController extends Controller
 
         return redirect()->route('recruiter.index');
 
+    }
+
+    public function disassociateCompany(Company $company) :RedirectResponse {
+        $user = Auth::user();
+
+        $recruiter = $user->recruiter;
+        $recruiter->company_id = null;
+        $recruiter->save();
+
+        $recruiters = Recruiter::where('company_id', $company->id)->get();
+        $selectors = Selector::where('company_id', $company->id)->get();
+        if ($recruiters->isEmpty() || $selectors->isEmpty()){
+            $company->delete();
+        }
+
+        return redirect()->route('recruiter.index');
     }
     /**
      * Show the form for creating a new resource.

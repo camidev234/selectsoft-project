@@ -21,6 +21,12 @@
                 <button>Ver detalles</button>
             </form>
         </section>
+        <section class="disassociate">
+            <form action="{{route('recruiter.disassociate', ['company' => $company->id])}}" method="post">
+                @csrf
+                <button>Salir de la empresa</button>
+            </form>
+        </section>
         <section class="content">
             <section class="options">
                 <section class="recruiter_card">
