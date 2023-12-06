@@ -38,7 +38,7 @@
                         </article>
                         <article class="option op-2">
                             <h5>Cargos</h5>
-                            <a href="" class="add"><i class="bi bi-plus-square"></i></a>
+                            <a href="{{route('charges.create')}}" class="add"><i class="bi bi-plus-square"></i></a>
                             <a href="" class="view"><i class="bi bi-eye"></i></a>
                         </article>
                         <article class="option op-3">

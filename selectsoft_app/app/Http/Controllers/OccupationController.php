@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OccupationRequest;
 use App\Models\Occupation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +39,7 @@ class OccupationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $datos)
+    public function store(OccupationRequest $datos)
     {
         $new1=new Occupation();
 
@@ -76,7 +77,7 @@ class OccupationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,$occupation)
+    public function update(OccupationRequest $request,$occupation)
     {
         $occupation1=Occupation::findOrFail($occupation);
         $occupation1->occupation_code=$request->occupation_code;

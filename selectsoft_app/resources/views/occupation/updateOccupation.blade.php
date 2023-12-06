@@ -16,10 +16,19 @@
         <h2>Actualizar Ocupacion</h2>
         <label for="occupation_code">Código de ocupación:</label>
         <input type="text" name="occupation_code" id="occupation_code" value="{{$occupation->occupation_code}}" >
+        @error('occupation_code')
+            <span style="color: red;">{{$message}}</span><br>
+        @enderror
         <label for="occupation_name">Nombre de ocupación:</label>
         <input type="text" name="occupation_name" id="occupation_name" value="{{$occupation->occupation_name}}">
+        @error('occupation_name')
+            <span style="color: red;">{{$message}}</span><br>
+        @enderror
         <label for="description">Descripción:</label>
         <input type="text" name="description" id="description" value="{{$occupation->description}}">
+        @error('description')
+            <span style="color: red;">{{$message}}</span><br>
+        @enderror
         <input type="submit" value="Guardar Cambios">
     </form>
     </section>

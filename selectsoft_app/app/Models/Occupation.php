@@ -18,4 +18,8 @@ class Occupation extends Model
     public function skills() :HasMany {
         return $this->hasMany(occupation_skills::class, 'occupation_id', 'id');
     }
+
+    public function charges() :HasMany {
+        return $this->hasMany(Charge::class);
+    }
 }

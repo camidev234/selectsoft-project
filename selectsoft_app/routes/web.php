@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CandidateSupportController;
+use App\Http\Controllers\ChargeController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EducationPersonController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -88,6 +89,8 @@ Route::get('/companies/findCompany', [CompanyController::class, 'findCompany'])-
 Route::get('/recruiter/joinCompany/{company}', [RecruiterController::class, 'joinCompany'])->name('recruiter.joinCompany');
 Route::get('/company/viewCompany/{company}/info', [CompanyController::class, 'show'])->name('company.show')->middleware('auth');
 Route::post('/recruiter/disCompany/{company}', [RecruiterController::class, 'disassociateCompany'])->name('recruiter.disassociate');
+Route::get('/charges/createCharge', [ChargeController::class, 'create'])->name('charges.create')->middleware('auth');
+Route::post('/charges/storeCharge', [ChargeController::class, 'store'])->name('charges.store');
 // instructor routes
 
 Route::get('/admin/home/candidates', [InstructorController::class, 'indexlistCandidates'])->name('instructor.index')->middleware('auth');
