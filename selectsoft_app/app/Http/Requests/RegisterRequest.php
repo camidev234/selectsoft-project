@@ -33,7 +33,7 @@ class RegisterRequest extends FormRequest
             'id_department' => 'required|exists:departaments,id',
             'id_city' => 'required|exists:cities,id',
             'birthdate' => 'required|date',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|max:255|unique:users',
             'password' => 'required|string|min:8',
         ];
     }

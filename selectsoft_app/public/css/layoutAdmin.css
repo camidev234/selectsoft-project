@@ -49,6 +49,10 @@
     cursor: pointer;
 }
 
+.logout button:hover {
+    background-color: #2193b0;
+}
+
 .header .logo {
     width: 34%;
     height: 100%;

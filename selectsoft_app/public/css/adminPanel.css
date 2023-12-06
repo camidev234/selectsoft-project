@@ -43,9 +43,6 @@
     grid-area: view-info;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-
 }
 
 .view-info .info-options {
@@ -53,6 +50,7 @@
     height: 15%;
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
 }
 .info-options h4 {
     width: 50%;
@@ -85,17 +83,26 @@
 
 .table-content {
     width: 90%;
-    height: 85%;
+    height: 75%;
     margin: auto;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    overflow: auto;
+    border: 1px solid #eee;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+}
+
+table thead {
+    position: sticky;
+    top: 0;
+}
+
+table tbody tr:hover {
+    background-color: rgba(33, 100, 176, 0.082);
+    cursor: pointer;
 }
 
 th, td {
