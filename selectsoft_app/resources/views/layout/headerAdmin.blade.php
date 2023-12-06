@@ -12,21 +12,23 @@
     <main class="page">
         <header class="header">
             <section class="logo">
-                <img src="{{asset('img/SELECTSOFTFooterIcon.png')}}" alt="">
+                <img src="{{asset('img/selectsoftAdmin.png')}}" alt="">
             </section>
-            <section class="user-log">
-                <img src="{{asset('img/personIcon.jpg')}}" alt="">
-                <h5>{{$user->name}} {{$user->last_name}}</h5>
-            </section>
-            <section class="logout">
-                <form action="{{route('user.logout')}}" method="post">
-                    @csrf
-                    <button>Cerrar sesion</button>
-                </form>
-            </section>
+            <div class="containerOptions">
+                <section class="user-log">
+                    <i class="bi bi-person-fill"></i>
+                    <h5>{{$user->name}} {{$user->last_name}}</h5>
+                </section>
+                <section class="logout">
+                    <form action="{{route('user.logout')}}" method="post">
+                        @csrf
+                        <button>Cerrar sesion</button>
+                    </form>
+                </section>
+            </div>
         </header>
 
-    @yield('content')
+        @yield('content')
     </main>
 </body>
 

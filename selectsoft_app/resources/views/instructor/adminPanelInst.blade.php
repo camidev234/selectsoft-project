@@ -15,32 +15,31 @@
     <section class="sidebar">
         <a href="{{route('instructor.index')}}">
             <article class="option-admin modi">
-                <img src="{{asset('img/personIcon.jpg')}}" alt="icono_persona">
-                <h3>Ver candidatos</h3>
+                <i class="bi bi-person-circle"></i>
+                <h3 style="color: white;">Ver candidatos</h3>
             </article>
         </a>
 
         <a href="{{route('instructor.recruiters')}}">
             <article class="option-admin">
-                <img src="{{asset('img/img-recruiter.png')}}" alt="icono_verr">
-                <h3>Ver Reclutadores</h3>
+                <i class="bi bi-person-lines-fill"></i>
+                <h3 style="color: white;">Ver Reclutadores</h3>
             </article>
         </a>
 
         <a href="{{route('instructor.selectors')}}">
             <article class="option-admin">
-                <img src="{{asset('img/descarga__13_-removebg-preview.png')}}" alt="icono_verS">
-                <h3>Ver Seleccionadores</h3>
+                <i class="bi bi-card-checklist"></i>
+                <h3 style="color: white;">Ver Seleccionadores</h3>
             </article>
         </a>
 
-        <a href="{{route('instructor.instructors')}}" style="background-color: white;">
-            <article class="option-admin">
-                <img src="{{asset('img/descarga__12_-removebg-preview.png')}}" alt="icono_verA">
+        <a href="{{route('instructor.instructors')}}">
+            <article class="option-admin" style="background-color: #38445e;border-right: 7px solid #2193b0;">
+                <i class="bi bi-gear-fill"></i>
                 <h3>Ver Administradores</h3>
             </article>
         </a>
-
     </section>
 
     <section class="view-info">
@@ -83,8 +82,8 @@
                     @forelse($instructors as $instructor)
                     <tr>
                         @if($instructor->user_id == 1)
-                            <td>No hay instructores para mostrar</td>
-                            @continue
+                        <td>No hay instructores para mostrar</td>
+                        @continue
                         @else
                         <td>{{$instructor->user->document_type->document_type}}</td>
                         <td>{{$instructor->user->number_document}}</td>
