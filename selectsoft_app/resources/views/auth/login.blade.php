@@ -10,6 +10,13 @@
         <main class="flex">
             <img src="{{asset('img/selectsoft.jpeg')}}" alt="Logo Selectsoft">
             <h2>INICIO DE SESIÓN</h2>
+            @if(session()->has('message'))
+                <p style="display:none;" id="message">{{ session('message') }}</p>
+                <script>
+                    const warning = document.getElementById('message');
+                    alert(warning.textContent);
+                </script>
+            @endif
             @if(session()->has('mensaje'))
                 <p style="color:red;">{{ session('mensaje') }}</p>
             @endif
