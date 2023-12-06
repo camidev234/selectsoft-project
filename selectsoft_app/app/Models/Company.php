@@ -19,4 +19,8 @@ class Company extends Model
     public function selectors() :HasMany {
         return $this->hasMany(Selector::class);
     }
+
+    public function charges() :HasMany {
+        return $this->hasMany(Charge::class);
+    }
 }

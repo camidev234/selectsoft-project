@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/indexRecruiter.css')}}">
-    <title>Document</title>
+    <title>Reclutador Home</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
                         <article class="option op-2">
                             <h5>Cargos</h5>
                             <a href="{{route('charges.create')}}" class="add"><i class="bi bi-plus-square"></i></a>
-                            <a href="" class="view"><i class="bi bi-eye"></i></a>
+                            <a href="{{route('charges.index', ['company' => $company->id])}}" class="view"><i class="bi bi-eye"></i></a>
                         </article>
                         <article class="option op-3">
                             <h5>Requisiciones</h5>

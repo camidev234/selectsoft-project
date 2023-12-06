@@ -13,4 +13,8 @@ class Charge extends Model
     public function occupation() :BelongsTo {
         return $this->belongsTo(Occupation::class);
     }
+
+    public function company() :BelongsTo {
+        return $this->belongsTo(Company::class);
+    }
 }

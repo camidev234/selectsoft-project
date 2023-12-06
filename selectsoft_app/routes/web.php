@@ -91,6 +91,10 @@ Route::get('/company/viewCompany/{company}/info', [CompanyController::class, 'sh
 Route::post('/recruiter/disCompany/{company}', [RecruiterController::class, 'disassociateCompany'])->name('recruiter.disassociate');
 Route::get('/charges/createCharge', [ChargeController::class, 'create'])->name('charges.create')->middleware('auth');
 Route::post('/charges/storeCharge', [ChargeController::class, 'store'])->name('charges.store');
+Route::get('/charges/index/{company}', [ChargeController::class, 'index'])->name('charges.index')->middleware('auth');
+Route::delete('/charges/delete/{charge}', [ChargeController::class, 'destroy'])->name('charges.destroy');
+Route::get('/charges/edit/{charge}/{company}', [ChargeController::class, 'edit'])->name('charges.edit')->middleware('auth');
+Route::patch('/charges/update/{charge}/{company}', [ChargeController::class, 'update'])->name('charges.update');
 // instructor routes
 
 Route::get('/admin/home/candidates', [InstructorController::class, 'indexlistCandidates'])->name('instructor.index')->middleware('auth');
