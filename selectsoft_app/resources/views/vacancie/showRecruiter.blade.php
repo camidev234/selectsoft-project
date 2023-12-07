@@ -91,8 +91,14 @@
                 <h3>Funciones </h3>
             </section>
             <article class="actionsVacancie">
-                <a href="">Cerrar vacante</a>
-                <a href="">Ver postulados</a>
+                <form action="{{route('vacancies.editStatus', ['vacancie' => $vacancie->id])}}" method="post">
+                    @csrf
+                    @method('PATCH')
+                    <button>Cambiar estado</button>
+                </form>
+                <form action="" method="post">
+                    <button>Ver postulados</button>
+                </form>
             </article>
         </section>
     </section>

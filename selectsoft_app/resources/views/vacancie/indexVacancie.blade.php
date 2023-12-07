@@ -27,7 +27,8 @@
                 <tr>
                     <th>Codigo</th>
                     <th>Cargo</th>
-                    <th>Numero de Vacantes</th>
+                    <th>Vacantes</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -37,10 +38,17 @@
                     <td>{{ $vacant->vacancie_code }}</td>
                     <td>{{ $vacant->charge->charge }}</td>
                     <td>{{ $vacant->number_vacancies }}</td>
+                    <td>
+                        @if($vacant->is_active)
+                        Activa
+                        @else
+                        Inactiva
+                        @endif
+                    </td>
                     <td class="actions-l">
-                        <form action="" method="post">
+                        <form action="{{route('vacancies.editStatus', ['vacancie' => $vacant->id])}}" method="post">
                             @csrf
-                            @method('DELETE')
+                            @method('PATCH')
                             <button class="deleteBtn">Cerrar</button>
                         </form>
                         <form action="" method="get">

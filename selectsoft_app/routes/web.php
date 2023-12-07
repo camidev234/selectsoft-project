@@ -100,7 +100,7 @@ Route::get('/vacancies/index/{company}', [VacancieController::class, 'index'])->
 Route::get('/vacancies/create', [VacancieController::class, 'create'])->name('vacancies.create')->middleware('auth');
 Route::post('/vacancies/store/{company}', [VacancieController::class, 'store'])->name('vacancies.store');
 Route::get('/vacancie/show/{vacancie}', [VacancieController::class, 'showToRecruiter'])->name('vacancies.show')->middleware('auth');
-
+Route::patch('/vacancie/editStatus/{vacancie}', [VacancieController::class, 'editStatus'])->name('vacancies.editStatus');
 // instructor routes
 
 

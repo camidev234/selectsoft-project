@@ -113,6 +113,19 @@ class VacancieController extends Controller
         ]);
     }
 
+    public function editStatus(Vacancie $vacancie){
+
+        if($vacancie->is_active){
+            $vacancie->is_active = 0;
+        }else{
+            $vacancie->is_active = 1;
+        }
+
+        $vacancie->save();
+
+        return redirect()->back();
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
