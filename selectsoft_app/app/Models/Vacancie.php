@@ -19,11 +19,11 @@ class Vacancie extends Model
         return $this->belongsTo(Charge::class);
     }
 
-    public function work_days() :BelongsTo {
+    public function work_day() :BelongsTo {
         return $this->belongsTo(Work_day::class);
     }
 
-    public function salary_type() :BelongsTo {
+    public function salaries_type() :BelongsTo {
         return $this->belongsTo(Salaries_type::class);
     }
 

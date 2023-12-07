@@ -12,6 +12,37 @@ body {
     margin-bottom: 30px;
 }
 
+.findCom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.findCom form {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.findCom form button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.findCom form input {
+    width: 90%;
+    height: 40px;
+    padding-left: 15px;
+    border-radius: 10px;
+    border: 1px solid #dbdbdb;
+    outline: none;
+}
+
 .table_container {
     width: 100%;
     border-collapse: collapse;

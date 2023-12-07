@@ -12,6 +12,16 @@
     @extends('layout.header')
     @section('content')
     <div class="container">
+        <section class="findCom">
+            <form action="" method="get">
+                <input type="search" name="search" id="" placeholder="Buscar vacante por codigo o cargo">
+                @error('search')
+                <br>
+                <span style="color: red;">{{$message}}</span>
+                @enderror
+                <button><i class="bi bi-search"></i></button>
+            </form>
+        </section>
         <table class="table_container">
             <thead class="table_head">
                 <tr>
@@ -31,12 +41,12 @@
                         <form action="" method="post">
                             @csrf
                             @method('DELETE')
-                            <button class="deleteBtn">Eliminar</button>
+                            <button class="deleteBtn">Cerrar</button>
                         </form>
                         <form action="" method="get">
                             <button class="updateBtn">Actualizar</button>
                         </form>
-                        <form action="">
+                        <form action="{{route('vacancies.show', ['vacancie' => $vacant->id])}}" method="get">
                             <button class="detailsBtn">Detalles</button>
                         </form>
                     </td>

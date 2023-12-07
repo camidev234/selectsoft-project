@@ -99,6 +99,8 @@ Route::patch('/charges/update/{charge}/{company}', [ChargeController::class, 'up
 Route::get('/vacancies/index/{company}', [VacancieController::class, 'index'])->name('vacancies.index')->middleware('auth');
 Route::get('/vacancies/create', [VacancieController::class, 'create'])->name('vacancies.create')->middleware('auth');
 Route::post('/vacancies/store/{company}', [VacancieController::class, 'store'])->name('vacancies.store');
+Route::get('/vacancie/show/{vacancie}', [VacancieController::class, 'showToRecruiter'])->name('vacancies.show')->middleware('auth');
+
 // instructor routes
 
 

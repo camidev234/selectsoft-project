@@ -1,0 +1,99 @@
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.title-page {
+    text-align: center;
+    margin: 20px 0;
+    margin-top: 40px;
+}
+
+.card_info {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #b1b1b1;
+}
+
+.otherGeneralInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.otherGeneralInfo article {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.generalTitle {
+    background-color: #2193b0;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.generalInfo,
+.otherGeneralInfo,
+.locationInfo,
+.status,
+.educations {
+    margin-top: 20px;
+}
+
+.charge span {
+    font-weight: bold;
+}
+
+.otherGeneralInfo p,
+.secondGeneral p,
+.locationInfo p,
+.status p {
+    margin-bottom: 10px;
+}
+
+.actionsVacancie {
+    margin-top: 30px;
+}
+
+.actionsVacancie a {
+    display: inline-block;
+    background-color: #2193b0;
+    color: #ffffff;
+    padding: 10px 15px;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.actionsVacancie a:hover{
+    background-color: #1a2e44;
+}
+
+.educations h3 {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+

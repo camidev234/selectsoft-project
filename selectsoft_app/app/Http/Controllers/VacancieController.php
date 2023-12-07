@@ -101,9 +101,16 @@ class VacancieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Vacancie $vacancie)
+    public function showToRecruiter(Vacancie $vacancie)
     {
-        //
+        $user = Auth::user();
+        $role_id = $user->role_id;
+
+        return view('/vacancie/showRecruiter', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'vacancie' => $vacancie
+        ]);
     }
 
     /**
