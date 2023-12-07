@@ -37,7 +37,7 @@ body {
     justify-content: space-between;
 }
 
-.deleteBtn, .updateBtn {
+.deleteBtn, .updateBtn, .detailsBtn {
     padding: 5px 10px;
     cursor: pointer;
     background-color: #dc3545;
@@ -48,6 +48,10 @@ body {
 
 .updateBtn {
     background-color: #007bff;
+}
+
+.detailsBtn {
+    background-color: #1a2e44;
 }
 
 .create {

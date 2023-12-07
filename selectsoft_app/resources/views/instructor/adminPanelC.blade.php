@@ -93,9 +93,9 @@
                         </td>
                     </tr>
                     @empty
-                    <tr>
-                        <td>No hay Candidatos para mostrar</td>
-                    </tr>
+                    <tbody>
+                        <tr><td>No hay Candidatos para mostrar</td></tr>
+                    </tbody>
                     @endforelse
                 </tbody>
             </table>

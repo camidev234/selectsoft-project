@@ -56,7 +56,7 @@
 
     <footer class="site-footer">
             <section class="Index">
-                <h4><a href="">Volver Al Inicio</a></h4>
+                <h4><a href="{{route('system.index')}}">Volver Al Inicio</a></h4>
             </section>
             <section class="content-footer">
                 <section class="container-footer">

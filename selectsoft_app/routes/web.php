@@ -14,6 +14,7 @@ use App\Http\Controllers\PersonExperienceController;
 use App\Http\Controllers\RecruiterController;
 use App\Http\Controllers\SelectorController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VacancieController;
 use App\Mail\WelcomeMailable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -34,7 +35,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function() {
     return view('index');
-})->name('system.index');
+})->name('system.index')->middleware('guest');
 
 //occupations routes
 
@@ -95,7 +96,11 @@ Route::get('/charges/index/{company}', [ChargeController::class, 'index'])->name
 Route::delete('/charges/delete/{charge}', [ChargeController::class, 'destroy'])->name('charges.destroy');
 Route::get('/charges/edit/{charge}/{company}', [ChargeController::class, 'edit'])->name('charges.edit')->middleware('auth');
 Route::patch('/charges/update/{charge}/{company}', [ChargeController::class, 'update'])->name('charges.update');
+Route::get('/vacancies/index/{company}', [VacancieController::class, 'index'])->name('vacancies.index')->middleware('auth');
+Route::get('/vacancies/create', [VacancieController::class, 'create'])->name('vacancies.create')->middleware('auth');
+Route::post('/vacancies/store/{company}', [VacancieController::class, 'store'])->name('vacancies.store');
 // instructor routes
+
 
 Route::get('/admin/home/candidates', [InstructorController::class, 'indexlistCandidates'])->name('instructor.index')->middleware('auth');
 Route::get('/admin/home/recruiters', [InstructorController::class, 'indexListRecruiters'])->name('instructor.recruiters')->middleware('auth');

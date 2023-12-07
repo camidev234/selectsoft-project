@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('workdays', function (Blueprint $table) {
+        Schema::create('work_days', function (Blueprint $table) {
             $table->id();
-            $table->string('working_day', 45);
+            $table->string('working_day', 100);
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('workdays');
+        Schema::dropIfExists('work_days');
     }
 };

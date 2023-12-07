@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OccupationRequest extends FormRequest
+class VacancieRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,14 @@ class OccupationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'occupation_code' => ['required', 'min:4', 'max:7', 'string', 'unique:occupations'],
-            'occupation_name' => ['required', 'max:70', 'string'],
-            'description' => ['required']
+            'vacancie_code' => 'required|unique:vacancies',
+            'skills' => 'max:500',
+            'required_experience' => 'required|string|min:1|max:3',
+            'salary_range' => 'required|string|max:45',
+            'number_vacancies' => 'required|string|min:1|max:3',
+            'schedule' => 'required|string|max:50',
+            'applicant_person' => 'required|string|max:30',
+            'annotations' => 'required|string|max:400',
         ];
     }
 }

@@ -13,17 +13,20 @@ return new class extends Migration
     {
         Schema::create('vacancies', function (Blueprint $table) {
             $table->id();
-            $table->string('competencies',350);
-            $table->unsignedBigInteger('required experience');
-            $table->string('salary range',45);
+            $table->string('vacancie_code')->unique();
+            $table->string('skills',500)->default('Niinguna');
+            $table->unsignedBigInteger('required_experience');
+            $table->string('salary_range',45);
             $table->unsignedSmallInteger('number_vacancies');
-            $table->foreignId('job_id')->references('id')->on('charges');
-            $table->string('schedule',80);
-            $table->foreignId('workDays_id')->references('id')->on('workdays');
-            $table->foreignId('salariesType_id')->references('id')->on('salaries_types');
+            $table->foreignId('charge_id')->references('id')->on('charges');
+            $table->string('schedule',55);
+            $table->foreignId('work_day_id')->references('id')->on('work_days');
+            $table->foreignId('salaries_type_id')->references('id')->on('salaries_types');
             $table->string('applicant_person');
             $table->foreignId('country_id')->references('id')->on('countries');
-            $table->string('annotations',100)->nullable();
+            $table->foreignId('city_id')->references('id')->on('cities');
+            $table->string('annotations',400)->nullable();
+            $table->foreignId('company_id')->references('id')->on('companies');
             $table->timestamps();
         });
     }
