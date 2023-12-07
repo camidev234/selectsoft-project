@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OccupationRequest;
 use App\Models\Occupation;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +13,7 @@ class OccupationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() :View
     {
         $allOccupations = Occupation::all();
         $user = Auth::user();
@@ -26,7 +28,7 @@ class OccupationController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create() :View
     {
         $user = Auth::user();
         $role_id = $user->role_id;
@@ -39,7 +41,7 @@ class OccupationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(OccupationRequest $datos)
+    public function store(OccupationRequest $datos) :RedirectResponse
     {
         $new1=new Occupation();
 
@@ -55,9 +57,17 @@ class OccupationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Occupation $occupation)
+    public function show(Occupation $occupation) :View
     {
-        //
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        $functions = $occupation->functions;
+        return view('/occupation/show', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'occupation' => $occupation,
+            'functions' => $functions
+        ]);
     }
 
     /**

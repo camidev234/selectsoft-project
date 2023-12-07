@@ -10,6 +10,7 @@ use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\OccupationController;
+use App\Http\Controllers\OccupationFunctionController;
 use App\Http\Controllers\PersonExperienceController;
 use App\Http\Controllers\RecruiterController;
 use App\Http\Controllers\SelectorController;
@@ -102,6 +103,9 @@ Route::post('/vacancies/store/{company}', [VacancieController::class, 'store'])-
 Route::get('/vacancie/show/{vacancie}', [VacancieController::class, 'showToRecruiter'])->name('vacancies.show')->middleware('auth');
 Route::patch('/vacancie/editStatus/{vacancie}', [VacancieController::class, 'editStatus'])->name('vacancies.editStatus');
 Route::get('/vacancies/search/{company}', [VacancieController::class, 'findVacancieByCompany'])->name('vacancies.findByCompany');
+Route::get('/occupation/show/{occupation}', [OccupationController::class, 'show'])->name('occupation.show')->middleware('auth');
+Route::get('/occupationFunctions/create/{occupation}', [OccupationFunctionController::class, 'create'])->name('occupationFunction.create')->middleware('auth');
+Route::post('/occupationFunctions/store/{occupation}', [OccupationFunctionController::class, 'store'])->name('occupationFunction.store');
 // instructor routes
 
 
