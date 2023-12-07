@@ -101,6 +101,7 @@ Route::get('/vacancies/create', [VacancieController::class, 'create'])->name('va
 Route::post('/vacancies/store/{company}', [VacancieController::class, 'store'])->name('vacancies.store');
 Route::get('/vacancie/show/{vacancie}', [VacancieController::class, 'showToRecruiter'])->name('vacancies.show')->middleware('auth');
 Route::patch('/vacancie/editStatus/{vacancie}', [VacancieController::class, 'editStatus'])->name('vacancies.editStatus');
+Route::get('/vacancies/search/{company}', [VacancieController::class, 'findVacancieByCompany'])->name('vacancies.findByCompany');
 // instructor routes
 
 
