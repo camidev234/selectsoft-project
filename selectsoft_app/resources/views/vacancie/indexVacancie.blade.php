@@ -59,7 +59,7 @@
                             @method('PATCH')
                             <button class="deleteBtn">Cerrar</button>
                         </form>
-                        <form action="" method="get">
+                        <form action="{{route('vacancies.edit', ['vacancie' => $vacant->id, 'company' => $company->id])}}" method="get">
                             <button class="updateBtn">Actualizar</button>
                         </form>
                         <form action="{{route('vacancies.show', ['vacancie' => $vacant->id])}}" method="get">
@@ -99,13 +99,13 @@
                         @endif
                     </td>
                     <td class="actions-l">
+                        <form action="{{route('udnin ')}}" method="get">
+                            <button class="updateBtn">Actualizar</button>
+                        </form>
                         <form action="{{route('vacancies.editStatus', ['vacancie' => $vacant->id])}}" method="post">
                             @csrf
                             @method('PATCH')
                             <button class="deleteBtn">Cerrar</button>
-                        </form>
-                        <form action="" method="get">
-                            <button class="updateBtn">Actualizar</button>
                         </form>
                         <form action="{{route('vacancies.show', ['vacancie' => $vacant->id])}}" method="get">
                             <button class="detailsBtn">Detalles</button>

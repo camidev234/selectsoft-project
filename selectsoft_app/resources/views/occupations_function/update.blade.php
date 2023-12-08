@@ -10,14 +10,14 @@
 <body>
     @extends('layout.header')
     @section('content')
-        <form action="{{route('occupationFunction.store', ['occupation' => $occupation->id])}}" method="post" class="formContent">
+        <form action="{{route('occupationFunction.update', ['occupation_function' => $function->id, 'occupation' => $occupation->id])}}" method="post" class="formContent">
             @csrf
             <label for="">Funcion: </label><br>
-            <input type="text" placeholder="Funcion" name="function" value="{{old('function')}}">
+            <input type="text" placeholder="Funcion" name="function" value="{{ old('function') ?: $function->function }}">
             @error('function')
                 <span style="color: red;">{{$message}}</span>
             @enderror
-            <button>Añadir Funcion</button>
+            <button>Editar Funcion</button>
         </form>
     @endsection
 </body>

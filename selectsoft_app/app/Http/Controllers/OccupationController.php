@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OccupationRequest;
+use App\Http\Requests\UpdateOccupationRequest;
 use App\Models\Occupation;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -87,7 +88,7 @@ class OccupationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(OccupationRequest $request,$occupation)
+    public function update(UpdateOccupationRequest $request,$occupation)
     {
         $occupation1=Occupation::findOrFail($occupation);
         $occupation1->occupation_code=$request->occupation_code;

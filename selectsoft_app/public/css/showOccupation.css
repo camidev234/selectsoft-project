@@ -42,7 +42,7 @@ th {
 section.createFunction a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #2193b0; 
+    background-color: #2193b0;
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
@@ -50,11 +50,32 @@ section.createFunction a {
 }
 
 section.createFunction a:hover {
-    background-color: #13505b; 
+    background-color: #13505b;
 }
 
 .functionActions {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    gap: 30px;
+}
+
+.functions form .btnDelete{
+    background-color: #c2050f;
+    border: none;
+    outline: none;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.functions form .btnUpdate {
+    background-color: #0508c2;
+    border: none;
+    outline: none;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }

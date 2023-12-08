@@ -34,7 +34,7 @@
                             <button class="deleteBtn">Eliminar</button>
                         </form>
                         <form action="{{route('occupation.show', ['occupation' => $occupation->id])}}" method="get">
-                            <button>Detalles</button>
+                            <button class="detailsBtn">Detalles</button>
                         </form>
                         <form action="{{route('occupations.edit',['occupation'=>$occupation->id])}}" method="get">
                             <button class="updateBtn">Actualizar</button>

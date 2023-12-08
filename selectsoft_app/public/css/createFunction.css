@@ -1,0 +1,39 @@
+.formContent {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Estilos para las etiquetas y los campos de entrada */
+.formContent label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.formContent input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilos para el botón */
+.formContent button {
+    background-color: #2193b0;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Estilos adicionales para el botón al pasar el ratón por encima */
+.formContent button:hover {
+    background-color: #1a2e44;
+}

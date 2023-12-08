@@ -32,11 +32,13 @@
                         <tr>
                             <td>{{$function->function}}</td>
                             <td class="functionActions">
-                                <form action="">
-                                    <button>Actualizar</button>
+                                <form action="{{route('occupationFunction.edit', ['occupation_function' => $function->id, 'occupation' => $occupation->id])}}">
+                                    <button class="btnUpdate">Actualizar</button>
                                 </form>
-                                <form action="" method="">
-                                    <button>Eliminar</button>
+                                <form action="{{route('occupationFunction.destroy', ['occupation_function' => $function->id, 'occupation' => $occupation->id])}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btnDelete">Eliminar</button>
                                 </form>
                             </td>
                         </tr>

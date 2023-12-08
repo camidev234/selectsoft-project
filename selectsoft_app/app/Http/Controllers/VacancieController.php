@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateVacancieRequest;
 use App\Http\Requests\VacancieRequest;
 use App\Models\Charge;
 use App\Models\City;
@@ -91,7 +92,6 @@ class VacancieController extends Controller
         $newVacancie->country_id = $request->country_id;
         $newVacancie->city_id = $request->city_id;
         $newVacancie->annotations = $request->annotations;
-        $newVacancie->company_id = $request->company_id;
         $newVacancie->company_id = $company->id;
 
         $newVacancie->save();
@@ -107,11 +107,13 @@ class VacancieController extends Controller
     {
         $user = Auth::user();
         $role_id = $user->role_id;
+        $functions = $vacancie->charge->occupation->functions;
 
         return view('/vacancie/showRecruiter', [
             'user' => $user,
             'role_id' => $role_id,
-            'vacancie' => $vacancie
+            'vacancie' => $vacancie,
+            'functions' => $functions,
         ]);
     }
 
@@ -158,17 +160,63 @@ class VacancieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Vacancie $vacancie)
+    public function edit(Vacancie $vacancie, Company $company) :View
     {
-        //
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        $currentCountry = $vacancie->country;
+        $countries = Country::where('id', '!=', $currentCountry->id)->get();
+        $currentCity = $vacancie->city;
+        $cities = City::where('id', '!=', $currentCity->id)->get();
+        $currentSalary = $vacancie->salaries_type;
+        $salaries = Salaries_type::where('id', '!=', $currentSalary->id)->get();
+        $currentSchedule = $vacancie->work_day;
+        $days = Work_day::where('id', '!=', $currentSchedule->id)->get();;
+        $currentCharge = $vacancie->charge;
+        $charges = Charge::where('company_id', $company->id)->where('id', '!=', $currentCharge->id)->get();
+
+        return view('/vacancie/edit', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'countries' => $countries,
+            'cities' => $cities,
+            'salaries' => $salaries,
+            'days' => $days,
+            'charges' => $charges,
+            'vacancie' => $vacancie,
+            'company' => $company
+        ]);
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vacancie $vacancie)
+    public function update(UpdateVacancieRequest $request, Vacancie $vacancie, Company $company)
     {
-        //
+        $vacancie->vacancie_code = $request->vacancie_code;
+        if($request->skills == null){
+            $vacancie->skills = 'Ninguna';
+        }else{
+            $vacancie->skills = $request->skills;
+        }
+        $vacancie->required_experience = $request->required_experience;
+        $vacancie->salary_range = $request->salary_range;
+        $vacancie->number_vacancies = $request->number_vacancies;
+        $vacancie->charge_id = $request->charge_id;
+        $vacancie->schedule = $request->schedule;
+        $vacancie->work_day_id = $request->work_day_id;
+        $vacancie->salaries_type_id = $request->salaries_type_id;
+        $vacancie->applicant_person = $request->applicant_person;
+        $vacancie->country_id = $request->country_id;
+        $vacancie->city_id = $request->city_id;
+        $vacancie->annotations = $request->annotations;
+        $vacancie->company_id = $company->id;
+
+        $vacancie->save();
+
+
+        return redirect()->route('vacancies.index', ['company' => $company]);
     }
 
     /**

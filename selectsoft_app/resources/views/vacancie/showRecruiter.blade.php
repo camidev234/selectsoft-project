@@ -90,6 +90,26 @@
             <section class="generalTitle">
                 <h3>Funciones </h3>
             </section>
+            <section class="functions">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Funcion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($functions as $function)
+                            <tr>
+                                <td>{{$function->function}}</td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td>No hay funciones para la ocupacion de la vacante</td>
+                            </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+            </section>
             <article class="actionsVacancie">
                 <form action="{{route('vacancies.editStatus', ['vacancie' => $vacancie->id])}}" method="post">
                     @csrf

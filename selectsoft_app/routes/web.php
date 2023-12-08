@@ -106,6 +106,11 @@ Route::get('/vacancies/search/{company}', [VacancieController::class, 'findVacan
 Route::get('/occupation/show/{occupation}', [OccupationController::class, 'show'])->name('occupation.show')->middleware('auth');
 Route::get('/occupationFunctions/create/{occupation}', [OccupationFunctionController::class, 'create'])->name('occupationFunction.create')->middleware('auth');
 Route::post('/occupationFunctions/store/{occupation}', [OccupationFunctionController::class, 'store'])->name('occupationFunction.store');
+Route::get('/occupationFunctions/edit/{occupation_function}/{occupation}', [OccupationFunctionController::class, 'edit'])->name('occupationFunction.edit')->middleware('auth');
+Route::post('/occupationFunctions/update/{occupation_function}/{occupation}', [OccupationFunctionController::class, 'update'])->name('occupationFunction.update');
+Route::delete('/occupationFunctions/delete/{occupation_function}/{occupation}', [OccupationFunctionController::class, 'destroy'])->name('occupationFunction.destroy');
+Route::get('/vacancie/edit/{vacancie}/{company}', [VacancieController::class, 'edit'])->name('vacancies.edit')->middleware('auth');
+Route::patch('/vacancie/update/{vacancie}/{company}', [VacancieController::class, 'update'])->name('vacancies.update');
 // instructor routes
 
 
