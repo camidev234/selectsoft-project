@@ -13,4 +13,8 @@ class study_status extends Model
     public function education_people() :HasMany {
         return $this->hasMany(Education_person::class);
     }
+
+    public function vacant_study() :HasMany {
+        return $this->hasMany(Vacancie_study::class);
+    }
 }

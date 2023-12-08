@@ -108,12 +108,13 @@ class VacancieController extends Controller
         $user = Auth::user();
         $role_id = $user->role_id;
         $functions = $vacancie->charge->occupation->functions;
-
+        $educations = $vacancie->studies;
         return view('/vacancie/showRecruiter', [
             'user' => $user,
             'role_id' => $role_id,
             'vacancie' => $vacancie,
             'functions' => $functions,
+            'studies' => $educations
         ]);
     }
 

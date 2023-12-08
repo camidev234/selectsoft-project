@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use PHPUnit\Framework\Constraint\Count;
 
 class Vacancie extends Model
@@ -33,5 +34,9 @@ class Vacancie extends Model
 
     public function city() :BelongsTo {
         return $this->belongsTo(City::class);
+    }
+
+    public function studies() :HasMany {
+        return $this->hasMany(Vacancie_study::class);
     }
 }

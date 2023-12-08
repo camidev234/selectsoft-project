@@ -16,6 +16,7 @@ use App\Http\Controllers\RecruiterController;
 use App\Http\Controllers\SelectorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VacancieController;
+use App\Http\Controllers\VacancieStudyController;
 use App\Mail\WelcomeMailable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -111,6 +112,8 @@ Route::post('/occupationFunctions/update/{occupation_function}/{occupation}', [O
 Route::delete('/occupationFunctions/delete/{occupation_function}/{occupation}', [OccupationFunctionController::class, 'destroy'])->name('occupationFunction.destroy');
 Route::get('/vacancie/edit/{vacancie}/{company}', [VacancieController::class, 'edit'])->name('vacancies.edit')->middleware('auth');
 Route::patch('/vacancie/update/{vacancie}/{company}', [VacancieController::class, 'update'])->name('vacancies.update');
+Route::get('/studyVacant/create/{vacancie}', [VacancieStudyController::class, 'create'])->name('studyVacant.create')->middleware('auth');
+Route::post('/studyVacant/store/{vacancie}', [VacancieStudyController::class, 'store'])->name('studyVacant.store');
 // instructor routes
 
 

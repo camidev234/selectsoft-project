@@ -13,4 +13,8 @@ class study_level extends Model
     public function education_person() :HasMany {
         return $this->hasMany(Education_person::class);
     }
+
+    public function vacant_study() :HasMany {
+        return $this->hasMany(Vacancie_study::class);
+    }
 }

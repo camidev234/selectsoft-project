@@ -81,11 +81,46 @@
                 <article>
                     <h3>Educacion requerida</h3>
                 </article>
+                <section class="addEducation">
+                    <form action="{{route('studyVacant.create', ['vacancie' => $vacancie->id])}}" method="get">
+                        <button>Añadir educacion</button>
+                    </form>
+                </section>
                 <article class="educationsTable">
                     <table>
-
+                        <thead>
+                            <tr>
+                                <th>Nivel</th>
+                                <th>Estado</th>
+                                <th>Profesion</th>
+                                <th>Puntos</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($studies as $study)
+                                <tr>
+                                    <td>{{$study->study_level->study_level}}</td>
+                                    <td>{{$study->study_status->study_status}}</td>
+                                    <td>{{$study->study_name}}</td>
+                                    <td>{{$study->points}}</td>
+                                    <td class="actionTrash">
+                                        <form action="" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button><i class="bi bi-trash3"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td>Esta vacante no requiere algun estudio aun</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
                     </table>
                 </article>
+                <br>
             </section>
             <section class="generalTitle">
                 <h3>Funciones </h3>

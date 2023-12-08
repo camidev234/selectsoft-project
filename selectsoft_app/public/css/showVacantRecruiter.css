@@ -99,6 +99,26 @@ body {
     margin-top: 20px;
 }
 
+.educations .addEducation form {
+    height: 33px;
+    width: 20%;
+    margin-top: 20px;
+}
+
+.addEducation form button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: #2193b0;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.addEducation form button:hover {
+    background-color: #1a2e44;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -112,5 +132,20 @@ table, th, td {
 th, td {
     padding: 8px;
     text-align: left;
+}
+
+.actionTrash {
+    display: flex;
+    justify-content: center;
+}
+
+.actionTrash form button {
+    border: none;
+    outline: none;
+    background-color: rgb(170, 7, 7);
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
