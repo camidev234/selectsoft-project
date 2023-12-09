@@ -34,13 +34,6 @@
                     <section class="card-header-two">
                         <h3>Hoja de vida</h3>
                     </section>
-                    <article class="button_password">
-                        <section class="actions-card">
-                            <div class="action" id="actionTwo">
-                                <a href="{{route('candidate.editProfile')}}">Actualizar Perfil <i class="bi bi-person-fill"></i></a>
-                            </div>
-                        </section>
-                    </article>
                     <article class="experiencies">
                         <h5>Experiencias: {{$experiences}} </h5>
                         <section class="actions-card">
@@ -75,7 +68,7 @@
                         </section>
                     </article>
                     <article class="hdv">
-                        <form action="" method="get">
+                        <form action="{{route('candidate.curriculum')}}" method="get">
                             <button>Ver HDV completa <i class="bi bi-file-text-fill"></i></button>
                         </form>
                     </article>

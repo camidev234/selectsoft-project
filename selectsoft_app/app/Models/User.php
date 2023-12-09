@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use PHPUnit\Framework\Constraint\Count;
 
 class User extends Authenticatable
 {
@@ -63,7 +64,7 @@ class User extends Authenticatable
     }
 
     public function candidate():HasOne {
-        return $this->hasOne(Candidate::class);
+       return $this->hasOne(Candidate::class);
     }
 
     public function document_type():BelongsTo {
@@ -76,5 +77,13 @@ class User extends Authenticatable
 
     public function selector() :HasOne {
         return $this->hasOne(Selector::class);
+    }
+
+    public function country() :BelongsTo {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function city() :BelongsTo {
+        return $this->belongsTo(City::class);
     }
 }

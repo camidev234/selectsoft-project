@@ -22,9 +22,9 @@ class UserTableSeeder extends Seeder
         $defaultUser->number_document = '000000000';
         $defaultUser->telephone = '00000000';
         $defaultUser->phone_number = 'address';
-        $defaultUser->id_country = 1;
+        $defaultUser->country_id = 1;
         $defaultUser->id_department = 1;
-        $defaultUser->id_city = 1;
+        $defaultUser->city_id = 1;
         $defaultUser->address = 'Soacha Parque';
         $defaultUser->birthdate = '2000-02-18';
         $defaultUser->email = 'AdminCide@sena.edu.co';

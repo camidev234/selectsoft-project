@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Candidate;
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\Can;
 
 class CandidateController extends Controller
 {
@@ -58,26 +60,50 @@ class CandidateController extends Controller
         ]);
     }
 
-    public function editProfile() {
+    public function readCurriculum() :View {
         $user = Auth::user();
         $role_id = $user->role_id;
+        $candidate = $user->candidate;
+        if($candidate->occupational_profile == 'NULL'){
+            $profile = 'Perfil sin completar';
+        }else{
+            $profile = $candidate->occupational_profile;
+        }
+        if($candidate->skills == null){
+            $skills = 'No hay habilidades para motsrar';
+        }else{
+            $skills = $candidate->skills;
+        }
+        $educations = $user->educations;
+        $experiences = $user->experiences;
+        return view('/user/curriculum', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'candidate' => $candidate,
+            'profile' => $profile,
+            'skills' => $skills,
+            'educations' => $educations,
+            'experiencies' => $experiences
+        ]);
+    }
 
-        $profile = $user->candidate->occupational_profile;
+    public function editProfile(Candidate $candidate) {
+        $user = Auth::user();
+        $role_id = $user->role_id;
 
         return view('user/updateProfile', [
             'user' => $user,
             'role_id' => $role_id,
-            'profile' => $profile
+            'candidate' => $candidate
         ]);
     }
 
-    public function updateProfile(UpdateProfileRequest $request) {
+    public function updateProfile(UpdateProfileRequest $request, Candidate $candidate) {
         $user = Auth::user();
-        $candidateToUpdate = $user->candidate;
 
-        $candidateToUpdate->occupational_profile = $request->occupational_profile;
+        $candidate->occupational_profile = $request->occupational_profile;
 
-        $candidateToUpdate->save();
+        $candidate->save();
 
         return redirect()->route('user.index');
     }

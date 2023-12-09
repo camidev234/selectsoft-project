@@ -1,0 +1,135 @@
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 80px;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+}
+
+.basicInfo {
+    width: 40%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+}
+
+.basicInfo span {
+    display: flex;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.occupationalProfile {
+    border-top: 2px solid #2193b0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.occupationalProfile article {
+    margin-top: 20px;
+}
+
+.profileInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profileInfo .pf {
+    width: 80%;
+}
+
+
+.profileInfo h3 {
+    color: #2193b0;
+    margin-bottom: 10px;
+}
+
+.addProfile button {
+    background-color: #2193b0;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.addProfile button:hover {
+    background-color: #1a2e44;
+}
+
+.sectionTitle h4 {
+    color: #2193b0;
+    margin-bottom: 10px;
+}
+
+.educationsCandidate li {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-left: 20px;
+}
+
+.edu {
+    color: #808080;
+    font-size: 12px;
+}
+
+.experiencesCandidate table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.experiencesCandidate th, .experiencesCandidate td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.skillsCandidate {
+    display: flex;
+    margin-top: 20px;
+}
+
+.skillsContainer {
+    flex: 1;
+}
+
+.skillsAction {
+    text-align: right;
+}
+
+.skillsContainer p {
+    margin: 0;
+}
+
+.candidateSkills button {
+    background-color: #2193b0;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.candidateSkills button:hover {
+    background-color: #1a2e44;
+}

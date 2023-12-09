@@ -109,12 +109,14 @@ class VacancieController extends Controller
         $role_id = $user->role_id;
         $functions = $vacancie->charge->occupation->functions;
         $educations = $vacancie->studies;
+        $company = $vacancie->company;
         return view('/vacancie/showRecruiter', [
             'user' => $user,
             'role_id' => $role_id,
             'vacancie' => $vacancie,
             'functions' => $functions,
-            'studies' => $educations
+            'studies' => $educations,
+            'company' => $company
         ]);
     }
 

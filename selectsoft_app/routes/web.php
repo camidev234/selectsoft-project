@@ -76,6 +76,7 @@ Route::get('/supports/create', [CandidateSupportController::class, 'create'])->n
 Route::post('/supports/store', [CandidateSupportController::class, 'store'])->name('supports.store');
 Route::get('/user/updatePassword', [UserController::class, 'updatePassword'])->name('user.updatePassword')->middleware('auth');
 Route::patch('/user/updatingPassword', [UserController::class, 'storePassword'])->name('user.storePassword');
+Route::get('/candidate/curriculum', [CandidateController::class, 'readCurriculum'])->name('candidate.curriculum')->middleware('auth');
 Route::get('/user/updateProfile', [CandidateController::class, 'editProfile'])->name('candidate.editProfile')->middleware('auth');
 Route::patch('/user/saveProfile', [CandidateController::class, 'updateProfile'])->name('candidate.saveProfile');
 // selector routes
@@ -114,6 +115,7 @@ Route::get('/vacancie/edit/{vacancie}/{company}', [VacancieController::class, 'e
 Route::patch('/vacancie/update/{vacancie}/{company}', [VacancieController::class, 'update'])->name('vacancies.update');
 Route::get('/studyVacant/create/{vacancie}', [VacancieStudyController::class, 'create'])->name('studyVacant.create')->middleware('auth');
 Route::post('/studyVacant/store/{vacancie}', [VacancieStudyController::class, 'store'])->name('studyVacant.store');
+Route::delete('/studyVacant/destroy/{vacancie_study}', [VacancieStudyController::class, 'destroy'])->name('studyVacant.destroy');
 // instructor routes
 
 

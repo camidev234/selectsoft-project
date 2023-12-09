@@ -125,6 +125,11 @@ table {
     margin-top: 10px;
 }
 
+table thead {
+    background-color: #07090a;
+    color: white;
+}
+
 table, th, td {
     border: 1px solid #ccc;
 }
@@ -148,4 +153,26 @@ th, td {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.back {
+    margin-top: 20px;
+    height: 33px;
+}
+
+.back a {
+    display: flex;
+    width: 17%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #2193b0;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.back a:hover {
+    background-color: #1a2e44;
+}
+
+
 

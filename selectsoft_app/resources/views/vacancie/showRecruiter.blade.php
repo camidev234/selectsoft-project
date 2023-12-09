@@ -105,7 +105,7 @@
                                     <td>{{$study->study_name}}</td>
                                     <td>{{$study->points}}</td>
                                     <td class="actionTrash">
-                                        <form action="" method="post">
+                                        <form action="{{route('studyVacant.destroy', ['vacancie_study' => $study->id])}}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button><i class="bi bi-trash3"></i></button>
@@ -155,6 +155,9 @@
                     <button>Ver postulados</button>
                 </form>
             </article>
+            <section class="back">
+                <a href="{{route('vacancies.index', ['company' => $company->id])}}">Volver</a>
+            </section>
         </section>
     </section>
     @endsection

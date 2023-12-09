@@ -63,9 +63,9 @@ class UserController extends Controller
         $newUser->telephone = $request->input('telephone');
         $newUser->phone_number = $request->input('phone_number');
         $newUser->address = $request->input('address');
-        $newUser->id_country = $request->input('id_country');
+        $newUser->country_id = $request->input('id_country');
         $newUser->id_department = $request->input('id_department');
-        $newUser->id_city = $request->input('id_city');
+        $newUser->city_id = $request->input('id_city');
         $newUser->birthdate = $request->input('birthdate');
         $newUser->email = $request->input('email');
         $newUser->password = $request->input('password');

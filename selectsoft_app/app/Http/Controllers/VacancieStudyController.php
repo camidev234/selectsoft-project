@@ -89,6 +89,8 @@ class VacancieStudyController extends Controller
      */
     public function destroy(Vacancie_study $vacancie_study)
     {
-        //
+        $vacancie_study->delete();
+
+        return redirect()->back();
     }
 }

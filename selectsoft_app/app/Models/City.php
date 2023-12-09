@@ -13,4 +13,8 @@ class City extends Model
     public function vacants() :HasMany {
         return $this->hasMany(Vacancie::class);
     }
+
+    public function users() :HasMany {
+        return $this->hasMany(User::class);
+    }
 }
