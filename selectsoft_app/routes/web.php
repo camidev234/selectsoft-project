@@ -77,8 +77,9 @@ Route::post('/supports/store', [CandidateSupportController::class, 'store'])->na
 Route::get('/user/updatePassword', [UserController::class, 'updatePassword'])->name('user.updatePassword')->middleware('auth');
 Route::patch('/user/updatingPassword', [UserController::class, 'storePassword'])->name('user.storePassword');
 Route::get('/candidate/curriculum', [CandidateController::class, 'readCurriculum'])->name('candidate.curriculum')->middleware('auth');
-Route::get('/user/updateProfile', [CandidateController::class, 'editProfile'])->name('candidate.editProfile')->middleware('auth');
-Route::patch('/user/saveProfile', [CandidateController::class, 'updateProfile'])->name('candidate.saveProfile');
+Route::get('/candidate/updateProfile/{candidate}', [CandidateController::class, 'editProfile'])->name('candidate.editProfile')->middleware('auth');
+Route::patch('/candidate/saveProfile/{candidate}', [CandidateController::class, 'updateProfile'])->name('candidate.saveProfile');
+Route::patch('/candidate/updateSkills/{candidate}', [CandidateController::class, 'updateSkills'])->name('candidate.saveSkills');
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');

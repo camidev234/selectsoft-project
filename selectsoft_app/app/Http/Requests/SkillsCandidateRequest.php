@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateProfileRequest extends FormRequest
+class SkillsCandidateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,7 @@ class UpdateProfileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'curriculum_title' => 'required|max:255',
-            'occupational_profile' => 'required|max:1000',
+            'skills' => 'required|max:2551|string'
         ];
     }
 }

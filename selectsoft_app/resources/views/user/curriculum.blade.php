@@ -11,6 +11,7 @@
 <body>
     @extends('layout.header')
     @section('content')
+    <div class="modalOverlay"></div>
     <section class="container">
         <section class="profile">
             <article class="name">
@@ -26,14 +27,14 @@
             <article>
                 <section class="titleOcc">
                     <h4>Perfil Ocupacional</h4>
-                </section>
+                </section><br>
                 <section class="profileInfo">
                     <div class="pf">
                         <h3>{{$candidate->curriculum_title}}</h3>
                         <p>{{$profile}}</p>
                     </div>
                     <div class="addProfile">
-                        <form action="" method="get" class="formProfile">
+                        <form action="{{route('candidate.editProfile', ['candidate' => $candidate->id])}}" method="get" class="formProfile">
                             <button><i class="bi bi-pencil-fill"></i></button>
                         </form>
                     </div>
@@ -56,7 +57,7 @@
                 <h5>No tiene estudios aun</h5>
                 @endforelse
             </ul>
-        </section>
+        </section><br>
         <section class="sectionTitle">
             <article>
                 <h4>Mis Experiencias Profesionales</h4>
@@ -97,12 +98,55 @@
             </article>
             <article class="skillsAction">
                 <form action="" method="get" class="candidateSkills">
-                    <button><i class="bi bi-pencil-fill"></i></button>
+                    <button class="openModal" id="openModalButton"><i class="bi bi-pencil-fill"></i></button>
                 </form>
             </article>
         </section>
     </section>
+    <section class="modalWindow">
+        <form action="{{route('candidate.saveSkills', ['candidate' => $candidate->id])}}" method="post">
+            @csrf
+            @method('PATCH')
+            <section class="close">
+                <label for="">Habilidades: </label><br>
+                <i class="bi bi-x-lg" id="close"></i>
+            </section>
+            <textarea name="skills" id="" cols="30" rows="12">{{old('skills') ?: $candidate->skills}}</textarea><br>
+            @error('skills')
+                <span style="color: red;">{{$message}}</span>
+            @enderror
+            <button>Guardar</button>
+        </form>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.querySelector('.modalWindow');
+            var modalOverlay = document.querySelector('.modalOverlay');
+            var openModalButton = document.getElementById('openModalButton');
+            var closeModalButton = document.getElementById('close');
+
+            openModalButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                modal.style.display = 'block';
+                modalOverlay.style.display = 'block';
+            });
+
+            closeModalButton.addEventListener('click', function() {
+                modal.style.display = 'none';
+                modalOverlay.style.display = 'none';
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target === modalOverlay) {
+                    modal.style.display = 'none';
+                    modalOverlay.style.display = 'none';
+                }
+            });
+        });
+    </script>
     @endsection
+
 </body>
 
 </html>

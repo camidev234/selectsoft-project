@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SkillsCandidateRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Candidate;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Can;
@@ -99,13 +101,20 @@ class CandidateController extends Controller
     }
 
     public function updateProfile(UpdateProfileRequest $request, Candidate $candidate) {
-        $user = Auth::user();
 
         $candidate->occupational_profile = $request->occupational_profile;
+        $candidate->curriculum_title = $request->curriculum_title;
+        $candidate->save();
+
+        return redirect()->route('candidate.curriculum');
+    }
+
+    public function updateSkills(SkillsCandidateRequest $request ,Candidate $candidate) :RedirectResponse {
+        $candidate->skills = $request->skills;
 
         $candidate->save();
 
-        return redirect()->route('user.index');
+        return redirect()->route('candidate.curriculum');
     }
 
     /**

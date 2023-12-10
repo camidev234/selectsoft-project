@@ -7,6 +7,17 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.modalOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 34, 34, 0.6); /* Fondo oscuro con opacidad */
+    z-index: 999;
+}
+
 .profile {
     display: flex;
     justify-content: space-between;
@@ -59,7 +70,7 @@
 
 
 .profileInfo h3 {
-    color: #2193b0;
+    color: #1a2e44;
     margin-bottom: 10px;
 }
 
@@ -133,3 +144,73 @@
 .candidateSkills button:hover {
     background-color: #1a2e44;
 }
+
+.modalWindow {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #ffffff;
+    z-index: 1000;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    max-height: 400px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.modalWindow .close {
+    width: 100%;
+}
+
+.close {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+.close i {
+    cursor: pointer;
+}
+
+.modalWindow form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modalWindow label {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.modalWindow textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    resize: none;
+    border: 1px solid #a7a7a7;
+    border-radius: 10px;
+}
+
+.modalWindow button {
+    background-color: #2193b0;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+.modalWindow button:hover {
+    background-color: #014968;
+}
+
