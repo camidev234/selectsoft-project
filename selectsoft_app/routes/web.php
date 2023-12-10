@@ -80,6 +80,7 @@ Route::get('/candidate/curriculum', [CandidateController::class, 'readCurriculum
 Route::get('/candidate/updateProfile/{candidate}', [CandidateController::class, 'editProfile'])->name('candidate.editProfile')->middleware('auth');
 Route::patch('/candidate/saveProfile/{candidate}', [CandidateController::class, 'updateProfile'])->name('candidate.saveProfile');
 Route::patch('/candidate/updateSkills/{candidate}', [CandidateController::class, 'updateSkills'])->name('candidate.saveSkills');
+Route::get('/vacancies/searchV', [VacancieController::class, 'indexToCandidate'])->name('vacancies.searchToCandidate');
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');

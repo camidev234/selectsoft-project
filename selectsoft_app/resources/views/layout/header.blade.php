@@ -16,9 +16,9 @@
         @auth
             @if($role_id == 1)
                 <div class="find">
-                    <form action="" method="" id="form">
+                    <form action="{{route('vacancies.searchToCandidate')}}" method="get" id="form">
                     @csrf
-                        <input type="search" name="find_vacant" id="" class="input-search" placeholder="Buscar Vacantes">
+                        <input type="search" name="search" id="" class="input-search" placeholder="Buscar Vacantes">
                         <button id="btn-search"><i class="bi bi-search"></i></button>
                     </form>
                 </div>

@@ -11,6 +11,13 @@
     @extends('layout.header')
     </header>
     @section('content')
+    @if(session()->has('message'))
+    <p id="message" style="display: none;">{{ session('message') }}</p>
+    <script>
+        const mes = document.getElementById('message')
+        alert(mes.textContent);
+    </script>
+    @endif
         <main class="principal_content">
             <section class="card-user">
                 <section class="card-header">

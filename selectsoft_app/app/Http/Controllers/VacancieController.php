@@ -222,6 +222,29 @@ class VacancieController extends Controller
         return redirect()->route('vacancies.index', ['company' => $company]);
     }
 
+    public function indexToCandidate(Request $request)  {
+        $user = Auth::user();
+        $role_id = $user->role_id;
+
+        $search = $request->search;
+        if ($search) {
+            $vacants = Vacancie::where('vacancie_code', 'LIKE', "%{$search}%")->orWhereHas('charge', function ($query) use ($search) {
+            $query->where('charge', 'LIKE', "%{$search}%");})->get();
+
+            if ($vacants->isEmpty()) {
+                return redirect()->route('user.index')->with('message', 'No se encontraron vacantes para la búsqueda: ' . $search);
+            } else {
+                return view('/vacancie/indexToCandidate', [
+                    'vacants' => $vacants,
+                    'user' => $user,
+                    'role_id' => $role_id
+                ]);
+            }
+        } else {
+            return back()->with('message', 'Introduzca un valor para buscar.');
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      */
