@@ -31,5 +31,6 @@ class DatabaseSeeder extends Seeder
         $this->call([UserTableSeeder::class]);
         $this->call([InstructorTableSeeder::class]);
         $this->call([WorkDaysTableSeeder::class]);
+        $this->call([StatusApplicationTableSeeder::class]);
     }
 }

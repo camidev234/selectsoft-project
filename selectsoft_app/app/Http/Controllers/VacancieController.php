@@ -120,6 +120,28 @@ class VacancieController extends Controller
         ]);
     }
 
+    public function showToCandidate(Vacancie $vacancie) :View
+    {
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        $functions = $vacancie->charge->occupation->functions;
+        $educations = $vacancie->studies;
+        $company = $vacancie->company;
+        $candidate = $user->candidate;
+        if ($candidate) {
+            return view('/vacancie/showToCandidate', [
+                'user' => $user,
+                'role_id' => $role_id,
+                'vacancie' => $vacancie,
+                'functions' => $functions,
+                'studies' => $educations,
+                'company' => $company
+            ]);
+        } else {
+            abort(404, 'Resource Not Found');
+        }
+    }
+
     public function editStatus(Vacancie $vacancie):RedirectResponse{
 
         if($vacancie->is_active){

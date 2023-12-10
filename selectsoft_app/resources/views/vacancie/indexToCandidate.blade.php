@@ -23,7 +23,7 @@
                     <span>{{$vacant->company->business_name}}</span>
                     <span>Numero de vacantes: {{$vacant->number_vacancies}}</span>
                     <span>{{$vacant->city->city_name}}</span>
-                    <form action="" class="formDetail" method="get">
+                    <form action="{{route('vacancie.showCandidate', ['vacancie' => $vacant->id])}}" class="formDetail" method="get">
                         <button>Ver Detalle</button>
                     </form>
                 </article>

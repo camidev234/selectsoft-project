@@ -99,7 +99,7 @@
                         @endif
                     </td>
                     <td class="actions-l">
-                        <form action="{{route('udnin ')}}" method="get">
+                        <form action="{{route('vacancies.edit', ['vacancie' => $vacant->id, 'company' => $company->id])}}" method="get">
                             <button class="updateBtn">Actualizar</button>
                         </form>
                         <form action="{{route('vacancies.editStatus', ['vacancie' => $vacant->id])}}" method="post">

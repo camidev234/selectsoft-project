@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CandidateSupportController;
 use App\Http\Controllers\ChargeController;
@@ -81,6 +82,8 @@ Route::get('/candidate/updateProfile/{candidate}', [CandidateController::class, 
 Route::patch('/candidate/saveProfile/{candidate}', [CandidateController::class, 'updateProfile'])->name('candidate.saveProfile');
 Route::patch('/candidate/updateSkills/{candidate}', [CandidateController::class, 'updateSkills'])->name('candidate.saveSkills');
 Route::get('/vacancies/searchV', [VacancieController::class, 'indexToCandidate'])->name('vacancies.searchToCandidate');
+Route::get('/vacancie/showC/{vacancie}', [VacancieController::class, 'showToCandidate'])->name('vacancie.showCandidate')->middleware('auth');
+Route::post('/application/save/{user}/{vacancie}', [ApplicationsController::class, 'store'])->name('candidate.postulation');
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\applications;
+use App\Models\Candidate;
+use App\Models\User;
+use App\Models\Vacancie;
 use Illuminate\Http\Request;
 
 class ApplicationsController extends Controller
@@ -26,9 +29,41 @@ class ApplicationsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+
+    private function compareCurriculum(User $user, Vacancie $vacancie)
     {
-        //
+
+        $vacantStudies = $vacancie->studies;
+        $candidateStudies = $user->educations;
+        $totalScore = 0;
+        if ($vacantStudies->isEmpty() || $candidateStudies->isEmpty()) {
+            $totalScore = 0;
+        } else {
+            foreach ($vacantStudies as $vStudy) {
+                foreach ($candidateStudies as $cStudy) {
+                    if ($vStudy->study_level->id == $cStudy->study_level->id) {
+                        $pointsAssigned = $vStudy->points;
+                        $totalScore += $pointsAssigned;
+                    } else {
+                        continue;
+                    }
+                }
+            }
+
+        }
+
+        return $totalScore;
+    }
+    public function store(User $user, Vacancie $vacancie)
+    {
+        $newPostulation = new applications();
+        $newPostulation->vacant_id = $vacancie->id;
+        $newPostulation->candidate_id = $user->candidate->id;
+        $newPostulation->total_score = $this->compareCurriculum($user, $vacancie);
+        $newPostulation->status_applications_id = 1;
+        $newPostulation->save();
+
+        return redirect()->route('user.index');
     }
 
     /**

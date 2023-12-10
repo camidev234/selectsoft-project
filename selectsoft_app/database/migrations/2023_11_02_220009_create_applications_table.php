@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('candidate_id')->references('id')->on('candidates');
             $table->foreignId('vacant_id')->references('id')->on('vacancies');
-            $table->foreignId('statusApplications_id')->references('id')->on('status_aplications');
+            $table->foreignId('status_applications_id')->references('id')->on('status_aplications');
+            $table->unsignedBigInteger('total_score')->nullable();
             $table->timestamps();
         });
     }
