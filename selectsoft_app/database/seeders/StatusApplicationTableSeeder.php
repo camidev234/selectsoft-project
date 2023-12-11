@@ -16,5 +16,17 @@ class StatusApplicationTableSeeder extends Seeder
         $newStatus = new Status_aplications();
         $newStatus->status_name = 'Postulado';
         $newStatus->save();
+
+        $newStatus = new Status_aplications();
+        $newStatus->status_name = 'Cv Visto';
+        $newStatus->save();
+
+        $newStatus = new Status_aplications();
+        $newStatus->status_name = 'Seleccionado';
+        $newStatus->save();
+
+        $newStatus = new Status_aplications();
+        $newStatus->status_name = 'Finalista';
+        $newStatus->save();
     }
 }

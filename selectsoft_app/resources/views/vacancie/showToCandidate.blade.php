@@ -11,6 +11,13 @@
 <body>
     @extends('layout.header')
     @section('content')
+    @if(session()->has('message'))
+    <p id="message" style="display: none;">{{ session('message') }}</p>
+    <script>
+        const mes = document.getElementById('message')
+        alert(mes.textContent);
+    </script>
+    @endif
     <section class="title-page">
         <h2>Informacion de la vacante: {{$vacancie->vacancie_code}}</h2>
     </section>
@@ -56,13 +63,6 @@
             </section>
             <section class="status">
                 <article>
-                    <p><strong>Estado de la vacante: </strong>
-                    @if($vacancie->is_active)
-                    Activa
-                    @else
-                    Inactiva
-                    @endif
-                    </p>
                     <p><strong>Numero de postulados: </strong>0</p>
                 </article>
             </section>
@@ -95,16 +95,16 @@
                         </thead>
                         <tbody>
                             @forelse($studies as $study)
-                                <tr>
-                                    <td>{{$study->study_level->study_level}}</td>
-                                    <td>{{$study->study_status->study_status}}</td>
-                                    <td>{{$study->study_name}}</td>
-                                    <td>{{$study->points}}</td>
-                                </tr>
+                            <tr>
+                                <td>{{$study->study_level->study_level}}</td>
+                                <td>{{$study->study_status->study_status}}</td>
+                                <td>{{$study->study_name}}</td>
+                                <td>{{$study->points}}</td>
+                            </tr>
                             @empty
-                                <tr>
-                                    <td>Esta vacante no requiere algun estudio aun</td>
-                                </tr>
+                            <tr>
+                                <td>Esta vacante no requiere algun estudio aun</td>
+                            </tr>
                             @endforelse
                         </tbody>
                     </table>
@@ -115,33 +115,52 @@
                 <h3>Funciones </h3>
             </section>
             <section class="functions">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Funcion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($functions as $function)
-                            <tr>
-                                <td>{{$function->function}}</td>
-                            </tr>
-                            @empty
-                            <tr>
-                                <td>No hay funciones para la ocupacion de la vacante</td>
-                            </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Funcion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($functions as $function)
+                        <tr>
+                            <td>{{$function->function}}</td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td>No hay funciones para la ocupacion de la vacante</td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
             </section>
             @if($vacancie->is_active)
-            <article class="actionsVacancie">
-                <form action="{{route('candidate.postulation', ['user' => $user->id, 'vacancie' => $vacancie->id])}}" method="post">
-                @csrf
-                <button>Postularme</button>
-                </form>
-            </article>
+                @if($postulated)
+                <article class="actionsVacancie">
+                    <h5><i class="bi bi-check-circle-fill"></i> Estas postulado</h5>
+                </article>
+                @else
+                <article class="actionsVacancie">
+                    <form action="{{route('candidate.postulation', ['user' => $user->id, 'vacancie' => $vacancie->id])}}" method="post">
+                    @csrf
+                    <button>Postularme</button>
+                    </form>
+                </article>
+                @endif
+            @else
+                @if($postulated)
+                <article class="actionsVacancie">
+                    <h5><i class="bi bi-check-circle-fill"></i> Estas postulado</h5>
+                </article>
+                @else
+                <article class="actionsVacancie">
+                    <h5><i class="bi bi-emoji-frown-fill"></i> Vacante Inactiva, no puedes postularte</h5>
+                </article>
+                @endif
             @endif
+
+
+
             <section class="back">
                 <a href="{{ url()->previous() }}">Volver</a>
             </section>

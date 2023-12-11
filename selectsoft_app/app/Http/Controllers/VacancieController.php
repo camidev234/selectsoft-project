@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateVacancieRequest;
 use App\Http\Requests\VacancieRequest;
+use App\Models\applications;
 use App\Models\Charge;
 use App\Models\City;
 use App\Models\Company;
@@ -128,6 +129,12 @@ class VacancieController extends Controller
         $educations = $vacancie->studies;
         $company = $vacancie->company;
         $candidate = $user->candidate;
+
+        $application = applications::where('candidate_id', $candidate->id)
+                           ->where('vacant_id', $vacancie->id)->get();
+
+        $is_postulated = $application->isEmpty() ? false : true;
+
         if ($candidate) {
             return view('/vacancie/showToCandidate', [
                 'user' => $user,
@@ -135,7 +142,8 @@ class VacancieController extends Controller
                 'vacancie' => $vacancie,
                 'functions' => $functions,
                 'studies' => $educations,
-                'company' => $company
+                'company' => $company,
+                'postulated' => $is_postulated
             ]);
         } else {
             abort(404, 'Resource Not Found');

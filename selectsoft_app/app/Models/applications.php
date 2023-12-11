@@ -14,7 +14,7 @@ class applications extends Model
         return $this->belongsTo(Status_aplications::class, 'statusApplications_id', 'id');
     }
 
-    public function vacants() :BelongsTo {
+    public function vacant() :BelongsTo {
         return $this->belongsTo(Vacancie::class);
     }
 

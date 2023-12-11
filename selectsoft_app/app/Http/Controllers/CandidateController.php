@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SkillsCandidateRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use App\Models\applications;
 use App\Models\Candidate;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -27,6 +28,8 @@ class CandidateController extends Controller
 
         // Candidate::where('user_id', $user->id)->first();
         $candidate = $user->candidate;
+
+        $applications = applications::where('candidate_id', $candidate->id)->get();
 
         $profile = $candidate->occupational_profile;
 
@@ -58,7 +61,8 @@ class CandidateController extends Controller
             'experiences' => $countExperiencies,
             'educations' => $countEducations,
             'supports' => $countSupports,
-            'profile' => $profile
+            'profile' => $profile,
+            'applications' => $applications
         ]);
     }
 

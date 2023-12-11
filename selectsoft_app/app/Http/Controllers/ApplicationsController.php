@@ -36,6 +36,7 @@ class ApplicationsController extends Controller
         $vacantStudies = $vacancie->studies;
         $candidateStudies = $user->educations;
         $totalScore = 0;
+
         if ($vacantStudies->isEmpty() || $candidateStudies->isEmpty()) {
             $totalScore = 0;
         } else {
@@ -63,7 +64,7 @@ class ApplicationsController extends Controller
         $newPostulation->status_applications_id = 1;
         $newPostulation->save();
 
-        return redirect()->route('user.index');
+        return redirect()->back()->with('message', 'Postulacion para la vacante '. $vacancie->vacancie_code . ' realizada con exito');
     }
 
     /**
