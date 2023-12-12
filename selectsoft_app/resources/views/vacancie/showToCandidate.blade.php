@@ -63,7 +63,7 @@
             </section>
             <section class="status">
                 <article>
-                    <p><strong>Numero de postulados: </strong>0</p>
+                    <p><strong>Numero de postulados: </strong>{{$applicants}}</p>
                 </article>
             </section>
             <section class="generalTitle">

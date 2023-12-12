@@ -61,7 +61,7 @@
                     Inactiva
                     @endif
                     </p>
-                    <p><strong>Numero de postulados: </strong>0</p>
+                    <p><strong>Numero de postulados: </strong>{{$applicants}}</p>
                 </article>
             </section>
             <section class="generalTitle">
@@ -151,9 +151,11 @@
                     @method('PATCH')
                     <button>Cambiar estado</button>
                 </form>
+                @if($applicants > 0)
                 <form action="" method="post">
                     <button>Ver postulados</button>
                 </form>
+                @endif
             </article>
             <section class="back">
                 <a href="{{route('vacancies.index', ['company' => $company->id])}}">Volver</a>

@@ -23,7 +23,11 @@
                 <h4>Seleccionadores: {{$selectors}}</h4>
             </section><br>
             <section class="back">
+                @if($role_id == 3)
                 <a href="{{route('recruiter.index')}}">Volver</a>
+                @elseif($role_id == 2)
+                <a href="{{route('selector.index')}}">Volver</a>
+                @endif
             </section>
         </section>
         @endsection

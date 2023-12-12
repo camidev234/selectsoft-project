@@ -13,10 +13,15 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('candidate_id')->references('id')->on('candidates');
-            $table->foreignId('vacant_id')->references('id')->on('vacancies');
+            $table->foreignId('candidate_id')->references('id')->on('candidates')->onDelete('cascade');
+            $table->foreignId('vacant_id')->references('id')->on('vacancies')->onDelete('cascade');
             $table->foreignId('status_applications_id')->references('id')->on('status_aplications');
-            $table->unsignedBigInteger('total_score')->nullable();
+            $table->unsignedBigInteger('education_score')->nullable()->default(0);
+            $table->unsignedBigInteger('interview_score')->nullable()->default(0);
+            $table->unsignedBigInteger('technical_test_score')->nullable()->default(0);
+            $table->unsignedBigInteger('language_test_score')->nullable()->default(0);
+            $table->unsignedBigInteger('tersonality_test')->nullable()->default(0);
+            $table->unsignedBigInteger('total_score')->nullable()->default(0);
             $table->timestamps();
         });
     }

@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('citations', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->string('message',400);
-            $table->string('place',100);
-            $table->foreignId('person_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('selector_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('application_id')->references('id')->on('applications')->onDelete('cascade');
+            $table->set('citation_type', ['interview', 'Technical Test', 'Language Test', 'Personality Test']);
+            $table->string('from', 80);
+            $table->string('to', 80);
+            $table->string('Asunto', 80);
+            $table->string('message', 900);
+            $table->string('send_by', 100);
             $table->timestamps();
         });
     }

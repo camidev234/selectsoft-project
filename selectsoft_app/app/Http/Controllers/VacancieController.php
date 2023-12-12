@@ -111,13 +111,17 @@ class VacancieController extends Controller
         $functions = $vacancie->charge->occupation->functions;
         $educations = $vacancie->studies;
         $company = $vacancie->company;
+        $applicants = applications::where('vacant_id', $vacancie->id)->get();
+
+        $countApplicants = $applicants->isEmpty() ? 0 : $applicants->count();
         return view('/vacancie/showRecruiter', [
             'user' => $user,
             'role_id' => $role_id,
             'vacancie' => $vacancie,
             'functions' => $functions,
             'studies' => $educations,
-            'company' => $company
+            'company' => $company,
+            'applicants' => $countApplicants
         ]);
     }
 
@@ -135,6 +139,10 @@ class VacancieController extends Controller
 
         $is_postulated = $application->isEmpty() ? false : true;
 
+        $applicants = applications::where('vacant_id', $vacancie->id)->get();
+
+        $countApplicants = $applicants->isEmpty() ? 0 : $applicants->count();
+
         if ($candidate) {
             return view('/vacancie/showToCandidate', [
                 'user' => $user,
@@ -143,7 +151,8 @@ class VacancieController extends Controller
                 'functions' => $functions,
                 'studies' => $educations,
                 'company' => $company,
-                'postulated' => $is_postulated
+                'postulated' => $is_postulated,
+                'applicants' => $countApplicants
             ]);
         } else {
             abort(404, 'Resource Not Found');

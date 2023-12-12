@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\applications;
+use App\Models\Company;
 use App\Models\Selector;
+use App\Models\Vacancie;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,13 +17,47 @@ class SelectorController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $role_id = $user->role_id;
+        try {
+            $user = Auth::user();
+            $role_id = $user->role_id;
+            $selector = $user->selector;
+            if ($selector) {
+                $find = false;
+                $allCompanies = Company::all();
+                if ($selector->company_id == null) {
+                    return view('company.indexCompany', [
+                        'user' => $user,
+                        'role_id' => $role_id,
+                        'find' => $find,
+                        'allCompanies' => $allCompanies,
+                        'selector' => $selector
+                    ]);
+                } else {
+                    $company = $selector->company;
+                    $vacancies = Vacancie::where('company_id', $company->id)->pluck('id');
+                    $applications = applications::whereIn('vacant_id', $vacancies)->get();
+                    return view('/selector/indexSelector', [
+                        'user' => $user,
+                        'role_id' => $role_id,
+                        'selector' => $selector,
+                        'company' => $company
 
-        return view('/selector/indexSelector', [
-            'user' => $user,
-            'role_id' => $role_id
-        ]);
+                    ]);
+                }
+            }
+        } catch (Exception $e) {
+            abort(404, 'Resource Not Found');
+        }
+    }
+
+
+    public function joinCompany(Company $company, Selector $selector)
+    {
+        $selector->company_id = $company->id;
+
+        $selector->save();
+
+        return redirect()->route('selector.index');
     }
 
     /**

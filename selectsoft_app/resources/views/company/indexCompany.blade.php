@@ -48,9 +48,15 @@
                         <td>{{$company->nit}}</td>
                         <td>{{$company->business_name}}</td>
                         <td>
+                            @if($role_id == 3)
                             <form action="{{route('recruiter.joinCompany', ['company' => $company->id])}}" method="get">
                                 <button>Vincularse</button>
                             </form>
+                            @else
+                            <form action="" method="get">
+                                <button>Vincularse Seleccionador</button>
+                            </form>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
@@ -71,9 +77,15 @@
                         <td>{{$company->nit}}</td>
                         <td>{{$company->business_name}}</td>
                         <td>
+                            @if($role_id == 3)
                             <form action="{{route('recruiter.joinCompany', ['company' => $company->id])}}" method="get">
                                 <button>Vincularse</button>
                             </form>
+                            @else
+                            <form action="{{route('selector.joinCompany', ['company' => $company->id, 'selector' => $selector->id])}}" method="get">
+                                <button>Vincularse</button>
+                            </form>
+                            @endif
                         </td>
                     </tr>
                     @empty

@@ -87,7 +87,7 @@ Route::post('/application/save/{user}/{vacancie}', [ApplicationsController::clas
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');
-
+Route::get('/selector/joinCompany/{company}/{selector}', [SelectorController::class, 'joinCompany'])->name('selector.joinCompany');
 // recruiter routes
 
 

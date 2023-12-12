@@ -60,7 +60,7 @@ class ApplicationsController extends Controller
         $newPostulation = new applications();
         $newPostulation->vacant_id = $vacancie->id;
         $newPostulation->candidate_id = $user->candidate->id;
-        $newPostulation->total_score = $this->compareCurriculum($user, $vacancie);
+        $newPostulation->education_score = $this->compareCurriculum($user, $vacancie);
         $newPostulation->status_applications_id = 1;
         $newPostulation->save();
 
