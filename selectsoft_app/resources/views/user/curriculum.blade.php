@@ -113,7 +113,7 @@
             </section>
             <textarea name="skills" id="" cols="30" rows="12">{{old('skills') ?: $candidate->skills}}</textarea><br>
             @error('skills')
-                <span style="color: red;">{{$message}}</span>
+            <span style="color: red;">{{$message}}</span>
             @enderror
             <button>Guardar</button>
         </form>

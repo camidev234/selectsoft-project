@@ -7,6 +7,17 @@
     gap: 30px;
 }
 
+.modalOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 34, 34, 0.6); /* Fondo oscuro con opacidad */
+    z-index: 999;
+}
+
 .info form  {
     display: flex;
     justify-content: center;
@@ -106,6 +117,10 @@
     height: 85%;
 }
 
+.vacantCode a {
+    text-decoration: none;
+}
+
 .applications article div {
     height: 100%;
     width: 22%;
@@ -116,13 +131,11 @@
 
 .vc .vacantCode {
     width: 80%;
-    background-color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 15px;
 }
-
-
 
 .appActions article div  {
     height: 100%;
@@ -138,7 +151,7 @@
 .vacantCode h4 {
     margin: 0;
     font-size: 18px;
-    color: white;
+    color: black;
 }
 
 .vacantJob span,
@@ -149,13 +162,101 @@
     color: #555;
 }
 
-.actions i {
+.actions .formActions i {
     font-size: 24px;
-    color: #3498db;
+    color: white;
     cursor: pointer;
 }
 
-.actions i:hover {
-    color: #2980b9;
+
+/* Estilos generales */
+.modalWindow {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #ffffff;
+    z-index: 1000;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 1000px;
+    max-height: 400px;
+    text-align: center;
+    border-radius: 10px;
+    overflow: auto;
 }
+
+/* Estilos para el botón de cerrar */
+#close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Title Page Styles */
+.title-page {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* General Info Styles */
+.general {
+    margin-bottom: 20px;
+}
+
+.generalTitle {
+    background-color: #2193b0;
+    height: 55px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.generalTitle h3 {
+    font-size: 1.5em;
+}
+
+.generalInfo,
+.otherGeneralInfo,
+.locationInfo,
+status,
+.skills {
+    margin-bottom: 20px;
+}
+
+.locationInfo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Location Info Styles */
+.locationInfo article {
+    margin-bottom: 10px;
+}
+
+/* Status Styles */
+.status article {
+    font-weight: bold;
+    color: #006600; /* Green for active, you can change the color */
+}
+
+/* Skills Styles */
+.skills h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Responsive Styles (Optional) */
+@media (max-width: 768px) {
+    .modalWindow {
+        width: 90%;
+    }
+}
+
 

@@ -34,14 +34,13 @@ class SelectorController extends Controller
                     ]);
                 } else {
                     $company = $selector->company;
-                    $vacancies = Vacancie::where('company_id', $company->id)->pluck('id');
-                    $applications = applications::whereIn('vacant_id', $vacancies)->get();
+                    $vacancies = Vacancie::where('company_id', $company->id)->get();
                     return view('/selector/indexSelector', [
                         'user' => $user,
                         'role_id' => $role_id,
                         'selector' => $selector,
-                        'company' => $company
-
+                        'company' => $company,
+                        'vacants' => $vacancies
                     ]);
                 }
             }
