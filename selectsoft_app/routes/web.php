@@ -4,6 +4,7 @@ use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CandidateSupportController;
 use App\Http\Controllers\ChargeController;
+use App\Http\Controllers\CitationController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EducationPersonController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -97,6 +98,7 @@ Route::get('/updateTechcnicalScore/{application}', [ApplicationsController::clas
 Route::patch('/selector/updateTechnicalScore/{application}', [ApplicationsController::class, 'updateTechnicalScore'])->name('selector.updateTechnicalScore');
 Route::get('/updatePersonalityScore/{application}', [ApplicationsController::class, 'personality'])->name('selector.personality')->middleware('auth');
 Route::patch('/selector/updatePersonalityScore/{application}', [ApplicationsController::class, 'updatePersonalityScore'])->name('selector.personalityScore');
+Route::get('/selector/createCitation/{application}', [CitationController::class, 'create'])->name('selector.createCitation')->middleware('auth');
 // recruiter routes
 
 Route::get('/recruiter/home', [RecruiterController::class, 'index'])->name('recruiter.index')->middleware('auth');

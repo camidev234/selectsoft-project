@@ -91,7 +91,7 @@
                             <form action="" class="actionForm2">
                                 <button><i class="bi bi-arrow-left-right"></i></button>
                             </form>
-                            <form action="" class="actionForm2">
+                            <form action="{{route('selector.createCitation', ['application' => $application->id])}}" class="actionForm2">
                                 <button><i class="bi bi-envelope-open-fill"></i></button>
                             </form>
                         </td>
