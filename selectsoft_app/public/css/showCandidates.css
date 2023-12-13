@@ -1,0 +1,88 @@
+td span.score {
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* Acciones en línea */
+td .actionForm, .actionForm2 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+td .actionForm button {
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #2ecc71;
+    vertical-align: middle;
+}
+
+.container {
+    max-width: 1245px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.containerTable {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #2193b0;
+    color: #fff;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Acciones (Botones) */
+
+.actionForm2 button {
+    background-color: #2193b0;
+    border: none;
+    outline: none;
+    padding: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.actionForm2 button i {
+    font-size: 12px;
+}
+
+/* Estilos para íconos Bootstrap (bi) */
+.bi {
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+/* Responsive Styles (Opcional) */
+@media (max-width: 768px) {
+    th, td {
+        font-size: 14px;
+    }
+
+    .actionForm button {
+        padding: 3px 6px;
+    }
+}

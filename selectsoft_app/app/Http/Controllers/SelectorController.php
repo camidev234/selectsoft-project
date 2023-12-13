@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\applications;
 use App\Models\Company;
+use App\Models\Recruiter;
 use App\Models\Selector;
 use App\Models\Vacancie;
 use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -57,6 +59,52 @@ class SelectorController extends Controller
         $selector->save();
 
         return redirect()->route('selector.index');
+    }
+
+
+    public function disassociateCompany(Company $company) :RedirectResponse {
+        try{
+            $user = Auth::user();
+
+            $selector = $user->selector;
+            $selector->company_id = null;
+            $selector->save();
+
+            $recruiters = Recruiter::where('company_id', $company->id)->get();
+            $selectors = Selector::where('company_id', $company->id)->get();
+            if ($recruiters->isEmpty() && $selectors->isEmpty()){
+            $company->delete();
+            }
+
+        return redirect()->route('selector.index');
+        } catch(Exception $e) {
+            abort(404, 'Resource Not Found');
+        }
+    }
+
+    public function viewCurriculum(applications $application) {
+        try {
+            $candidate = $application->candidate;
+            $educations = $candidate->user->educations;
+            $experiences = $candidate->user->experiences;
+
+            $user = Auth::user();
+            $role_id = $user->role_id;
+
+            $application->status_applications_id = 2;
+            $application->save();
+
+            return view('/selector/showCurriculum', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'educations' => $educations,
+            'experiencies' => $experiences,
+            'candidate' => $candidate
+        ]);
+        } catch (Exception $e){
+            abort(404, 'Resource not found');
+        }
+
     }
 
     /**

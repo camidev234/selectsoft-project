@@ -19,7 +19,7 @@ class applications extends Model
         return $this->belongsTo(Vacancie::class);
     }
 
-    public function status_application() :BelongsTo {
+    public function status_applications() :BelongsTo {
         return $this->belongsTo(Status_aplications::class);
     }
 

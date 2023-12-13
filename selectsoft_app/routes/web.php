@@ -88,6 +88,9 @@ Route::post('/application/save/{user}/{vacancie}', [ApplicationsController::clas
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');
 Route::get('/selector/joinCompany/{company}/{selector}', [SelectorController::class, 'joinCompany'])->name('selector.joinCompany');
+Route::get('/selector/viewApplications/{vacancie}', [ApplicationsController::class, 'showApplications'])->name('selector.viewApplications')->middleware('auth');
+Route::post('/selector/disCompany/{company}', [SelectorController::class, 'disassociateCompany'])->name('selector.dissasociate');
+Route::get('/selector/viewCurriculum/{application}', [SelectorController::class, 'viewCurriculum'])->name('selector.curriculum')->middleware('auth');
 // recruiter routes
 
 

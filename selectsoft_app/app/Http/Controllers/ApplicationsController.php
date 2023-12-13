@@ -6,7 +6,9 @@ use App\Models\applications;
 use App\Models\Candidate;
 use App\Models\User;
 use App\Models\Vacancie;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ApplicationsController extends Controller
 {
@@ -62,9 +64,23 @@ class ApplicationsController extends Controller
         $newPostulation->candidate_id = $user->candidate->id;
         $newPostulation->education_score = $this->compareCurriculum($user, $vacancie);
         $newPostulation->status_applications_id = 1;
+        $newPostulation->total_score = $this->compareCurriculum($user, $vacancie);
         $newPostulation->save();
 
         return redirect()->back()->with('message', 'Postulacion para la vacante '. $vacancie->vacancie_code . ' realizada con exito');
+    }
+
+    public function showApplications(Vacancie $vacancie) :View {
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        $applications = applications::where('vacant_id', $vacancie->id)
+            ->orderBy('total_score', 'desc')->orderBy('status_applications_id', 'asc')->get();
+
+        return view('selector/showCandidates', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'applications' => $applications
+        ]);
     }
 
     /**

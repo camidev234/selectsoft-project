@@ -22,7 +22,7 @@
             </section>
         </section>
         <section class="disassociate">
-            <form action="{{route('recruiter.disassociate', ['company' => $company->id])}}" method="post">
+            <form action="{{route('selector.dissasociate', ['company' => $company->id])}}" method="post">
                 @csrf
                 <button>Salir de la empresa</button>
             </form>
@@ -147,7 +147,7 @@
                         <span>Creada: {{$vacant->created_at}}</span>
                     </div>
                     <div class="actions">
-                        <form action="" class="formAction">
+                        <form action="{{route('selector.viewApplications', ['vacancie' => $vacant->id])}}" class="formAction" method="get">
                             <button><i class="bi bi-eye-fill"> Ver postulados</i></button>
                         </form>
                     </div>
