@@ -63,19 +63,19 @@
                         @else
                         <td>
                             <span class="score">{{$application->interview_score}}</span>
-                            <form action="" class="actionForm edit">
+                            <form action="{{route('selector.interwiew', ['application' => $application->id])}}" class="actionForm edit" >
                                 <button class="openModalButton"><i class="bi bi-pencil-square"></i></button>
                             </form>
                         </td>
                         <td>
                             <span class="score">{{$application->technical_test_score}}</span>
-                            <form action="" class="actionForm edit">
+                            <form action="{{route('selector.technical', ['application' => $application->id])}}" class="actionForm edit">
                                 <button class="openModalButtonTwo"><i class="bi bi-pencil-square"></i></button>
                             </form>
                         </td>
                         <td>
                             <span class="score">{{$application->tersonality_test}}</span>
-                            <form action="" class="actionForm edit">
+                            <form action="{{route('selector.personality', ['application' => $application->id])}}" class="actionForm edit">
                                 <button class="openModalButtonThree"><i class="bi bi-pencil-square"></i></button>
                             </form>
                         </td>

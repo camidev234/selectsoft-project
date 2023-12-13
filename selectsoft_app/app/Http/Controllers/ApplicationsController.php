@@ -87,32 +87,73 @@ class ApplicationsController extends Controller
         ]);
     }
 
+    public function interview(applications $application) :View {
+        $user = Auth::user();
+        $role_id = $user->role_id;
+
+        return view('/application/editInterviewScore', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'application' => $application
+        ]);
+    }
+
     public function updateInterwievScore(UpdateScoreRequest $request,applications $application) {
-        $application->interview_score = $request->new_score;
-        $application->total_score += $request->new_score;
+        if($request->opperation == 1){
+            $application->interview_score += $request->new_score;
+            $application->total_score += $request->new_score;
+        } else {
+            $application->interview_score -= $request->new_score;
+            $application->total_score -= $request->new_score;
+        }
         $application->save();
         $vacancie = $application->vacant;
         return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
+    }
+
+    public function technical(applications $application) :View {
+        $user = Auth::user();
+        $role_id = $user->role_id;
+
+        return view('/application/editTechnicalScore', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'application' => $application
+        ]);
     }
 
     public function updateTechnicalScore(UpdateScoreRequest $request,applications $application) {
-        $application->technical_test_score = $request->new_score;
-        $application->total_score += $request->new_score;
+        if($request->opperation == 1){
+            $application->technical_test_score += $request->new_score;
+            $application->total_score += $request->new_score;
+        } else {
+            $application->technical_test_score -= $request->new_score;
+            $application->total_score -= $request->new_score;
+        }
         $application->save();
         $vacancie = $application->vacant;
         return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
+    }
+
+    public function personality(applications $application) :View {
+        $user = Auth::user();
+        $role_id = $user->role_id;
+
+        return view('/application/editPersonaltyScore', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'application' => $application
+        ]);
     }
 
     public function updatePersonalityScore(UpdateScoreRequest $request,applications $application) {
-        $application->tersonality_test = $request->new_score;
-        $application->total_score += $request->new_score;
-        $application->save();
-        $vacancie = $application->vacant;
-        return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
-    }
-
-    public function updateTotalScore(UpdateScoreRequest $request,applications $application) {
-        $application->total_score += $request->new_score;
+        if($request->opperation == 1){
+            $application->tersonality_test += $request->new_score;
+            $application->total_score += $request->new_score;
+        } else {
+            $application->tersonality_test -= $request->new_score;
+            $application->total_score -= $request->new_score;
+        }
         $application->save();
         $vacancie = $application->vacant;
         return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);

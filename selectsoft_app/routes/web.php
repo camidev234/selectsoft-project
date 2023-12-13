@@ -91,10 +91,12 @@ Route::get('/selector/joinCompany/{company}/{selector}', [SelectorController::cl
 Route::get('/selector/viewApplications/{vacancie}', [ApplicationsController::class, 'showApplications'])->name('selector.viewApplications')->middleware('auth');
 Route::post('/selector/disCompany/{company}', [SelectorController::class, 'disassociateCompany'])->name('selector.dissasociate');
 Route::get('/selector/viewCurriculum/{application}', [SelectorController::class, 'viewCurriculum'])->name('selector.curriculum')->middleware('auth');
+Route::get('/updateInterview/{application}', [ApplicationsController::class, 'interview'])->name('selector.interwiew')->middleware('auth');
 Route::patch('/selector/updateInterviewScore/{application}', [ApplicationsController::class, 'updateInterwievScore'])->name('selector.updateInterviewScore');
+Route::get('/updateTechcnicalScore/{application}', [ApplicationsController::class, 'technical'])->name('selector.technical')->middleware('auth');
 Route::patch('/selector/updateTechnicalScore/{application}', [ApplicationsController::class, 'updateTechnicalScore'])->name('selector.updateTechnicalScore');
+Route::get('/updatePersonalityScore/{application}', [ApplicationsController::class, 'personality'])->name('selector.personality')->middleware('auth');
 Route::patch('/selector/updatePersonalityScore/{application}', [ApplicationsController::class, 'updatePersonalityScore'])->name('selector.personalityScore');
-Route::patch('/selector/updateTotalScore/{application}', [ApplicationsController::class, 'updateTotalScore'])->name('selector.updateTotalScore');
 // recruiter routes
 
 Route::get('/recruiter/home', [RecruiterController::class, 'index'])->name('recruiter.index')->middleware('auth');
