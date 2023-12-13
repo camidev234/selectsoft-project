@@ -1,3 +1,15 @@
+.modalOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 34, 34, 0.6); /* Fondo oscuro con opacidad */
+    z-index: 999;
+}
+
+
 td span.score {
     display: inline-block;
     margin-right: 5px;
@@ -74,6 +86,50 @@ tbody tr:nth-child(even) {
 .bi {
     font-size: 1.2rem;
     vertical-align: middle;
+}
+
+.modalWindow {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #ffffff;
+    z-index: 1000;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    max-height: 400px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.modalWindow .close {
+    width: 100%;
+}
+
+.close {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+.close i {
+    cursor: pointer;
+}
+
+.modalWindow form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modalWindow label {
+    margin-bottom: 10px;
+    font-size: 16px;
 }
 
 /* Responsive Styles (Opcional) */

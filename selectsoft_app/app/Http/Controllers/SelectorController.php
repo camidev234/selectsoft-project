@@ -91,8 +91,10 @@ class SelectorController extends Controller
             $user = Auth::user();
             $role_id = $user->role_id;
 
-            $application->status_applications_id = 2;
-            $application->save();
+            if($application->status_applications_id == 1 ){
+                $application->status_applications_id = 2;
+                $application->save();
+            }
 
             return view('/selector/showCurriculum', [
             'user' => $user,

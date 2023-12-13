@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateScoreRequest;
 use App\Models\applications;
 use App\Models\Candidate;
 use App\Models\User;
 use App\Models\Vacancie;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PHPUnit\TextUI\Configuration\Variable;
+use Ramsey\Uuid\Type\Integer;
 
 class ApplicationsController extends Controller
 {
@@ -57,7 +61,7 @@ class ApplicationsController extends Controller
 
         return $totalScore;
     }
-    public function store(User $user, Vacancie $vacancie)
+    public function store(User $user, Vacancie $vacancie) :RedirectResponse
     {
         $newPostulation = new applications();
         $newPostulation->vacant_id = $vacancie->id;
@@ -81,6 +85,37 @@ class ApplicationsController extends Controller
             'role_id' => $role_id,
             'applications' => $applications
         ]);
+    }
+
+    public function updateInterwievScore(UpdateScoreRequest $request,applications $application) {
+        $application->interview_score = $request->new_score;
+        $application->total_score += $request->new_score;
+        $application->save();
+        $vacancie = $application->vacant;
+        return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
+    }
+
+    public function updateTechnicalScore(UpdateScoreRequest $request,applications $application) {
+        $application->technical_test_score = $request->new_score;
+        $application->total_score += $request->new_score;
+        $application->save();
+        $vacancie = $application->vacant;
+        return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
+    }
+
+    public function updatePersonalityScore(UpdateScoreRequest $request,applications $application) {
+        $application->tersonality_test = $request->new_score;
+        $application->total_score += $request->new_score;
+        $application->save();
+        $vacancie = $application->vacant;
+        return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
+    }
+
+    public function updateTotalScore(UpdateScoreRequest $request,applications $application) {
+        $application->total_score += $request->new_score;
+        $application->save();
+        $vacancie = $application->vacant;
+        return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
     }
 
     /**

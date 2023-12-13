@@ -12,6 +12,7 @@
     @extends('layout.header')
     @section('content')
     <section class="container">
+        <div class="modalOverlay"></div>
         <section class="containerTable">
             <table>
                 <thead>
@@ -42,51 +43,44 @@
                         <td>
                             <span class="score">{{$application->interview_score}}</span>
                             <form action="" class="actionForm edit">
-
                             </form>
                         </td>
                         <td>
                             <span class="score">{{$application->technical_test_score}}</span>
                             <form action="" class="actionForm edit">
-
                             </form>
                         </td>
                         <td>
                             <span class="score">{{$application->tersonality_test}}</span>
                             <form action="" class="actionForm edit">
-
                             </form>
                         </td>
                         <td>
                             <span class="score">{{$application->total_score}}</span>
                             <form action="" class="actionForm edit">
-
                             </form>
                         </td>
                         @else
                         <td>
                             <span class="score">{{$application->interview_score}}</span>
                             <form action="" class="actionForm edit">
-                                <button><i class="bi bi-pencil-square"></i></button>
+                                <button class="openModalButton"><i class="bi bi-pencil-square"></i></button>
                             </form>
                         </td>
                         <td>
                             <span class="score">{{$application->technical_test_score}}</span>
                             <form action="" class="actionForm edit">
-                                <button><i class="bi bi-pencil-square"></i></button>
+                                <button class="openModalButtonTwo"><i class="bi bi-pencil-square"></i></button>
                             </form>
                         </td>
                         <td>
                             <span class="score">{{$application->tersonality_test}}</span>
                             <form action="" class="actionForm edit">
-                                <button><i class="bi bi-pencil-square"></i></button>
+                                <button class="openModalButtonThree"><i class="bi bi-pencil-square"></i></button>
                             </form>
                         </td>
                         <td>
                             <span class="score">{{$application->total_score}}</span>
-                            <form action="" class="actionForm edit">
-                                <button><i class="bi bi-pencil-square"></i></button>
-                            </form>
                         </td>
                         @endif
                         <td>{{$application->status_applications->status_name}}</td>
@@ -111,6 +105,37 @@
             </table>
         </section>
     </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var modals = document.querySelectorAll('.modalWindow');
+        var modalOverlay = document.querySelector('.modalOverlay');
+
+        modals.forEach(function(modal) {
+            var openModalButton = modal.previousElementSibling.querySelector('.openModalButton');
+            var closeModalButton = modal.querySelector('.close');
+
+            openModalButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                modal.style.display = 'block';
+                modalOverlay.style.display = 'block';
+            });
+
+            closeModalButton.addEventListener('click', function() {
+                modal.style.display = 'none';
+                modalOverlay.style.display = 'none';
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target === modalOverlay) {
+                    modal.style.display = 'none';
+                    modalOverlay.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
     @endsection
 </body>
 

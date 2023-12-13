@@ -91,8 +91,11 @@ Route::get('/selector/joinCompany/{company}/{selector}', [SelectorController::cl
 Route::get('/selector/viewApplications/{vacancie}', [ApplicationsController::class, 'showApplications'])->name('selector.viewApplications')->middleware('auth');
 Route::post('/selector/disCompany/{company}', [SelectorController::class, 'disassociateCompany'])->name('selector.dissasociate');
 Route::get('/selector/viewCurriculum/{application}', [SelectorController::class, 'viewCurriculum'])->name('selector.curriculum')->middleware('auth');
+Route::patch('/selector/updateInterviewScore/{application}', [ApplicationsController::class, 'updateInterwievScore'])->name('selector.updateInterviewScore');
+Route::patch('/selector/updateTechnicalScore/{application}', [ApplicationsController::class, 'updateTechnicalScore'])->name('selector.updateTechnicalScore');
+Route::patch('/selector/updatePersonalityScore/{application}', [ApplicationsController::class, 'updatePersonalityScore'])->name('selector.personalityScore');
+Route::patch('/selector/updateTotalScore/{application}', [ApplicationsController::class, 'updateTotalScore'])->name('selector.updateTotalScore');
 // recruiter routes
-
 
 Route::get('/recruiter/home', [RecruiterController::class, 'index'])->name('recruiter.index')->middleware('auth');
 Route::post('/createCompany', [CompanyController::class, 'store'])->name('company.store');
