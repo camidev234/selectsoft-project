@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CitationRequest;
+use App\Mail\CitationMailable;
 use App\Models\applications;
+use App\Models\Citation;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CitationController extends Controller
 {
@@ -35,9 +41,24 @@ class CitationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CitationRequest $request, applications $application) :RedirectResponse
     {
-        //
+
+            $newCitation = new Citation();
+            $newCitation->application_id = $application->id;
+            $newCitation->citation_type = $request->citation_type;
+            $newCitation->from = $request->from;
+            $newCitation->to = $request->to;
+            $newCitation->Asunto = $request->subject;
+            $newCitation->message = $request->message;
+            $newCitation->send_by = Auth::user()->email;
+            $newCitation->save();
+
+            $mail = $request->to;
+            Mail::to($mail)
+            ->send(new CitationMailable($request->from, $request->subject, $request->message));
+
+            return redirect()->route('selector.viewApplications', ['vacancie' => $application->vacant]);
     }
 
     /**

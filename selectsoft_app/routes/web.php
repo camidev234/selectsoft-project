@@ -99,6 +99,7 @@ Route::patch('/selector/updateTechnicalScore/{application}', [ApplicationsContro
 Route::get('/updatePersonalityScore/{application}', [ApplicationsController::class, 'personality'])->name('selector.personality')->middleware('auth');
 Route::patch('/selector/updatePersonalityScore/{application}', [ApplicationsController::class, 'updatePersonalityScore'])->name('selector.personalityScore');
 Route::get('/selector/createCitation/{application}', [CitationController::class, 'create'])->name('selector.createCitation')->middleware('auth');
+Route::post('/citations/storeCitation/{application}', [CitationController::class, 'store'])->name('selector.storeCitation');
 // recruiter routes
 
 Route::get('/recruiter/home', [RecruiterController::class, 'index'])->name('recruiter.index')->middleware('auth');

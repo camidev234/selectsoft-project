@@ -5,9 +5,11 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use PhpParser\Node\Expr\Cast\String_;
 
 class CitationMailable extends Mailable
 {
@@ -16,9 +18,15 @@ class CitationMailable extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+
+    private $emailCompany;
+    public $subject;
+    private $message;
+    public function __construct($emailCompany, $subject, $message)
     {
-        //
+        $this->emailCompany = $emailCompany;
+        $this->subject = $subject;
+        $this->message = $message;
     }
 
     /**
@@ -27,7 +35,8 @@ class CitationMailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Citation Mailable',
+            from: new Address($this->emailCompany),
+            subject: $this->subject,
         );
     }
 
@@ -37,7 +46,7 @@ class CitationMailable extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.citation',
         );
     }
 
@@ -49,5 +58,13 @@ class CitationMailable extends Mailable
     public function attachments(): array
     {
         return [];
+    }
+
+    public function build()
+    {
+        return $this->view('emails.citation')
+                    ->with([
+                        'citation' => $this->message
+                    ]);
     }
 }
