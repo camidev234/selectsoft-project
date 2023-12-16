@@ -66,6 +66,7 @@
                                 <button><i class="bi bi-pencil-square"></i></button>
                             </form>
                         </td>
+
                         <td>
                             <span class="score">{{$application->interview_score}}</span>
                             <form action="{{route('selector.interwiew', ['application' => $application->id])}}" class="actionForm edit">
