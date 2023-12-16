@@ -132,6 +132,16 @@ tbody tr:nth-child(even) {
     font-size: 16px;
 }
 
+.modalWindow form button {
+    background-color: #2193b0;
+    border: none;
+    outline: none;
+    height: 25px;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
 /* Responsive Styles (Opcional) */
 @media (max-width: 768px) {
     th, td {

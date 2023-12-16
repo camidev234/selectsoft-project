@@ -33,13 +33,12 @@
                     <tr>
                         <td>{{$application->candidate->user->number_document}}</td>
                         <td>{{$application->candidate->user->name}} {{$application->candidate->user->last_name}}</td>
+                        @if($application->status_applications_id == 1 || $application->status_applications_id == 3 || $application->status_applications_id == 4)
                         <td>
                             <span class="score">{{$application->education_score}}</span>
                             <form action="" class="actionForm edit">
-                                <button><i class="bi bi-pencil-square"></i></button>
                             </form>
                         </td>
-                        @if($application->status_applications_id == 1)
                         <td>
                             <span class="score">{{$application->interview_score}}</span>
                             <form action="" class="actionForm edit">
@@ -62,9 +61,15 @@
                         </td>
                         @else
                         <td>
+                            <span class="score">{{$application->education_score}}</span>
+                            <form action="" class="actionForm edit">
+                                <button><i class="bi bi-pencil-square"></i></button>
+                            </form>
+                        </td>
+                        <td>
                             <span class="score">{{$application->interview_score}}</span>
-                            <form action="{{route('selector.interwiew', ['application' => $application->id])}}" class="actionForm edit" >
-                                <button class="openModalButton"><i class="bi bi-pencil-square"></i></button>
+                            <form action="{{route('selector.interwiew', ['application' => $application->id])}}" class="actionForm edit">
+                                <button><i class="bi bi-pencil-square"></i></button>
                             </form>
                         </td>
                         <td>
@@ -88,9 +93,28 @@
                             <form action="{{route('selector.curriculum', ['application' => $application->id])}}" class="actionForm2">
                                 <button><i class="bi bi-eye-fill"></i></button>
                             </form>
+                            @if($application->status_applications_id == 2 || $application->status_applications_id == 3 || $application->status_applications_id == 4)
                             <form action="" class="actionForm2">
-                                <button><i class="bi bi-arrow-left-right"></i></button>
+                                <button class="openModalButton" data-modal-id="modal{{$loop->index + 1}}"><i class="bi bi-arrow-left-right"></i></button>
                             </form>
+                            <section class="modalWindow"  id="modal{{$loop->index + 1}}">
+                                <form action="{{route('application.updateStatus', ['application' => $application->id])}}" method="post">
+                                    @csrf
+                                    @method('PATCH')
+                                    <section class="close">
+                                        <label for="">Cambiar estado: </label><br>
+                                        <i class="bi bi-x-lg" id="close"></i>
+                                    </section>
+                                    <select name="newStatus" id="">
+                                        @foreach($statuses as $status)
+                                        <option value="{{$status->id}}">{{$status->status_name}}</option>
+                                        @endforeach
+                                    </select><br>
+                                    <button>Guardar</button>
+                                </form>
+                            </section>
+
+                            @endif
                             <form action="{{route('selector.createCitation', ['application' => $application->id])}}" class="actionForm2">
                                 <button><i class="bi bi-envelope-open-fill"></i></button>
                             </form>
@@ -105,37 +129,7 @@
             </table>
         </section>
     </section>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var modals = document.querySelectorAll('.modalWindow');
-        var modalOverlay = document.querySelector('.modalOverlay');
-
-        modals.forEach(function(modal) {
-            var openModalButton = modal.previousElementSibling.querySelector('.openModalButton');
-            var closeModalButton = modal.querySelector('.close');
-
-            openModalButton.addEventListener('click', function(event) {
-                event.preventDefault();
-                modal.style.display = 'block';
-                modalOverlay.style.display = 'block';
-            });
-
-            closeModalButton.addEventListener('click', function() {
-                modal.style.display = 'none';
-                modalOverlay.style.display = 'none';
-            });
-
-            window.addEventListener('click', function(event) {
-                if (event.target === modalOverlay) {
-                    modal.style.display = 'none';
-                    modalOverlay.style.display = 'none';
-                }
-            });
-        });
-    });
-</script>
-
+    <script type="module" src="{{asset('js/modalWindow.js')}}"></script>
     @endsection
 </body>
 

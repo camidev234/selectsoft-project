@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateScoreRequest;
 use App\Models\applications;
 use App\Models\Candidate;
+use App\Models\Status_aplications;
 use App\Models\User;
 use App\Models\Vacancie;
 use Illuminate\Contracts\View\View;
@@ -77,13 +78,15 @@ class ApplicationsController extends Controller
     public function showApplications(Vacancie $vacancie) :View {
         $user = Auth::user();
         $role_id = $user->role_id;
+        $statusApplications = Status_aplications::skip(2)->take(PHP_INT_MAX)->get();
         $applications = applications::where('vacant_id', $vacancie->id)
             ->orderBy('total_score', 'desc')->orderBy('status_applications_id', 'asc')->get();
 
         return view('selector/showCandidates', [
             'user' => $user,
             'role_id' => $role_id,
-            'applications' => $applications
+            'applications' => $applications,
+            'statuses' => $statusApplications
         ]);
     }
 
@@ -156,6 +159,18 @@ class ApplicationsController extends Controller
         }
         $application->save();
         $vacancie = $application->vacant;
+        return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
+    }
+
+    public function updateStatus(Request $request, applications $application){
+        $application->status_applications_id = $request->newStatus;
+        if($request->newStatus == 3 || $request->newStatus == 4) {
+            $aditionScores = $application->education_score + $application->interview_score + $application->technical_test_score + $application->tersonality_test;
+            $application->total_score = round($aditionScores / 4);
+        }
+        $application->save();
+        $vacancie = $application->vacant;
+
         return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
     }
 
