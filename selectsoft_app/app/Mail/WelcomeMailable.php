@@ -22,6 +22,7 @@ class WelcomeMailable extends Mailable
     public function __construct($userName)
     {
         $this->userName = $userName;
+        $this->from('selectsoft.app.serv@gmail.com', 'SelectSoft');
     }
 
     /**
@@ -30,7 +31,6 @@ class WelcomeMailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('selectsoft.services@gmail.com'),
             subject: 'Bienvenido a SelectSoft',
         );
     }

@@ -23,6 +23,7 @@ class ForgotPasswordMailable extends Mailable
     {
         $this->newPassword = $newPassword;
         $this->userName = $userName;
+        $this->from('selectsoft.app.serv@gmail.com', 'SelectSoft Soporte');
     }
 
     /**
@@ -31,7 +32,6 @@ class ForgotPasswordMailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('soporteTecnico@selectsoft.com'),
             subject: 'SelectSoft-Recuperar Contraseña',
         );
     }

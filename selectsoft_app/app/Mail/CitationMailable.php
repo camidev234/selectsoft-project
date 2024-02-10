@@ -22,11 +22,11 @@ class CitationMailable extends Mailable
     private $emailCompany;
     public $subject;
     private $message;
-    public function __construct($emailCompany, $subject, $message)
+    public function __construct($emailCompany, $subject, $message, $companyName)
     {
-        $this->emailCompany = $emailCompany;
         $this->subject = $subject;
         $this->message = $message;
+        $this->from($emailCompany, $companyName);
     }
 
     /**
@@ -35,7 +35,6 @@ class CitationMailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address($this->emailCompany),
             subject: $this->subject,
         );
     }

@@ -56,7 +56,7 @@ class CitationController extends Controller
 
             $mail = $request->to;
             Mail::to($mail)
-            ->send(new CitationMailable($request->from, $request->subject, $request->message));
+            ->send(new CitationMailable($request->from, $request->subject, $request->message, $application->vacant->company->business_name));
 
             return redirect()->route('selector.viewApplications', ['vacancie' => $application->vacant]);
     }

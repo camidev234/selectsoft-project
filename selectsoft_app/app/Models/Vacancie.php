@@ -13,7 +13,7 @@ class Vacancie extends Model
     use HasFactory;
 
     public function aplications() {
-        return $this->hasMany(aplications::class, 'vacant_id', 'id');
+        return $this->hasMany(applications::class, 'vacant_id', 'id');
     }
 
     public function charge() :BelongsTo {
