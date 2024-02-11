@@ -217,11 +217,19 @@ border-color: #dbdbdb;
 }
 
 .exit a:hover {
-    background-color: #1a2e44;
+    background-color: rgb(170, 0, 0);
+}
+
+.exit button {
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 
 .exit i {
     font-size: 27px;
+    color: white;
 }
 
 .user_c_container {

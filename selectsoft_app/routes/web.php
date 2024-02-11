@@ -85,6 +85,7 @@ Route::patch('/candidate/updateSkills/{candidate}', [CandidateController::class,
 Route::get('/vacancies/searchV', [VacancieController::class, 'indexToCandidate'])->name('vacancies.searchToCandidate');
 Route::get('/vacancie/showC/{vacancie}', [VacancieController::class, 'showToCandidate'])->name('vacancie.showCandidate')->middleware('auth');
 Route::post('/application/save/{user}/{vacancie}', [ApplicationsController::class, 'store'])->name('candidate.postulation');
+Route::delete('/application/delete/{applications}', [ApplicationsController::class, 'destroyByCandidate'])->name('applications.destroy');
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');

@@ -120,7 +120,13 @@
                             </article>
                         </section>
                         <section class="exit">
-                            <a href=""><i class="bi bi-person-fill-x"></i></a>
+                            <a href="">
+                                <form action="{{ route('applications.destroy', ['applications' => $application->id]) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button><i class="bi bi-person-fill-x"></i></button>
+                                </form>
+                            </a>
                         </section>
                     </div>
                     @empty

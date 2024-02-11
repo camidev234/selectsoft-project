@@ -29,11 +29,11 @@ class CandidateController extends Controller
         // Candidate::where('user_id', $user->id)->first();
         $candidate = $user->candidate;
 
-        $applications = applications::where('candidate_id', $candidate->id)->get();
+        $applications = applications::where('candidate_id', $candidate->id)->orderBy('created_at', 'desc')->get();
 
         $profile = $candidate->occupational_profile;
 
-        if($profile == 'NULL'){
+        if ($profile == 'NULL') {
             $profile = 'Perfil Sin Completar';
         }
 
@@ -43,7 +43,7 @@ class CandidateController extends Controller
             $countExperiencies = count($experiencies);
         }
 
-        if (empty($educations)){
+        if (empty($educations)) {
             $countEducations = 0;
         } else {
             $countEducations = count($educations);
@@ -66,18 +66,19 @@ class CandidateController extends Controller
         ]);
     }
 
-    public function readCurriculum() :View {
+    public function readCurriculum(): View
+    {
         $user = Auth::user();
         $role_id = $user->role_id;
         $candidate = $user->candidate;
-        if($candidate->occupational_profile == 'NULL'){
+        if ($candidate->occupational_profile == 'NULL') {
             $profile = 'Perfil sin completar';
-        }else{
+        } else {
             $profile = $candidate->occupational_profile;
         }
-        if($candidate->skills == null){
+        if ($candidate->skills == null) {
             $skills = 'No hay habilidades para motsrar';
-        }else{
+        } else {
             $skills = $candidate->skills;
         }
         $educations = $user->educations;
@@ -93,7 +94,8 @@ class CandidateController extends Controller
         ]);
     }
 
-    public function editProfile(Candidate $candidate) {
+    public function editProfile(Candidate $candidate)
+    {
         $user = Auth::user();
         $role_id = $user->role_id;
 
@@ -104,7 +106,8 @@ class CandidateController extends Controller
         ]);
     }
 
-    public function updateProfile(UpdateProfileRequest $request, Candidate $candidate) {
+    public function updateProfile(UpdateProfileRequest $request, Candidate $candidate)
+    {
 
         $candidate->occupational_profile = $request->occupational_profile;
         $candidate->curriculum_title = $request->curriculum_title;
@@ -113,7 +116,8 @@ class CandidateController extends Controller
         return redirect()->route('candidate.curriculum');
     }
 
-    public function updateSkills(SkillsCandidateRequest $request ,Candidate $candidate) :RedirectResponse {
+    public function updateSkills(SkillsCandidateRequest $request, Candidate $candidate): RedirectResponse
+    {
         $candidate->skills = $request->skills;
 
         $candidate->save();
