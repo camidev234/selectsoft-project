@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('document_type_id')->references('id')->on('document_types');
             $table->string('number_document')->unique();
             $table->string('telephone');
-            $table->string('phone_number')->default('N/A');
+            $table->string('phone_number')->nullable();
             $table->string('address');
             $table->unsignedBigInteger('country_id');
             $table->unsignedBigInteger('id_department');
