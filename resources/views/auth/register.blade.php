@@ -44,7 +44,7 @@
                         <label for="tipo_documento">Tipo de documento</label>
                         <select id="tipo_documento" name="document_type_id">
                             @foreach($document_types as $dct)
-                            <option value="{{$dct->id}}">{{ $dct->document_type }}</option>
+                            <option value="{{ $dct->id }}" {{ $dct->id == old('document_type_id') ? 'selected' : '' }}>{{ $dct->document_type }}</option>
                             @endforeach
                         </select>
                     </article>
@@ -66,7 +66,9 @@
                         <label for="pais">Pais</label>
                         <select name="id_country" id="">
                             @forelse($countries as $country)
-                            <option value="{{ $country->id }}">{{ $country->country_code }}-{{ $country->country_name }}</option>
+                            <option value="{{ $country->id }}" {{ $country->id == old('id_country') ? 'selected' : '' }}>
+                                {{ $country->country_code }}-{{ $country->country_name }}
+                            </option>
                             @empty
                             <option value="">No hay paises en el sistema</option>
                             @endforelse
@@ -76,7 +78,9 @@
                         <label for="departamento">Departamento</label>
                         <select name="id_department" id="">
                             @foreach($departaments as $dpto)
-                            <option value="{{$dpto->id}}">{{$dpto->departament_name}}</option>
+                            <option value="{{$dpto->id}}" {{ $dpto->id == old('id_department') ? 'selected' : '' }}>
+                                {{$dpto->departament_name}}
+                            </option>
                             @endforeach
                         </select>
                     </article>
@@ -84,7 +88,9 @@
                         <label for="ciudad">Ciudad</label>
                         <select name="id_city" id="">
                             @foreach($cities as $city)
-                            <option value="{{$city->id}}">{{$city->city_name}}</option>
+                            <option value="{{$city->id}}" {{ $city->id == old('id_city') ? 'selected' : '' }}>
+                                {{$city->city_name}}
+                            </option>
                             @endforeach
                         </select>
                     </article>
@@ -128,7 +134,7 @@
 
             </section>
             <input type="submit" value="Registrarse">
-        </form> 
+        </form>
     </main>
     @endsection
 </body>
