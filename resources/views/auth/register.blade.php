@@ -9,8 +9,6 @@
 </head>
 
 <body>
-    @extends('layout.header')
-    @section('content')
     <main class="flex-container">
         <form action="{{route('user.store')}}" method="post" class="registration-form">
             @csrf
@@ -136,7 +134,6 @@
             <button class="submit-button">Registrarse</button>
         </form>
     </main>
-    @endsection
 </body>
 
 </html>
