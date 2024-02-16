@@ -9,38 +9,40 @@
 </head>
 
 <body>
-    <main class="flex-container">
-        <form action="{{route('user.store')}}" method="post" class="registration-form">
+    @extends('layout.header')
+    @section('content')
+    <main class="flex">
+        <form action="{{route('user.store')}}" method="post">
             @csrf
-            <section id="datos_personales" class="personal-info-section">
-                <article class="section-title">
+            <section id="datos_personales">
+                <article class="title">
                     <h2>DATOS PERSONALES</h2>
                 </article>
                 <section class="info">
                     <article>
                         <label for="nombres">Nombres</label>
-                        <input type="text" id="nombres" name="name" value="{{old('name')}}" class="input-field">
+                        <input type="text" id="nombres" name="name" value="{{old('name')}}">
                         @error('name')
-                        <span class="error-message">{{$message}}</span>
+                        <span style="color: red;">{{$message}}</span>
                         @enderror
                     </article>
                     <article>
                         <label for="apellidos">Apellidos</label>
-                        <input type="text" id="apellidos" name="last_name" value="{{old('last_name')}}" class="input-field">
+                        <input type="text" id="apellidos" name="last_name" value="{{old('last_name')}}">
                         @error('last_name')
-                        <span class="error-message">{{$message}}</span>
+                        <span style="color: red;">{{$message}}</span>
                         @enderror
                     </article>
                     <article>
                         <label for="fecha_nacimiento">Fecha de nacimiento</label>
-                        <input type="date" id="fecha_nacimiento" name="birthdate" value="{{old('birthdate')}}" class="input-field">
+                        <input type="date" id="fecha_nacimiento" name="birthdate" value="{{old('birthdate')}}">
                         @error('birthdate')
-                        <span class="error-message">{{$message}}</span>
+                        <span style="color: red;">{{$message}}</span>
                         @enderror
                     </article>
                     <article>
                         <label for="tipo_documento">Tipo de documento</label>
-                        <select id="tipo_documento" name="document_type_id" class="select-field">
+                        <select id="tipo_documento" name="document_type_id">
                             @foreach($document_types as $dct)
                             <option value="{{ $dct->id }}" {{ $dct->id == old('document_type_id') ? 'selected' : '' }}>{{ $dct->document_type }}</option>
                             @endforeach
@@ -48,21 +50,21 @@
                     </article>
                     <article>
                         <label for="numero_documento">Numero de documento</label>
-                        <input type="text" id="numero_documento" name="number_document" value="{{old('number_document')}}" class="input-field">
+                        <input type="text" id="numero_documento" name="number_document" value="{{old('number_document')}}">
                         @error('number_document')
-                        <span class="error-message">{{$message}}</span>
+                        <span style="color: red;">{{$message}}</span>
                         @enderror
                     </article>
                 </section>
             </section>
-            <section id="ubicacion" class="location-section">
-                <article class="section-title">
+            <section id="ubicacion">
+                <article class="title">
                     <h2>UBICACIÓN</h2>
                 </article>
                 <section class="info">
                     <article>
                         <label for="pais">Pais</label>
-                        <select name="id_country" id="pais" class="select-field">
+                        <select name="id_country" id="">
                             @forelse($countries as $country)
                             <option value="{{ $country->id }}" {{ $country->id == old('id_country') ? 'selected' : '' }}>
                                 {{ $country->country_code }}-{{ $country->country_name }}
@@ -74,7 +76,7 @@
                     </article>
                     <article>
                         <label for="departamento">Departamento</label>
-                        <select name="id_department" id="departamento" class="select-field">
+                        <select name="id_department" id="">
                             @foreach($departaments as $dpto)
                             <option value="{{$dpto->id}}" {{ $dpto->id == old('id_department') ? 'selected' : '' }}>
                                 {{$dpto->departament_name}}
@@ -84,7 +86,7 @@
                     </article>
                     <article>
                         <label for="ciudad">Ciudad</label>
-                        <select name="id_city" id="ciudad" class="select-field">
+                        <select name="id_city" id="">
                             @foreach($cities as $city)
                             <option value="{{$city->id}}" {{ $city->id == old('id_city') ? 'selected' : '' }}>
                                 {{$city->city_name}}
@@ -94,46 +96,47 @@
                     </article>
                     <article>
                         <label for="direccion">Direccion</label>
-                        <input type="text" id="direccion" name="address" value="{{old('address')}}" class="input-field">
+                        <input type="text" id="direccion" name="address" value="{{old('address')}}">
 
                         @error('address')
-                        <span class="error-message">{{$message}}</span>
+                        <span style="color: red;">{{$message}}</span>
                         @enderror
                     </article>
                     <article>
                         <label for="telefono">Telefono</label>
-                        <input type="text" id="telefono" name="telephone" value="{{old('telephone')}}" class="input-field">
+                        <input type="text" id="telefono" name="telephone" value="{{old('telephone')}}">
                         @error('telephone')
-                        <span class="error-message">{{$message}}</span>
+                        <span style="color: red;">{{$message}}</span>
                         @enderror
                     </article>
                     <article>
                         <label for="celular">Celular</label>
-                        <input type="text" id="celular" name="phone_number" value="{{old('phone_number')}}" class="input-field">
+                        <input type="text" id="number" name="phone_number" value="{{old('phone_number')}}">
                         @error('phone_number')
-                        <span class="error-message">{{$message}}</span>
+                        <span style="color: red;">{{$message}}</span>
                         @enderror
                     </article>
                     <article>
                         <label for="email">Correo electronico</label>
-                        <input type="email" id="email" name="email" value="{{old('email')}}" class="input-field">
+                        <input type="email" id="email" name="email" value="{{old('email')}}">
                         @error('email')
-                        <span class="error-message">{{$message}}</span>
+                        <span style="color: red;">{{$message}}</span>
                         @enderror
                     </article>
                     <article>
-                        <label for="password">Contraseña</label>
-                        <input type="password" id="password" name="password" value="{{old('password')}}" class="input-field">
+                        <label for="email">Contraseña</label>
+                        <input type="password" id="em" name="password" value="{{old('password')}}">
                         @error('password')
-                        <span class="error-message">{{$message}}</span>
+                        <span style="color: red;">{{$message}}</span>
                         @enderror
                     </article>
                 </section>
 
             </section>
-            <button class="submit-button">Registrarse</button>
+            <input type="submit" value="Registrarse">
         </form>
     </main>
+    @endsection
 </body>
 
 </html>
