@@ -88,7 +88,7 @@ input[type="date"] {
     opacity: 0.8;
 } */
 
-input[type="submit"] {
+.sub {
     width: 100%;
     padding: 10px;
     background-color: #2193b0;
@@ -98,7 +98,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.sub:hover {
     background-color: #45a049;
 }
 
