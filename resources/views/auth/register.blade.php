@@ -133,7 +133,7 @@
                 </section>
 
             </section>
-            <input type="submit" value="Registrarse">
+            <button class="sub">Registrarse</button>
         </form>
     </main>
     @endsection
