@@ -63,7 +63,7 @@ class UserController extends Controller
         $newUser->phone_number = strtoupper($request->input('phone_number'));
         $newUser->address = strtoupper($request->input('address'));
         $newUser->country_id = strtoupper($request->input('id_country'));
-        $newUser->id_department = strtoupper($request->input('id_department'));
+        $newUser->departament_id = strtoupper($request->input('id_department'));
         $newUser->city_id = strtoupper($request->input('id_city'));
         $newUser->birthdate = strtoupper($request->input('birthdate'));
         $newUser->email = $request->input('email');
@@ -201,9 +201,25 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
+    public function edit(User $user)
+    {   
+        $role_id = $user->role_id;
+        $countries = Country::all();
+        $departaments = Departament::all();
+        $cities = City::all();
+        // $actualCountry = $user->country_id;
+        // $actualCity = $user->city_id;
+        // $actualDepartament = $user->departament_id;
+        return view('/candidate/updateCandidate', [
+            'user' => $user,
+            'countries' => $countries,
+            'departaments' => $departaments,
+            'cities' => $cities,
+            'role_id' => $role_id,
+            // 'actualCountry' => $actualCountry,
+            // 'actualCity' => $actualCity,
+            // 'actualDepartament' => $actualDepartament
+        ]);
     }
 
     /**

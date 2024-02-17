@@ -83,6 +83,10 @@ class User extends Authenticatable
         return $this->belongsTo(Country::class);
     }
 
+    public function departament() :BelongsTo {
+        return $this->belongsTo(Departament::class);
+    }
+
     public function city() :BelongsTo {
         return $this->belongsTo(City::class);
     }

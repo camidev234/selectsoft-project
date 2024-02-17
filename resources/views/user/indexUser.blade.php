@@ -36,7 +36,7 @@
                 <article class="button_password">
                     <section class="actions-card">
                         <div class="action" id="actionTwo">
-                            <a href="{{route('user.updatePassword')}}">Actualizar Informacion <i class="bi bi-person-fill-up"></i></a>
+                            <a href="{{route('user.edit', ['user' => $user->id])}}">Actualizar Informacion <i class="bi bi-person-fill-up"></i></a>
                         </div>
                     </section>
                 </article>

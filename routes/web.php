@@ -86,6 +86,7 @@ Route::get('/vacancies/searchV', [VacancieController::class, 'indexToCandidate']
 Route::get('/vacancie/showC/{vacancie}', [VacancieController::class, 'showToCandidate'])->name('vacancie.showCandidate')->middleware('auth');
 Route::post('/application/save/{user}/{vacancie}', [ApplicationsController::class, 'store'])->name('candidate.postulation');
 Route::delete('/application/delete/{applications}', [ApplicationsController::class, 'destroyByCandidate'])->name('applications.destroy');
+Route::get('/user/updateUser/{user}', [UserController::class, 'edit'])->name('user.edit')->middleware('auth');
 // selector routes
 
 Route::get('/selector/home', [SelectorController::class, 'index'])->name('selector.index')->middleware('auth');

@@ -23,7 +23,7 @@ class UserTableSeeder extends Seeder
         $defaultUser->telephone = '00000000';
         $defaultUser->phone_number = 'address';
         $defaultUser->country_id = 1;
-        $defaultUser->id_department = 1;
+        $defaultUser->departament_id = 1;
         $defaultUser->city_id = 1;
         $defaultUser->address = 'Soacha Parque';
         $defaultUser->birthdate = '2000-02-18';
