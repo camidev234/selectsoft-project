@@ -11,7 +11,7 @@
     .page {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: 400px 650px 150px 1000px 190px ;
+        grid-template-rows: 400px 330px 150px 1000px 190px ;
         grid-template-areas: "header"
         "present-section"
         "tittle"
@@ -81,11 +81,11 @@
     
     .present-section {
         width: 100%;
-        height: 630px;
+        height: 330px;
         grid-area: present-section;
-        /* background-image: url('present-image.png'); */
+        background-image: url('presentation.svg');
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         background-position: center;
         display: flex;
         justify-content: center;
@@ -290,7 +290,7 @@
 .page {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 78px 570px 130px 1000px 350px;
+    grid-template-rows: 78px 720px 130px 1000px 350px;
     grid-template-areas: "header header header"
     "present-section present-section present-section"
     "tittle tittle tittle"
@@ -300,17 +300,22 @@
 
 .page .header {
     grid-area: header;
-    background-color: #eee;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     position: sticky;
     top: 0;
-} 
+    transition: box-shadow 0.3s ease;
+    z-index: 1000; /* Asegúrate de que el header esté por encima de otros elementos */
+}
 
-.header .search, .bar-nav {
-    width: 33%;
+.header.scrolled {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras al hacer scroll */
+}
+.header .bar-nav {
+    width: 53%;
     height: 100%;
 }
 
@@ -326,18 +331,6 @@
     justify-content: center;
 }
 
-.search input {
-    width: 95%;
-    height: 30px;
-    border-radius: 20px;
-    outline: none;
-    border: none;
-    font-size: 15px;
-    padding-left: 17px;
-    padding-right: 10px;
-    border: 1px solid black;
-}
-
 .header .bar-nav {
     display: flex;
     justify-content: center;
@@ -349,10 +342,11 @@
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     list-style: none;
     gap: 45px;
+    padding-right: 70px;
 }
 
 .ul-list li a {
@@ -363,15 +357,21 @@
     transition: border-bottom 0.3s, transform 0.3s ease-in-out;
 }
 
+.last{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 .ul-list li a:hover {
-    border-bottom: 2px solid #2193b0;
+    color: rgb(187, 185, 185);
     transition: 0.3s ease-in-out;
 }
 
 .present-section {
     height: 100%;
     grid-area: present-section;
-    background-image: url('present-image.png');
+    background-image: url('presentation.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -566,7 +566,8 @@
 .content-footer {
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #0bd449, #0e9483);
+    /* background: linear-gradient(90deg, #0bd449, #0e9483); */
+    background-color: #2193b0;
 }
 
 .container-footer {

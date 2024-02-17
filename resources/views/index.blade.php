@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <title>Selectsoft-Herramienta de seleccion de personal</title>
 </head>
+
 <body>
     <main class="page">
 
@@ -17,34 +19,40 @@
                 <a href="index.html"><img src="img/SELECTSOFTGenericIcon.png" alt="log-selectsoft"></a>
             </article>
             <!-- Barra de busqueda -->
-            <article class="search">
-                <input type="search" name="" id="" placeholder="Buscar vacantes">
-            </article>
             <nav class="bar-nav" id="bar">
                 <ul class="ul-list">
                     <li><a href="#">Inicio</a></li>
-                    <li><a href="{{route('user.login')}}">Login</a></li>
-                    <li><a href="{{route('users.create')}}">Sign In</a></li>
                     <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="{{route('users.create')}}">Registrarse</a></li>
+                    <li class="last"><a href="{{route('user.login')}}">Ingresar</a></li>
                 </ul>
             </nav>
         </header>
+
+        <script>
+            window.addEventListener('scroll', function() {
+                var header = document.querySelector('.header');
+                if (window.scrollY > 0) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        </script>
 
         <!-- Seccion para imagen de presentacion -->
 
         <!-- Present section Container -->
         <section class="present-section">
             <section class="present-text">
-                <!-- Logo de selectsoft -->
-                <img src="img/select-present.png" alt="log-selectsoft">
-                <!-- Texto de presentacion -->
-                <p>Una herramienta para la seleccion de personal al alcance de tus manos.</p>
             </section>
         </section>
 
         <!-- Contenido central de la pagina -->
 
-        <article class="tittle"><h1>Vacantes Del Dia</h1></article>
+        <article class="tittle">
+            <h1>Vacantes Del Dia</h1>
+        </article>
 
         <section class="content-page">
             <section class="cards">
@@ -121,4 +129,5 @@
 
     </main>
 </body>
+
 </html>
