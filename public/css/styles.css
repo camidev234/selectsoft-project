@@ -83,7 +83,7 @@
         width: 100%;
         height: 630px;
         grid-area: present-section;
-        background-image: url('present-image.png');
+        /* background-image: url('present-image.png'); */
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -415,6 +415,11 @@
     width: 100%;
     height: 100%;
     display: flex;
+   
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
 }
 
 .content-page .cards{
@@ -450,7 +455,7 @@
 .site-card a {
     width: 100%;
     height: 20%;
-    background-color: #2193b0;
+    background-color: rgb(53, 61, 168);
     border-bottom-left-radius: 23px;
     border-bottom-right-radius: 23px;
     display: flex;
@@ -462,7 +467,7 @@
 }
 
 .site-card a:hover {
-    background-color: #134F5C;
+    background-color: #11a743;
     transition: 0.3s ease-in-out;
 }
 
@@ -509,7 +514,7 @@
 .cd .hiper {
     width: 100%;
     height: 20%;
-    background-color: #2193b0;
+    background-color: rgb(53, 61, 168);
     border-bottom-left-radius: 22px;
     border-bottom-right-radius: 22px;
     display: flex;
@@ -525,27 +530,28 @@
 }
 
 .hiper:hover{
-    background-color: #134F5C;
+    background-color: #11a743;
     transition: 0.3s ease-in-out;
 }
 
 .page .site-footer {
     grid-area: site-footer;
     width: 100%;
-    height: 300px;
+    height: 380px;
     margin-top: 50px;
-    background-color: #2193b0;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 50px;
 }
 
 .Index {
-    width: 100%;
-    height: 20%;
-    background-color: #134F5C;
+    width: 25%;
+    border-radius: 10px;
+    height: 19%;
+    background-color: rgb(53, 61, 168);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -554,11 +560,13 @@
 .Index h4 a {
     color: white;
     text-decoration: none;
+    font-size: 20px;
 }
 
 .content-footer {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #0bd449, #0e9483);
 }
 
 .container-footer {
@@ -567,6 +575,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
 }
 
 .container-footer .cont {
