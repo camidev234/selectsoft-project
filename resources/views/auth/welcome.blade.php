@@ -8,12 +8,12 @@
     </head>
     <body>
         <main class="flex">
-            <img src="{{asset('img/selectsoft.jpeg')}}" alt="Logo Selectsoft">
+            <img src="{{asset('img/selectsoft.svg')}}" alt="Logo Selectsoft">
             <h2>BIENVENIDO A SELECTSOFT</h2>
             <form>
                 <section class="form-group">
                     <p>TU HERRAMIENTA PARA LA SELECCION DE PERSONAL</p>
-                        <a href="{{route('user.login')}}"><buttom type="submit-btn">Haga clic para continuar</buttom></a>
+                        <a href="{{route('user.login')}}"><button type="submit-btn">Haga clic para continuar</button></a>
                 </section>
             </form>
         </main>

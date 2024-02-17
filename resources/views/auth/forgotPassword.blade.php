@@ -8,7 +8,7 @@
     </head>
     <body>
         <main class="flex">
-            <img src="img/selectsoft.jpeg" alt="Logo Selectsoft">
+            <a href="{{route('system.index')}}"><img src="img/selectsoft.svg" alt="Logo Selectsoft"></a>
             <h2>REESTABLECER CONTRASEÑA</h2>
             @if(session()->has('mensaje'))
                 <p style="color:red;">{{ session('mensaje') }}</p>

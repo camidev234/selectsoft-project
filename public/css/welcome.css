@@ -33,9 +33,15 @@ form {
     margin: 25px;
     text-align: center;
 }
-buttom {
+
+.form-group a {
+    text-decoration: none;
+    color: white;
+}
+
+button {
     padding: 10px 20px;
-    background-color: #2193B0;
+    background-color: rgb(53, 61, 168);
     color: #fff;
     border: none;
     border-radius: 5px;

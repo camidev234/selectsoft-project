@@ -6,12 +6,13 @@
     @stack('styles')
     <link rel="stylesheet" href="{{asset('css/layout.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <script src="{{asset('js/scrollShadow.js')}}"></script>
     <title>Document</title>
 </head>
 <body>
     <header class="header">
         <div class="logo">
-            <img src="{{asset('img/SELECTSOFTGenericIcon.png')}}" alt="Logo de selectsoft">
+            <img src="{{asset('img/selectsoft.svg')}}" alt="Logo de selectsoft">
         </div>
         @auth
             @if($role_id == 1)
@@ -33,6 +34,7 @@
                     </h5>
                 </div>
 
+
                 @else
                 <div class="actions">
                     @if($role_id == 2)
@@ -49,6 +51,7 @@
                     </h5>
                 </div>
             @endif
+
         @endauth
     </header>
 

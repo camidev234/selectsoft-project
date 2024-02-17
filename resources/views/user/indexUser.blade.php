@@ -9,9 +9,7 @@
 </head>
 
 <body>
-    <header class="header">
-        @extends('layout.header')
-    </header>
+    @extends('layout.header')
     @section('content')
     @if(session()->has('message'))
     <p id="message" style="display: none;">{{ session('message') }}</p>

@@ -11,9 +11,10 @@ body {
     background-color: #f2f2f2;
     border: 2px solid black;
     padding: 50px;
-    box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.2);
     max-width: 3000px;
     margin: 100px;
+    border-radius: 10px;
 }
 img {
     max-width: 100%;
@@ -37,9 +38,14 @@ select, input {
 }
 button {
     padding: 10px 20px;
-    background-color: #2193B0;
+    background-color: rgb(53, 61, 168);;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.hiper {
+    text-decoration: none;
+    color: rgb(53, 61, 168);
 }

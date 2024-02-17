@@ -61,7 +61,7 @@
 
 article .action {
     width: 80%;
-    background-color: #2193b0;
+    background-color: rgb(53, 61, 168);
     height: 100%;
     display: flex;
     justify-content: center;
