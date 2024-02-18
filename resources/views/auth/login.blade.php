@@ -9,7 +9,7 @@
     </head>
     <body>
         <main class="flex">
-            <a href="{{route('system.index')}}"><img src="{{asset('img/selectsoft.svg')}}" alt="Logo Selectsoft"></a>
+            <a href="{{route('system.index')}}"><img src="{{asset('/img/selectsoft.svg')}}" alt="Logo Selectsoft"></a>
             <h2>INICIO DE SESIÓN</h2>
             @if(session()->has('message'))
                 <p style="display:none;" id="message">{{ session('message') }}</p>
