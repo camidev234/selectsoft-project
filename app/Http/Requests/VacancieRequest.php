@@ -23,13 +23,13 @@ class VacancieRequest extends FormRequest
     {
         return [
             'vacancie_code' => 'required|unique:vacancies|min:4|max:6',
-            'skills' => 'max:500',
+            'skills' => 'max:1500',
             'required_experience' => 'required|string|min:1|max:3',
             'salary_range' => 'required|string|max:45',
             'number_vacancies' => 'required|string|min:1|max:3',
             'schedule' => 'required|string|max:50',
             'applicant_person' => 'required|string|max:30',
-            'annotations' => 'required|string|max:400',
+            'annotations' => 'required|string|max:700',
         ];
     }
 }

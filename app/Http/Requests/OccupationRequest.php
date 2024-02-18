@@ -24,7 +24,7 @@ class OccupationRequest extends FormRequest
         return [
             'occupation_code' => ['required', 'min:4', 'max:7', 'string', 'unique:occupations'],
             'occupation_name' => ['required', 'max:70', 'string'],
-            'description' => ['required']
+            'description' => ['required', 'max:1500', 'string'],
         ];
     }
 }
