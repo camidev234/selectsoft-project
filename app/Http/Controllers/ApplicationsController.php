@@ -201,9 +201,9 @@ class ApplicationsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroyByCandidate(applications $applications)
+    public function destroyByCandidate(applications $application)
     {
-        $applications->delete();
+        $application->delete();
 
         return redirect()->back();
     }
