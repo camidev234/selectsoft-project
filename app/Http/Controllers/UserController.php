@@ -87,7 +87,7 @@ class UserController extends Controller
             $newCandidate->save();
         }
 
-        return view('/auth/login');
+        return redirect()->route('user.login');
     }
 
     public function updatePassword()
