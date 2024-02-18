@@ -72,7 +72,7 @@
                         <h5><a href="">Manual De Usuario</a></h5>
                     </section>
                     <section class="cont three">
-                    <img src="{{asset('img/SELECTSOFTF.svg')}}" alt="log-selectsoft">
+                        <img src="img/select-present.png" alt="log-selectsoft">
                     </section>
                 </section>
                 <section class="copy">
