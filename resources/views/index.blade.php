@@ -16,7 +16,7 @@
         <header class="header">
             <!-- Logo de selectsoft -->
             <article class="img-header">
-                <a href="index.html"><img src="img/SELECTSOFTGenericIcon.png" alt="log-selectsoft"></a>
+                <a href="index.html"><img src="img/selectsoft.svg" alt="log-selectsoft"></a>
             </article>
             <!-- Barra de busqueda -->
             <nav class="bar-nav" id="bar">
@@ -94,6 +94,7 @@
 
         <!-- Footer page -->
 
+
         <footer class="site-footer">
             <section class="Index">
                 <h4><a href="">Volver Al Inicio</a></h4>
@@ -109,7 +110,7 @@
                         <h5><a href="">Manual De Usuario</a></h5>
                     </section>
                     <section class="cont three">
-                        <img src="img/select-present.png" alt="log-selectsoft">
+                        <img src="img/SELECTSOFTFOOTER.svg" alt="log-selectsoft">
                     </section>
                 </section>
                 <section class="copy">
