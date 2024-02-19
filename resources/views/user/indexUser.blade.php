@@ -118,13 +118,11 @@
                             </article>
                         </section>
                         <section class="exit">
-                            <a href="">
                                 <form action="{{ route('applications.destroy', ['applications' => $application->id]) }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button><i class="bi bi-person-fill-x"></i></button>
                                 </form>
-                            </a>
                         </section>
                     </div>
                     @empty

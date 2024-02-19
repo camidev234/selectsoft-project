@@ -224,8 +224,15 @@ border-color: #dbdbdb;
     background-color: rgb(170, 0, 0);
 }
 
+.exit form {
+    width: 100%;
+    height: 100%;
+}
+
 .exit button {
-    background: none;
+    width: 100%;
+    height: 100%;
+    background: rgb(175, 0, 0);
     outline: none;
     border: none;
     cursor: pointer;
