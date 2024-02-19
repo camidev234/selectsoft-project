@@ -106,11 +106,14 @@
     height: 300px;
     margin-top: 50px;
     background-color: #f4f5ff;
-    color:  #1a1a1a;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.cont h2 {
+    color:#2f1c6a;
 }
 
 .Index {

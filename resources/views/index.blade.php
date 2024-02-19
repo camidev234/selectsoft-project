@@ -102,11 +102,11 @@
             <section class="content-footer">
                 <section class="container-footer">
                     <section class="cont one">
-                        <h2>Conocenos</h2>
+                        <h2 id="e">Conocenos</h2>
                         <h5><a href="">Sobre Nosotros</a></h5>
                     </section>
                     <section class="cont two">
-                        <h2>Soporte</h2>
+                        <h2 id="f">Soporte</h2>
                         <h5><a href="">Manual De Usuario</a></h5>
                     </section>
                     <section class="cont three">
