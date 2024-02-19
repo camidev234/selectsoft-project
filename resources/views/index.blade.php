@@ -110,7 +110,7 @@
                         <h5><a href="">Manual De Usuario</a></h5>
                     </section>
                     <section class="cont three">
-                        <img src="img/SELECTSOFTFOOTER.svg" alt="log-selectsoft">
+                        <img src="img/SELECTSOFTF.svg" alt="log-selectsoft">
                     </section>
                 </section>
                 <section class="copy">
