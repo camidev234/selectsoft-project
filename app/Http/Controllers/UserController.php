@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\UpdatePasswordRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Mail\WelcomeMailable;
 use App\Models\Candidate;
 use App\Models\City;
@@ -58,15 +59,15 @@ class UserController extends Controller
         $newUser->name = strtoupper($request->input('name'));
         $newUser->last_name = strtoupper($request->input('last_name'));
         $newUser->document_type_id = strtoupper($request->input('document_type_id'));
-        $newUser->number_document = strtoupper($request->input('number_document'));
-        $newUser->telephone = strtoupper($request->input('telephone'));
-        $newUser->phone_number = strtoupper($request->input('phone_number'));
+        $newUser->number_document = $request->input('number_document');
+        $newUser->telephone = $request->input('telephone');
+        $newUser->phone_number = $request->input('phone_number');
         $newUser->address = strtoupper($request->input('address'));
-        $newUser->country_id = strtoupper($request->input('id_country'));
-        $newUser->departament_id = strtoupper($request->input('id_department'));
+        $newUser->country_id = $request->input('id_country');
+        $newUser->departament_id = $request->input('id_department');
         $newUser->city_id = strtoupper($request->input('id_city'));
         $newUser->birthdate = strtoupper($request->input('birthdate'));
-        $newUser->email = $request->input('email');
+        $newUser->email = strtolower($request->input('email'));
         $newUser->password = strtoupper($request->input('password'));
         $newUser->role_id = 1;
 
@@ -225,9 +226,18 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $user->telephone = $request->telephone;
+        $user->phone_number = $request->phone_number;
+        $user->country_id = $request->country_id;
+        $user->departament_id = $request->departament_id;
+        $user->city_id = $request->city_id;
+        $user->address = strtoupper($request->address);
+
+        $user->save();
+
+        return redirect()->route('user.index');
     }
 
     /**

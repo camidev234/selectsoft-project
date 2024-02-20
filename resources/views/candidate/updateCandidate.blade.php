@@ -12,11 +12,20 @@
     @extends('layout.header')
     @section('content')
     <main class="container">
-        <form action="">
-            <label for="">Numero de telefono</label><br>
-            <input type="text" name="phone_number" id=""><br>
+        <form action="{{route('user.update', ['user' => $user->id])}}" class="formupdate" method="POST">
+        @csrf    
+        @method('PATCH')
+            <label for="">Numero de telefono <span class="ast">*</span></label><br>
+            <input type="text" name="telephone" id="" value="{{$user->telephone}}"><br>
+            @error('telephone')
+                <span style="color:red;">{{$message}}</span><br>
+            @enderror
             <label for="">Numero de celular</label><br>
-            <input type="text" name="phone_number" id=""><br>
+            <input type="text" name="phone_number" id="" value="{{$user->phone_number}}"><br>
+            @error('phone_number')
+                <span style="color:red;">{{$message}}</span><br>
+            @enderror
+            <label for="">Pais <span class="ast">*</span></label><br>
             <select name="country_id" id="">
                 <option value="{{$user->country_id}}">{{$user->country->country_name}}</option>
                 @foreach ($countries as $country)
@@ -27,8 +36,9 @@
                 @endif
                 @endforeach
             </select><br>
-            <select name="id_departament" id="">
-                <option value="{{$user->id_departament}}">{{$user->departament->departament_name}}</option>
+            <label for="">Departamento <span class="ast">*</span></label><br>
+            <select name="departament_id" id="">
+                <option value="{{$user->departament_id}}">{{$user->departament->departament_name}}</option>
                 @foreach ($departaments as $departament)
                 @if($departament->id == $user->id_departament)
                 continue
@@ -37,6 +47,7 @@
                 @endif
                 @endforeach
             </select><br>
+            <label for="">Ciudad <span class="ast">*</span></label><br>
             <select name="city_id" id="">
                 <option value="{{$user->city_id}}">{{$user->city->city_name}}</option>
                 @foreach ($cities as $city)
@@ -47,8 +58,11 @@
                 @endif
                 @endforeach
             </select><br>
-            <label for="">Direccion</label><br>
-            <input type="text" name="address" id=""><br>
+            <label for="">Direccion <span class="ast">*</span></label><br>
+            <input type="text" name="address" id="" value="{{$user->address}}"><br>
+            @error('address')
+                <span style="color:red;">{{$message}}</span><br>
+            @enderror
             <button class="sub">Actualizar Informacion</button>
         </form>
     </main>
