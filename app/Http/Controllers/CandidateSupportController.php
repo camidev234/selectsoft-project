@@ -53,8 +53,8 @@ class CandidateSupportController extends Controller
         $newSupport = new Candidate_support();
         $file = $request->file('support_file');
         $file_name = time() . '_' . $file->getClientOriginalName();
-        $file->storeAs('public/files/pdf/', $file_name);
-        $fileRoute = 'storage/files/pdf/' . $file_name;
+        $file->storeAs('public/', $file_name);
+        $fileRoute = 'storage/' . $file_name;
 
         $newSupport->support_type_id = $request->support_type_id;
         $newSupport->support_file = $fileRoute;
