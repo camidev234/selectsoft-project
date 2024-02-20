@@ -13,4 +13,8 @@ class Candidate_support extends Model
     public function candidate() :BelongsTo {
         return $this->belongsTo(User::class);
     }
+
+    public function support_type() :BelongsTo {
+        return $this->belongsTo(support_type::class);
+    }
 }

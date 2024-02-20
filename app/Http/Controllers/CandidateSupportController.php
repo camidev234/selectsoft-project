@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SupportCandidatesRequest;
 use App\Models\Candidate_support;
 use App\Models\support_type;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,9 +14,18 @@ class CandidateSupportController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(User $user)
     {
-        //
+
+        $role_id = Auth::user()->role_id;
+        $user = Auth::user();
+
+        $supports = Candidate_support::where('user_id', $user->id)->get();
+        return view('supports_person.index', [
+            'supports' => $supports,
+            'role_id' => $role_id,
+            'user' => $user
+        ]);
     }
 
     /**
@@ -51,7 +61,7 @@ class CandidateSupportController extends Controller
         $newSupport->user_id = $user->id;
         $newSupport->save();
 
-        return redirect()->route('user.index');
+        return redirect()->route('candidate.supports', ['user' => $user]);
     }
 
     /**

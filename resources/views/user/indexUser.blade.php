@@ -69,7 +69,7 @@
                         <div class="action">
                             <a href="{{route('supports.create')}}">Añadir nuevo soporte <i class="bi bi-file-plus"></i></a>
                         </div>
-                        <form action="" method="get">
+                        <form action="{{route('candidate.supports', ['user' => $user->id])}}" method="get">
                             <button>Ver <i class="bi bi-eye"></i></button>
                         </form>
                     </section>
