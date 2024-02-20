@@ -22,8 +22,8 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'telephone' => 'required|max:11',
-            'phone_number' => 'max:11',
+            'telephone' => 'max:11',
+            'phone_number' => 'required|max:11',
             'address' => 'required|max:50',
         ];
     }

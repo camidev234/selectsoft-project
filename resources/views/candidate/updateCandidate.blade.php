@@ -15,12 +15,12 @@
         <form action="{{route('user.update', ['user' => $user->id])}}" class="formupdate" method="POST">
         @csrf    
         @method('PATCH')
-            <label for="">Numero de telefono <span class="ast">*</span></label><br>
+            <label for="">Numero de telefono</label><br>
             <input type="text" name="telephone" id="" value="{{$user->telephone}}"><br>
             @error('telephone')
                 <span style="color:red;">{{$message}}</span><br>
             @enderror
-            <label for="">Numero de celular</label><br>
+            <label for="">Numero de celular <span class="ast">*</span></label><br>
             <input type="text" name="phone_number" id="" value="{{$user->phone_number}}"><br>
             @error('phone_number')
                 <span style="color:red;">{{$message}}</span><br>
