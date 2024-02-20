@@ -50,7 +50,7 @@
                             @php
                             $fileName = basename($support->support_file);
                             @endphp
-                            <td><a href="{{ asset($support->support_file) }}" download>{{ $fileName }}</a></td>
+                            <td><a href="{{ asset($support->support_file) }}" target="_blank">{{ $fileName }}</a></td>
                         </tr>
                         @empty
                         <tr>
