@@ -103,7 +103,7 @@
                 @php
                 $fileName = basename($support->support_file);
                 @endphp
-                <span><strong>{{$support->support_type->support_type}}</strong> - <a href="{{ asset($support->support_file) }}" target="_blank">{{$fileName}}</a></span>
+                <span><strong>{{$support->support_type->support_type}}</strong> - <a href="{{ asset($support->support_file) }}" target="_blank">{{$fileName}}</a></span><br>
                 @empty
                 <span>El candidato no ha cargado ningun soporte</span>
                 @endforelse
