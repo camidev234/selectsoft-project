@@ -92,6 +92,23 @@
                 <p>{{$candidate->skills}}</p>
             </article>
         </section>
+        <section class="sectionTitle">
+            <article>
+                <h4>Soportes del candidato</h4>
+            </article>
+        </section>
+        <section class="files">
+            <article>
+                @forelse($supports as $support)
+                @php
+                $fileName = basename($support->support_file);
+                @endphp
+                <span><strong>{{$support->support_type->support_type}}</strong> - <a href="{{ asset($support->support_file) }}" target="_blank">{{$fileName}}</a></span>
+                @empty
+                <span>El candidato no ha cargado ningun soporte</span>
+                @endforelse
+            </article>
+        </section>
     </section>
     @endsection
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\applications;
+use App\Models\Candidate_support;
 use App\Models\Company;
 use App\Models\Recruiter;
 use App\Models\Selector;
@@ -96,12 +97,15 @@ class SelectorController extends Controller
                 $application->save();
             }
 
+            $supports = Candidate_support::where('user_id', $application->candidate->user_id)->get();
+
             return view('/selector/showCurriculum', [
             'user' => $user,
             'role_id' => $role_id,
             'educations' => $educations,
             'experiencies' => $experiences,
-            'candidate' => $candidate
+            'candidate' => $candidate,
+            'supports' => $supports
         ]);
         } catch (Exception $e){
             abort(404, 'Resource not found');
