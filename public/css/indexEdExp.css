@@ -89,7 +89,7 @@ button {
 /* Estilo para el icono dentro del botón */
 i {
     font-size: 1.2em;
-    color: #2196F3;
+    color: rgb(182, 0, 0);
     transition: color 0.3s ease-in-out;
 }
 

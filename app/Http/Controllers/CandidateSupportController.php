@@ -8,6 +8,7 @@ use App\Models\support_type;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CandidateSupportController extends Controller
 {
@@ -93,6 +94,10 @@ class CandidateSupportController extends Controller
      */
     public function destroy(Candidate_support $candidate_support)
     {
-        //
+        Storage::delete($candidate_support->support_file);
+
+        $candidate_support->delete();
+
+        return redirect()->back();
     }
 }

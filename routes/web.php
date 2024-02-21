@@ -93,6 +93,7 @@ Route::patch('/user/update/{user}', [UserController::class, 'update'])->name('us
 // files routes
 
 Route::get('/candidate/supports/{user}', [CandidateSupportController::class, 'index'])->name('candidate.supports')->middleware('auth');
+Route::delete('/candidate/supports/delete/{candidate_support}', [CandidateSupportController::class, 'destroy'])->name('supports.destroy')->middleware('auth');
 
 
 // selector routes
