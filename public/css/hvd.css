@@ -214,3 +214,23 @@
     background-color: #014968;
 }
 
+.files {
+    margin-top: 20px;
+}
+
+.filecont {
+    display: flex;
+}
+
+.filecont .filename {
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.fileicon {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
