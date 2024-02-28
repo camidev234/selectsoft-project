@@ -103,7 +103,7 @@
                 @php
                 $fileName = basename($support->support_file);
                 @endphp
-                <span><strong>{{$support->support_type->support_type}}</strong> - <a href="{{ asset($support->support_file) }}" target="_blank">{{$fileName}}</a></span><br>
+                <span><strong>{{$support->support_type->support_type}}</strong> - {{$fileName}}  <a href="{{ asset($support->support_file) }}" target="_blank" style="margin-left: 20px; color:red;"><i class="bi bi-file-earmark-pdf"></i></a> </span><br>
                 @empty
                 <span>El candidato no ha cargado ningun soporte</span>
                 @endforelse
