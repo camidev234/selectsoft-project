@@ -43,7 +43,7 @@
                         </article>
                         <article class="option op-3">
                             <h5>Requisiciones</h5>
-                            <a href="" class="add"><i class="bi bi-plus-square"></i></a>
+                            <a href="{{route('requisition.create')}}" class="add"><i class="bi bi-plus-square"></i></a>
                             <a href="" class="view"><i class="bi bi-eye"></i></a>
                         </article>
                         <article class="option op-4">

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->foreignId('country_id')->references('id')->on('countries');
             $table->foreignId('city_id')->references('id')->on('cities');
             $table->string('annotations',700)->nullable();
+            $table->foreignId('requisition_id')->references('id')->on('requisitons');
             $table->foreignId('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->boolean('is_active')->default(1);
             $table->timestamps();       

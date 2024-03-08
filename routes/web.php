@@ -15,6 +15,7 @@ use App\Http\Controllers\OccupationController;
 use App\Http\Controllers\OccupationFunctionController;
 use App\Http\Controllers\PersonExperienceController;
 use App\Http\Controllers\RecruiterController;
+use App\Http\Controllers\RequisitonController;
 use App\Http\Controllers\SelectorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VacancieController;
@@ -145,6 +146,8 @@ Route::patch('/vacancie/update/{vacancie}/{company}', [VacancieController::class
 Route::get('/studyVacant/create/{vacancie}', [VacancieStudyController::class, 'create'])->name('studyVacant.create')->middleware('auth');
 Route::post('/studyVacant/store/{vacancie}', [VacancieStudyController::class, 'store'])->name('studyVacant.store');
 Route::delete('/studyVacant/destroy/{vacancie_study}', [VacancieStudyController::class, 'destroy'])->name('studyVacant.destroy');
+Route::get('/requisition/create', [RequisitonController::class, 'create'])->middleware('auth')->name('requisition.create');
+
 // instructor routes
 
 
