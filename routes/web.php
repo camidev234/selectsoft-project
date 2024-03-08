@@ -147,6 +147,7 @@ Route::get('/studyVacant/create/{vacancie}', [VacancieStudyController::class, 'c
 Route::post('/studyVacant/store/{vacancie}', [VacancieStudyController::class, 'store'])->name('studyVacant.store');
 Route::delete('/studyVacant/destroy/{vacancie_study}', [VacancieStudyController::class, 'destroy'])->name('studyVacant.destroy');
 Route::get('/requisition/create', [RequisitonController::class, 'create'])->middleware('auth')->name('requisition.create');
+Route::post('/requisition/store', [RequisitonController::class, 'store'])->name('requisition.store');
 
 // instructor routes
 
