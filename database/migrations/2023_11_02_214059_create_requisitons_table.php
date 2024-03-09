@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('candidate_description', 700);
             $table->string('candidate_talents', 700);
             $table->string('selection_criteria', 700);
+            $table->foreignId('company_id')->references('id')->on('companies');
             $table->timestamps();
         });
     }
