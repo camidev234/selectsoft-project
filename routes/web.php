@@ -146,8 +146,10 @@ Route::patch('/vacancie/update/{vacancie}/{company}', [VacancieController::class
 Route::get('/studyVacant/create/{vacancie}', [VacancieStudyController::class, 'create'])->name('studyVacant.create')->middleware('auth');
 Route::post('/studyVacant/store/{vacancie}', [VacancieStudyController::class, 'store'])->name('studyVacant.store');
 Route::delete('/studyVacant/destroy/{vacancie_study}', [VacancieStudyController::class, 'destroy'])->name('studyVacant.destroy');
-Route::get('/requisition/create', [RequisitonController::class, 'create'])->middleware('auth')->name('requisition.create');
-Route::post('/requisition/store', [RequisitonController::class, 'store'])->name('requisition.store');
+Route::get('/requisition/create/{company}', [RequisitonController::class, 'create'])->middleware('auth')->name('requisition.create');
+Route::post('/requisition/store/{company}', [RequisitonController::class, 'store'])->name('requisition.store');
+Route::get('/requisition/index/{company}', [RequisitonController::class, 'index'])->middleware('auth')->name('requisition.index');
+Route::get('/requisition/show/{requisition}', [RequisitonController::class, 'show'])->middleware('auth')->name('requisition.show');
 
 // instructor routes
 

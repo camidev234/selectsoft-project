@@ -11,7 +11,7 @@
 <body>
     @extends('layout.header')
     @section('content')
-    <form method="post" action="{{route('requisition.store')}}" class="form">
+    <form method="post" action="{{route('requisition.store', ['company' => $company->id])}}" class="form">
         @csrf
         <div class="form-group">
             <label for="occupation_code">Cargo:</label>

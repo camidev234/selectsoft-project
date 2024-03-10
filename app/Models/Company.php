@@ -27,4 +27,8 @@ class Company extends Model
     public function vacants() :HasMany {
         return $this->hasMany(Vacancie::class);
     }
+
+    public function requisitions() :HasMany {
+        return $this->hasMany(Requisiton::class);
+    }
 }
