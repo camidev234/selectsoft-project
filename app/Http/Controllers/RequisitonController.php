@@ -81,8 +81,10 @@ class RequisitonController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Requisiton $requisiton)
+    public function destroy(Requisiton $requisition)
     {
-        //
+        $requisition->delete();
+
+        return redirect()->back();
     }
 }

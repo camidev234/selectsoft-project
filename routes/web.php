@@ -150,6 +150,7 @@ Route::get('/requisition/create/{company}', [RequisitonController::class, 'creat
 Route::post('/requisition/store/{company}', [RequisitonController::class, 'store'])->name('requisition.store');
 Route::get('/requisition/index/{company}', [RequisitonController::class, 'index'])->middleware('auth')->name('requisition.index');
 Route::get('/requisition/show/{requisition}', [RequisitonController::class, 'show'])->middleware('auth')->name('requisition.show');
+Route::delete('/requisition/destroy/{requisition}', [RequisitonController::class, 'destroy'])->name('requisition.destroy');
 
 // instructor routes
 
