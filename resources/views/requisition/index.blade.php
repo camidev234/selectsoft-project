@@ -47,7 +47,7 @@
                             <form action="x" method="get">
                                 <button><i class="bi bi-pencil-fill"></i></button>
                             </form>
-                            <form action="">
+                            <form action="{{route('requisition.show', ['requisition' => $requisition->id])}}">
                                 <button><i class="bi bi-eye-fill"></i></button>
                             </form>
                         </td>
