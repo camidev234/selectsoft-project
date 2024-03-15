@@ -9,6 +9,7 @@ use App\Models\Charge;
 use App\Models\City;
 use App\Models\Company;
 use App\Models\Country;
+use App\Models\Requisiton;
 use App\Models\Salaries_type;
 use App\Models\Vacancie;
 use App\Models\Work_day;
@@ -55,6 +56,7 @@ class VacancieController extends Controller
         if($recruiter) {
             $company = $recruiter->company;
             $charges = Charge::where('company_id', $company->id)->get();
+            $requisitions = Requisiton::where('company_id', $company->id)->get();
 
             return view('/vacancie/create', [
                 'user' => $user,
@@ -64,7 +66,8 @@ class VacancieController extends Controller
                 'salaries' => $salaries,
                 'company' => $company,
                 'charges' => $charges,
-                'days' => $days
+                'days' => $days,
+                'requisitions' => $requisitions
             ]);
         }
     }
@@ -82,10 +85,14 @@ class VacancieController extends Controller
         }else{
             $newVacancie->skills = $request->skills;
         }
+
+        $requisitonToFind = Requisiton::find($request->requisiton_id);
+        $chargeToAssign = Charge::find($requisitonToFind->charge_id);
+
         $newVacancie->required_experience = $request->required_experience;
         $newVacancie->salary_range = $request->salary_range;
         $newVacancie->number_vacancies = $request->number_vacancies;
-        $newVacancie->charge_id = $request->charge_id;
+        $newVacancie->charge_id = $chargeToAssign->id;
         $newVacancie->schedule = $request->schedule;
         $newVacancie->work_day_id = $request->work_day_id;
         $newVacancie->salaries_type_id = $request->salaries_type_id;
@@ -93,6 +100,7 @@ class VacancieController extends Controller
         $newVacancie->country_id = $request->country_id;
         $newVacancie->city_id = $request->city_id;
         $newVacancie->annotations = $request->annotations;
+        $newVacancie->requisiton_id = $request->requisiton_id;
         $newVacancie->company_id = $company->id;
 
         $newVacancie->save();
