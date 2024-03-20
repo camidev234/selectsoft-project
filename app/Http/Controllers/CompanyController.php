@@ -45,12 +45,25 @@ class CompanyController extends Controller
                 return redirect()->route('company.index')->with('message', 'No se encontraron empresas para la búsqueda: ' . $search);
             } else {
                 $find = true;
-                return view('/company/indexCompany', [
-                    'companyFind' => $companies,
-                    'find' => $find,
-                    'user' => $user,
-                    'role_id' => $role_id
-                ]);
+                if($role_id == 3) {
+                    return view('/company/indexCompany', [
+                        'companyFind' => $companies,
+                        'find' => $find,
+                        'user' => $user,
+                        'role_id' => $role_id
+                    ]);
+                } else {
+
+                    $recruiter = Auth::user()->recruiter;
+
+                    return view('/company/indexCompany', [
+                        'companyFind' => $companies,
+                        'find' => $find,
+                        'user' => $user,
+                        'role_id' => $role_id,
+                        'recruiter' => $recruiter
+                    ]);
+                }
             }
         } else {
             return back()->with('message', 'Introduzca un valor para buscar.');
