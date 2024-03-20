@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('charges', function (Blueprint $table) {
             $table->id();
             $table->string('charge');
-            $table->foreignId('occupation_id')->constrained('occupations')->onDelete('cascade');
-            $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
+            $table->foreignId('occupation_id')->references('id')->on('occupations')->onDelete('cascade');
+            $table->foreignId('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }
