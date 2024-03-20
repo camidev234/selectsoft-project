@@ -54,14 +54,14 @@ class CompanyController extends Controller
                     ]);
                 } else {
 
-                    $recruiter = Auth::user()->recruiter;
+                    $selector = Auth::user()->selector;
 
                     return view('/company/indexCompany', [
                         'companyFind' => $companies,
                         'find' => $find,
                         'user' => $user,
                         'role_id' => $role_id,
-                        'recruiter' => $recruiter
+                        'selector' => $selector
                     ]);
                 }
             }
