@@ -68,7 +68,7 @@ class UserController extends Controller
         $newUser->city_id = strtoupper($request->input('id_city'));
         $newUser->birthdate = strtoupper($request->input('birthdate'));
         $newUser->email = strtolower($request->input('email'));
-        $newUser->password = strtoupper($request->input('password'));
+        $newUser->password = $request->input('password');
         $newUser->role_id = 1;
 
 
