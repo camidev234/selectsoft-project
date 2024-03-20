@@ -82,7 +82,7 @@
                                 <button>Vincularse</button>
                             </form>
                             @else
-                            <form action="{{route('selector.joinCompany', ['company' => $company->id, 'selector' => $selector->id])}}" method="get">
+                            <form action="{{route('selector.joinCompany', ['company' => $company->id)}}" method="get">
                                 <button>Vincularse</button>
                             </form>
                             @endif
