@@ -53,8 +53,10 @@ class SelectorController extends Controller
     }
 
 
-    public function joinCompany(Company $company, Selector $selector)
+    public function joinCompany(Company $company)
     {
+        $selector = Auth::user()->selector;
+
         $selector->company_id = $company->id;
 
         $selector->save();
