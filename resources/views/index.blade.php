@@ -16,7 +16,7 @@
         <header class="header">
             <!-- Logo de selectsoft -->
             <article class="img-header">
-                <a href="index.html"><img src="{{asset('img/SELECTSOFT.svg')}}" alt="log-selectsoft"></a>
+                <a href="{{route('system.index')}}"><img src="{{asset('img/SELECTSOFT.svg')}}" alt="log-selectsoft"></a>
             </article>
             <!-- Barra de busqueda -->
             <nav class="bar-nav" id="bar">
