@@ -25,7 +25,7 @@
                     </form>
                 </div>
                 <div class="actions">
-                    <h5><i class="bi bi-house-fill"></i> <a href="{{route('user.index')}}">{{$user->name}}</a></h5>
+                    <h5><i class="bi bi-house-fill"></i> <a href="{{route('user.index')}}">{{ucwords(strtolower($user->name))}}</a></h5>
                     <h5>Rol: {{$user->role->name}}</h5>
                     <h5>
                         <form action="{{route('user.logout')}}" method="post">
@@ -39,9 +39,9 @@
                 @else
                 <div class="actions">
                     @if($role_id == 2)
-                    <h5><i class="bi bi-house-fill"></i> <a href="{{route('selector.index')}}">{{$user->name}}</a></h5>
+                    <h5><i class="bi bi-house-fill"></i> <a href="{{route('selector.index')}}">{{ucwords(strtolower($user->name))}}</a></h5>
                     @elseif($role_id == 3)
-                    <h5><i class="bi bi-house-fill"></i> <a href="{{route('recruiter.index')}}">{{$user->name}}</a></h5>
+                    <h5><i class="bi bi-house-fill"></i> <a href="{{route('recruiter.index')}}">{{ucwords(strtolower($user->name))}}</a></h5>
                     @endif
                     <h5>Rol: {{$user->role->name}}</h5>
                     <h5>
@@ -77,7 +77,7 @@
                     </section>
                 </section>
                 <section class="copy">
-                    <h3>Todos los derechos reservados &copy; 2023</h3>
+                    <h3>Todos los derechos reservados &copy; 2024</h3>
                 </section>
             </section>
         </footer>
