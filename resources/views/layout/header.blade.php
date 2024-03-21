@@ -13,7 +13,7 @@
 <body>
     <header class="header">
         <div class="logo">
-            <img src="{{asset('img/SELECTSOFT.svg')}}" alt="Logo de selectsoft">
+            <a href="{{route('system.index')}}"><img src="{{asset('img/SELECTSOFT.svg')}}" alt="Logo de selectsoft"></a>
         </div>
         @auth
             @if($role_id == 1)
