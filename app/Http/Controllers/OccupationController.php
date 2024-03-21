@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OccupationRequest;
 use App\Http\Requests\UpdateOccupationRequest;
+use App\Models\Company;
 use App\Models\Occupation;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -16,7 +17,7 @@ class OccupationController extends Controller
      */
     public function index() :View
     {
-        $allOccupations = Occupation::all();
+        $allOccupations = Occupation::where('company_id', Auth::user()->recruiter->company_id)->get();
         $user = Auth::user();
         $role_id = $user->role_id;
         return view('/occupation/indexOccupation', [
@@ -46,6 +47,7 @@ class OccupationController extends Controller
     {
         $new1=new Occupation();
 
+        $new1->company_id = Auth::user()->recruiter->company_id;
         $new1->occupation_code=$datos->occupation_code;
         $new1->occupation_name=$datos->occupation_name;
         $new1->description=$datos->description;
