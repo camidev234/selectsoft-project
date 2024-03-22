@@ -21,7 +21,7 @@
     <main class="container">
 
         <section class="card">
-            <a href="{{route('education.create')}}">Añadir nueva requisicion</a>
+            <a href="{{route('requisition.create', ['company' => $company->id])}}">Añadir nueva requisicion</a>
         </section>
 
         <section class="content">

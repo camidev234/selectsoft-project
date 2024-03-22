@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     margin-top: 100px;
     margin-bottom: 30px;
@@ -65,7 +65,9 @@ body {
 
 .actions-l {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .deleteBtn, .updateBtn, .detailsBtn {

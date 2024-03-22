@@ -23,6 +23,7 @@ class RequisitonController extends Controller
             'role_id' => $role_id,
             'requisitions' => $requisitions,
             'user' => Auth::user(),
+            'company' => $company
         ]);
     }
     public function create(Company $company)
