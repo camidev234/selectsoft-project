@@ -13,12 +13,12 @@
     @section('content')
     <form method="post" action="{{route('charges.store')}}" class="form">
         @csrf
-        <label for="charge">Cargo: </label>
+        <label for="charge">Cargo <span class="ast">*</span></label>
         <input type="text" name="charge" id="occupation_code" value="{{old('charge')}}">
         @error('charge')
             <span style="color: red;">{{$message}}</span>
         @enderror
-        <label for="">Ocupacion</label><br>
+        <label for="">Ocupacion <span class="ast">*</span></label><br>
         <select name="occupation_id" id="">
             @forelse($occupations as $occupation)
                 <option value="{{$occupation->id}}">{{$occupation->occupation_code}}-{{$occupation->occupation_name}}</option>

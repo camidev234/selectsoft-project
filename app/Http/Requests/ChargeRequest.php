@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class ChargeRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determina si el usuario está autorizado para realizar esta solicitud.
      */
     public function authorize(): bool
     {
@@ -15,7 +15,7 @@ class ChargeRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Obtiene las reglas de validación que se aplican a la solicitud.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
@@ -23,6 +23,19 @@ class ChargeRequest extends FormRequest
     {
         return [
             'charge' => 'required|string'
+        ];
+    }
+
+    /**
+     * Obtiene los mensajes de error para las reglas de validación definidas.
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'charge.required' => 'El campo cargo es obligatorio.',
+            'charge.string' => 'El campo cargo debe ser una cadena de caracteres.',
         ];
     }
 }

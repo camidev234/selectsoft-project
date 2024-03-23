@@ -14,12 +14,12 @@
     <form method="post" action="{{route('charges.update', ['charge' => $charge->id, 'company' => $company->id])}}" class="form">
         @csrf
         @method('PATCH')
-        <label for="charge">Cargo: </label>
+        <label for="charge">Cargo <span class="ast">*</span></label>
         <input type="text" name="charge" id="occupation_code" value="{{old('charge')}} {{$charge->charge}}">
         @error('charge')
             <span style="color: red;">{{$message}}</span>
         @enderror
-        <label for="">Ocupacion</label><br>
+        <label for="">Ocupacion <span class="ast">*</span></label><br>
         <select name="occupation_id" id="">
                 <option value="{{$charge->occupation_id}}">{{$charge->occupation->occupation_code}}-{{$charge->occupation->occupation_name}}</option>
             @forelse($occupations as $occupation)
