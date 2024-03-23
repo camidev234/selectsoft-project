@@ -83,7 +83,7 @@ class ChargeController extends Controller
 
         $currentOccupation = $charge->occupation;
 
-        $occupations = Occupation::where('id', '!=', $currentOccupation->id)->get();
+        $occupations = Occupation::where('company_id', $company->id)->where('id', '!=', $currentOccupation->id)->get();
 
         return view('/charge/update', [
             'user' => $user,

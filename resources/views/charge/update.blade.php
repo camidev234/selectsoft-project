@@ -21,7 +21,7 @@
         @enderror
         <label for="">Ocupacion</label><br>
         <select name="occupation_id" id="">
-                <option value="{{$charge->occupation_id}}">{{$charge->occupation->occupation_name}}</option>
+                <option value="{{$charge->occupation_id}}">{{$charge->occupation->occupation_code}}-{{$charge->occupation->occupation_name}}</option>
             @forelse($occupations as $occupation)
                 <option value="{{$occupation->id}}">{{$occupation->occupation_code}}-{{$occupation->occupation_name}}</option>
             @empty
