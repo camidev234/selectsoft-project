@@ -143,9 +143,19 @@ article .action {
 
 .applications {
     margin-top: 30px;
-    max-height: 900px;
+    max-height: 50vh;
     overflow: auto;
     padding-bottom: 5px;
+}
+
+.applications::-webkit-scrollbar {
+    width: 7px; /* Ancho del scrollbar */
+}
+
+/* Estilo del thumb del scrollbar */
+.applications::-webkit-scrollbar-thumb {
+    background-color: #a1a1a1; /* Color del thumb */
+    border-radius: 5px; /* Radio de borde del thumb */
 }
 
 .applications .allAplications {
@@ -161,7 +171,7 @@ article .action {
     height: 70px;
     display: flex;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    border: 1px solid #eee;
+    border: 1px solid #b8b8b8;
     border-radius: 8px;
 }
 
@@ -212,14 +222,6 @@ border-color: #dbdbdb;
     align-items: center;
 }
 
-.exit a{
-    border-radius: 50px;
-    padding: 10px 50px;
-    color: white;
-    background-color: #2193b0;
-    text-decoration: none;
-}
-
 .exit a:hover {
     background-color: rgb(170, 0, 0);
 }
@@ -227,19 +229,29 @@ border-color: #dbdbdb;
 .exit form {
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.exit button {
-    width: 100%;
-    height: 100%;
-    background: rgb(175, 0, 0);
+.btnaction {
     outline: none;
     border: none;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.oneBtn {
+    background-color: #3e8842;
+}
+
+.twoBtn {
+    background-color: #b71c1c;
 }
 
 .exit i {
-    font-size: 27px;
+    font-size: 20px;
     color: white;
 }
 
@@ -253,6 +265,7 @@ border-color: #dbdbdb;
     gap: 20px;
     width: 100%;
     padding: 0 15px 0 0;
+    line-height: 1.5;
 }
 
 .postulated.active {
