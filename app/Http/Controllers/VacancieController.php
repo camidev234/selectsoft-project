@@ -223,7 +223,7 @@ class VacancieController extends Controller
         $currentSchedule = $vacancie->work_day;
         $days = Work_day::where('id', '!=', $currentSchedule->id)->get();;
         $currentCharge = $vacancie->charge;
-        $charges = Charge::where('company_id', $company->id)->where('id', '!=', $currentCharge->id)->get();
+        $requisitions = Requisiton::where('company_id', $company->id)->where('charge_id', '!=', $currentCharge->id)->get();
 
         return view('/vacancie/edit', [
             'user' => $user,
@@ -232,7 +232,7 @@ class VacancieController extends Controller
             'cities' => $cities,
             'salaries' => $salaries,
             'days' => $days,
-            'charges' => $charges,
+            'requisitions' => $requisitions,
             'vacancie' => $vacancie,
             'company' => $company
         ]);
@@ -250,10 +250,13 @@ class VacancieController extends Controller
         }else{
             $vacancie->skills = $request->skills;
         }
+
+        $chargeToAssign = Charge::find(Requisiton::find($request->requisiton_id)->charge_id);
+
         $vacancie->required_experience = $request->required_experience;
         $vacancie->salary_range = $request->salary_range;
         $vacancie->number_vacancies = $request->number_vacancies;
-        $vacancie->charge_id = $request->charge_id;
+        $vacancie->charge_id = $chargeToAssign->id;
         $vacancie->schedule = $request->schedule;
         $vacancie->work_day_id = $request->work_day_id;
         $vacancie->salaries_type_id = $request->salaries_type_id;
@@ -261,6 +264,7 @@ class VacancieController extends Controller
         $vacancie->country_id = $request->country_id;
         $vacancie->city_id = $request->city_id;
         $vacancie->annotations = $request->annotations;
+        $vacancie->requisiton_id = $request->requisiton_id;
         $vacancie->company_id = $company->id;
 
         $vacancie->save();

@@ -43,13 +43,13 @@
             @error('number_vacancies')
             <span style="color: red;">{{$message}}</span><br><br>
             @enderror
-            <label for="">Cargo: </label><br>
-            <select name="charge_id" id="">
-                <option value="{{$vacancie->charge_id}}">{{$vacancie->charge->charge}}</option>
-                @forelse($charges as $charge)
-                <option value="{{$charge->id}}">{{$charge->charge}}</option>
+            <label for="">Requisicion: </label><br>
+            <select name="requisiton_id" id="">
+                <option value="{{$vacancie->charge_id}}">{{$vacancie->requisiton->charge->charge}}</option>
+                @forelse($requisitions as $requisition)
+                <option value="{{$requisition->id}}">{{$requisition->charge->charge}}</option>
                 @empty
-                <option value="">No hay cargos creados aun</option>
+                <option value="">No hay requisiciones creadas aun</option>
                 @endforelse
             </select><br>
             <label for="">Horario: </label><br>

@@ -43,4 +43,8 @@ class Vacancie extends Model
     public function company() :BelongsTo {
         return $this->belongsTo(Company::class);
     }
+
+    public function requisiton() :BelongsTo {
+        return $this->belongsTo(Requisiton::class);
+    }
 }

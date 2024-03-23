@@ -120,13 +120,22 @@ body {
 }
 
 .actions-l {
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     gap: 10px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.actions-l form {
+    display: inline-block;
+    margin-right: 5px; 
+    vertical-align: middle;
 }
 
 .deleteBtn, .updateBtn, .detailsBtn {
+    /* display: inline-block; */
     padding: 5px 10px;
     cursor: pointer;
     background-color: #dc3545;
