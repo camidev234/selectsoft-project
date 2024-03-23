@@ -12,6 +12,33 @@
     @extends('layout.header')
     @section('content')
     <div class="container">
+        <section class="titlePage">
+            <article class="title">
+                <h2>Listado De Ocupaciones</h2>
+            </article>
+            <article class="btns">
+                <article class="descBtns oneBtnTitle">
+                    <div>
+                        <i class="bi bi-trash-fill bt"></i>
+                    </div>
+                    <span>Cerrar /</span>
+                    <span>Abrir</span>
+                </article>
+                <article class="descBtns thBt">
+                    <div>
+                        <i class="bi bi-eye-fill bt"></i>
+                    </div>
+                    <span>Detalles</span>
+                </article>
+                <article class="descBtns twBt">
+                    <div>
+                        <i class="bi bi-pencil-fill bt"></i>
+                    </div>
+                    <span>Actualizar</span>
+                </article>
+
+            </article>
+        </section>
         <table class="table_container">
             <thead class="table_head">
                 <tr>
