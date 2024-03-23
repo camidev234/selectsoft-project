@@ -39,11 +39,6 @@
                         <td>{{$requisition->charge->charge}}</td>
                         <td>{{$requisition->justification}}</td>
                         <td class="actionstable">
-                            <form action="{{route('requisition.destroy', ['requisition' => $requisition->id])}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btnaction oneBtn"><i class="bi bi-trash-fill bt"></i></button>
-                            </form>
                             <form action="x" method="get">
                                 <button class="btnaction twoBtn"><i class="bi bi-pencil-fill bt"></i></button>
                             </form>

@@ -21,8 +21,7 @@
                     <div>
                         <i class="bi bi-trash-fill bt"></i>
                     </div>
-                    <span>Cerrar /</span>
-                    <span>Abrir</span>
+                    <span>Eliminar</span>
                 </article>
                 <article class="descBtns thBt">
                     <div>
