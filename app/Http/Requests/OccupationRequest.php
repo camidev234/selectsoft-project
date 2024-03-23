@@ -22,9 +22,9 @@ class OccupationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'occupation_code' => ['required', 'min:4', 'max:7', 'string'],
-            'occupation_name' => ['required', 'max:70', 'string'],
-            'description' => ['required', 'max:1500', 'string'],
+            'occupation_code' => 'required|integer|min:0|digits_between:4,6',
+            'occupation_name' => 'required|max:70|string',
+            'description' => 'required|max:1500|string',
         ];
     }
 }

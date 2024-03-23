@@ -37,7 +37,7 @@ class VacancieRequest extends FormRequest
     {
         return [
             'vacancie_code.required' => 'El código de la vacante es requerido.',
-            'vacancie_code.unique' => 'El código de la vacante debe ser único.',
+            'vacancie_code.unique' => 'El código de la vacante ya existe.',
             'vacancie_code.integer' => 'El código de la vacante debe ser un número entero.',
             'vacancie_code.min' => 'El código de la vacante debe ser al menos :min.',
             'vacancie_code.digits_between' => 'El código de la vacante debe tener entre :min y :max dígitos.',
