@@ -47,7 +47,7 @@ body {
     align-items: center;
 }
 
-/* Estilo para la tabla */
+
 table {
     width: 90%;
     border-collapse: collapse;
@@ -57,7 +57,7 @@ table {
     overflow: hidden;
 }
 
-/* Estilo para las celdas del encabezado */
+
 th {
     background-color: #2193b0;
     color: #fff;
@@ -66,46 +66,78 @@ th {
     font-weight: bold;
 }
 
-/* Estilo para las celdas de datos */
 td {
     border: 1px solid #ddd;
     padding: 15px;
     transition: background-color 0.3s ease;
 }
 
-/* Estilo para las filas alternas */
+
 tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
 /* Estilo para los botones en la columna de Acciones */
-button {
+/* button {
     background: none;
     border: none;
     cursor: pointer;
     transition: color 0.3s ease-in-out;
-}
+} */
 
-/* Estilo para el icono dentro del botón */
-i {
-    font-size: 1.2em;
-    color: rgb(182, 0, 0);
+
+.bt {
+    font-size: 1em;
     transition: color 0.3s ease-in-out;
+    color: white;
 }
 
-/* Estilo para cambiar el color de los botones al pasar el ratón sobre ellos */
-button:hover i, button:hover {
-    color: #1565c0;
-}
-
-/* Estilo para el formulario en la columna de Acciones (opcional) */
 form {
     display: inline-block;
     margin-right: 5px;
 }
 
-/* Estilo para las animaciones al pasar el ratón sobre las celdas de datos */
 td:hover {
     background-color: #e3f2fd;
     cursor: default;
+}
+
+.btnaction {
+    outline: none;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+.oneBtn {
+    background-color: #b71c1c;
+}
+
+.oneBtn:hover {
+    background-color: #9c1212;
+}
+
+.twoBtn {
+    background-color: #1976d2;
+}
+
+.twoBtn:hover {
+    background-color: #125ba5;
+}
+
+.threeBtn {
+    background-color: #27812a;
+}
+
+.threeBtn:hover {
+    background-color: #1b681d;
+}
+
+.actionstable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -41,11 +41,11 @@
                         $fileName = basename($support->support_file);
                         @endphp
                         <td><a href="{{ asset($support->support_file) }}" target="_blank">{{ $fileName }}</a></td>
-                        <td>
+                        <td class="actionstable">
                             <form action="{{route('supports.destroy', ['candidate_support' => $support->id])}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button><i class="bi bi-trash-fill"></i></button>
+                                <button class="btnaction oneBtn"><i class="bi bi-trash-fill bt"></i></button>
                             </form>
                         </td>
                     </tr>

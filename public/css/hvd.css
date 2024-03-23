@@ -68,6 +68,10 @@
     width: 80%;
 }
 
+.pf p {
+    line-height: 1.5;
+}
+
 
 .profileInfo h3 {
     color: #1a2e44;

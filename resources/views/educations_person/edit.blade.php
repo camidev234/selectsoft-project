@@ -16,7 +16,7 @@
         @csrf
         @method('PATCH')
         <label for="school_name" class="form-label">Institucion educativa:</label><br>
-        <input type="text" id="school_name" placeholder="Institución" name="school_name" value="{{ old('school_name') ?? $education->school_name }}" class="form-input"><br>
+        <input type="text" id="school_name" placeholder="Institución" name="shcool_name" value="{{ old('school_name') ?? $education->shcool_name }}" class="form-input"><br>
         @error('school_name')
         <span class="error-message">{{$message}}</span><br>
         @enderror

@@ -43,14 +43,14 @@
                         <td>{{$education->obtained_title}}</td>
                         <td>{{$education->study_level->study_level}}</td>
                         <td>{{$education->study_status->study_status}}</td>
-                        <td>
+                        <td class="actionstable">
                             <form action="{{route('educations.destroy', ['education_person' => $education->id])}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                                <button><i class="bi bi-trash-fill"></i></button>
+                                @csrf
+                                @method('DELETE')
+                                <button class="btnaction oneBtn"><i class="bi bi-trash-fill bt"></i></button>
                             </form>
                             <form action="{{route('educations.edit', ['education_person' => $education->id])}}" method="get">
-                                <button><i class="bi bi-pencil-fill"></i></button>
+                                <button class="btnaction twoBtn"><i class="bi bi-pencil-fill bt"></i></button>
                             </form>
                         </td>
                     </tr>

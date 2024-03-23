@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('requisitons', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('charge_id')->references('id')->on('charges');
+            $table->foreignId('charge_id')->references('id')->on('charges')->onDelete('cascade');
             $table->string('job_description', 1200);
             $table->string('justification', 1500);
             $table->string('ideal_candidate', 700);
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('candidate_description', 700);
             $table->string('candidate_talents', 700);
             $table->string('selection_criteria', 700);
-            $table->foreignId('company_id')->references('id')->on('companies');
+            $table->foreignId('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }
