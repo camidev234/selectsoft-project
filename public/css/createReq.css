@@ -47,3 +47,7 @@ body {
 textarea {
     resize: none;
 }
+
+.ast {
+    color: red;
+}
