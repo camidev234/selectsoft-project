@@ -35,8 +35,8 @@ class ChargeController extends Controller
      */
     public function create()
     {
-        $occupations = Occupation::all();
         $user = Auth::user();
+        $occupations = Occupation::where('company_id', $user->recruiter->company_id)->get();
         $role_id = $user->role_id;
 
         return view('/charge/create', [

@@ -32,7 +32,7 @@ class RequisitonController extends Controller
         return view('requisition.create', [
             'role_id' => $role_id,
             'user' => Auth::user(),
-            'jobs' => Charge::all(),
+            'jobs' => Charge::where('company_id', $company->id)->get(),
             'company' => $company
         ]);
     }

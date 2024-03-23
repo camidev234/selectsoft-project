@@ -23,7 +23,7 @@
             @forelse($occupations as $occupation)
                 <option value="{{$occupation->id}}">{{$occupation->occupation_code}}-{{$occupation->occupation_name}}</option>
             @empty
-                <option value="">No hay ocupaciones en el sistema</option>
+                <option value="">No hay ocupaciones en la empresa</option>
             @endforelse
         </select><br>
         <input type="submit" value="Crear Ocupacion">
