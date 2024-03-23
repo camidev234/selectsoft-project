@@ -11,17 +11,17 @@
     @section('content')
     <form method="post" action="{{route('occupations.store')}}" class="form">
         @csrf
-        <label for="occupation_code">Código de ocupación:</label>
+        <label for="occupation_code">Código de ocupación <span class="ast">*</span></label>
         <input type="text" name="occupation_code" id="occupation_code" value="{{old('occupation_code')}}">
         @error('occupation_code')
             <span style="color: red;">{{$message}}</span><br>
         @enderror
-        <label for="occupation_name">Nombre de ocupación:</label>
+        <label for="occupation_name">Nombre de ocupación <span class="ast">*</span></label>
         <input type="text" name="occupation_name" id="occupation_name" value="{{old('occupation_name')}}">
         @error('occupation_name')
             <span style="color: red;">{{$message}}</span><br>
         @enderror
-        <label for="description">Descripción:</label>
+        <label for="description">Descripción <span class="ast">*</span></label>
         <input type="text" name="description" id="description" value="{{old('description')}}">
         @error('description')
             <span style="color: red;">{{$message}}</span><br>
