@@ -19,6 +19,33 @@
             alert(mes.textContent);
         </script>
         @endif
+        <section class="titlePage">
+            <article class="title">
+                <h2>Listado De Vacantes</h2>
+            </article>
+            <article class="btns">
+                <article class="descBtns oneBt">
+                    <div>
+                        <i class="bi bi-ban bt"></i>
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                    <span>Cerrar /</span>
+                    <span>Abrir</span>
+                </article>
+                <article class="descBtns twBt">
+                    <div>
+                        <i class="bi bi-pencil-fill bt"></i>
+                    </div>
+                    <span>Actualizar</span>
+                </article>
+                <article class="descBtns thBt">
+                    <div>
+                        <i class="bi bi-eye-fill bt"></i>
+                    </div>
+                    <span>Detalles</span>
+                </article>
+            </article>
+        </section>
         <section class="findCom">
             <form action="{{route('vacancies.findByCompany', ['company' => $company->id])}}" method="get">
                 <input type="search" name="search" id="" placeholder="Buscar vacante por codigo o cargo">
@@ -57,13 +84,13 @@
                         <form action="{{route('vacancies.editStatus', ['vacancie' => $vacant->id])}}" method="post">
                             @csrf
                             @method('PATCH')
-                            <button class="deleteBtn">Cerrar</button>
+                            <button class="btnaction oneyBtn"><i class="{{$vacant->is_active ? 'bi bi-ban bt' : 'bi bi-check-circle-fill bt'}}"></i></button>
                         </form>
                         <form action="{{route('vacancies.edit', ['vacancie' => $vacant->id, 'company' => $company->id])}}" method="get">
-                            <button class="updateBtn">Actualizar</button>
+                            <button class="btnaction twoBtn"><i class="bi bi-pencil-fill bt"></i></button>
                         </form>
                         <form action="{{route('vacancies.show', ['vacancie' => $vacant->id])}}" method="get">
-                            <button class="detailsBtn">Detalles</button>
+                            <button class="btnaction threeBtn"><i class="bi bi-eye-fill bt"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -99,16 +126,16 @@
                         @endif
                     </td>
                     <td class="actions-l">
-                        <form action="{{route('vacancies.edit', ['vacancie' => $vacant->id, 'company' => $company->id])}}" method="get">
-                            <button class="updateBtn">Actualizar</button>
-                        </form>
                         <form action="{{route('vacancies.editStatus', ['vacancie' => $vacant->id])}}" method="post">
                             @csrf
                             @method('PATCH')
-                            <button class="deleteBtn">Cerrar</button>
+                            <button class="btnaction oneyBtn"><i class="{{$vacant->is_active ? 'bi bi-ban bt' : 'bi bi-check-circle-fill bt'}}"></i></button>
+                        </form>
+                        <form action="{{route('vacancies.edit', ['vacancie' => $vacant->id, 'company' => $company->id])}}" method="get">
+                            <button class="btnaction twoBtn"><i class="bi bi-pencil-fill bt"></i></button>
                         </form>
                         <form action="{{route('vacancies.show', ['vacancie' => $vacant->id])}}" method="get">
-                            <button class="detailsBtn">Detalles</button>
+                            <button class="btnaction threeBtn"><i class="bi bi-eye-fill bt"></i></button>
                         </form>
                     </td>
                 </tr>

@@ -6,10 +6,60 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 40px;
     margin-bottom: 30px;
+}
+
+.titlePage {
+    /* background-color: #dc3545; */
+    display: flex;
+    justify-content: space-around;
+    height: 90px;
+}
+.title {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.descBtns {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.descBtns i {
+    color: white;
+}
+
+.btns {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.oneBt div {
+    background-color: rgb(218, 204, 13);
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.twBt div {
+    background-color: #1976d2;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.thBt div {
+    background-color: #218838;
+    padding: 7px;
+    border-radius: 5px;
 }
 
 .findCom {
@@ -79,13 +129,13 @@ body {
     border-radius: 3px;
 }
 
-.updateBtn {
+/* .updateBtn {
     background-color: #007bff;
 }
 
 .detailsBtn {
     background-color: #1a2e44;
-}
+} */
 
 .create {
     margin-top: 20px;
@@ -98,7 +148,7 @@ body {
 
 .create a {
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: rgb(53, 61, 168);
     color: white;
     text-decoration: none;
     border-radius: 3px;
@@ -106,4 +156,46 @@ body {
 
 .create a:hover {
     background-color: #218838;
+}
+
+.btnaction {
+    outline: none;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btnaction i {
+    color: white;
+}
+
+
+
+.oneBtn {
+    background-color: #b71c1c;
+}
+
+.oneBtn:hover {
+    background-color: #9c1212;
+}
+
+.oneyBtn {
+    background-color: rgb(218, 204, 13);
+}
+
+.twoBtn {
+    background-color: #1976d2;
+}
+
+.twoBtn:hover {
+    background-color: #125ba5;
+}
+
+.threeBtn {
+    background-color: #27812a;
+}
+
+.threeBtn:hover {
+    background-color: #1b681d;
 }

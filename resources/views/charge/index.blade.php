@@ -29,10 +29,10 @@
                         <form action="{{route('charges.destroy',['charge'=>$charge->id])}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button class="deleteBtn">Eliminar</button>
+                            <button class="btnaction oneBtn"><i class="bi bi-trash-fill bt"></i></button>
                         </form>
                         <form action="{{route('charges.edit',['charge'=>$charge->id, 'company' => $company->id])}}" method="get">
-                            <button class="updateBtn">Actualizar</button>
+                            <button class="btnaction twoBtn"><i class="bi bi-pencil-fill bt"></i></button>
                         </form>
                     </td>
                 </tr>
