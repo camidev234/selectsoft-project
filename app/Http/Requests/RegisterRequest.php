@@ -29,7 +29,7 @@ class RegisterRequest extends FormRequest
             'telephone' => 'max:10',
             'phone_number' => 'min:0|max:255|required',
             'address' => 'required|string|max:255',
-            'id_country' => 'required|exists:countries,id',
+            // 'id_country' => 'required|exists:countries,id',
             'id_department' => 'required|exists:departaments,id',
             'id_city' => 'required|exists:cities,id',
             'birthdate' => 'required|date',

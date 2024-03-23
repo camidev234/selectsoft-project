@@ -63,7 +63,7 @@ class UserController extends Controller
         $newUser->telephone = $request->input('telephone');
         $newUser->phone_number = $request->input('phone_number');
         $newUser->address = strtoupper($request->input('address'));
-        $newUser->country_id = $request->input('id_country');
+        $newUser->country_id = 37;
         $newUser->departament_id = $request->input('id_department');
         $newUser->city_id = strtoupper($request->input('id_city'));
         $newUser->birthdate = strtoupper($request->input('birthdate'));
