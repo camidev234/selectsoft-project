@@ -168,7 +168,8 @@ article .action {
     gap: 20px;
 }
 .containerAplication {
-    height: 70px;
+    height: 80px;
+    padding: 4px;
     display: flex;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     border: 1px solid #b8b8b8;

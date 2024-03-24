@@ -36,6 +36,14 @@ body {
     color: white;
 }
 
+#titlePage .title {
+    width: 30%;
+}
+
+#titlePage .btns {
+    width: 70%;
+}
+
 .btns {
     width: 50%;
     height: 100%;

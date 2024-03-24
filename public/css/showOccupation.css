@@ -39,6 +39,11 @@ th {
     color: #ffffff;
 }
 
+.createFunction {
+    display: flex;
+    justify-content: space-between;
+}
+
 section.createFunction a {
     display: inline-block;
     padding: 10px 20px;

@@ -52,6 +52,7 @@
         </section><br>
         <section class="createFunction">
             <a href="{{route('occupationFunction.create',['occupation' => $occupation->id])}}">Crear funcion</a>
+            <a href="{{route('occupations.index')}}">Volver Al Listado</a>
         </section>
     </section>
     @endsection

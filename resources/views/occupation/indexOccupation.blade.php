@@ -12,9 +12,9 @@
     @extends('layout.header')
     @section('content')
     <div class="container">
-        <section class="titlePage">
+        <section class="titlePage" id="titlePage">
             <article class="title">
-                <h2>Listado De Ocupaciones</h2>
+                <h2>Ocupaciones</h2>
             </article>
             <article class="btns">
                 <article class="descBtns oneBtnTitle">
@@ -34,6 +34,12 @@
                         <i class="bi bi-pencil-fill bt"></i>
                     </div>
                     <span>Actualizar</span>
+                </article>
+                <article class="descBtns oneBt">
+                    <div>
+                        <i class="bi bi-plus-square bt"></i>
+                    </div>
+                    <span>Añadir Funcion</span>
                 </article>
 
             </article>
@@ -64,6 +70,9 @@
                         </form>
                         <form action="{{route('occupations.edit',['occupation'=>$occupation->id])}}" method="get">
                             <button class="btnaction twoBtn"><i class="bi bi-pencil-fill bt"></i></button>
+                        </form>
+                        <form action="{{route('occupationFunction.create',['occupation' => $occupation->id])}}" method="get">
+                            <button class="btnaction oneyBtn"><i class="bi bi-plus-square bt"></i></button>
                         </form>
                     </td>
                 </tr>

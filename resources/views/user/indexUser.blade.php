@@ -118,7 +118,7 @@
                             </article>
                         </section>
                         <section class="exit">
-                            <form action="" method="get">
+                            <form action="{{route('vacancie.showCandidate', ['vacancie' => $application->vacant_id])}}" method="get">
                                 <button class="btnaction oneBtn"><i class="bi bi-eye-fill bt"></i></button>
                             </form>
                             <form action="{{ route('applications.destroy', ['applications' => $application->id]) }}" method="post">
