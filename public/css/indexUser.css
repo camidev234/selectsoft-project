@@ -245,15 +245,19 @@ border-color: #dbdbdb;
 
 .oneBtn {
     background-color: #3e8842;
+    color: white;
 }
 
 .twoBtn {
-    background-color: #b71c1c;
+    background-color: rgb(218, 204, 13);
+}
+
+.twoBtn i{
+    color: black;
 }
 
 .exit i {
     font-size: 20px;
-    color: white;
 }
 
 .user_c_container {

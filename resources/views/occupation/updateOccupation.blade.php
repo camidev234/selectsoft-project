@@ -25,7 +25,7 @@
             <span style="color: red;">{{$message}}</span><br>
         @enderror
         <label for="description">Descripción <span class="ast">*</span></label>
-        <input type="text" name="description" id="description" value="{{$occupation->description}}">
+        <textarea name="description" id="" cols="30" rows="10">{{$occupation->description}}</textarea>
         @error('description')
             <span style="color: red;">{{$message}}</span><br>
         @enderror

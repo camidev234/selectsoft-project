@@ -207,6 +207,10 @@ body {
     background-color: rgb(218, 204, 13);
 }
 
+.oneyBtn:hover {
+    background-color: rgb(177, 177, 18);
+}
+
 .twoBtn {
     background-color: #1976d2;
 }
