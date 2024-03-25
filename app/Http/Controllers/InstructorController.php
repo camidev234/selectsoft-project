@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class InstructorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+   
     public function indexListCandidates() :View
     {
         $user = Auth::user();

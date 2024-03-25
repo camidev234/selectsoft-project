@@ -7,6 +7,7 @@ use App\Models\Company;
 use App\Models\Country;
 use App\Models\Recruiter;
 use App\Models\Selector;
+use App\Models\Vacancie;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -35,10 +36,12 @@ class RecruiterController extends Controller
             ]);
         } else {
             $company = $recruiter->company;
+            $processes = Vacancie::withCount('aplications')->where('company_id', $company->id)->get();
             return view('/recruiter/indexRecruiter', [
             'user' => $user,
             'role_id' => $role_id,
-            'company' => $company
+            'company' => $company,
+            'processes' => $processes
         ]);
         }
     }
@@ -79,7 +82,6 @@ class RecruiterController extends Controller
     {
 
     }
-
     /**
      * Store a newly created resource in storage.
      */

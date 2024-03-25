@@ -15,19 +15,24 @@
 
     @section('content')
     <main class="container">
-        <section class="info">
-            <h2>Empresa: {{$company->business_name}}</h2>
-            <form action="{{route('company.show', ['company' => $company->id])}}" method="get">
-                <button>Ver detalles</button>
-            </form>
-        </section>
-        <section class="disassociate">
-            <form action="{{route('recruiter.disassociate', ['company' => $company->id])}}" method="post">
-                @csrf
-                <button>Salir de la empresa</button>
-            </form>
-        </section>
         <section class="content">
+            <section class="info">
+                <h2>Empresa: {{$company->business_name}}</h2>
+                <form action="{{route('company.show', ['company' => $company->id])}}" method="get">
+                    <button>Ver detalles</button>
+                </form>
+            </section>
+            <section class="disassociate">
+                <article class="contdis">
+                    <form action="{{route('recruiter.disassociate', ['company' => $company->id])}}" method="post">
+                        @csrf
+                        <button>Salir de la empresa</button>
+                    </form>
+                    <form action="{{route('user.updatePassword')}}" id="formTwo" method="get">
+                        <button>Cambiar Contraseña</button>
+                    </form>
+                </article>
+            </section>
             <section class="options">
                 <section class="recruiter_card">
                     <section class="card-body">
@@ -54,11 +59,36 @@
                     </section>
                 </section>
             </section>
-            <section class="info_view">
-                <article class="titleOne mod">
-                    <h2>Procesos de seleccion Activos</h2>
+        </section>
+        <section class="info_view">
+            <article class="titleOne mod">
+                <h2>Procesos de seleccion Activos</h2>
+            </article>
+            <article class="processes">
+                @forelse($processes as $process)
+                <article class="process">
+                    <div class="job modP">
+                        <!-- <span>Cargo</span> -->
+                        <span>{{$process->charge->charge}}</span>
+                    </div>
+                    <div class="status modP">
+                        <span>Estado</span>
+                        <span>{{$process->is_active ? "Activo" : "Inactivo"}}</span>
+                    </div>
+                    <div class="applicants modP">
+                        <span>Postulados<span>
+                                <span>{{$process->aplications_count}}</span>
+                    </div>
+                    <div class="modPTwo">
+                        <form action="{{route('vacancies.show', ['vacancie' => $process->id])}}" method="get">
+                            <button class="btnaction oneBtn"><i class="bi bi-eye-fill bt"></i></button>
+                        </form>
+                    </div>
                 </article>
-            </section>
+                @empty
+                <h3>No hay procesos para la empresa</h3>
+                @endforelse
+            </article>
         </section>
     </main>
     @endsection

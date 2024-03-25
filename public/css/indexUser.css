@@ -70,6 +70,7 @@ article .action {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
 
 .actions-card form{
@@ -88,6 +89,7 @@ article .action {
     outline: none;
     color: white;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .actions-card form button:hover{
@@ -119,6 +121,7 @@ article .action {
     color: white;
     outline: none;
     border: 1px solid #eee;
+    border-radius: 5px;
 }
 
 .hdv form button:hover {
@@ -174,6 +177,7 @@ article .action {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     border: 1px solid #b8b8b8;
     border-radius: 8px;
+    background-color: white;
 }
 
 .containerAplication .charge {
@@ -276,21 +280,25 @@ border-color: #dbdbdb;
 .postulated.active {
     background-color: #2193b0;
     color: white;
+    border-radius: 5px;
 }
 
 .cvView.active {
     background-color: orange;
     color: white;
+    border-radius: 5px;
 }
 
 .selected.active {
     background-color: #45a049;
     color: white;
+    border-radius: 5px;
 }
 
 .finally.active {
     background-color: #191970;
     color: white;
+    border-radius: 5px;
 }
 
 

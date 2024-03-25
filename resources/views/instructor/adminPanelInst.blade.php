@@ -34,12 +34,14 @@
             </article>
         </a>
 
+        @if($user->id === 1)
         <a href="{{route('instructor.instructors')}}">
             <article class="option-admin" style="background-color: #38445e;border-right: 7px solid #2193b0;">
                 <i class="bi bi-gear-fill"></i>
                 <h3>Ver Administradores</h3>
             </article>
         </a>
+        @endif
     </section>
 
     <section class="view-info">

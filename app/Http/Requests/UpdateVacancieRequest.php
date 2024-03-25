@@ -36,7 +36,7 @@ class UpdateVacancieRequest extends FormRequest
             'skills' => 'max:500',
             'required_experience' => 'required|integer|min:1',
             'salary_range' => 'required|string|max:45',
-            'number_vacancies' => 'required|integer|min:1|digits_between:2,3',
+            'number_vacancies' => 'required|integer|min:1|digits_between:1,3',
             'schedule' => 'required|string|max:50',
             'applicant_person' => 'required|string|max:30',
             'annotations' => 'required|string|max:700',

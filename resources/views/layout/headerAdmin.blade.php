@@ -17,7 +17,7 @@
             <div class="containerOptions">
                 <section class="user-log">
                     <i class="bi bi-person-fill"></i>
-                    <h5>{{$user->name}} {{$user->last_name}}</h5>
+                    <h5>{{ucwords(strtolower($user->name))}} {{ucwords(strtolower($user->last_name))}}</h5>
                 </section>
                 <section class="logout">
                     <form action="{{route('user.logout')}}" method="post">

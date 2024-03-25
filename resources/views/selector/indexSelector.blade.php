@@ -5,27 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/indexSelector.css')}}">
-    <title>Document</title>
+    <title>Seleccionador Home</title>
 </head>
 
 <body>
     @extends('layout.header')
     @section('content')
     <section class="container">
-    <div class="modalOverlay"></div>
+        <div class="modalOverlay"></div>
         <section class="companyInfo">
-            <section class="info">
-                <h2>Empresa: {{$selector->company->business_name}}</h2>
-                <form action="{{route('company.show', ['company' => $company->id])}}" method="get">
-                    <button>Ver detalles</button>
-                </form>
+            <section class="compContainer">
+                <section class="info">
+                    <h2>Empresa: {{$selector->company->business_name}}</h2>
+                    <form action="{{route('company.show', ['company' => $company->id])}}" method="get">
+                        <button>Ver detalles</button>
+                    </form>
+                </section>
+                <section class="disassociate">
+                    <article class="dissComp">
+                        <form action="{{route('selector.dissasociate', ['company' => $company->id])}}" method="post">
+                            @csrf
+                            <button>Salir de la empresa</button>
+                        </form>
+                        <form action="{{route('user.updatePassword')}}" id="formTwo" method="get">
+                            <button>Cambiar Contraseña</button>
+                        </form>
+                    </article>
+                </section>
             </section>
-        </section>
-        <section class="disassociate">
-            <form action="{{route('selector.dissasociate', ['company' => $company->id])}}" method="post">
-                @csrf
-                <button>Salir de la empresa</button>
-            </form>
         </section>
         <section class="principal-content">
             <section class="contentTitle">

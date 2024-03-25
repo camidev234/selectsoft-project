@@ -86,7 +86,8 @@ class ApplicationsController extends Controller
             'user' => $user,
             'role_id' => $role_id,
             'applications' => $applications,
-            'statuses' => $statusApplications
+            'statuses' => $statusApplications,
+            'vacancie' => $vacancie
         ]);
     }
 

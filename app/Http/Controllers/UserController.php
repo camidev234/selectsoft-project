@@ -72,11 +72,11 @@ class UserController extends Controller
         $newUser->role_id = 1;
 
 
-        $mail = $request->email;
+        // $mail = $request->email;
 
-        $userName = $request->name . " " . $request->last_name;
+        // $userName = $request->name . " " . $request->last_name;
 
-        Mail::to($mail)->send(new WelcomeMailable($userName));
+        // Mail::to($mail)->send(new WelcomeMailable($userName));
 
         $newUser->save();
 

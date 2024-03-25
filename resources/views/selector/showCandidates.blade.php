@@ -13,6 +13,29 @@
     @section('content')
     <section class="container">
         <div class="modalOverlay"></div>
+        <section class="titlepage">
+            <article class="title">
+                <h3>Listado de Postulados Vacante {{$vacancie->vacancie_code}}</h3>
+            </article>
+            <article class="conv">
+                <article class="actOne act">
+                    <span class="btnAct btOne"><i class="bi bi-pencil-square"></i></span>
+                    <span>Editar Puntaje</span>
+                </article>
+                <article class="actTwo act">
+                    <span class="btnAct btTwo"><i class="bi bi-eye-fill"></i></span>
+                    <span>Ver HDV</span>
+                </article>
+                <article class="actThree act">
+                    <span class="btnAct btThree"><i class="bi bi-arrow-left-right"></i></span>
+                    <span>Cambiar Estado</span>
+                </article>
+                <article class="actThree act">
+                    <span class="btnAct btFour"><i class="bi bi-envelope-open-fill"></i></span>
+                    <span>Crear Citacion</span>
+                </article>
+            </article>
+        </section>
         <section class="containerTable">
             <table>
                 <thead>
@@ -70,7 +93,7 @@
                         <td>
                             <span class="score">{{$application->interview_score}}</span>
                             <form action="{{route('selector.interwiew', ['application' => $application->id])}}" class="actionForm edit">
-                                <button><i class="bi bi-pencil-square"></i></button>
+                                <button class=""><i class="bi bi-pencil-square"></i></button>
                             </form>
                         </td>
                         <td>
@@ -92,11 +115,11 @@
                         <td>{{$application->status_applications->status_name}}</td>
                         <td>
                             <form action="{{route('selector.curriculum', ['application' => $application->id])}}" class="actionForm2">
-                                <button><i class="bi bi-eye-fill"></i></button>
+                                <button class="iOne"><i class="bi bi-eye-fill"></i></button>
                             </form>
                             @if($application->status_applications_id == 2 || $application->status_applications_id == 3 || $application->status_applications_id == 4)
                             <form action="" class="actionForm2">
-                                <button class="openModalButton" data-modal-id="modal{{$loop->index + 1}}"><i class="bi bi-arrow-left-right"></i></button>
+                                <button class="openModalButton iTwo" data-modal-id="modal{{$loop->index + 1}}"><i class="bi bi-arrow-left-right"></i></button>
                             </form>
                             <section class="modalWindow"  id="modal{{$loop->index + 1}}">
                                 <form action="{{route('application.updateStatus', ['application' => $application->id])}}" method="post">
@@ -117,7 +140,7 @@
 
                             @endif
                             <form action="{{route('selector.createCitation', ['application' => $application->id])}}" class="actionForm2">
-                                <button><i class="bi bi-envelope-open-fill"></i></button>
+                                <button class="iThree"><i class="bi bi-envelope-open-fill"></i></button>
                             </form>
                         </td>
                     </tr>

@@ -21,7 +21,7 @@
     <main class="principal_content">
         <section class="card-user">
             <section class="card-header">
-                <h3>{{$user->name}} {{$user->last_name}}</h3>
+                <h3>{{ucwords(strtolower($user->name))}} {{ucwords(strtolower($user->last_name))}}</h3>
             </section>
             <section class="card-body">
                 <article class="button_password">
@@ -84,7 +84,7 @@
         <section class="user-content">
             <section class="user_c_container">
                 <div class="profile">
-                    <h3>Perfil Profesional: </h3>
+                    <h3>Perfil Profesional </h3>
                     <p>{{$profile}}</p>
                 </div>
             </section>
