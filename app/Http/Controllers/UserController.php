@@ -72,11 +72,11 @@ class UserController extends Controller
         $newUser->role_id = 1;
 
 
-        // $mail = $request->email;
+        $mail = $request->email;
 
-        // $userName = $request->name . " " . $request->last_name;
+        $userName = $request->name . " " . $request->last_name;
 
-        // Mail::to($mail)->send(new WelcomeMailable($userName));
+        Mail::to($mail)->send(new WelcomeMailable($userName));
 
         $newUser->save();
 
@@ -203,7 +203,7 @@ class UserController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(User $user)
-    {   
+    {
         $role_id = $user->role_id;
         $countries = Country::all();
         $departaments = Departament::all();
@@ -243,8 +243,42 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
-        //
+
+        // dd($user);
+
+        switch ($user->role_id) {
+            case 1:
+                $modelToDelete = Candidate::where('user_id', $user->id)->first();
+                $message = 'Candidato';
+                break;
+            case 2:
+                $modelToDelete = Selector::where('user_id', $user->id)->first();
+                // dd($modelToDelete);
+                $message = 'Seleccionador';
+                break;
+            case 3: 
+                $modelToDelete = Recruiter::where('user_id', $user->id)->first();
+                $message = 'Reclutador';
+                break;
+            case 4:
+                $modelToDelete = Instructor::where('user_id', $user->id)->first();
+                // dd($modelToDelete);
+                $message = 'instructor';
+                break;
+            default:
+                $modelToDelete = null;
+        }
+
+        // dd($modelToDelete);
+
+        if ($modelToDelete) {
+            $modelToDelete->delete();
+            $user->delete();
+            return redirect()->back();
+        } else {
+            return redirect()->route('instructor.index')->with('message', "El usuario no tiene asociado ningun $message");
+        }
     }
 }

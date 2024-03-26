@@ -83,10 +83,7 @@
                 <tbody>
                     @forelse($instructors as $instructor)
                     <tr>
-                        @if($instructor->user_id == 1)
-                        <td>No hay instructores para mostrar</td>
-                        @continue
-                        @else
+                        @if($instructor->user_id !== 1)
                         <td>{{$instructor->user->document_type->document_type}}</td>
                         <td>{{$instructor->user->number_document}}</td>
                         <td>{{$instructor->user->name}}</td>
@@ -94,6 +91,11 @@
                         <td class="actions-table">
                             <form action="{{route('instructor.editUserRole', ['user' => $instructor->user->id])}}" method="get">
                                 <button><i class="bi bi-pencil-fill btn2"></i></button>
+                            </form>
+                            <form action="{{route('instructor.destroyUser', ['user' => $instructor->user->id])}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button><i class="bi bi-trash3" style="color: red;"></i></button>
                             </form>
                         </td>
                         @endif

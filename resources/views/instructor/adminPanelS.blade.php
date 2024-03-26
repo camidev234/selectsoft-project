@@ -98,6 +98,11 @@
                             <form action="{{route('instructor.editUserRole', ['user' => $selector->user->id])}}" method="get">
                                 <button><i class="bi bi-pencil-fill btn2"></i></button>
                             </form>
+                            <form action="{{route('instructor.destroyUser', ['user' => $selector->user_id])}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button><i class="bi bi-trash3" style="color: red;"></i></button>
+                            </form>
                         </td>
                     </tr>
                     @empty

@@ -18,14 +18,28 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+    private $roleCounter = 0;
     public function definition(): array
     {
+        $this->roleCounter++;
+
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'document_type_id' => 1,
+            'number_document' => $this->faker->unique()->numerify('##########'),
+            'telephone' => $this->faker->phoneNumber,
+            'phone_number' => $this->faker->phoneNumber,
+            'address' => $this->faker->address,
+            'country_id' => 1,
+            'departament_id' => 1,
+            'city_id' => 1,
+            'birthdate' => $this->faker->date(),
+            'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'password' => bcrypt('12345678'),
+            'role_id' => ceil($this->roleCounter / 10),
         ];
     }
 

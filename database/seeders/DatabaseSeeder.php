@@ -3,6 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Candidate;
+use App\Models\Instructor;
+use App\Models\Recruiter;
+use App\Models\Selector;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -32,5 +38,13 @@ class DatabaseSeeder extends Seeder
         $this->call([InstructorTableSeeder::class]);
         $this->call([WorkDaysTableSeeder::class]);
         $this->call([StatusApplicationTableSeeder::class]);
+
+        // factories 
+
+        User::factory()->count(40)->create();
+        Candidate::factory()->count(10)->create();
+        Recruiter::factory()->count(10)->create();
+        Selector::factory()->count(10)->create();
+        Instructor::factory()->count(10)->create();
     }
 }

@@ -162,6 +162,7 @@ Route::get('/admin/home/selectors', [InstructorController::class, 'indexListSele
 Route::get('/admin/home/instructors', [InstructorCOntroller::class, 'indexListInstructors'])->name('instructor.instructors')->middleware('auth');
 Route::get('/admin/edirUserRole/{user}', [UserController::class, 'editUserRole'])->name('instructor.editUserRole')->middleware('auth');
 Route::patch('/admin/updateUserRole/{userMod}', [UserController::class, 'updateUserRole'])->name('instructor.updateRole');
+Route::delete('/admin/destroy/{user}', [UserController::class, 'destroy'])->name('instructor.destroyUser');
 
 //mail
 
