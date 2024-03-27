@@ -57,14 +57,12 @@
                     </td>
                 </tr>
                 @empty
-            <tbody>
                 <tr>
-                    <td>No hay Candidatos para mostrar</td>
+                    <td colspan="5">No hay Candidatos para mostrar</td>
                 </tr>
-            </tbody>
-            @endforelse
-
+                @endforelse
             </tbody>
         </table>
+        <span>{{$queryWord}}</span>
     </section>
 </div>
