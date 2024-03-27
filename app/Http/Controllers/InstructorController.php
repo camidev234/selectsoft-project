@@ -17,7 +17,7 @@ class InstructorController extends Controller
     public function indexListCandidates() :View
     {
         $user = Auth::user();
-        $candidates = Candidate::all();
+        $candidates = Candidate::paginate(9);
 
         return view('/instructor/adminPanelC', [
             'user' => $user,

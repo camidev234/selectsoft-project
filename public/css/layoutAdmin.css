@@ -76,3 +76,33 @@
     justify-content: center;
     align-items: center;
 }
+
+.pags {
+    list-style: none;
+    text-align: center;
+}
+
+.pags li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.pags a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.pags li.active a {
+    background-color: #2193b0;
+    color: #fff;
+    border-color: #2193b0;
+}
+
+.pags a:hover {
+    background-color: #f0f0f0;
+}

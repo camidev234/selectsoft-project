@@ -83,13 +83,13 @@
 
 .table-content {
     width: 90%;
-    height: 75%;
+    height: 72%;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     overflow: auto;
-    border: 1px solid #eee;
+    /* border: 1px solid #eee;s */
 }
 
 table {

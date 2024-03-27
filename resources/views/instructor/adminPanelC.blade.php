@@ -106,8 +106,12 @@
                     </tr>
                 </tbody>
                 @endforelse
+
                 </tbody>
             </table>
+        </section>
+        <section class="pags">
+            {{ $candidates->links() }}
         </section>
     </section>
 
