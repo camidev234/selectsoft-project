@@ -42,7 +42,8 @@
 .page .view-info {
     grid-area: view-info;
     width: 100%;
-    height: 100%;
+    height: 87vh;
+    /* background-color: #2193b0; */
 }
 
 .view-info .info-options {
@@ -84,13 +85,24 @@
 
 .table-content {
     width: 90%;
-    height: 72%;
+    height: 64vh;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     overflow: auto;
     /* border: 1px solid #eee;s */
+}
+
+
+.table-content::-webkit-scrollbar {
+    width: 7px; /* Ancho del scrollbar */
+}
+
+/* Estilo del thumb del scrollbar */
+.table-content::-webkit-scrollbar-thumb {
+    background-color: #a1a1a1; /* Color del thumb */
+    border-radius: 5px; /* Radio de borde del thumb */
 }
 
 table {
