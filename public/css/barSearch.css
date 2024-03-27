@@ -1,0 +1,18 @@
+.barserach {
+    margin: auto;
+    width: 90%;
+    height: 50px;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.barserach input {
+    width: 30%;
+    height: 70%;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid #cecece;
+    padding-left: 10px;
+}
