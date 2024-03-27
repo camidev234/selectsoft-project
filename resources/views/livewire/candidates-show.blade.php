@@ -63,6 +63,5 @@
                 @endforelse
             </tbody>
         </table>
-        <span>{{$queryWord}}</span>
     </section>
 </div>
