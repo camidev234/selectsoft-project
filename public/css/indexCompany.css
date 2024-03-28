@@ -11,22 +11,17 @@
     margin-bottom: 20px;
 }
 
-.findCom form {
-    width: 40%;
+.findCom {
+    margin: auto;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.findCom form button {
-    border: none;
-    outline: none;
-    background-color: transparent;
-}
-
-.findCom form input {
-    width: 90%;
+.findCom input {
+    width: 60%;
     height: 40px;
     padding-left: 15px;
     border-radius: 10px;

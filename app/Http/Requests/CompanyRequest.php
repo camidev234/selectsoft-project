@@ -22,7 +22,7 @@ class CompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nit' => 'required|string|max:19',
+            'nit' => 'required|string|max:19|unique:companies',
             'business_name' => 'required|string',
             'phone' => 'required|string|max:11',
             'email' => 'required|string|max:70',
