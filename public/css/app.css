@@ -84,22 +84,21 @@ body {
     margin-bottom: 20px;
 }
 
-.findCom form {
-    width: 70%;
+.findCom input {
+    width: 57%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
-
+/* 
 .findCom form button {
     border: none;
     outline: none;
     background-color: transparent;
-}
+} */
 
-.findCom form input {
-    width: 90%;
+.findCom input {
     height: 40px;
     padding-left: 15px;
     border-radius: 10px;

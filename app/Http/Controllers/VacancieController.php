@@ -27,7 +27,6 @@ class VacancieController extends Controller
     {
         $user = Auth::user();
         $role_id = $user->role_id;
-        $find = false;
 
         $vacants = Vacancie::where('company_id', $company->id)->get();
 
@@ -36,7 +35,6 @@ class VacancieController extends Controller
             'role_id' => $role_id,
             'vacants' => $vacants,
             'company' => $company,
-            'find' => $find
         ]);
     }
 
@@ -180,32 +178,32 @@ class VacancieController extends Controller
         return redirect()->back();
     }
 
-    public function findVacancieByCompany(Request $request,Company $company) {
-        $search = $request->input('search');
-        $user = Auth::user();
-        $role_id = $user->role_id;
+    // public function findVacancieByCompany(Request $request,Company $company) {
+    //     $search = $request->input('search');
+    //     $user = Auth::user();
+    //     $role_id = $user->role_id;
 
-        if ($search) {
-            $vacants = Vacancie::whereHas('charge', function ($query) use ($search) {
-                $query->where('charge', 'LIKE', "%{$search}%");
-            })->where('company_id', $company->id)->get();
+    //     if ($search) {
+    //         $vacants = Vacancie::whereHas('charge', function ($query) use ($search) {
+    //             $query->where('charge', 'LIKE', "%{$search}%");
+    //         })->where('company_id', $company->id)->get();
 
-            if ($vacants->isEmpty()) {
-                return redirect()->route('vacancies.index', ['company' => $company])->with('message', 'No se encontraron vacantes para la búsqueda: ' . $search);
-            } else {
-                $find = true;
-                return view('/vacancie/indexVacancie', [
-                    'vacantsFind' => $vacants,
-                    'find' => $find,
-                    'user' => $user,
-                    'role_id' => $role_id,
-                    'company' => $company
-                ]);
-            }
-        } else {
-            return back()->with('message', 'Introduzca un valor para buscar.');
-        }
-    }
+    //         if ($vacants->isEmpty()) {
+    //             return redirect()->route('vacancies.index', ['company' => $company])->with('message', 'No se encontraron vacantes para la búsqueda: ' . $search);
+    //         } else {
+    //             $find = true;
+    //             return view('/vacancie/indexVacancie', [
+    //                 'vacantsFind' => $vacants,
+    //                 'find' => $find,
+    //                 'user' => $user,
+    //                 'role_id' => $role_id,
+    //                 'company' => $company
+    //             ]);
+    //         }
+    //     } else {
+    //         return back()->with('message', 'Introduzca un valor para buscar.');
+    //     }
+    // }
 
     /**
      * Show the form for editing the specified resource.
