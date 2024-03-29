@@ -40,14 +40,8 @@ class RequisitonController extends Controller
     {
         $requisition = new Requisiton();
         $requisition->charge_id = $request->charge_id;
-        $requisition->job_description = $request->job_description;
-        $requisition->justification = $request->justification;
-        $requisition->ideal_candidate = $request->ideal_candidate;
-        $requisition->mission_charge = $request->mission_charge;
-        $requisition->responsabilities = $request->responsabilities;
-        $requisition->candidate_description = $request->candidate_description;
-        $requisition->candidate_talents = $request->candidate_talents;
-        $requisition->selection_criteria = $request->selection_criteria;
+        $requisition->required_experience = $request->required_experience;
+        $requisition->number_vacancies = $request->number_vacancies;
         $requisition->company_id = $company->id;
 
         $requisition->save();
