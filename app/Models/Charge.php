@@ -22,4 +22,8 @@ class Charge extends Model
     public function vacants() :HasMany {
         return $this->hasMany(Vacancie::class);
     }
+
+    public function functions() :HasMany {
+        return $this->hasMany(Occupation_function::class);
+    }
 }

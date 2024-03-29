@@ -10,7 +10,7 @@ class Occupation_function extends Model
 {
     use HasFactory;
 
-    public function occupation() :BelongsTo {
-        return $this->belongsTo(Occupation::class, 'occupation_id', 'id');
+    public function charge() :BelongsTo {
+        return $this->belongsTo(Charge::class);
     }
 }

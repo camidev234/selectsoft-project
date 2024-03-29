@@ -17,7 +17,7 @@
                 <h2>Listado De Cargos</h2>
             </article>
             <article class="btns">
-            <article class="descBtns oneBtnTitle">
+                <article class="descBtns oneBtnTitle">
                     <div>
                         <i class="bi bi-trash-fill bt"></i>
                     </div>
@@ -28,6 +28,12 @@
                         <i class="bi bi-pencil-fill bt"></i>
                     </div>
                     <span>Actualizar</span>
+                </article>
+                <article class="descBtns oneBt">
+                    <div>
+                        <i class="bi bi-plus-square bt"></i>
+                    </div>
+                    <span>Añadir Funcion</span>
                 </article>
             </article>
         </section>
@@ -52,6 +58,12 @@
                         </form>
                         <form action="{{route('charges.edit',['charge'=>$charge->id, 'company' => $company->id])}}" method="get">
                             <button class="btnaction twoBtn"><i class="bi bi-pencil-fill bt"></i></button>
+                        </form>
+                        <form action="{{route('charge.show', ['charge' => $charge->id])}}" method="get">
+                            <button class="btnaction threeBtn"><i class="bi bi-eye-fill bt"></i></button>
+                        </form>
+                        <form action="{{route('chargeFunction.create',['charge' => $charge->id])}}" method="get">
+                            <button class="btnaction oneyBtn"><i class="bi bi-plus-square bt"></i></button>
                         </form>
                     </td>
                 </tr>

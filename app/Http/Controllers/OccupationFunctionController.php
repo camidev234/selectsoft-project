@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FunctionOccupationRequest;
+use App\Models\Charge;
 use App\Models\Occupation;
 use App\Models\Occupation_function;
 use Illuminate\Contracts\View\View;
@@ -23,14 +24,14 @@ class OccupationFunctionController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Occupation $occupation) :View
+    public function create(Charge $charge) :View
     {
         $user = Auth::user();
         $role_id = $user->role_id;
 
         return view('/occupations_function/create', [
             'user' => $user,
-            'occupation' => $occupation,
+            'charge' => $charge,
             'role_id' => $role_id
         ]);
     }
@@ -38,16 +39,16 @@ class OccupationFunctionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(FunctionOccupationRequest $request, Occupation $occupation) :RedirectResponse
+    public function store(FunctionOccupationRequest $request, Charge $charge) :RedirectResponse
     {
         $newFunction = new Occupation_function();
 
         $newFunction->function = $request->function;
-        $newFunction->occupation_id = $occupation->id;
+        $newFunction->charge_id = $charge->id;
 
         $newFunction->save();
 
-        return redirect()->route('occupation.show', ['occupation' => $occupation]);
+        return redirect()->route('charge.show', ['charge' => $charge]);
     }
 
     /**
@@ -61,7 +62,7 @@ class OccupationFunctionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Occupation_function $occupation_function, Occupation $occupation) :View
+    public function edit(Occupation_function $occupation_function, Charge $charge) :View
     {
         $user = Auth::user();
         $role_id = $user->role_id;
@@ -70,26 +71,26 @@ class OccupationFunctionController extends Controller
             'user' => $user,
             'role_id' => $role_id,
             'function' => $occupation_function,
-            'occupation' => $occupation
+            'charge' => $charge
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(FunctionOccupationRequest $request, Occupation_function $occupation_function, Occupation $occupation)
+    public function update(FunctionOccupationRequest $request, Occupation_function $occupation_function, Charge $charge)
     {
         $occupation_function->function = $request->function;
 
         $occupation_function->save();
 
-        return redirect()->route('occupation.show', ['occupation' => $occupation]);
+        return redirect()->route('charge.show', ['charge' => $charge]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Occupation_function $occupation_function, Occupation $occupation)
+    public function destroy(Occupation_function $occupation_function)
     {
         $occupation_function->delete();
 

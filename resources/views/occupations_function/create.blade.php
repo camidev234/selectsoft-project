@@ -10,7 +10,7 @@
 <body>
     @extends('layout.header')
     @section('content')
-        <form action="{{route('occupationFunction.store', ['occupation' => $occupation->id])}}" method="post" class="formContent">
+        <form action="{{route('chargeFunction.store', ['charge' => $charge->id])}}" method="post" class="formContent">
             @csrf
             <label for="">Funcion: </label><br>
             <input type="text" placeholder="Funcion" name="function" value="{{old('function')}}">

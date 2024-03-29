@@ -68,9 +68,20 @@ class ChargeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Charge $charge)
     {
-        //
+        $user = Auth::user();
+        $role_id = $user->role_id;
+        $functions = $charge->functions;
+        $company = Company::find($user->recruiter->company_id); 
+
+        return view('charge.show', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'functions' => $functions,
+            'charge' => $charge,
+            'company' => $company
+        ]);
     }
 
     /**

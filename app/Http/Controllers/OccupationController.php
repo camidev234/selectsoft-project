@@ -64,12 +64,12 @@ class OccupationController extends Controller
     {
         $user = Auth::user();
         $role_id = $user->role_id;
-        $functions = $occupation->functions;
+        // $functions = $occupation->functions;
         return view('/occupation/show', [
             'user' => $user,
             'role_id' => $role_id,
             'occupation' => $occupation,
-            'functions' => $functions
+            // 'functions' => $functions
         ]);
     }
 
