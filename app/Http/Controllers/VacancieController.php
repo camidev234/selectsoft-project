@@ -87,9 +87,7 @@ class VacancieController extends Controller
         $requisitonToFind = Requisiton::find($request->requisiton_id);
         $chargeToAssign = Charge::find($requisitonToFind->charge_id);
 
-        $newVacancie->required_experience = $request->required_experience;
         $newVacancie->salary_range = $request->salary_range;
-        $newVacancie->number_vacancies = $request->number_vacancies;
         $newVacancie->charge_id = $chargeToAssign->id;
         $newVacancie->schedule = $request->schedule;
         $newVacancie->work_day_id = $request->work_day_id;

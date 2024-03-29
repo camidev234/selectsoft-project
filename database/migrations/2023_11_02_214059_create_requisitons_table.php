@@ -14,14 +14,8 @@ return new class extends Migration
         Schema::create('requisitons', function (Blueprint $table) {
             $table->id();
             $table->foreignId('charge_id')->references('id')->on('charges')->onDelete('cascade');
-            $table->string('job_description', 1200);
-            $table->string('justification', 1500);
-            $table->string('ideal_candidate', 700);
-            $table->string('mission_charge', 700);
-            $table->string('responsabilities', 700);
-            $table->string('candidate_description', 700);
-            $table->string('candidate_talents', 700);
-            $table->string('selection_criteria', 700);
+            $table->unsignedSmallInteger('number_vacancies');
+            $table->unsignedBigInteger('required_experience');
             $table->foreignId('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->timestamps();
         });

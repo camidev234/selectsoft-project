@@ -22,7 +22,8 @@ class ChargeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'charge' => 'required|string'
+            'charge' => 'required|string',
+            'occupation_id' => 'exists:occupations,id'
         ];
     }
 

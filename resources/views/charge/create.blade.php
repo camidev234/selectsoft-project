@@ -16,16 +16,19 @@
         <label for="charge">Cargo <span class="ast">*</span></label>
         <input type="text" name="charge" id="occupation_code" value="{{old('charge')}}">
         @error('charge')
-            <span style="color: red;">{{$message}}</span>
+        <span style="color: red;">{{$message}}</span>
         @enderror
         <label for="">Ocupacion <span class="ast">*</span></label><br>
         <select name="occupation_id" id="">
             @forelse($occupations as $occupation)
-                <option value="{{$occupation->id}}">{{$occupation->occupation_code}}-{{$occupation->occupation_name}}</option>
+            <option value="{{$occupation->id}}">{{$occupation->occupation_code}}-{{$occupation->occupation_name}}</option>
             @empty
-                <option value="">No hay ocupaciones en la empresa</option>
+            <option value="">No hay ocupaciones en la empresa</option>
             @endforelse
         </select><br>
+        @error('occupation_id')
+        <span style="color: red;">{{$message}}</span>
+        @enderror
         <input type="submit" value="Crear Ocupacion">
     </form>
     @endsection

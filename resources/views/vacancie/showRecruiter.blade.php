@@ -82,7 +82,7 @@
                     <h3>Educacion requerida</h3>
                 </article>
                 <article class="educationsTable">
-
+                    
                 </article>
                 <br>
             </section>

@@ -27,20 +27,10 @@
             @error('skills')
             <span style="color: red;">{{$message}}</span><br><br>
             @enderror
-            <label for="">Experiencia Requerida <span class="ast">*</span></label>
-            <input type="number" name="required_experience" id="" placeholder="Experiencia requerida" value="{{old('required_experience')}}"><br>
-            @error('required_experience')
-            <span style="color: red;">{{$message}}</span><br><br>
-            @enderror
             <label for="">Rango Salarial <span class="ast">*</span></label><br>
             <input type="text" name="salary_range" id="" placeholder="Rango salarial" value="{{old('salary_range')}}"><br>
             @error('salary_range')
             <span style="color: red;">{{$message}}</span><br><b></b>
-            @enderror
-            <label for="">Numero de vacantes <span class="ast">*</span></label><br>
-            <input type="text" name="number_vacancies" placeholder="Numero de vacantes" value="{{old('number_vacancies')}}"><br>
-            @error('number_vacancies')
-            <span style="color: red;">{{$message}}</span><br><br>
             @enderror
             <!-- <label for="">Cargo: </label><br>
             <select name="charge_id" id="">

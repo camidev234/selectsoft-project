@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Charge extends Model
 {
@@ -25,5 +26,9 @@ class Charge extends Model
 
     public function functions() :HasMany {
         return $this->hasMany(Occupation_function::class);
+    }
+
+    public function requisiton() :HasOne {
+        return $this->hasOne(Requisiton::class);
     }
 }
