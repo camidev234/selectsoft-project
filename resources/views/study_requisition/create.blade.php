@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/addVacantEducation.css')}}">
-    <title>Agregar estudio</title>
+    <title>Agregar estudio a la requisicion</title>
 </head>
 <body>
     @extends('layout.header')

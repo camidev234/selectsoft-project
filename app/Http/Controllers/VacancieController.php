@@ -114,7 +114,7 @@ class VacancieController extends Controller
     {
         $user = Auth::user();
         $role_id = $user->role_id;
-        $functions = $vacancie->charge->occupation->functions;
+        $functions = $vacancie->charge->functions;
         $educations = $vacancie->studies;
         $company = $vacancie->company;
         $applicants = applications::where('vacant_id', $vacancie->id)->get();
@@ -136,7 +136,6 @@ class VacancieController extends Controller
         $user = Auth::user();
         $role_id = $user->role_id;
         $functions = $vacancie->charge->occupation->functions;
-        $educations = $vacancie->studies;
         $company = $vacancie->company;
         $candidate = $user->candidate;
 
@@ -155,7 +154,6 @@ class VacancieController extends Controller
                 'role_id' => $role_id,
                 'vacancie' => $vacancie,
                 'functions' => $functions,
-                'studies' => $educations,
                 'company' => $company,
                 'postulated' => $is_postulated,
                 'applicants' => $countApplicants

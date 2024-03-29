@@ -55,11 +55,11 @@
             <section class="status">
                 <article>
                     <p><strong>Estado de la vacante: </strong>
-                    @if($vacancie->is_active)
-                    Activa
-                    @else
-                    Inactiva
-                    @endif
+                        @if($vacancie->is_active)
+                        Activa
+                        @else
+                        Inactiva
+                        @endif
                     </p>
                     <p><strong>Numero de postulados: </strong>{{$applicants}}</p>
                 </article>
@@ -81,44 +81,8 @@
                 <article>
                     <h3>Educacion requerida</h3>
                 </article>
-                <section class="addEducation">
-                    <form action="{{route('studyVacant.create', ['vacancie' => $vacancie->id])}}" method="get">
-                        <button>Añadir educacion</button>
-                    </form>
-                </section>
                 <article class="educationsTable">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nivel</th>
-                                <th>Estado</th>
-                                <th>Profesion</th>
-                                <th>Puntos</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($studies as $study)
-                                <tr>
-                                    <td>{{$study->study_level->study_level}}</td>
-                                    <td>{{$study->study_status->study_status}}</td>
-                                    <td>{{$study->study_name}}</td>
-                                    <td>{{$study->points}}</td>
-                                    <td class="actionTrash">
-                                        <form action="{{route('studyVacant.destroy', ['vacancie_study' => $study->id])}}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button><i class="bi bi-trash3"></i></button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td>Esta vacante no requiere algun estudio aun</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
+
                 </article>
                 <br>
             </section>
@@ -126,24 +90,24 @@
                 <h3>Funciones </h3>
             </section>
             <section class="functions">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Funcion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($functions as $function)
-                            <tr>
-                                <td>{{$function->function}}</td>
-                            </tr>
-                            @empty
-                            <tr>
-                                <td>No hay funciones para la ocupacion de la vacante</td>
-                            </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Funcion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($functions as $function)
+                        <tr>
+                            <td>{{$function->function}}</td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td>No hay funciones para la ocupacion de la vacante</td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
             </section>
             <article class="actionsVacancie">
                 <form action="{{route('vacancies.editStatus', ['vacancie' => $vacancie->id])}}" method="post">

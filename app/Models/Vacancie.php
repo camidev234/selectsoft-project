@@ -36,10 +36,6 @@ class Vacancie extends Model
         return $this->belongsTo(City::class);
     }
 
-    public function studies() :HasMany {
-        return $this->hasMany(Vacancie_study::class);
-    }
-
     public function company() :BelongsTo {
         return $this->belongsTo(Company::class);
     }

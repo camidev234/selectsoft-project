@@ -146,9 +146,6 @@ Route::post('/occupationFunctions/update/{occupation_function}/{charge}', [Occup
 Route::delete('/occupationFunctions/delete/{occupation_function}', [OccupationFunctionController::class, 'destroy'])->name('occupationFunction.destroy');
 Route::get('/vacancie/edit/{vacancie}/{company}', [VacancieController::class, 'edit'])->name('vacancies.edit')->middleware('auth');
 Route::patch('/vacancie/update/{vacancie}/{company}', [VacancieController::class, 'update'])->name('vacancies.update');
-Route::get('/studyVacant/create/{vacancie}', [VacancieStudyController::class, 'create'])->name('studyVacant.create')->middleware('auth');
-Route::post('/studyVacant/store/{vacancie}', [VacancieStudyController::class, 'store'])->name('studyVacant.store');
-Route::delete('/studyVacant/destroy/{vacancie_study}', [VacancieStudyController::class, 'destroy'])->name('studyVacant.destroy');
 Route::get('/requisition/create/{company}', [RequisitonController::class, 'create'])->middleware('auth')->name('requisition.create');
 Route::post('/requisition/store/{company}', [RequisitonController::class, 'store'])->name('requisition.store');
 Route::get('/requisition/index/{company}', [RequisitonController::class, 'index'])->middleware('auth')->name('requisition.index');
