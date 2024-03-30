@@ -27,6 +27,12 @@ class CreateEducationsReq extends Component
     }
 
     public function addEducation() {
+
+        $this->validate([
+            'study_name' => 'required|max:80|string',
+            'points' => 'required|integer|min:1|digits_between:1,3'
+        ]);
+
         $education = [
             'study_level_id' => $this->study_level_id,
             'study_status_id' => $this->study_status_id,

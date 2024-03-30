@@ -17,10 +17,16 @@
         <article class="inp">
             <label for="">Titulo Obtenido <span class="ast">*</span></label>
             <input type="text" placeholder="Titulo" name="study_name" wire:model.live="study_name">
+            @error('study_name')
+            <span style="color: red; font-size:14px;">{{$message}}</span>
+            @enderror
         </article>
         <article class="inp">
             <label for="">Puntos Asignados <span class="ast">*</span></label>
             <input type="number" placeholder="puntos" name="points" wire:model.live="points">
+            @error('points')
+            <span style="color: red; font-size:14px;">{{$message}}</span>
+            @enderror
         </article>
     </article>
     <article class="btnAdd">
