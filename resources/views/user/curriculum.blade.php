@@ -18,7 +18,7 @@
                 <h2>{{$candidate->user->name}} {{$candidate->user->last_name}}</h2>
             </article>
             <article class="basicInfo">
-                <span><i class="bi bi-geo-alt-fill"></i> {{$candidate->user->country->country_name}}, {{$candidate->user->city->city_name}}</span>
+                <span><i class="bi bi-geo-alt-fill"></i> {{$candidate->user->departament->departament_name}}, {{$candidate->user->city->city_name}}</span>
                 <span><i class="bi bi-envelope-at-fill"></i> {{$candidate->user->email}}</span>
                 <span><i class="bi bi-telephone-fill"></i> {{$candidate->user->phone_number}}</span>
             </article>

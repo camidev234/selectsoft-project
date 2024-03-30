@@ -46,6 +46,7 @@ class DepartamentsTableSeeder extends Seeder
             ['departament_name' => 'Valle del Cauca', 'country_id' => 37],
             ['departament_name' => 'Vaupés', 'country_id' => 37],
             ['departament_name' => 'Vichada', 'country_id' => 37],
+            ['departament_name' => 'Bogota D.C', 'country_id' => 37],
         ];
 
         DB::table('departaments')->insert($departaments);
