@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RequisitionRequest;
 use App\Models\Charge;
 use App\Models\Company;
+use App\Models\Occupation_function;
+use App\Models\RequisitionStudy;
 use App\Models\Requisiton;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,11 +54,15 @@ class RequisitonController extends Controller
     public function show(Requisiton $requisition)
     {
         $role_id = Auth::user()->role_id;
+        $educations = RequisitionStudy::where('requisiton_id', $requisition->id)->get();
+        $functions = Occupation_function::where('charge_id', $requisition->charge_id)->get();
 
         return view('requisition.show', [
             'role_id' => $role_id,
             'user' => Auth::user(),
-            'requisition' => $requisition
+            'requisition' => $requisition,
+            'educations' => $educations,
+            'functions' => $functions
         ]);
     }
 
