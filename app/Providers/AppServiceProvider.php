@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
         PaginationPaginator::useBootstrap();
 
 
-        if (env('APP_ENV') == 'local' && env('APP_DEBUG') == false) {
+        if (env('APP_ENV') !== 'local') {
             URL::forceScheme('https');
         }
     }
