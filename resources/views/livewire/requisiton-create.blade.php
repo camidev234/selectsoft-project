@@ -42,14 +42,14 @@
                 <label for="">Numero de Vacantes <span class="ast">*</span></label>
                 <input type="text" placeholder="Numero de vacantes" name="number_vacancies" value="{{old('number_vacancies')}}" wire:model.live="number_vacancies">
                 @error('number_vacancies')
-                <span style="color: red;">{{$message}}</span>
+                <span style="color: red; font-size: 13px;">{{$message}}</span>
                 @enderror
             </div>
             <div>
                 <label for="">Meses de experiencia <span class="ast">*</span></label>
                 <input type="text" placeholder="Meses de experiencia" name="required_experience" value="{{old('required_experience')}}" wire:model.live="required_experience">
                 @error('required_experience')
-                <span style="color: red;">{{$message}}</span>
+                <span style="color: red; font-size: 13px;">{{$message}}</span>
                 @enderror
             </div>
         </article>
@@ -82,7 +82,13 @@
                 </tbody>
             </table>
         </section>
-        <section class="formComponent">
+        <section class="info">
+            <h4>Agregar Educacion</h4>
+            <article class="btnVis">
+                <div><i class="{{!$formVisible ? 'bi bi-plus-lg' : 'bi bi-dash-lg'}}" wire:click="setVisible"></i></div>
+            </article>
+        </section>
+        <section class="{{$formVisible ? 'formComponent' : 'noVisible'}}">
             <livewire:create-educations-req/>
         </section>
         <article class="submit">
