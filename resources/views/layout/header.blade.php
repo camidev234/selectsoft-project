@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @stack('styles')
-    <link rel="stylesheet" href="{{asset('css/layout.css')}}">
+    <link rel="stylesheet" href="http://selectsoft-project-production.up.railway.app/css/layout.css">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <script src="{{asset('js/scrollShadow.js')}}"></script>
