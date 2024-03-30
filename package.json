@@ -2,7 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build"
+        "build": "run build"
     },
     "devDependencies": {
         "axios": "^1.1.2",
