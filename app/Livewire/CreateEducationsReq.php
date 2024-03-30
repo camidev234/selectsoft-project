@@ -31,7 +31,16 @@ class CreateEducationsReq extends Component
         $this->validate([
             'study_name' => 'required|max:80|string',
             'points' => 'required|integer|min:1|digits_between:1,3'
+        ], [
+            'study_name.required' => 'El nombre del estudio es obligatorio.',
+            'study_name.max' => 'El nombre del estudio no puede tener más de :max caracteres.',
+            'study_name.string' => 'El nombre del estudio debe ser una cadena de caracteres.',
+            'points.required' => 'Los puntos son obligatorios.',
+            'points.integer' => 'Los puntos deben ser un número entero.',
+            'points.min' => 'Los puntos deben ser al menos :min.',
+            'points.digits_between' => 'Los puntos deben tener entre :min y :max dígitos.'
         ]);
+        
 
         $education = [
             'study_level_id' => $this->study_level_id,
