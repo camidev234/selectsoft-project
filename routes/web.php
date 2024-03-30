@@ -20,6 +20,7 @@ use App\Http\Controllers\SelectorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VacancieController;
 use App\Http\Controllers\VacancieStudyController;
+use App\Livewire\RequisitonCreate;
 use App\Mail\WelcomeMailable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -147,7 +148,7 @@ Route::delete('/occupationFunctions/delete/{occupation_function}', [OccupationFu
 Route::get('/vacancie/edit/{vacancie}/{company}', [VacancieController::class, 'edit'])->name('vacancies.edit')->middleware('auth');
 Route::patch('/vacancie/update/{vacancie}/{company}', [VacancieController::class, 'update'])->name('vacancies.update');
 Route::get('/requisition/create/{company}', [RequisitonController::class, 'create'])->middleware('auth')->name('requisition.create');
-Route::post('/requisition/store/{company}', [RequisitonController::class, 'store'])->name('requisition.store');
+Route::post('/requisition/store/{company}', [RequisitonCreate::class, 'storeRequisition'])->name('requisition.store');
 Route::get('/requisition/index/{company}', [RequisitonController::class, 'index'])->middleware('auth')->name('requisition.index');
 Route::get('/requisition/show/{requisition}', [RequisitonController::class, 'show'])->middleware('auth')->name('requisition.show');
 Route::delete('/requisition/destroy/{requisition}', [RequisitonController::class, 'destroy'])->name('requisition.destroy');

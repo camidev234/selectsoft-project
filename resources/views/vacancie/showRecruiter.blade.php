@@ -103,7 +103,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td>No hay funciones para la ocupacion de la vacante</td>
+                            <td>No hay funciones para el cargo de la vacante</td>
                         </tr>
                         @endforelse
                     </tbody>

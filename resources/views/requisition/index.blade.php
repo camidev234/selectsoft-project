@@ -9,12 +9,12 @@
 </head>
 
 <body>
-@extends('layout.header')
+    @extends('layout.header')
     @section('content')
     <div class="container">
         <section class="titlePage">
             <article class="title">
-                <h2>Listado De Cargos</h2>
+                <h2>Requisiciones</h2>
             </article>
             <article class="btns">
                 <article class="descBtns oneBtnTitle">
@@ -28,6 +28,12 @@
                         <i class="bi bi-pencil-fill bt"></i>
                     </div>
                     <span>Actualizar</span>
+                </article>
+                <article class="descBtns thBt">
+                    <div>
+                        <i class="bi bi-eye-fill bt"></i>
+                    </div>
+                    <span>Detalles</span>
                 </article>
             </article>
         </section>
@@ -62,7 +68,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td>No hay cargos para esta empresa</td>
+                    <td>No hay requisiciones para esta empresa</td>
                 </tr>
                 @endforelse
             </tbody>
@@ -70,7 +76,7 @@
     </div>
 
     <div class="create">
-        <a href="{{ route('charges.create') }}">Crear cargo</a>
+        <a href="{{ route('requisition.create', ['company' => $company->id]) }}">Crear Requisicion</a>
     </div>
     @endsection
 </body>

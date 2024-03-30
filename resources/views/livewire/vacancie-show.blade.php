@@ -17,7 +17,7 @@
             <tr wire:key="{{$vacant->id}}">
                 <td>{{ $vacant->vacancie_code }}</td>
                 <td>{{ $vacant->charge->charge }}</td>
-                <td>{{ $vacant->number_vacancies }}</td>
+                <td>{{ $vacant->requisiton->number_vacancies }}</td>
                 <td>
                     @if($vacant->is_active)
                     Activa
