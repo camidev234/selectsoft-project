@@ -60,6 +60,7 @@ class RequisitionStudyController extends Controller
      */
     public function destroy(RequisitionStudy $requisitionStudy)
     {
-        //
+        $requisitionStudy->delete();
+        return redirect()->back();
     }
 }

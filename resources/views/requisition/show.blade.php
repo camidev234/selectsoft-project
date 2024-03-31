@@ -216,7 +216,9 @@
                         <td>{{$education->study_name}}</td>
                         <td>{{$education->points}}</td>
                         <td class="actions-l">
-                            <form action="">
+                            <form action="{{route('requisitionStudy.destroy', ['requisitionStudy' => $education->id])}}" method="post">
+                                @csrf
+                                @method('DELETE')
                                 <button class="delete"><i class="bi bi-trash"></i></button>
                             </form>
                             <form action="">

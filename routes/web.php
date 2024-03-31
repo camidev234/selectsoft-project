@@ -15,6 +15,7 @@ use App\Http\Controllers\OccupationController;
 use App\Http\Controllers\OccupationFunctionController;
 use App\Http\Controllers\PersonExperienceController;
 use App\Http\Controllers\RecruiterController;
+use App\Http\Controllers\RequisitionStudyController;
 use App\Http\Controllers\RequisitonController;
 use App\Http\Controllers\SelectorController;
 use App\Http\Controllers\UserController;
@@ -153,6 +154,7 @@ Route::get('/requisition/index/{company}', [RequisitonController::class, 'index'
 Route::get('/requisition/show/{requisition}', [RequisitonController::class, 'show'])->middleware('auth')->name('requisition.show');
 Route::delete('/requisition/destroy/{requisition}', [RequisitonController::class, 'destroy'])->name('requisition.destroy');
 Route::get('/requisition/show/{requisition}', [RequisitonController::class, 'show'])->middleware('auth')->name('requisition.show');
+Route::delete('/requisitionStudy/destroy/{requisitionStudy}', [RequisitionStudyController::class, 'destroy'])->name('requisitionStudy.destroy');
 
 // instructor routes
 
