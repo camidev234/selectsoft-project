@@ -21,12 +21,13 @@
             </article>
             <section class="generalInfo">
                 <article class="charge">
-                    <h3>Cargo: </h3><br>
+                    <h3>Cargo</h3><br>
                     <span>{{$vacancie->charge->charge}}</span>
                 </article>
             </section>
             <section class="otherGeneralInfo">
                 <article class="firstGeneral">
+                    <p><strong>Empresa Solicitante: </strong>{{$vacancie->company->business_name}}</p>
                     <p><strong>Experiencia requerida: </strong>{{$vacancie->requisiton->required_experience}} meses</p>
                     <p><strong>Numero de vacantes: </strong>{{$vacancie->requisiton->number_vacancies}}</p>
                     <p><strong>Rango salarial: </strong>${{$vacancie->salary_range}}</p>

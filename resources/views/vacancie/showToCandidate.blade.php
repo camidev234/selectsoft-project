@@ -43,7 +43,7 @@
                     <p><strong>Horario de trabajo: </strong>{{$vacancie->schedule}}</p>
                     <p><strong>Tipo de jornada: </strong>{{$vacancie->work_day->working_day}}</p>
                     <p><strong>Tipo de salario: </strong>{{$vacancie->salaries_type->salary_type}}</p>
-                    <p><strong>Persona Solicitante: </strong>{{$vacancie->applicant_person}}</p>
+                    <p><strong>Empresa Solicitante: </strong>{{$vacancie->company->bussines_name}}</p>
 
                 </article>
             </section>
