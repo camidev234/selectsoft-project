@@ -37,9 +37,9 @@ class RegisterForm extends Component
         $departaments = Departament::all();
         $cities = City::where('departament_id', $this->id_department)->get();
 
-        if(!empty($cities)){
-            $this->id_city = $cities->first()->id;
-        }
+        // if(!empty($cities)){
+        //     $this->id_city = $cities->first()->id;
+        // }
 
         return view('livewire.register-form', [
             'document_types' => $document_types,
