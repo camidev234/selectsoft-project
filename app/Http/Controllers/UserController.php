@@ -52,29 +52,28 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(RegisterRequest $request)
+    public function store($validatedData)
     {
         $newUser = new User();
 
-        $newUser->name = strtoupper($request->input('name'));
-        $newUser->last_name = strtoupper($request->input('last_name'));
-        $newUser->document_type_id = strtoupper($request->input('document_type_id'));
-        $newUser->number_document = $request->input('number_document');
-        $newUser->telephone = $request->input('telephone');
-        $newUser->phone_number = $request->input('phone_number');
-        $newUser->address = strtoupper($request->input('address'));
+        $newUser->name = strtoupper($validatedData['name']);
+        $newUser->last_name = strtoupper($validatedData['last_name']);
+        $newUser->document_type_id = strtoupper($validatedData['document_type_id']);
+        $newUser->number_document = $validatedData['number_document'];
+        $newUser->telephone = $validatedData['telephone'];
+        $newUser->phone_number = $validatedData['phone_number'];
+        $newUser->address = strtoupper($validatedData['address']);
         $newUser->country_id = 37;
-        $newUser->departament_id = $request->input('id_department');
-        $newUser->city_id = strtoupper($request->input('id_city'));
-        $newUser->birthdate = strtoupper($request->input('birthdate'));
-        $newUser->email = strtolower($request->input('email'));
-        $newUser->password = $request->input('password');
+        $newUser->departament_id = $validatedData['id_department'];
+        $newUser->city_id = strtoupper($validatedData['id_city']);
+        $newUser->birthdate = strtoupper($validatedData['birthdate']);
+        $newUser->email = strtolower($validatedData['email']);
+        $newUser->password = strtoupper($validatedData['last_name']); // ¿Es correcto aquí? No parece correcto asignar el apellido al password
         $newUser->role_id = 1;
-
-
-        $mail = $request->email;
-
-        $userName = $request->name . " " . $request->last_name;
+        
+        $mail = $validatedData['email'];
+        
+        $userName = $validatedData['name'] . " " . $validatedData['last_name'];
 
         Mail::to($mail)->send(new WelcomeMailable($userName));
 
