@@ -67,12 +67,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($educations as $education)
+                    @forelse($educations as $index => $education)
                     <tr>
                         <td>{{$education['study_level']}}</td>
                         <td>{{$education['study_status']}}</td>
                         <td>{{$education['study_name']}}</td>
-                        <td>{{$education['points']}}</td>
+                        <td>
+                            {{$education['points']}}
+                            <button class="deleteEdu" wire:click.prevent="deleteEducation({{$index}})"><i class="bi bi-trash"></i></button>
+                        </td>
                     </tr>
                     @empty
                     <tr>
@@ -89,11 +92,11 @@
             </article>
         </section>
         <section class="{{$formVisible ? 'formComponent' : 'noVisible'}}">
-            <livewire:create-educations-req/>
+            <livewire:create-educations-req />
         </section>
         <article class="submit">
             <button class="btn-submit">Crear requisicion</button>
         </article>
     </form>
-</script>
+    </script>
 </div>

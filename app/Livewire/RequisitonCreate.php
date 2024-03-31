@@ -116,4 +116,9 @@ class RequisitonCreate extends Component
     public function setVisible() {
         $this->formVisible = !$this->formVisible;
     }
+
+
+    public function deleteEducation($index) {
+        unset($this->educations[$index]);
+    }
 }
