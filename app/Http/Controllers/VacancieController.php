@@ -18,6 +18,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Features\SupportRedirects\Redirector;
 
 class VacancieController extends Controller
 {
@@ -74,30 +75,31 @@ class VacancieController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(VacancieRequest $request, Company $company) :RedirectResponse
+    public function store(Company $company, array $validatedData)
     {
         $newVacancie = new Vacancie();
 
-        $newVacancie->vacancie_code = $request->vacancie_code;
-        if($request->skills == null){
-            $newVacancie->skills = 'Ninguna';
-        }else{
-            $newVacancie->skills = $request->skills;
-        }
+        // $newVacancie->vacancie_code = $request->vacancie_code;
+        // if($request->skills == null){
+        //     $newVacancie->skills = 'Ninguna';
+        // }else{
+        //     $newVacancie->skills = $request->skills;
+        // }
 
-        $requisitonToFind = Requisiton::find($request->requisiton_id);
+        $requisitonToFind = Requisiton::find($validatedData['requisiton_id']);
         $chargeToAssign = Charge::find($requisitonToFind->charge_id);
 
-        $newVacancie->salary_range = $request->salary_range;
+        $newVacancie->vacancie_code = $validatedData['vacancie_code'];
+        $newVacancie->salary_range = $validatedData['salary_range'];
         $newVacancie->charge_id = $chargeToAssign->id;
-        $newVacancie->schedule = $request->schedule;
-        $newVacancie->work_day_id = $request->work_day_id;
-        $newVacancie->salaries_type_id = $request->salaries_type_id;
-        $newVacancie->applicant_person = $request->applicant_person;
-        $newVacancie->country_id = $request->country_id;
-        $newVacancie->city_id = $request->city_id;
-        $newVacancie->annotations = $request->annotations;
-        $newVacancie->requisiton_id = $request->requisiton_id;
+        $newVacancie->schedule = $validatedData['schedule'];
+        $newVacancie->work_day_id = $validatedData['work_day_id'];
+        $newVacancie->salaries_type_id = $validatedData['salaries_type_id'];
+        $newVacancie->applicant_person = $validatedData['applicant_person'];
+        $newVacancie->departament_id = $validatedData['departament_id'];
+        $newVacancie->city_id = $validatedData['city_id'];
+        $newVacancie->annotations = $validatedData['annotations'];
+        $newVacancie->requisiton_id = $validatedData['requisiton_id'];
         $newVacancie->company_id = $company->id;
 
         $newVacancie->save();

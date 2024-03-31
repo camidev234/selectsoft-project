@@ -13,4 +13,8 @@ class Departament extends Model
     public function users() :HasMany {
         return $this->hasMany(User::class);
     }
+
+    public function vacancies() :HasMany {
+        return $this->hasMany(Vacancie::class);
+    }
 }

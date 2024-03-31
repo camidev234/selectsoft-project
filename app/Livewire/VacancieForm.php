@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\VacancieController;
 use App\Models\City;
 use App\Models\Company;
 use App\Models\Departament;
@@ -15,7 +16,7 @@ class VacancieForm extends Component
 {
 
     public $vacancie_code;
-    public $work_day_id;
+    public $work_day_id = 1;
     public $departament_id = 1;
     public $city_id;
     public $skills;
@@ -24,7 +25,16 @@ class VacancieForm extends Component
     public $applicant_person;
     public $annotations; 
     public $requisiton_id;
-    public $salaries_type_id;
+    public $salaries_type_id = 1;
+
+
+    public function mount() {
+        $company = Company::find(Auth::user()->recruiter->company_id);
+        $requisitions = Requisiton::where('company_id', $company->id)->get();
+        if(!empty($requisitions)){
+            $this->requisiton_id = $requisitions->first()->id;
+        }
+    }
 
     public function render()
     {
@@ -32,8 +42,10 @@ class VacancieForm extends Component
         $company = Company::find(Auth::user()->recruiter->company_id);
         $requisitions = Requisiton::where('company_id', $company->id)->get();
         $cities = City::where('departament_id', $this->departament_id)->get();
-        if(!empty($requisitions)){
-            $this->requisiton_id = $requisitions->first()->id;
+        
+
+        if ($this->city_id == null) {
+            $this->city_id = $cities->first()->id;
         }
 
         return view('livewire.vacancie-form', [
@@ -46,9 +58,17 @@ class VacancieForm extends Component
         ]);
     }
 
+    public function handleDepartamentChange($departamentId) {
+        $cities = City::where('departament_id', $departamentId)->get();
+        $this->city_id = $cities->first()->id;
+    }
+
 
     public function storeVacancie()
     {
+
+        $company = Company::find(Auth::user()->recruiter->company_id);
+
         $validatedData = $this->validate([
             'vacancie_code' => 'required|unique:vacancies|integer|min:0|digits_between:4,6',
             'skills' => 'max:1500',
@@ -57,9 +77,10 @@ class VacancieForm extends Component
             'applicant_person' => 'required|string|max:30',
             'departament_id' => 'required|exists:departaments,id',
             'city_id' => 'required|exists:cities,id',
-            'annotations' => 'required|string|max:700',
+            'annotations' => 'max:700',
             'work_day_id' => 'required|exists:work_days,id',
-            'salaries_type_id' => 'required|exists:work_days,id'
+            'salaries_type_id' => 'required|exists:salaries_types,id',
+            'requisiton_id' => 'required|exists:requisitons,id'
         ], [
             'vacancie_code.required' => 'El código de la vacante es requerido.',
             'vacancie_code.unique' => 'El código de la vacante ya existe.',
@@ -81,5 +102,10 @@ class VacancieForm extends Component
             'annotations.string' => 'Las anotaciones deben ser una cadena de caracteres.',
             'annotations.max' => 'Las anotaciones no deben exceder los :max caracteres.',
         ]);
+
+
+        $vacancieController = new VacancieController();
+
+        $vacancieController->store($company, $validatedData);
     }
 }

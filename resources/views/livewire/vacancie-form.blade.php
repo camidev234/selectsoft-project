@@ -1,5 +1,5 @@
 <div>
-    <form action="{{route('vacancies.store', ['company' => $company->id])}}" method="POST">
+    <form wire:submit.prevent="storeVacancie">
         @csrf
         <label for="">Codigo de la vacante <span class="ast">*</span></label>
         <input type="text" placeholder="Codigo" name="vacancie_code" value="{{old('vacancie_code')}}" wire:model.live="vacancie_code"><br>
@@ -47,7 +47,7 @@
         <span style="color: red;">{{$message}}</span><br><br>
         @enderror
         <label for="">Departamento</label><br>
-        <select name="departament_id" id="" wire:model.live="departament_id" wire:model.live="departament_id">
+        <select name="departament_id" id="" wire:model.live="departament_id" wire:change="handleDepartamentChange($event.target.value)">
             @foreach($departaments as $departament)
             <option value="{{$departament->id}}">{{$departament->departament_name}}</option>
             @endforeach

@@ -43,7 +43,7 @@
             </section>
             <section class="locationInfo">
                 <article>
-                    <p><strong>Pais: </strong>{{$vacancie->country->country_name}}</p>
+                    <p><strong>Departamento: </strong>{{$vacancie->departament->departament_name}}</p>
                 </article>
                 <article>
                     <p><strong>Ciudad: </strong>{{$vacancie->city->city_name}}</p>

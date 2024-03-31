@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('work_day_id')->references('id')->on('work_days');
             $table->foreignId('salaries_type_id')->references('id')->on('salaries_types');
             $table->string('applicant_person');
-            $table->foreignId('country_id')->references('id')->on('countries');
+            $table->foreignId('departament_id')->references('id')->on('departaments');
             $table->foreignId('city_id')->references('id')->on('cities');
             $table->string('annotations',700)->nullable();
             $table->foreignId('requisiton_id')->references('id')->on('requisitons')->onDelete('cascade');

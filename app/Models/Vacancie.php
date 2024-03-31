@@ -28,8 +28,8 @@ class Vacancie extends Model
         return $this->belongsTo(Salaries_type::class);
     }
 
-    public function country() :BelongsTo {
-        return $this->belongsTo(Country::class);
+    public function departament() :BelongsTo {
+        return $this->belongsTo(Departament::class);
     }
 
     public function city() :BelongsTo {
