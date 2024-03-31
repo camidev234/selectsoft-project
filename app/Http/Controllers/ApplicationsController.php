@@ -37,39 +37,39 @@ class ApplicationsController extends Controller
      * Store a newly created resource in storage.
      */
 
-    private function compareCurriculum(User $user, Vacancie $vacancie)
-    {
+    // private function compareCurriculum(User $user, Vacancie $vacancie)
+    // {
 
-        $vacantStudies = $vacancie->studies;
-        $candidateStudies = $user->educations;
-        $totalScore = 0;
+    //     $vacantStudies = $vacancie->studies;
+    //     $candidateStudies = $user->educations;
+    //     $totalScore = 0;
 
-        if ($vacantStudies->isEmpty() || $candidateStudies->isEmpty()) {
-            $totalScore = 0;
-        } else {
-            foreach ($vacantStudies as $vStudy) {
-                foreach ($candidateStudies as $cStudy) {
-                    if ($vStudy->study_level->id == $cStudy->study_level->id) {
-                        $pointsAssigned = $vStudy->points;
-                        $totalScore += $pointsAssigned;
-                    } else {
-                        continue;
-                    }
-                }
-            }
+    //     if ($vacantStudies->isEmpty() || $candidateStudies->isEmpty()) {
+    //         $totalScore = 0;
+    //     } else {
+    //         foreach ($vacantStudies as $vStudy) {
+    //             foreach ($candidateStudies as $cStudy) {
+    //                 if ($vStudy->study_level->id == $cStudy->study_level->id) {
+    //                     $pointsAssigned = $vStudy->points;
+    //                     $totalScore += $pointsAssigned;
+    //                 } else {
+    //                     continue;
+    //                 }
+    //             }
+    //         }
 
-        }
+    //     }
 
-        return $totalScore;
-    }
+    //     return $totalScore;
+    // }
     public function store(User $user, Vacancie $vacancie) :RedirectResponse
     {
         $newPostulation = new applications();
         $newPostulation->vacant_id = $vacancie->id;
         $newPostulation->candidate_id = $user->candidate->id;
-        $newPostulation->education_score = $this->compareCurriculum($user, $vacancie);
+        // $newPostulation->education_score = $this->compareCurriculum($user, $vacancie);
         $newPostulation->status_applications_id = 1;
-        $newPostulation->total_score = $this->compareCurriculum($user, $vacancie);
+        // $newPostulation->total_score = $this->compareCurriculum($user, $vacancie);
         $newPostulation->save();
 
         return redirect()->back()->with('message', 'Postulacion para la vacante '. $vacancie->vacancie_code . ' realizada con exito');

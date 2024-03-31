@@ -61,7 +61,7 @@
                     </article>
                     <article>
                         <label for="departamento">Departamento <span class="ast">*</span></label>
-                        <select name="id_department" id="" wire:model.live="id_department">
+                        <select name="id_department" id="" wire:model.live="id_department" wire:change="handleCityChange($event.target.value)">
                             @foreach($departaments as $dpto)
                             <option value="{{$dpto->id}}" @if($dpto->id == old('id_department')) selected @endif>
                                 {{$dpto->departament_name}}
@@ -73,7 +73,7 @@
                         <label for="ciudad">Ciudad <span class="ast">*</span></label>
                         <select name="id_city" id="" wire:model.live="id_city">
                             @foreach($cities as $city)
-                            <option value="{{$city->id}}" @if($city->id == old('id_city')) selected @endif>
+                            <option value="{{$city->id}}">
                                 {{$city->city_name}}
                             </option>
                             @endforeach
@@ -119,7 +119,7 @@
 
             </section>
             <div id="registration-container">
-                <button id="register-button" class="sub" onclick="handleRegistration()">Registrarse</button>
+                <button id="register-button" class="sub" onclick="handleRegistration()" wire:clicl="handleClick">Registrarse</button>
                 <div id="spinner" class="spinner" style="display: none;">
                     <!-- Aquí colocarías tu spinner -->
                     <div class="loader"></div>
@@ -132,11 +132,10 @@
             var errors = @json($errors->all());
 
             if (errors.length === 0) {
-                // Si no hay errores, reemplazar el botón por el spinner
                 document.getElementById('register-button').style.display = 'none';
                 document.getElementById('spinner').style.display = 'block';
             } else {
-                // Si hay errores, no hacer nada (el botón permanece visible)
+                // Si hay errores
             }
         }
     </script>

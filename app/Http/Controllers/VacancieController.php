@@ -9,6 +9,7 @@ use App\Models\Charge;
 use App\Models\City;
 use App\Models\Company;
 use App\Models\Country;
+use App\Models\RequisitionStudy;
 use App\Models\Requisiton;
 use App\Models\Salaries_type;
 use App\Models\Vacancie;
@@ -133,9 +134,11 @@ class VacancieController extends Controller
     {
         $user = Auth::user();
         $role_id = $user->role_id;
-        $functions = $vacancie->charge->occupation->functions;
+        $functions = $vacancie->charge->functions;
         $company = $vacancie->company;
         $candidate = $user->candidate;
+        $requisition = $vacancie->requisiton;
+        $studies = RequisitionStudy::where('requisiton_id', $requisition->id)->get();
 
         $application = applications::where('candidate_id', $candidate->id)
                            ->where('vacant_id', $vacancie->id)->get();
@@ -154,7 +157,8 @@ class VacancieController extends Controller
                 'functions' => $functions,
                 'company' => $company,
                 'postulated' => $is_postulated,
-                'applicants' => $countApplicants
+                'applicants' => $countApplicants,
+                'studies' => $studies
             ]);
         } else {
             abort(404, 'Resource Not Found');

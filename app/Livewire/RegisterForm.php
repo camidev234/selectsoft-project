@@ -21,13 +21,14 @@ class RegisterForm extends Component
     public $phone_number;
     public $address;
     // public $id_department;
-    public $id_city = 1;
+    public $id_city;
     public $birthdate;
     public $email;
     public $password;
     public $errores = [];
 
     public $isSend = false;
+
 
     public function render()
     {
@@ -37,8 +38,18 @@ class RegisterForm extends Component
         $departaments = Departament::all();
         $cities = City::where('departament_id', $this->id_department)->get();
 
-        // if(!empty($cities)){
-        //     $this->id_city = $cities->first()->id;
+        if ($this->id_city == null) {
+            $this->id_city = $cities->first()->id;
+        }
+
+        // if ($this->id_city !== null) {
+        //     $city = City::find($this->id_city);
+        //     if ($city->departament_id !== $this->id_department) {
+        //         $citiesFind = City::where('departament_id', $this->id_department);
+        //         $this->id_city = $citiesFind->first()->id;
+        //     } else {
+        //         $this->id_city = $this->id_city;
+        //     }
         // }
 
         return view('livewire.register-form', [
@@ -49,7 +60,13 @@ class RegisterForm extends Component
         ]);
     }
 
-    public function storeUser() {
+    public function handleCityChange($departamentId) {
+        $cities = City::where('departament_id', $departamentId)->get();
+        $this->id_city = $cities->first()->id;
+    }
+
+    public function storeUser()
+    {
         $validatedData = $this->validate([
             'name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -94,8 +111,6 @@ class RegisterForm extends Component
             'password.required' => 'El campo contraseña es obligatorio.',
             'password.min' => 'El campo contraseña debe tener al menos :min caracteres.',
         ]);
-        
-
 
         $userController = new UserController();
 
