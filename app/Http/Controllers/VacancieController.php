@@ -91,6 +91,7 @@ class VacancieController extends Controller
 
         $newVacancie->vacancie_code = $validatedData['vacancie_code'];
         $newVacancie->salary_range = $validatedData['salary_range'];
+        $newVacancie->skills = $validatedData['skills'];
         $newVacancie->charge_id = $chargeToAssign->id;
         $newVacancie->schedule = $validatedData['schedule'];
         $newVacancie->work_day_id = $validatedData['work_day_id'];
