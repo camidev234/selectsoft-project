@@ -68,7 +68,7 @@ class UserController extends Controller
         $newUser->city_id = strtoupper($validatedData['id_city']);
         $newUser->birthdate = strtoupper($validatedData['birthdate']);
         $newUser->email = strtolower($validatedData['email']);
-        $newUser->password = strtoupper($validatedData['last_name']); // ¿Es correcto aquí? No parece correcto asignar el apellido al password
+        $newUser->password = $validatedData['password'];
         $newUser->role_id = 1;
         
         $mail = $validatedData['email'];
