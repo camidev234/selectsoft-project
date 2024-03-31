@@ -18,7 +18,7 @@ class RequisitionStudy extends Model
         return $this->belongsTo(study_status::class);
     }
 
-    public function vacancie() :BelongsTo {
+    public function requisiton() :BelongsTo {
         return $this->belongsTo(Vacancie::class);
     }
 }

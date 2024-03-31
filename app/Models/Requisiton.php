@@ -22,4 +22,8 @@ class Requisiton extends Model
     public function vacancies() :HasMany {
         return $this->hasMany(Vacancie::class);
     }
+
+    public function studies() :HasMany {
+        return $this->hasMany(RequisitionStudy::class);
+    }
 }
