@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('vacancie_code')->unique();
             $table->string('skills',1500)->default('Ninguna');
             $table->string('salary_range',45);
-            $table->foreignId('charge_id')->references('id')->on('charges')->onDelete('cascade');
+            // $table->foreignId('charge_id')->references('id')->on('charges')->onDelete('cascade');
             $table->string('schedule',55);
             $table->foreignId('work_day_id')->references('id')->on('work_days');
             $table->foreignId('salaries_type_id')->references('id')->on('salaries_types');

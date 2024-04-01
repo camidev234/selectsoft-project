@@ -19,11 +19,10 @@ class VacancieShow extends Component
         $companyObject = Company::find($company);
 
         $vacants = Vacancie::where('company_id', $company)
-            ->where(function ($query) {
+            ->whereHas('requisiton', function ($query) {
                 $query->whereHas('charge', function ($subQuery) {
                     $subQuery->where('charge', 'like', '%' . $this->queryWord . '%');
-                })
-                    ->orWhere('vacancie_code', 'like', '%' . $this->queryWord . '%');
+                });
             })
             ->get();
 

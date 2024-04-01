@@ -16,7 +16,7 @@
             @forelse($vacants as $vacant)
             <tr wire:key="{{$vacant->id}}">
                 <td>{{ $vacant->vacancie_code }}</td>
-                <td>{{ $vacant->charge->charge }}</td>
+                <td>{{ $vacant->requisiton->charge->charge }}</td>
                 <td>{{ $vacant->requisiton->number_vacancies }}</td>
                 <td>
                     @if($vacant->is_active)

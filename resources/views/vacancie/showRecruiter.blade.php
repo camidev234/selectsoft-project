@@ -22,7 +22,7 @@
             <section class="generalInfo">
                 <article class="charge">
                     <h3>Cargo</h3><br>
-                    <span>{{$vacancie->charge->charge}}</span>
+                    <span>{{$vacancie->requisiton->charge->charge}}</span>
                 </article>
             </section>
             <section class="otherGeneralInfo">

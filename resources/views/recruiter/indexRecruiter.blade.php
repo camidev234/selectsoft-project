@@ -69,7 +69,7 @@
                 <article class="process">
                     <div class="job modP">
                         <!-- <span>Cargo</span> -->
-                        <span>{{$process->charge->charge}}</span>
+                        <span>{{$process->requisiton->charge->charge}}</span>
                     </div>
                     <div class="status modP">
                         <span>Estado</span>

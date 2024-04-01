@@ -25,7 +25,7 @@ class VacancieController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Company $company) :View
+    public function index(Company $company): View
     {
         $user = Auth::user();
         $role_id = $user->role_id;
@@ -43,7 +43,7 @@ class VacancieController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create() :View
+    public function create(): View
     {
         $user = Auth::user();
         $role_id = $user->role_id;
@@ -53,7 +53,7 @@ class VacancieController extends Controller
         $days = Work_day::all();
         $recruiter = $user->recruiter;
 
-        if($recruiter) {
+        if ($recruiter) {
             $company = $recruiter->company;
             $charges = Charge::where('company_id', $company->id)->get();
             $requisitions = Requisiton::where('company_id', $company->id)->get();
@@ -79,20 +79,9 @@ class VacancieController extends Controller
     {
         $newVacancie = new Vacancie();
 
-        // $newVacancie->vacancie_code = $request->vacancie_code;
-        // if($request->skills == null){
-        //     $newVacancie->skills = 'Ninguna';
-        // }else{
-        //     $newVacancie->skills = $request->skills;
-        // }
-
-        $requisitonToFind = Requisiton::find($validatedData['requisiton_id']);
-        $chargeToAssign = Charge::find($requisitonToFind->charge_id);
-
         $newVacancie->vacancie_code = $validatedData['vacancie_code'];
         $newVacancie->salary_range = $validatedData['salary_range'];
         $newVacancie->skills = $validatedData['skills'];
-        $newVacancie->charge_id = $chargeToAssign->id;
         $newVacancie->schedule = $validatedData['schedule'];
         $newVacancie->work_day_id = $validatedData['work_day_id'];
         $newVacancie->salaries_type_id = $validatedData['salaries_type_id'];
@@ -112,11 +101,11 @@ class VacancieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function showToRecruiter(Vacancie $vacancie) :View
+    public function showToRecruiter(Vacancie $vacancie): View
     {
         $user = Auth::user();
         $role_id = $user->role_id;
-        $functions = $vacancie->charge->functions;
+        $functions = $vacancie->requisiton->charge->functions;
         $educations = $vacancie->requisiton->studies;
         $company = $vacancie->company;
         $applicants = applications::where('vacant_id', $vacancie->id)->get();
@@ -133,18 +122,18 @@ class VacancieController extends Controller
         ]);
     }
 
-    public function showToCandidate(Vacancie $vacancie) :View
+    public function showToCandidate(Vacancie $vacancie): View
     {
         $user = Auth::user();
         $role_id = $user->role_id;
-        $functions = $vacancie->charge->functions;
+        $functions = $vacancie->requisiton->charge->functions;
         $company = $vacancie->company;
         $candidate = $user->candidate;
         $requisition = $vacancie->requisiton;
         $studies = RequisitionStudy::where('requisiton_id', $requisition->id)->get();
 
         $application = applications::where('candidate_id', $candidate->id)
-                           ->where('vacant_id', $vacancie->id)->get();
+            ->where('vacant_id', $vacancie->id)->get();
 
         $is_postulated = $application->isEmpty() ? false : true;
 
@@ -168,11 +157,12 @@ class VacancieController extends Controller
         }
     }
 
-    public function editStatus(Vacancie $vacancie):RedirectResponse{
+    public function editStatus(Vacancie $vacancie): RedirectResponse
+    {
 
-        if($vacancie->is_active){
+        if ($vacancie->is_active) {
             $vacancie->is_active = 0;
-        }else{
+        } else {
             $vacancie->is_active = 1;
         }
 
@@ -211,33 +201,30 @@ class VacancieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Vacancie $vacancie, Company $company) :View
+    public function edit(Vacancie $vacancie, Company $company): View
     {
-        $user = Auth::user();
-        $role_id = $user->role_id;
-        $currentCountry = $vacancie->country;
-        $countries = Country::where('id', '!=', $currentCountry->id)->get();
-        $currentCity = $vacancie->city;
-        $cities = City::where('id', '!=', $currentCity->id)->get();
-        $currentSalary = $vacancie->salaries_type;
-        $salaries = Salaries_type::where('id', '!=', $currentSalary->id)->get();
-        $currentSchedule = $vacancie->work_day;
-        $days = Work_day::where('id', '!=', $currentSchedule->id)->get();;
-        $currentCharge = $vacancie->charge;
-        $requisitions = Requisiton::where('company_id', $company->id)->where('charge_id', '!=', $currentCharge->id)->get();
-
+        // $user = Auth::user();
+        // $role_id = $user->role_id;
+        // $currentCountry = $vacancie->country;
+        // $countries = Country::where('id', '!=', $currentCountry->id)->get();
+        // $currentCity = $vacancie->city;
+        // $cities = City::where('id', '!=', $currentCity->id)->get();
+        // $currentSalary = $vacancie->salaries_type;
+        // $salaries = Salaries_type::where('id', '!=', $currentSalary->id)->get();
+        // $currentSchedule = $vacancie->work_day;
+        // $days = Work_day::where('id', '!=', $currentSchedule->id)->get();;
+        // $currentCharge = $vacancie->charge;
         return view('/vacancie/edit', [
-            'user' => $user,
-            'role_id' => $role_id,
-            'countries' => $countries,
-            'cities' => $cities,
-            'salaries' => $salaries,
-            'days' => $days,
-            'requisitions' => $requisitions,
+            // 'user' => $user,
+            // 'role_id' => $role_id,
+            // 'countries' => $countries,
+            // 'cities' => $cities,
+            // 'salaries' => $salaries,
+            // 'days' => $days,
+            // 'requisitions' => $requisitions,
             'vacancie' => $vacancie,
-            'company' => $company
+            // 'company' => $company
         ]);
-
     }
 
     /**
@@ -246,9 +233,9 @@ class VacancieController extends Controller
     public function update(UpdateVacancieRequest $request, Vacancie $vacancie, Company $company)
     {
         $vacancie->vacancie_code = $request->vacancie_code;
-        if($request->skills == null){
+        if ($request->skills == null) {
             $vacancie->skills = 'Ninguna';
-        }else{
+        } else {
             $vacancie->skills = $request->skills;
         }
 
@@ -274,14 +261,19 @@ class VacancieController extends Controller
         return redirect()->route('vacancies.index', ['company' => $company]);
     }
 
-    public function indexToCandidate(Request $request)  {
+    public function indexToCandidate(Request $request)
+    {
         $user = Auth::user();
         $role_id = $user->role_id;
 
         $search = $request->search;
         if ($search) {
-            $vacants = Vacancie::where('vacancie_code', 'LIKE', "%{$search}%")->orWhereHas('charge', function ($query) use ($search) {
-            $query->where('charge', 'LIKE', "%{$search}%");})->get();
+            $vacants = Vacancie::where('vacancie_code', 'LIKE', "%{$search}%")
+                ->orWhereHas('requisiton.charge', function ($query) use ($search) {
+                    $query->where('charge', 'LIKE', "%{$search}%");
+                })
+                ->get();
+
 
             if ($vacants->isEmpty()) {
                 return redirect()->route('user.index')->with('message', 'No se encontraron vacantes para la búsqueda: ' . $search);

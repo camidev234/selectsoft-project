@@ -31,7 +31,7 @@ class VacancieForm extends Component
     public function mount() {
         $company = Company::find(Auth::user()->recruiter->company_id);
         $requisitions = Requisiton::where('company_id', $company->id)->get();
-        if(!empty($requisitions)){
+        if(!$requisitions->isEmpty()){
             $this->requisiton_id = $requisitions->first()->id;
         }
     }

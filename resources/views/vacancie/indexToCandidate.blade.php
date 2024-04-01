@@ -19,7 +19,7 @@
             @foreach($vacants as $vacant)
                 <article class="vacant">
                     <h3>{{$vacant->vacancie_code}}</h3>
-                    <h3>{{$vacant->charge->charge}}</h3>
+                    <h3>{{$vacant->requisiton->charge->charge}}</h3>
                     <span>{{$vacant->company->business_name}}</span>
                     <span>Numero de vacantes: {{$vacant->number_vacancies}}</span>
                     <span>{{$vacant->city->city_name}}</span>
