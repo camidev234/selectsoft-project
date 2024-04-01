@@ -64,7 +64,7 @@
                                 <section class="generalInfo">
                                     <article class="charge">
                                         <h3>Cargo: </h3><br>
-                                        <span>{{$vacant->charge->charge}}</span>
+                                        <span>{{$vacant->requisiton->charge->charge}}</span>
                                     </article>
                                 </section>
                                 <section class="otherGeneralInfo">
