@@ -203,8 +203,8 @@ class VacancieController extends Controller
      */
     public function edit(Vacancie $vacancie, Company $company): View
     {
-        // $user = Auth::user();
-        // $role_id = $user->role_id;
+        $user = Auth::user();
+        $role_id = $user->role_id;
         // $currentCountry = $vacancie->country;
         // $countries = Country::where('id', '!=', $currentCountry->id)->get();
         // $currentCity = $vacancie->city;
@@ -215,8 +215,8 @@ class VacancieController extends Controller
         // $days = Work_day::where('id', '!=', $currentSchedule->id)->get();;
         // $currentCharge = $vacancie->charge;
         return view('/vacancie/edit', [
-            // 'user' => $user,
-            // 'role_id' => $role_id,
+            'user' => $user,
+            'role_id' => $role_id,
             // 'countries' => $countries,
             // 'cities' => $cities,
             // 'salaries' => $salaries,
@@ -230,30 +230,19 @@ class VacancieController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateVacancieRequest $request, Vacancie $vacancie, Company $company)
+    public function update(Vacancie $vacancie, Company $company, $validatedData)
     {
-        $vacancie->vacancie_code = $request->vacancie_code;
-        if ($request->skills == null) {
-            $vacancie->skills = 'Ninguna';
-        } else {
-            $vacancie->skills = $request->skills;
-        }
-
-        $chargeToAssign = Charge::find(Requisiton::find($request->requisiton_id)->charge_id);
-
-        $vacancie->required_experience = $request->required_experience;
-        $vacancie->salary_range = $request->salary_range;
-        $vacancie->number_vacancies = $request->number_vacancies;
-        $vacancie->charge_id = $chargeToAssign->id;
-        $vacancie->schedule = $request->schedule;
-        $vacancie->work_day_id = $request->work_day_id;
-        $vacancie->salaries_type_id = $request->salaries_type_id;
-        $vacancie->applicant_person = $request->applicant_person;
-        $vacancie->country_id = $request->country_id;
-        $vacancie->city_id = $request->city_id;
-        $vacancie->annotations = $request->annotations;
-        $vacancie->requisiton_id = $request->requisiton_id;
-        $vacancie->company_id = $company->id;
+        $vacancie->vacancie_code = $validatedData['vacancie_code'];
+        $vacancie->salary_range = $validatedData['salary_range'];
+        $vacancie->skills = $validatedData['skills'];
+        $vacancie->schedule = $validatedData['schedule'];
+        $vacancie->work_day_id = $validatedData['work_day_id'];
+        $vacancie->salaries_type_id = $validatedData['salaries_type_id'];
+        $vacancie->applicant_person = $validatedData['applicant_person'];
+        $vacancie->departament_id = $validatedData['departament_id'];
+        $vacancie->city_id = $validatedData['city_id'];
+        $vacancie->annotations = $validatedData['annotations'];
+        $vacancie->requisiton_id = $validatedData['requisiton_id'];
 
         $vacancie->save();
 
