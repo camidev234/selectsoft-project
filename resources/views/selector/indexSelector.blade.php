@@ -70,7 +70,7 @@
                                 <section class="otherGeneralInfo">
                                     <article class="firstGeneral">
                                         <p><strong>Experiencia: </strong>{{$vacant->requisiton->required_experience}} meses</p>
-                                        <p><strong>Vacantes: </strong>{{$vacant->requisiton>number_vacancies}}</p>
+                                        <p><strong>Vacantes: </strong>{{$vacant->requisiton->number_vacancies}}</p>
                                         <p><strong>Salario: </strong>${{$vacant->salary_range}}</p>
                                     </article>
                                     <article class="secondGeneral">
