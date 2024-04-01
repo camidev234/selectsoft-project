@@ -96,7 +96,7 @@
                     @forelse($applications as $application)
                     <div class="containerAplication">
                         <section class="charge">
-                            <h4>{{$application->vacant->charge->charge}}</h4>
+                            <h4>{{$application->vacant->requisiton->charge->charge}}</h4>
                             <span>{{$application->vacant->company->business_name}}</span>
                             <span>{{$application->vacant->city->city_name}}</span>
                         </section>
