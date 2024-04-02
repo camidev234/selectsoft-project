@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/indexSelector.css')}}">
-    <title>Seleccionador Home</title>
+    <title>Seleccionador Inicio</title>
 </head>
 
 <body>
@@ -64,13 +64,13 @@
                                 <section class="generalInfo">
                                     <article class="charge">
                                         <h3>Cargo: </h3><br>
-                                        <span>{{$vacant->charge->charge}}</span>
+                                        <span>{{$vacant->requisiton->charge->charge}}</span>
                                     </article>
                                 </section>
                                 <section class="otherGeneralInfo">
                                     <article class="firstGeneral">
-                                        <p><strong>Experiencia: </strong>{{$vacant->required_experience}} meses</p>
-                                        <p><strong>Vacantes: </strong>{{$vacant->number_vacancies}}</p>
+                                        <p><strong>Experiencia: </strong>{{$vacant->requisiton->required_experience}} meses</p>
+                                        <p><strong>Vacantes: </strong>{{$vacant->requisiton->number_vacancies}}</p>
                                         <p><strong>Salario: </strong>${{$vacant->salary_range}}</p>
                                     </article>
                                     <article class="secondGeneral">
@@ -85,7 +85,7 @@
                                 </section>
                                 <section class="locationInfo">
                                     <article>
-                                        <p><strong>Pais: </strong>{{$vacant->country->country_name}}</p>
+                                        <p><strong>Pais: </strong>{{$vacant->departament->departament_name}}</p>
                                     </article>
                                     <article>
                                         <p><strong>Ciudad: </strong>{{$vacant->city->city_name}}</p>
@@ -148,7 +148,7 @@
                         });
                     </script>
                     <div class="vacantJob">
-                        <span>{{$vacant->charge->charge}}</span>
+                        <span>{{$vacant->requisiton->charge->charge}}</span>
                     </div>
                     <div class="vacantCreated">
                         <span>Creada: {{$vacant->created_at}}</span>
