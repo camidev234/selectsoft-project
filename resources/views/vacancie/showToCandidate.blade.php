@@ -90,7 +90,6 @@
                                 <th>Nivel</th>
                                 <th>Estado</th>
                                 <th>Profesion</th>
-                                <th>Puntos</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -99,7 +98,6 @@
                                 <td>{{$study->study_level->study_level}}</td>
                                 <td>{{$study->study_status->study_status}}</td>
                                 <td>{{$study->study_name}}</td>
-                                <td>{{$study->points}}</td>
                             </tr>
                             @empty
                             <tr>
