@@ -34,8 +34,8 @@
             </section>
             <section class="otherGeneralInfo">
                 <article class="firstGeneral">
-                    <p><strong>Experiencia requerida: </strong>{{$vacancie->required_experience}} meses</p>
-                    <p><strong>Numero de vacantes: </strong>{{$vacancie->number_vacancies}}</p>
+                    <p><strong>Experiencia requerida: </strong>{{$vacancie->requisiton->required_experience}} meses</p>
+                    <p><strong>Numero de vacantes: </strong>{{$vacancie->requisiton->number_vacancies}}</p>
                     <p><strong>Rango salarial: </strong>${{$vacancie->salary_range}}</p>
                     <p><strong>Empresa: </strong>{{$vacancie->company->business_name}}-{{$vacancie->company->nit}}</p>
                 </article>
