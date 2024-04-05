@@ -54,7 +54,7 @@
                 <tbody>
                     @forelse($applications as $application)
                     <tr>
-                        <td>{{$application->candidate->user->document_type->document_type}}{{$application->candidate->user->number_document}}</td>
+                        <td>{{$application->candidate->user->document_type->document_type_code}}-{{$application->candidate->user->number_document}}</td>
                         <td>{{$application->candidate->user->name}} {{$application->candidate->user->last_name}}</td>
                         @if($application->status_applications_id == 1 || $application->status_applications_id == 3 || $application->status_applications_id == 4)
                         <td>

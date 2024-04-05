@@ -37,45 +37,55 @@ class ApplicationsController extends Controller
      * Store a newly created resource in storage.
      */
 
-    // private function compareCurriculum(User $user, Vacancie $vacancie)
-    // {
+    private function compareEducations($educationOne, $educationTwo)
+    {
+        similar_text($educationOne, $educationTwo, $similarity);
 
-    //     $vacantStudies = $vacancie->studies;
-    //     $candidateStudies = $user->educations;
-    //     $totalScore = 0;
+        return $similarity;
+    }
 
-    //     if ($vacantStudies->isEmpty() || $candidateStudies->isEmpty()) {
-    //         $totalScore = 0;
-    //     } else {
-    //         foreach ($vacantStudies as $vStudy) {
-    //             foreach ($candidateStudies as $cStudy) {
-    //                 if ($vStudy->study_level->id == $cStudy->study_level->id) {
-    //                     $pointsAssigned = $vStudy->points;
-    //                     $totalScore += $pointsAssigned;
-    //                 } else {
-    //                     continue;
-    //                 }
-    //             }
-    //         }
+    private function compareCurriculum(User $user, Vacancie $vacancie)
+    {
 
-    //     }
+        $vacantStudies = $vacancie->requisiton->studies;
+        $candidateStudies = $user->educations;
+        $totalScore = 0;
 
-    //     return $totalScore;
-    // }
-    public function store(User $user, Vacancie $vacancie) :RedirectResponse
+        if ($vacantStudies->isEmpty() || $candidateStudies->isEmpty()) {
+            $totalScore = 0;
+        } else {
+            foreach ($vacantStudies as $vStudy) {
+                foreach ($candidateStudies as $cStudy) {
+                    $compare = $this->compareEducations($vStudy->study_name, $cStudy->obtained_title);
+                    // dd($compare);
+                    if ($vStudy->study_level->id == $cStudy->study_level->id && $compare >= 60) {
+                        $pointsAssigned = $vStudy->points;
+                        $totalScore += $pointsAssigned;
+                    } else {
+                        continue;
+                    }
+                }
+            }
+        }
+
+        return $totalScore;
+    }
+
+    public function store(User $user, Vacancie $vacancie): RedirectResponse
     {
         $newPostulation = new applications();
         $newPostulation->vacant_id = $vacancie->id;
         $newPostulation->candidate_id = $user->candidate->id;
-        // $newPostulation->education_score = $this->compareCurriculum($user, $vacancie);
+        $newPostulation->education_score = $this->compareCurriculum($user, $vacancie);
         $newPostulation->status_applications_id = 1;
-        // $newPostulation->total_score = $this->compareCurriculum($user, $vacancie);
+        $newPostulation->total_score = $this->compareCurriculum($user, $vacancie);
         $newPostulation->save();
 
-        return redirect()->back()->with('message', 'Postulacion para la vacante '. $vacancie->vacancie_code . ' realizada con exito');
+        return redirect()->back()->with('message', 'Postulacion para la vacante ' . $vacancie->vacancie_code . ' realizada con exito');
     }
 
-    public function showApplications(Vacancie $vacancie) :View {
+    public function showApplications(Vacancie $vacancie): View
+    {
         $user = Auth::user();
         $role_id = $user->role_id;
         $statusApplications = Status_aplications::skip(2)->take(PHP_INT_MAX)->get();
@@ -91,7 +101,8 @@ class ApplicationsController extends Controller
         ]);
     }
 
-    public function interview(applications $application) :View {
+    public function interview(applications $application): View
+    {
         $user = Auth::user();
         $role_id = $user->role_id;
 
@@ -102,8 +113,9 @@ class ApplicationsController extends Controller
         ]);
     }
 
-    public function updateInterwievScore(UpdateScoreRequest $request,applications $application) {
-        if($request->opperation == 1){
+    public function updateInterwievScore(UpdateScoreRequest $request, applications $application)
+    {
+        if ($request->opperation == 1) {
             $application->interview_score += $request->new_score;
             $application->total_score += $request->new_score;
         } else {
@@ -115,7 +127,8 @@ class ApplicationsController extends Controller
         return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
     }
 
-    public function technical(applications $application) :View {
+    public function technical(applications $application): View
+    {
         $user = Auth::user();
         $role_id = $user->role_id;
 
@@ -126,8 +139,9 @@ class ApplicationsController extends Controller
         ]);
     }
 
-    public function updateTechnicalScore(UpdateScoreRequest $request,applications $application) {
-        if($request->opperation == 1){
+    public function updateTechnicalScore(UpdateScoreRequest $request, applications $application)
+    {
+        if ($request->opperation == 1) {
             $application->technical_test_score += $request->new_score;
             $application->total_score += $request->new_score;
         } else {
@@ -139,7 +153,8 @@ class ApplicationsController extends Controller
         return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
     }
 
-    public function personality(applications $application) :View {
+    public function personality(applications $application): View
+    {
         $user = Auth::user();
         $role_id = $user->role_id;
 
@@ -150,8 +165,9 @@ class ApplicationsController extends Controller
         ]);
     }
 
-    public function updatePersonalityScore(UpdateScoreRequest $request,applications $application) {
-        if($request->opperation == 1){
+    public function updatePersonalityScore(UpdateScoreRequest $request, applications $application)
+    {
+        if ($request->opperation == 1) {
             $application->tersonality_test += $request->new_score;
             $application->total_score += $request->new_score;
         } else {
@@ -163,9 +179,10 @@ class ApplicationsController extends Controller
         return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
     }
 
-    public function updateStatus(Request $request, applications $application){
+    public function updateStatus(Request $request, applications $application)
+    {
         $application->status_applications_id = $request->newStatus;
-        if($request->newStatus == 3 || $request->newStatus == 4) {
+        if ($request->newStatus == 3 || $request->newStatus == 4) {
             $aditionScores = $application->education_score + $application->interview_score + $application->technical_test_score + $application->tersonality_test;
             $application->total_score = round($aditionScores / 4);
         }

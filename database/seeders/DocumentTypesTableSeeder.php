@@ -18,31 +18,37 @@ class DocumentTypesTableSeeder extends Seeder
         $documentType = new Document_type();
 
         $documentType->document_type = "Cedula de Ciudadania";
+        $documentType->document_type_code = "CC";
         $documentType->save();
 
         $documentType = new Document_type();
 
         $documentType->document_type = "Tarjeta de Identidad";
+        $documentType->document_type_code = "TI";
         $documentType->save();
 
         $documentType = new Document_type();
 
         $documentType->document_type = "Cedula de Extranjeria";
+        $documentType->document_type_code = "CE";
         $documentType->save();
 
         $documentType = new Document_type();
 
         $documentType->document_type = "Otro Documento de Identidad";
+        $documentType->document_type_code = "Otro Documento";
         $documentType->save();
 
         $documentType = new Document_type();
 
         $documentType->document_type = "Permiso Especial de Permanencia";
+        $documentType->document_type_code = "PEP";
         $documentType->save();
 
         $documentType = new Document_type();
 
         $documentType->document_type = "Permiso por Proteccion Temporal";
+        $documentType->document_type_code = "PEPT";
         $documentType->save();
     }
 }
