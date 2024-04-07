@@ -128,6 +128,22 @@ class CandidateController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+    public function storeProfilePhoto(Request $request)
+    {
+        $user = Auth::user();
+        $candidate = $user->candidate;
+        $file = $request->file('photo_file');
+        $file_name = time() . '_' . $file->getClientOriginalName();
+        $file->storeAs('public/', $file_name);
+        $fileRoute = $file_name;
+
+        $candidate->photo_file = $fileRoute;
+        $candidate->save();
+
+        return redirect()->back();
+    }
+
     public function create()
     {
         //

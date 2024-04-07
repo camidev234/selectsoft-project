@@ -91,7 +91,7 @@ Route::post('/application/save/{user}/{vacancie}', [ApplicationsController::clas
 Route::delete('/application/delete/{applications}', [ApplicationsController::class, 'destroyByCandidate'])->name('applications.destroy');
 Route::get('/user/updateUser/{user}', [UserController::class, 'edit'])->name('user.edit')->middleware('auth');
 Route::patch('/user/update/{user}', [UserController::class, 'update'])->name('user.update')->middleware('auth');
-
+Route::patch('/candidate/store/photo', [CandidateController::class, 'storeProfilePhoto'])->name('candidate.store_photo');
 
 // files routes
 

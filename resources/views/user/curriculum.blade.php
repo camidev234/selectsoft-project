@@ -16,10 +16,31 @@
         <section class="profile">
             <article class="name">
                 <article class="photo">
-                    
+                    @if($candidate->photo_file == null)
+                    <article class="addPhoto">
+                        <form id="myForm" action="{{route('candidate.store_photo')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PATCH')
+                            <button id="fileButton" type="button" onclick="document.getElementById('fileInput').click();">
+                                <i class="bi bi-camera"></i> Agregar foto
+                            </button>
+                            <input type="file" id="fileInput" style="display: none;" onchange="submitForm()" name="photo_file">
+                        </form>
+
+                        <script>
+                            function submitForm() {
+                                document.getElementById('myForm').submit();
+                            }
+                        </script>
+                    </article>
+                    @else
+                    <article class="photo_image">
+                        <a href="{{ asset('storage/' . $candidate->photo_file) }}">vvvv</a>
+                    </article>
+                    @endif
                 </article>
-                <article class="name">
-                    <h2>{{$candidate->user->name}} {{$candidate->user->last_name}}</h2>
+                <article class="nameuser">
+                    <h2>{{ucwords(strtolower($candidate->user->name))}} {{ucwords(strtolower($candidate->user->last_name))}}</h2>
                 </article>
             </article>
             <article class="basicInfo">
