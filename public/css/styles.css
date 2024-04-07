@@ -349,6 +349,13 @@
     padding-right: 70px;
 }
 
+.last{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white !important;  
+}
+
 .ul-list li a {
     color: black;
     text-decoration: none;
@@ -359,9 +366,19 @@
 
 .last{
     border: 2px solid black;
-    padding: 10px;
+    background-color: rgb(53, 61, 168);
+    padding: 14px;
     border-radius: 5px;
+    border: 2px solid rgb(53, 61, 168);
+
 }
+
+.last:hover{
+    background-color: white;
+    color: black !important;
+    border: 2px solid rgb(53, 61, 168);
+}
+
 
 .ul-list li a:hover {
     color: rgb(53, 61, 168);
