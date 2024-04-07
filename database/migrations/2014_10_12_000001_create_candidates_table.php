@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('occupational_profile', 1000)->nullable();
             $table->string('skills', 1000)->nullable();
+            $table->string('photo_file', 290)->nullable();
             $table->string('curriculum_title')->nullable();
         });
     }

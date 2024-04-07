@@ -15,7 +15,12 @@
     <section class="container">
         <section class="profile">
             <article class="name">
-                <h2>{{$candidate->user->name}} {{$candidate->user->last_name}}</h2>
+                <article class="photo">
+                    
+                </article>
+                <article class="name">
+                    <h2>{{$candidate->user->name}} {{$candidate->user->last_name}}</h2>
+                </article>
             </article>
             <article class="basicInfo">
                 <span><i class="bi bi-geo-alt-fill"></i> {{$candidate->user->departament->departament_name}}, {{$candidate->user->city->city_name}}</span>
