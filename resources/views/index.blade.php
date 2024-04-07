@@ -24,7 +24,7 @@
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#">Sobre Nosotros</a></li>
                     <li><a href="{{route('users.create')}}">Registrarse</a></li>
-                    <li><a href="{{route('user.login')}}" class="last">Ingresar</a></li>
+                    <li class="last"><a href="{{route('user.login')}}">Ingresar</a></li>
                 </ul>
             </nav>
         </header>
