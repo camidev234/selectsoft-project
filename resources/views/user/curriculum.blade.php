@@ -35,7 +35,7 @@
                     </article>
                     @else
                     <article class="photo_image">
-                        <a href="{{ asset('storage/' . $candidate->photo_file) }}">vvvv</a>
+                        <img src="{{ asset('storage/' . $candidate->photo_file) }}" alt="Foto de {{$candidate->user->name}}">
                     </article>
                     @endif
                 </article>
