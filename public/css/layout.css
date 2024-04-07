@@ -30,6 +30,25 @@
     height: 100%;
 }
 
+.usernameHeader {
+    display: flex;
+}
+
+.usernameHeader .nameus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photoIcon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+
 .find {
     width: 33.3%;
     height: 100%;
