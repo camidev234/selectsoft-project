@@ -34,11 +34,11 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 80%;
+    height: 100%;
 }
 
 .photo {
-    width: 20%;
+    width: 30%;
     height: 100%;
     /* background-color: blueviolet; */
     display: flex;
@@ -57,14 +57,30 @@
 .photo_image {
     height: 100%;
     width: 80%;
-    background-color: #014968;
+    /* background-color: #014968; */
     /* background-image: url('20698.svg'); */
-    border-radius: 7px;
+    border-radius: 10px;
+    border: 2px solid #1a2e44;
+}
+
+.photo_image img {
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+    object-fit: cover;
+    
 }
 
 .addPhoto form {
     width: 100%;
     height: 100%;
+}
+
+.addPhoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: white;
 }
 
 .addPhoto form button{
@@ -86,22 +102,32 @@
 }
 
 .nameuser {
-    width: 65%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     /* background-color: blue; */
+}
+
+.username {
+    width: 100%;
+    height: 30%;
+    /* background-color: #2193b0; */
 }
 
 .basicInfo {
     width: 100%;
     /* background-color: #2193b0; */
-    height: 22%;
+    height: 70%;
     display: flex;
-    justify-content: space-evenly;
-    align-items: flex-end;
-    text-align: right;
+    /* justify-content: space-evenly; */
+    flex-direction: column;
+    /* align-items: flex-end; */
+    /* text-align: right; */
+    font-size: 15px;
+    gap: 17px;
     /* background-color: #2193b0; */
 }
 
@@ -184,6 +210,7 @@
 .skillsCandidate {
     display: flex;
     margin-top: 20px;
+    line-height: 1.5;
 }
 
 .skillsContainer {

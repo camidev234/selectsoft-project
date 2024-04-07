@@ -37,14 +37,13 @@
                     <p><strong>Experiencia requerida: </strong>{{$vacancie->requisiton->required_experience}} meses</p>
                     <p><strong>Numero de vacantes: </strong>{{$vacancie->requisiton->number_vacancies}}</p>
                     <p><strong>Rango salarial: </strong>${{$vacancie->salary_range}}</p>
-                    <p><strong>Empresa: </strong>{{$vacancie->company->business_name}}-{{$vacancie->company->nit}}</p>
+                    
                 </article>
                 <article class="secondGeneral">
                     <p><strong>Horario de trabajo: </strong>{{$vacancie->schedule}}</p>
                     <p><strong>Tipo de jornada: </strong>{{$vacancie->work_day->working_day}}</p>
                     <p><strong>Tipo de salario: </strong>{{$vacancie->salaries_type->salary_type}}</p>
-                    <p><strong>Empresa Solicitante: </strong>{{$vacancie->company->bussines_name}}</p>
-
+                    <p><strong>Empresa: </strong>{{$vacancie->company->business_name}}-{{$vacancie->company->nit}}</p>
                 </article>
             </section>
             <section class="generalTitle">

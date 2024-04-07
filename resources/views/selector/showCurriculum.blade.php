@@ -15,12 +15,27 @@
     <section class="container">
         <section class="profile">
             <article class="name">
-                <h2>{{$candidate->user->name}} {{$candidate->user->last_name}}</h2>
-            </article>
-            <article class="basicInfo">
-                <span><i class="bi bi-geo-alt-fill"></i> {{$candidate->user->country->country_name}}, {{$candidate->user->city->city_name}}</span>
-                <span><i class="bi bi-envelope-at-fill"></i> {{$candidate->user->email}}</span>
-                <span><i class="bi bi-telephone-fill"></i> {{$candidate->user->phone_number}}</span>
+                <article class="photo">
+                    @if($candidate->photo_file == null)
+                    <article class="addPhoto">
+                        <img src="{{asset('img/20698.svg')}}" alt="sfdf">
+                    </article>
+                    @else
+                    <article class="photo_image">
+                        <img src="{{ asset('storage/' . $candidate->photo_file) }}" alt="Foto de {{$candidate->user->name}}">
+                    </article>
+                    @endif
+                </article>
+                <article class="nameuser">
+                    <article class="username">
+                        <h2>{{ucwords(strtolower($candidate->user->name))}} {{ucwords(strtolower($candidate->user->last_name))}}</h2>
+                    </article>
+                    <article class="basicInfo">
+                        <span><i class="bi bi-geo-alt-fill"></i> {{$candidate->user->departament->departament_name}}, {{$candidate->user->city->city_name}}</span>
+                        <span><i class="bi bi-envelope-at-fill"></i> {{$candidate->user->email}}</span>
+                        <span><i class="bi bi-telephone-fill"></i> {{$candidate->user->phone_number}}</span>
+                    </article>
+                </article>
             </article>
         </section>
         <section class="occupationalProfile">
@@ -105,10 +120,10 @@
                 @endphp
                 <article class="filecont">
                     <article class="filename">
-                    <span><strong>{{$support->support_type->support_type}}</strong> - {{$fileName}}</span><br>
+                        <span><strong>{{$support->support_type->support_type}}</strong> - {{$fileName}}</span><br>
                     </article>
                     <article class="fileicon">
-                    <a href="{{ asset($support->support_file) }}" target="_blank" style="color:red;"><i class="bi bi-file-earmark-pdf"></i></a>
+                        <a href="{{ asset($support->support_file) }}" target="_blank" style="color:red;"><i class="bi bi-file-earmark-pdf"></i></a>
                     </article>
                 </article>
                 @empty
