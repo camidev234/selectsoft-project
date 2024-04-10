@@ -41,7 +41,7 @@
                 <section class="card-header-two">
                     <h3>Hoja de vida</h3>
                 </section>
-                <article class="experiencies">
+                <article class="experiencies secOpt">
                     <h5>Experiencias: {{$experiences}} </h5>
                     <section class="actions-card">
                         <div class="action">
@@ -52,8 +52,8 @@
                         </form>
                     </section>
                 </article>
-                <article class="educations">
-                    <h5>Educacion: {{$educations}}</h5>
+                <article class="educations secOpt">
+                    <h5 class="itemsCounts">Educacion: {{$educations}}</h5>
                     <section class="actions-card">
                         <div class="action">
                             <a href="{{route('education.create')}}">Añadir nueva educacion <i class="bi bi-file-plus"></i></a>
@@ -63,7 +63,7 @@
                         </form>
                     </section>
                 </article>
-                <article class="supports">
+                <article class="supports secOpt">
                     <h5>Soportes: {{$supports}}</h5>
                     <section class="actions-card">
                         <div class="action">
