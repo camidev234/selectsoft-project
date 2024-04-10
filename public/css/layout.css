@@ -28,6 +28,7 @@
         width: 100%;
         position: sticky;
         top: 0;
+        gap: 17px;
         transition: box-shadow 0.3s ease;
         z-index: 1000; 
         border-bottom: 1px solid #b9b9b9;
