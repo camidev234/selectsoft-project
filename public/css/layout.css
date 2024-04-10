@@ -125,6 +125,72 @@
     .rolename {
         display: none;
     }
+
+    
+    .site-footer {
+        /* grid-area: site-footer; */
+        position: static;
+        width: 100%;
+        bottom: 0;
+        height: 300px;
+        margin-top: 50px;
+        background-color: #f4f5ff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .cont h2 {
+        color:#2f1c6a;
+    }
+    
+    .Index {
+        width: 100%;
+        height: 20%;
+        background-color: #1a1a1a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .Index h4 a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .content-footer {
+        width: 80%;
+        height: 90%;
+    }
+    
+    .container-footer {
+        width: 100%;
+        height: 88%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        /* background-color: #2f1c6a; */
+    }
+    
+    .container-footer .cont {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .cont a {
+        color: #2f1c6b;
+    }
+    
+    .copy {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
 }
 
 
