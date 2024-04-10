@@ -14,11 +14,11 @@
 
 <body>
     <header class="header">
+        @auth
+        @if($role_id == 1)
         <div class="logo">
             <a href="{{route('system.index')}}"><img src="{{asset('img/SELECTSOFT.svg')}}" alt="Logo de selectsoft"></a>
         </div>
-        @auth
-        @if($role_id == 1)
         <div class="find">
             <form action="{{route('vacancies.searchToCandidate')}}" method="get" id="form">
                 @csrf
@@ -41,7 +41,7 @@
                     <h5><a href="{{route('user.index')}}">{{ucwords(strtolower($user->name))}}</a></h5>
                 </article>
             </div>
-            <h5>Rol: {{$user->role->name}}</h5>
+            <h5 class="rolename">Rol: {{$user->role->name}}</h5>
             <h5>
                 <form action="{{route('user.logout')}}" method="post">
                     @csrf
@@ -52,13 +52,16 @@
 
 
         @else
+        <div class="logoSelect">
+            <a href="{{route('system.index')}}"><img src="{{asset('img/SELECTSOFT.svg')}}" alt="Logo de selectsoft"></a>
+        </div>
         <div class="actions">
             @if($role_id == 2)
             <h5><i class="bi bi-house-fill"></i> <a href="{{route('selector.index')}}">{{ucwords(strtolower($user->name))}}</a></h5>
             @elseif($role_id == 3)
             <h5><i class="bi bi-house-fill"></i> <a href="{{route('recruiter.index')}}">{{ucwords(strtolower($user->name))}}</a></h5>
             @endif
-            <h5>Rol: {{$user->role->name}}</h5>
+            <h5 class="rolename">Rol: {{$user->role->name}}</h5>
             <h5>
                 <form action="{{route('user.logout')}}" method="post">
                     @csrf
