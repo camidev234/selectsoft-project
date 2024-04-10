@@ -151,6 +151,33 @@
             white-space: nowrap;
             text-align: center;
         }
+
+        .sectionArtTitle {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .sectionArtTitle form {
+            /* background-color: #1976d2; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sectionArtTitle form button {
+            height: 50%;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: rgb(53, 61, 168);
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .sectionArtTitle button:hover {
+            background-color: rgb(53, 30, 168);
+        }
     </style>
 </head>
 
@@ -196,7 +223,12 @@
                 </tbody>
             </table>
         </section>
-        <h2 class="two">Educacion Requerida</h2>
+        <article class="sectionArtTitle">
+            <h2 class="two">Educacion Requerida</h2>
+            <form action="{{route('studyRequisition.create', ['requisiton' => $requisition->id])}}" method="get">
+                <button>Agregar Educacion</button>
+            </form>
+        </article>
         <section class="educations">
             <table>
                 <thead>
