@@ -159,7 +159,7 @@
 
 
             <section class="back">
-                <a href="{{ url()->previous() }}">Volver</a>
+                <a href="{{ $postulated ? route('user.index') : url()->previous() }}">Volver</a>
             </section>
         </section>
     </section>
