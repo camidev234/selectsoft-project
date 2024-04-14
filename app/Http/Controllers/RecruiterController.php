@@ -26,13 +26,12 @@ class RecruiterController extends Controller
         $recruiter = $user->recruiter;
 
         if($recruiter->company_id == null) {
-            $countries = Country::all();
-            $cities = City::all();
+            // $countries = Country::all();
+            // $cities = City::all();
             return view('/company/create', [
                 'user' => $user,
                 'role_id' => $role_id,
-                'cities' => $cities,
-                'countries' => $countries
+                
             ]);
         } else {
             $company = $recruiter->company;

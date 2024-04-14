@@ -17,4 +17,8 @@ class City extends Model
     public function users() :HasMany {
         return $this->hasMany(User::class);
     }
+
+    public function companies() {
+        return $this->hasMany(Company::class);
+    }
 }

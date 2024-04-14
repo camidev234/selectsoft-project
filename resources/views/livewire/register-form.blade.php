@@ -4,7 +4,7 @@
         @php
         $errors->all()
         @endphp
-        <form wire:submit.prevent="storeUser" wire:submit.prevent="storeRequisition">
+        <form wire:submit.prevent="storeUser">
             @csrf
             <section id="datos_personales">
                 <article class="title">

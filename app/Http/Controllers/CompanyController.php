@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Features\SupportRedirects\Redirector;
 
 class CompanyController extends Controller
 {
@@ -66,29 +67,25 @@ class CompanyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CompanyRequest $request) :RedirectResponse
+    public function store(array $validatedData)
     {
         $newCompany = new Company();
 
-        $newCompany->nit = $request->nit;
-        $newCompany->business_name = $request->business_name;
-        $newCompany->country_id = $request->country_id;
-        $newCompany->city_id = $request->city_id;
-        $newCompany->phone = $request->phone;
-        $newCompany->address = $request->address;
-        $newCompany->email = $request->email;
-
-
+        $newCompany->nit = $validatedData['nit'];
+        $newCompany->business_name = $validatedData['business_name'];
+        $newCompany->departament_id = $validatedData['departament_id'];
+        $newCompany->city_id = $validatedData['city_id'];
+        $newCompany->phone = $validatedData['phone'];
+        $newCompany->address = $validatedData['address'];
+        $newCompany->email = $validatedData['email'];   
 
         $user = Auth::user();
 
         $recruiter = $user->recruiter;
 
-
         if ($recruiter) {
             $newCompany->save();
             $recruiter->company_id = $newCompany->id;
-
             $recruiter->save();
 
             return redirect()->route('recruiter.index');

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nit', 45)->unique();
             $table->string('business_name',45);
             $table->string('phone',45);
-            $table->foreignId('country_id')->constrained('countries')->onDelete('cascade');
+            $table->foreignId('departament_id')->references('id')->on('departaments')->onDelete('cascade');
             $table->foreignId('city_id')->constrained('cities')->onDelete('cascade');
             $table->string('email',100);
             $table->string('address',45);

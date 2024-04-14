@@ -18,6 +18,8 @@
                 <h4>Nit: {{$company->nit}}</h4>
                 <h4>Telefono: {{$company->phone}}</h4>
                 <h4>Direccion: {{$company->address}}</h4>
+                <h4>Departamento: {{$company->departament->departament_name}}</h4>
+                <h4>Ciudad: {{ $company->city->city_name }}</h4>
                 <h4>Email: {{$company->email}}</h4>
                 <h4>Reclutadores: {{$recruiters}}</h4>
                 <h4>Seleccionadores: {{$selectors}}</h4>

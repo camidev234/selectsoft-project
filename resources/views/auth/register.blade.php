@@ -9,11 +9,23 @@
 </head>
 
 <body>
-    @extends('layout.header')
-    @section('content')
-        @livewire('register-form')
-        @livewireScripts
-    @endsection
+    <header class="header">
+        <!-- Logo de selectsoft -->
+        <article class="img-header">
+            <a href="{{route('system.index')}}"><img src="{{asset('img/SELECTSOFT.svg')}}" alt="log-selectsoft"></a>
+        </article>
+        <!-- Barra de busqueda -->
+        <nav class="bar-nav" id="bar">
+            <ul class="ul-list">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="{{route('users.create')}}">Registrarse</a></li>
+                <li class="last"><a href="{{route('user.login')}}">Ingresar</a></li>
+            </ul>
+        </nav>
+    </header>
+    @livewire('register-form')
+    @livewireScripts
 </body>
 
 </html>

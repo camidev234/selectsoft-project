@@ -9,8 +9,78 @@
     align-items: center;
 }
 
-header {
-    margin-bottom: 20px;
+.header {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    transition: box-shadow 0.3s ease;
+    z-index: 1000; 
+    border-bottom: 1px solid #cacaca;
+    margin-bottom: 30px;
+}
+
+.header.scrolled {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.header .bar-nav {
+    width: 53%;
+    height: 100%;
+}
+
+.header .img-header {
+    width: 27%;
+    display: flex;
+    justify-content: center;
+}
+
+.header .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .bar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.bar-nav .ul-list {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    gap: 45px;
+    padding-right: 70px;
+}
+.ul-list li a {
+    color: black;
+    text-decoration: none;
+    padding-bottom: 10px;
+    border: 2px solid transparent;
+    transition: border-bottom 0.3s, transform 0.3s ease-in-out;
+}
+
+.last{
+    border: 2px solid black;
+    /* background-color: rgb(53, 61, 168); */
+    padding: 12px;
+    border-radius: 5px;
+    /* border: 2px solid rgb(53, 61, 168); */
+
+}
+
+.ul-list li a:hover {
+    color: rgb(53, 61, 168);
+    transition: 0.3s ease-in-out;
 }
 
 form {
