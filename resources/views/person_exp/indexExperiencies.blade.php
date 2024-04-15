@@ -15,7 +15,7 @@
 
     @section('content')
     <section class="title">
-        <h1>Mis experiencias</h1>
+        <h1>Mi experiencia</h1>
     </section>
 
     <main class="container">

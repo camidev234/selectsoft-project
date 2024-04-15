@@ -22,7 +22,7 @@ class PersonExperiencieRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'company_experience' => ['required', 'string', 'max:30'],
+            'company_experience' => ['required', 'string', 'max:80'],
             'months_experience' => ['required', 'integer', 'min:1'],
             'functions' => ['required', 'string', 'max:900']
         ];

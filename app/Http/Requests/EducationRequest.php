@@ -22,7 +22,7 @@ class EducationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'shcool_name' => ['required', 'min:4', 'max:40'],
+            'shcool_name' => ['required', 'min:4', 'max:100'],
             'obtained_title' => ['required', 'max: 70'],
             'study_level_id' => 'required|exists:study_levels,id',
             'study_status_id' => 'required|exists:study_statuses,id'

@@ -17,13 +17,13 @@
         @method('PATCH')
         <label for="school_name" class="form-label">Institucion educativa:</label><br>
         <input type="text" id="school_name" placeholder="Institución" name="shcool_name" value="{{ old('school_name') ?? $education->shcool_name }}" class="form-input"><br>
-        @error('school_name')
-        <span class="error-message">{{$message}}</span><br>
+        @error('shcool_name')
+        <span class="error-message">{{$message}}</span><br><br>
         @enderror
         <label for="obtained_title" class="form-label">Título obtenido:</label><br>
         <input type="text" id="obtained_title" placeholder="Título obtenido" name="obtained_title" value="{{ old('obtained_title') ?? $education->obtained_title }}" class="form-input">
         @error('obtained_title')
-        <span class="error-message">{{$message}}</span><br>
+        <span class="error-message">{{$message}}</span><br><br>
         @enderror
         <label for="status_id" class="form-label">Estado:</label><br>
         <select id="status_id" name="study_status_id" class="form-select">

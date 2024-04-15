@@ -95,7 +95,7 @@ class EducationPersonController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Education_person $education_person)
+    public function update(EducationRequest $request, Education_person $education_person)
     {
         $education_person->shcool_name = $request->shcool_name;
         $education_person->obtained_title = $request->obtained_title;
