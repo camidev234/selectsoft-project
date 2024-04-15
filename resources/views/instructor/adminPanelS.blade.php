@@ -45,7 +45,7 @@
         <a href="{{route('instructor.instructors')}}">
             <article class="option-admin">
                 <i class="bi bi-gear-fill"></i>
-                <h3 style="color: white;">Ver Administradores</h3>
+                <h3 style="color: white;">Ver Instructores</h3>
             </article>
         </a>
         @endif
