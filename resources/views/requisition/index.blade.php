@@ -58,7 +58,7 @@
                             @method('DELETE')
                             <button class="btnaction oneBtn"><i class="bi bi-trash-fill bt"></i></button>
                         </form>
-                        <form action="" method="get">
+                        <form action="{{route('requisiton.edit', ['requisiton' => $requisiton->id])}}" method="get">
                             <button class="btnaction twoBtn"><i class="bi bi-pencil-fill bt"></i></button>
                         </form>
                         <form action="{{route('requisition.show', ['requisition' => $requisiton->id])}}" method="get">

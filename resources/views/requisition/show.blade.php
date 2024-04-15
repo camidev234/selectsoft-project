@@ -14,7 +14,7 @@
         }
 
         .container {
-            max-width: 700px;
+            max-width: 800px;
             margin: 20px auto;
             padding: 20px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
@@ -87,6 +87,7 @@
             width: 100%;
             border-collapse: collapse;
             border: 1px solid #ccc;
+            /* background-color: #1976d2; */
         }
 
         .educations th,
@@ -150,6 +151,7 @@
             /* background-color: #1976d2; */
             white-space: nowrap;
             text-align: center;
+            justify-content: center;
         }
 
         .sectionArtTitle {
@@ -178,6 +180,11 @@
         .sectionArtTitle button:hover {
             background-color: rgb(53, 30, 168);
         }
+
+        .pointsTd {
+            text-align: center !important;
+        }
+        
     </style>
 </head>
 
@@ -246,15 +253,12 @@
                         <td>{{$education->study_level->study_level}}</td>
                         <td>{{$education->study_status->study_status}}</td>
                         <td>{{$education->study_name}}</td>
-                        <td>{{$education->points}}</td>
+                        <td class="pointsTd">{{$education->points}}</td>
                         <td class="actions-l">
                             <form action="{{route('requisitionStudy.destroy', ['requisitionStudy' => $education->id])}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="delete"><i class="bi bi-trash"></i></button>
-                            </form>
-                            <form action="">
-                                <button class="update"><i class="bi bi-pencil-fill"></i></button>
                             </form>
                         </td>
                     </tr>

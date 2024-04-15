@@ -26,7 +26,7 @@
             @error('phone')
             <span style="color: red;">{{$message}}</span><br>
             @enderror
-            <label for="">Pais</label><br>
+            <label for="">Departamento</label><br>
             <select name="country_id" id="" wire:model.live="departament_id" wire:change="handleCityChange($event.target.value)">
                 @foreach($departaments as $departament)
                 <option value="{{$departament->id}}">{{$departament->departament_name}}</option>

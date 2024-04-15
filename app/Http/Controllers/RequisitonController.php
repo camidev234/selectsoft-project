@@ -68,13 +68,27 @@ class RequisitonController extends Controller
 
     public function edit(Requisiton $requisiton)
     {
-        //
+
+        $role_id = Auth::user()->role_id;
+        $user = Auth::user();
+
+        return view('requisition.edit', [
+            'requisiton' => $requisiton,
+            'user' => $user,
+            'role_id' => $role_id
+        ]);
     }
 
    
-    public function update(Request $request, Requisiton $requisiton)
+    public function update($validatedData, Requisiton $requisiton)
     {
-        //
+        $requisiton->charge_id = $validatedData['charge_id'];
+        $requisiton->number_vacancies = $validatedData['number_vacancies'];
+        $requisiton->required_experience = $validatedData['required_experience'];
+
+        $requisiton->save();
+
+        return redirect()->route('requisition.index', ['company' => $requisiton->company_id]);
     }
 
 

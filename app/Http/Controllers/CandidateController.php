@@ -77,7 +77,7 @@ class CandidateController extends Controller
             $profile = $candidate->occupational_profile;
         }
         if ($candidate->skills == null) {
-            $skills = 'No hay habilidades para motsrar';
+            $skills = 'No hay habilidades para mostrar';
         } else {
             $skills = $candidate->skills;
         }

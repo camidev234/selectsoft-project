@@ -13,7 +13,7 @@
     <span style="color: red;">{{$message}}</span><br><br>
     @enderror
     <label for="">Rango Salarial</label><br>
-    <input type="text" name="salary_range" id="" placeholder="Rango salarial" value="{{ old('salary_range') ?: $vacancie->salary_range }}" wire:model.live="salary_range"><br>
+    <input type="number" name="salary_range" id="" placeholder="Rango salarial" value="{{ old('salary_range') ?: $vacancie->salary_range }}" wire:model.live="salary_range"><br>
     @error('salary_range')
     <span style="color: red;">{{$message}}</span><br><b></b>
     @enderror
