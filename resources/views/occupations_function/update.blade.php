@@ -10,10 +10,10 @@
 <body>
     @extends('layout.header')
     @section('content')
-        <form action="{{route('occupationFunction.update', ['occupation_function' => $function->id, 'occupation' => $occupation->id])}}" method="post" class="formContent">
+        <form action="{{route('occupationFunction.update', ['occupation_function' => $function->id, 'charge' => $charge->id])}}" method="post" class="formContent">
             @csrf
             <label for="">Funcion: </label><br>
-            <input type="text" placeholder="Funcion" name="function" value="{{ old('function') ?: $function->function }}">
+            <textarea placeholder="Funcion" name="function" cols="30" rows="10">{{ old('function') ?: $function->function }}</textarea>
             @error('function')
                 <span style="color: red;">{{$message}}</span>
             @enderror

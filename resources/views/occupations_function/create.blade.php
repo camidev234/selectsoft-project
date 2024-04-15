@@ -13,7 +13,7 @@
         <form action="{{route('chargeFunction.store', ['charge' => $charge->id])}}" method="post" class="formContent">
             @csrf
             <label for="">Funcion: </label><br>
-            <input type="text" placeholder="Funcion" name="function" value="{{old('function')}}">
+            <textarea placeholder="Funcion" name="function" cols="30" rows="10">{{old('function')}}</textarea>
             @error('function')
                 <span style="color: red;">{{$message}}</span>
             @enderror
