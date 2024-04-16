@@ -22,7 +22,7 @@
             <nav class="bar-nav" id="bar">
                 <ul class="ul-list">
                     <li><a href="{{route('system.index')}}">Inicio</a></li>
-                    <li><a href="#">Manual de usuario</a></li>
+                    <li><a href="https://smallpdf.com/es/file#s=e1a1008b-999f-4e9e-997e-7702e3eaaf27">Manual de usuario</a></li>
                     <li><a href="{{route('users.create')}}">Registrarse</a></li>
                     <li class="last"><a href="{{route('user.login')}}">Ingresar</a></li>
                 </ul>
