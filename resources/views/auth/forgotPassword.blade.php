@@ -7,8 +7,9 @@
         <title>Olvide mi contraseña</title>
     </head>
     <body>
+        
         <main class="flex">
-            <a href="{{route('system.index')}}"><img src="img/selectsoft.svg" alt="Logo Selectsoft"></a>
+            <a href="{{route('system.index')}}"><img src="{{asset('img/SELECTSOFT.svg')}}" alt="Logo Selectsoft"></a>
             <h2>REESTABLECER CONTRASEÑA</h2>
             @if(session()->has('mensaje'))
                 <p style="color:red;">{{ session('mensaje') }}</p>
