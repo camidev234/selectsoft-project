@@ -47,7 +47,23 @@
 
         <section class="content-page">
             <section class="cards">
+                @forelse($randomVacancies as $vacancie)
                 <article class="site-card">
+                    <section class="card-text">
+                        <h3>{{$vacancie->vacancie_code}}</h3>
+                        <h4>{{$vacancie->requisiton->charge->charge}}</h4>
+                        @if($vacancie->departament_id === 33)
+                        <h5>{{$vacancie->city->city_name}}</h5>
+                        @else
+                        <h5>{{$vacancie->departament->departament_name}},{{$vacancie->city->city_name}}</h5>
+                        @endif
+                    </section>
+                    <a href="" id="hipertext">Ver mas</a>
+                </article>
+                @empty
+                <span>no hay nada</span>
+                @endforelse
+                <!-- <article class="site-card">
                     <section class="card-text">
                         <h3>XXXXX</h3>
                         <h4>Cargo de la vacante</h4>
@@ -62,15 +78,7 @@
                         <h5>Ubicacion: Municipio</h5>
                     </section>
                     <a href="" id="hipertext">Ver mas</a>
-                </article>
-                <article class="site-card">
-                    <section class="card-text">
-                        <h3>XXXXX</h3>
-                        <h4>Cargo de la vacante</h4>
-                        <h5>Ubicacion: Municipio</h5>
-                    </section>
-                    <a href="" id="hipertext">Ver mas</a>
-                </article>
+                </article> -->
             </section>
             <section class="widgets">
                 <section class="sign-in cd">

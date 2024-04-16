@@ -23,6 +23,7 @@ use App\Http\Controllers\VacancieController;
 use App\Http\Controllers\VacancieStudyController;
 use App\Livewire\RequisitonCreate;
 use App\Mail\WelcomeMailable;
+use App\Models\Vacancie;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +42,12 @@ use Illuminate\Support\Facades\Route;
 // index route
 
 Route::get('/', function() {
-    return view('index');
+
+    $randomVacancies = Vacancie::inRandomOrder()->take(3)->get();
+
+    return view('index', [
+        'randomVacancies' => $randomVacancies,
+    ]);
 })->name('system.index')->middleware('guest');
 
 //occupations routes
