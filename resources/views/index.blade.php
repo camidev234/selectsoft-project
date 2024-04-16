@@ -58,7 +58,7 @@
                         <h5>{{$vacancie->departament->departament_name}},{{$vacancie->city->city_name}}</h5>
                         @endif
                     </section>
-                    <a href="" id="hipertext">Ver mas</a>
+                    <a href="{{route('vacancie.showCandidate', ['vacancie' => $vacancie->id])}}" id="hipertext">Ver mas</a>
                 </article>
                 @empty
                 <span>no hay nada</span>
