@@ -85,9 +85,6 @@
                         @else
                         <td>
                             <span class="score">{{$application->education_score}}</span>
-                            <form action="" class="actionForm edit">
-                                <button><i class="bi bi-pencil-square"></i></button>
-                            </form>
                         </td>
 
                         <td>
