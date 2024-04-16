@@ -13,7 +13,7 @@
     @section('content')
     <form method="post" action="{{route('charges.store')}}" class="form">
         @csrf
-        <label for="charge">Cargo <span class="ast">*</span></label>
+        <label for="charge">Denominacion Del Cargo <span class="ast">*</span></label>
         <input type="text" name="charge" id="occupation_code" value="{{old('charge')}}">
         @error('charge')
         <span style="color: red;">{{$message}}</span>
