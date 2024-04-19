@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 100%;
 }
 
 .titlepage .conv {
@@ -91,11 +91,143 @@ td .actionForm button {
 }
 
 .containerTable {
-    margin-top: 20px;
-    overflow-x: auto;
+    width: 100%;
+    /* background-color: gold; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
 }
 
-table {
+.candidate {
+    width: 700px;
+    height: 300px;
+    padding: 10px;
+    /* background-color: #eee; */
+    border: 1px solid #b9b9b9;
+    border-radius: 10px;
+    /* box-shadow: 10px 10px 10px rgba(221, 221, 221, 0.877); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+.containerImage {
+    width: 40%;
+    height: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerInfo {
+    width: 60%;
+    padding-left: 20px;
+    height: 85%;
+    /* background-color: #125ba5; */
+    display: flex;
+    flex-direction: column;
+}
+
+.containerInfo article {
+    /* display: flex;
+    flex-direction: column; */
+    width: 100%;
+    /* background-color: #1b681d; */
+}
+
+.firstRow {
+    height: 17.3%;
+    /* background-color: #1b681d; */
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+}
+
+.firstRow form .enabledTwo {
+    padding: 8px;
+    border: 1px solid black;
+    outline: none;
+    background-color: rgb(53, 61, 168);
+    color: white;
+    border-radius: 5px;
+}
+
+.disabledTwo {
+    background-color: rgb(53, 61, 168, 0.3);
+    padding: 8px;
+    border: 1px solid black;
+    outline: none;
+    /* background-color: rgb(53, 61, 168); */
+    color: white;
+    border-radius: 5px;
+}
+
+.secondRow {
+    /* background-color: #2ecc71; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 57.3%;
+    padding-top: 20px;
+}
+
+.thirdRow {
+    /* background-color: brown; */
+    height: 29.3%;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    gap: 15px;
+}
+
+.thirdRow .enabled {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.disabled {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    outline: none;  
+    border-radius: 5px;
+    /* cursor: pointer; */
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.thirdRow form:first-child button {
+    background-color: #27812a;
+    color: white;
+}
+
+.thirdRow form:nth-child(2) .enabled {
+    background-color: rgb(168, 10, 10);
+    color: white;
+}
+
+.thirdRow form:last-child .enabled {
+    background-color: rgb(218, 204, 13);
+    color: black;
+}
+
+.containerImage img {
+    width: 90%;
+    height: 90%;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 1px solid black;
+}
+
+/* table {
     width: 100%;
     margin: auto;
     border-collapse: collapse;
@@ -161,11 +293,11 @@ tbody tr:nth-child(even) {
     font-size: 12px;
 }
 
-/* Estilos para íconos Bootstrap (bi) */
+
 .bi {
     font-size: 1.2rem;
     vertical-align: middle;
-}
+} */
 
 .modalWindow {
     display: none;
