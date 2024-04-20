@@ -78,7 +78,7 @@
             </thead>
             <tbody>
                 <tr class="tr-content">
-                    @if($application->status_applications_id == 1 || $application->status_applications_id == 3 || $application->status_applications_id == 5 || $application->status_applications_id == 6)
+                    @if($application->status_applications_id == 1 || $application->status_applications_id == 4 || $application->status_applications_id == 6 || $application->status_applications_id == 5)
                     <td>
                         <span class="score">{{$application->education_score}}</span>
                         <form action="" class="actionForm edit">

@@ -199,12 +199,11 @@ class ApplicationsController extends Controller
             $application->status_applications_id = 5;
             $application->save();
         }
-        if ($application->status_applications_id == 3 || $application->status_applications_id == 4) {
+        if ($application->status_applications_id == 4) {
             $aditionScores = $application->education_score + $application->interview_score + $application->technical_test_score + $application->tersonality_test;
             $application->total_score = round($aditionScores / 4);
         }
         $application->save();
-        $vacancie = $application->vacant;
 
         return redirect()->back();
     }
