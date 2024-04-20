@@ -113,6 +113,14 @@ class ApplicationsController extends Controller
         ]);
     }
 
+    public function showCitations(applications $application) {
+        return view('selector.showScores', [
+            'user' => Auth::user(),
+            'role_id' => Auth::user()->role_id,
+            'application' => $application
+        ]);
+    }
+
     public function updateInterwievScore(UpdateScoreRequest $request, applications $application)
     {
         if ($request->opperation == 1) {
@@ -179,17 +187,32 @@ class ApplicationsController extends Controller
         return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
     }
 
-    public function updateStatus(Request $request, applications $application)
+    public function updateStatus(applications $application)
     {
-        $application->status_applications_id = $request->newStatus;
-        if ($request->newStatus == 3 || $request->newStatus == 4) {
+        if($application->status_applications_id == 2){
+            $application->status_applications_id = 3;
+            $application->save();
+        } else if ($application->status_applications_id == 3){
+            $application->status_applications_id = 4;
+            $application->save();
+        } else if ($application->status_applications_id == 4){
+            $application->status_applications_id = 5;
+            $application->save();
+        }
+        if ($application->status_applications_id == 3 || $application->status_applications_id == 4) {
             $aditionScores = $application->education_score + $application->interview_score + $application->technical_test_score + $application->tersonality_test;
             $application->total_score = round($aditionScores / 4);
         }
         $application->save();
         $vacancie = $application->vacant;
 
-        return redirect()->route('selector.viewApplications', ['vacancie' => $vacancie]);
+        return redirect()->back();
+    }
+
+    public function roleOutCandidate(applications $application) {
+        $application->status_applications_id = 6;
+        $application->save();
+        return redirect()->back();
     }
 
     /**

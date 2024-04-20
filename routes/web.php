@@ -121,6 +121,8 @@ Route::patch('/selector/updatePersonalityScore/{application}', [ApplicationsCont
 Route::get('/selector/createCitation/{application}', [CitationController::class, 'create'])->name('selector.createCitation')->middleware('auth');
 Route::post('/citations/storeCitation/{application}', [CitationController::class, 'store'])->name('selector.storeCitation');
 Route::patch('/application/updateStatus/a/{application}', [ApplicationsController::class, 'updateStatus'])->name('application.updateStatus');
+Route::patch('/application/des/{application}', [ApplicationsController::class, 'roleOutCandidate'])->name('selector.roleoutC');
+Route::get('/application/showScores/{application}', [ApplicationsController::class, 'showCitations'])->name('application.showC')->middleware('auth');
 
 // recruiter routes
 

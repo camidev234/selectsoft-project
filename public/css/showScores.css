@@ -1,0 +1,205 @@
+.infoUp {
+    margin-top: 40px;
+    width: 100%;
+    /* padding-left: 40px; */
+    display: flex;
+    margin-bottom: 60px;
+}
+
+.secondArticle {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    width: 50%;
+    padding-left: 60px;
+}
+
+.infoUp .firstArticle {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 17px;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.enabledTwo {
+    padding: 10px;
+    /* border: 1px solid black; */
+    border: none;
+    outline: none;
+    background-color: rgb(53, 61, 168);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.disabledTwo {
+    background-color: rgb(53, 61, 168, 0.3);
+    padding: 10px;
+    border: none;
+    outline: none;
+    /* background-color: rgb(53, 61, 168); */
+    color: white;
+    border-radius: 5px;
+}
+
+.form:nth-child(2) button {
+    background-color: #27812a;
+    color: white;
+}
+
+.form:nth-child(3) .enabled {
+    background-color: rgb(168, 10, 10);
+    color: white;
+}
+
+.enabled {
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.disabled {
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    /* cursor: pointer; */
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+table {
+    width: 70%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    /* margin-bottom: 50px; */
+}
+
+thead {
+    background-color: #2193b0;
+    color: #fff;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.actionForm {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+
+
+.actionForm2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.actionForm2 button {
+    border: none;
+    outline: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.iThree {
+    background-color: rgb(218, 204, 13);
+    color: white;
+}
+
+.iThree:hover {
+    background-color: rgb(177, 177, 18);
+}
+
+.actionForm2 button i {
+    font-size: 12px;
+}
+
+
+.bi2 {
+    font-size: 1.2rem;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.score {
+    margin-right: 10px;
+}
+
+.containerTable {
+    /* background-color: #2193b0; */
+    padding-bottom: 90px;
+}
+
+
+.state {
+    padding: 7px;
+    background-color: rgb(53, 61, 168);
+    margin-left: 15px;
+    color: white;
+    border-radius: 10px;
+}
+
+.conv {
+    /* margin-top: 50px; */
+    width: 70%;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    /* background-color: #125ba5; */
+}
+
+.act {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.btnAct {
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    /* border: none;
+    outline: none; */
+}
+
+.btOne {
+    background-color: #2ecc71;
+}
+
+.btTwo {
+    background-color: #27812a;
+}
+
+.btThree {
+    background-color: #125ba5;
+}
+
+.btFour {
+    background-color: rgb(218, 204, 13);
+}

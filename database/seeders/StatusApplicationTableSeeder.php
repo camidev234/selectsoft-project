@@ -28,5 +28,13 @@ class StatusApplicationTableSeeder extends Seeder
         $newStatus = new Status_aplications();
         $newStatus->status_name = 'Finalista';
         $newStatus->save();
+
+        $newStatus = new Status_aplications();
+        $newStatus->status_name = 'Contratado';
+        $newStatus->save();
+
+        $newStatus = new Status_aplications();
+        $newStatus->status_name = 'Rechazado';
+        $newStatus->save();
     }
 }
