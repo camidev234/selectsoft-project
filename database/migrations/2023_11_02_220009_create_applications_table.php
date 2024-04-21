@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('education_score')->nullable()->default(0);
             $table->unsignedBigInteger('interview_score')->nullable()->default(0);
             $table->unsignedBigInteger('technical_test_score')->nullable()->default(0);
-            $table->unsignedBigInteger('language_test_score')->nullable()->default(0);
+            $table->unsignedBigInteger('experiencie_score')->nullable()->default(0);
             $table->unsignedBigInteger('tersonality_test')->nullable()->default(0);
             $table->unsignedBigInteger('total_score')->nullable()->default(0);
             $table->timestamps();

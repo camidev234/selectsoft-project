@@ -26,4 +26,8 @@ class Requisiton extends Model
     public function studies() :HasMany {
         return $this->hasMany(RequisitionStudy::class);
     }
+
+    public function work_area() :BelongsTo {
+        return $this->belongsTo(Work_area::class);
+    }
 }

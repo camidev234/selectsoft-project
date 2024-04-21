@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
         $this->call([InstructorTableSeeder::class]);
         $this->call([WorkDaysTableSeeder::class]);
         $this->call([StatusApplicationTableSeeder::class]);
+        $this->call([WorkAreaTableSeeder::class]);
 
         // factories 
 

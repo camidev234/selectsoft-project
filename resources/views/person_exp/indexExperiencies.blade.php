@@ -20,17 +20,14 @@
 
     <main class="container">
 
-        <section class="card">
-            <a href="{{route('exp.create')}}">Añadir nueva Experiencia</a>
-        </section>
-
         <section class="content">
             <table>
                 <thead>
                     <tr>
                         <th>Empresa</th>
                         <th>Meses de experiencia</th>
-                        <th>Funciones</th>
+                        <!-- <th>Funciones</th> -->
+                        <th>Cargo</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -39,7 +36,8 @@
                     <tr>
                         <td>{{$experiencie->company_experience}}</td>
                         <td>{{$experiencie->months_experience}}</td>
-                        <td>{{$experiencie->functions}}</td>
+                        <!-- <td>{{$experiencie->functions}}</td> -->
+                        <td>{{$experiencie->job}}</td>
                         <td class="actionstable">
                             <form action="{{route('exp.destroy', ['person_experience' => $experiencie->id])}}" method="POST">
                                 @csrf
@@ -48,6 +46,9 @@
                             </form>
                             <form action="{{route('exp.edit', ['person_experience' => $experiencie->id])}}" method="get">
                                 <button class="btnaction twoBtn"><i class="bi bi-pencil-fill bt"></i></button>
+                            </form>
+                            <form action="">
+                                <button class="btnaction threeBtn"><i class="bi bi-eye-fill"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -59,7 +60,11 @@
                 </tbody>
             </table>
         </section>
+        <section class="card">
+            <A href="{{route('exp.create')}}">Agregar nueva experiencia</a>
+        </section>
     </main>
+
     @endsection
 
 

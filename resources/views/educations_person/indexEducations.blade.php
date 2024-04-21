@@ -21,11 +21,7 @@
 
     <main class="container">
 
-        <section class="card">
-            <a href="{{route('education.create')}}">Añadir nueva educacion</a>
-        </section>
-
-        <section class="content">
+        <section class="content contentEdu">
             <table>
                 <thead>
                     <tr>
@@ -61,6 +57,9 @@
                     @endforelse
                 </tbody>
             </table>
+        </section>
+        <section class="card">
+            <a href="{{route('education.create')}}">Añadir nueva educacion</a>
         </section>
     </main>
     @endsection

@@ -69,6 +69,7 @@
             <thead>
                 <tr>
                     <th>P. Educacion</th>
+                    <th>P. Experiencia</th>
                     <th>P. Entrevista</th>
                     <th>P. prueba tecnica</th>
                     <th>P. test personalidad</th>
@@ -81,6 +82,11 @@
                     @if($application->status_applications_id == 1 || $application->status_applications_id == 4 || $application->status_applications_id == 6 || $application->status_applications_id == 5)
                     <td>
                         <span class="score">{{$application->education_score}}</span>
+                        <form action="" class="actionForm edit">
+                        </form>
+                    </td>
+                    <td>
+                        <span class="score">{{$application->experiencie_score}}</span>
                         <form action="" class="actionForm edit">
                         </form>
                     </td>

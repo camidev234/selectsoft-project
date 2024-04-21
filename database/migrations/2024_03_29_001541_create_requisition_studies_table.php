@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreign('study_level_id')->references('id')->on('study_levels');
             $table->foreign('study_status_id')->references('id')->on('study_statuses');
             $table->foreign('requisiton_id')->references('id')->on('requisitons')->onDelete('cascade');
+            $table->foreignId('work_area_id')->references('id')->on('work_areas');
             $table->unsignedBigInteger('points');
             $table->timestamps();
         });

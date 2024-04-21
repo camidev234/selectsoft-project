@@ -106,7 +106,7 @@
                     <tr>
                         <td>{{$experiencie->company_experience}}</td>
                         <td>{{$experiencie->months_experience}}</td>
-                        <td>{{$experiencie->functions}}</td>
+                        <td class="functionsCandidate">{{$experiencie->functions}}</td>
                     </tr>
                     @empty
                     <tr>

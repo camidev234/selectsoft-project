@@ -36,6 +36,10 @@ body {
     box-sizing: border-box;
 }
 
+.functionsInput {
+    height: 70px !important;
+}
+
 .error-message {
     color: red;
 }

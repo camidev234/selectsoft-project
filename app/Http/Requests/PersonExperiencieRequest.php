@@ -24,7 +24,8 @@ class PersonExperiencieRequest extends FormRequest
         return [
             'company_experience' => ['required', 'string', 'max:80'],
             'months_experience' => ['required', 'integer', 'min:1'],
-            'functions' => ['required', 'string', 'max:900']
+            'functions' => ['required', 'string', 'max:900'],
+            'job' => ['required', 'string', 'max:100']
         ];
     }
 
@@ -44,7 +45,8 @@ class PersonExperiencieRequest extends FormRequest
             'months_experience.min' => 'Los meses de experiencia deben ser al menos :min.',
             'functions.required' => 'Las funciones son obligatorias.',
             'functions.string' => 'Las funciones deben ser una cadena de caracteres.',
-            'functions.max' => 'Las funciones no deben exceder :max caracteres.'
+            'functions.max' => 'Las funciones no deben exceder :max caracteres.',
+            'job.required' => 'El cargo que desempeño es requerido.'
         ];
     }
 }

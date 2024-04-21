@@ -13,4 +13,8 @@ class Person_experience extends Model
     public function candidate() :BelongsTo {
         return $this->belongsTo(User::class);
     }
+
+    public function work_area() :BelongsTo {
+        return $this->belongsTo(Work_area::class);
+    }
 }

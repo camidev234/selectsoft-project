@@ -20,10 +20,6 @@
 
     <main class="container">
 
-        <section class="card">
-            <a href="{{route('supports.create')}}">Añadir nuevo soporte</a>
-        </section>
-
         <section class="content">
             <table>
                 <thead>
@@ -51,11 +47,14 @@
                     </tr>
                     @empty
                     <tr>
-                        <td>No hay eduaciones para mostrar</td>
+                        <td>No ha subido ningun soporte aun</td>
                     </tr>
                     @endforelse
                 </tbody>
             </table>
+        </section>
+        <section class="card">
+            <a href="{{route('supports.create')}}">Añadir nuevo soporte</a>
         </section>
     </main>
     @endsection
