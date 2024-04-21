@@ -32,11 +32,27 @@
                 <option value="{{$work_area->id}}">{{$work_area->work_area}}</option>
                 @endforeach
             </select>
-            <label for="months_experience" class="form-label">Meses de Experiencia:</label><br>
-            <input type="text" id="months_experience" name="months_experience" placeholder="Meses de experiencia" value="{{ old('months_experience') ?? $experience->months_experience }}" class="form-input">
-            @error('months_experience')
+            <label for="">Cargo desempeñado</label><br>
+            <input type="text" name="job" placeholder="Cargo" class="form-input" value="{{ old('job') ?? $experience->job }}">
+            @error('job')
             <span class="error-message">{{$message}}</span><br>
             @enderror
+            <section class="dates">
+                <section class="startDate">
+                    <label for="months_experience">Fecha de Inicio <span class="ast">*</span></label><br>
+                    <input type="date" name="start_date" id="" value="{{ old('start_date') ?? $experience->start_date }}">
+                    @error('start_date')
+                    <span style="color: red;">{{$message}}</span><br>
+                    @enderror
+                </section>
+                <section class="finishDate">
+                    <label for="months_experience">Fecha de Fin <span class="ast">*</span></label><br>
+                    <input type="date" name="finish_date" id="" value="{{ old('finish_date') ?? $experience->finish_date }}">
+                    @error('finish_date')
+                    <span style="color: red;">{{$message}}</span><br>
+                    @enderror
+                </section>
+            </section>
             <label for="functions" class="form-label">Funciones Desempeñadas:</label><br>
             <textarea id="functions" name="functions" placeholder="Funciones desempeñadas" rows="5" class="form-textarea">{{ old('functions') ?? $experience->functions }}</textarea><br>
             @error('functions')

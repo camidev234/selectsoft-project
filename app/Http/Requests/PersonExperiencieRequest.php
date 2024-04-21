@@ -23,8 +23,10 @@ class PersonExperiencieRequest extends FormRequest
     {
         return [
             'company_experience' => ['required', 'string', 'max:80'],
-            'months_experience' => ['required', 'integer', 'min:1'],
+            // 'months_experience' => ['required', 'integer', 'min:1'],
             'functions' => ['required', 'string', 'max:900'],
+            'start_date' => ['required', 'date'],
+            'finish_date' => ['required', 'date'],
             'job' => ['required', 'string', 'max:100']
         ];
     }
@@ -40,9 +42,10 @@ class PersonExperiencieRequest extends FormRequest
             'company_experience.required' => 'La experiencia en la empresa es obligatoria.',
             'company_experience.string' => 'La experiencia en la empresa debe ser una cadena de caracteres.',
             'company_experience.max' => 'La experiencia en la empresa no debe exceder :max caracteres.',
-            'months_experience.required' => 'Los meses de experiencia son obligatorios.',
-            'months_experience.integer' => 'Los meses de experiencia deben ser un número entero.',
-            'months_experience.min' => 'Los meses de experiencia deben ser al menos :min.',
+            'start_date.required' => 'La fecha de inicio es requerida.',
+            'start_date.date' => 'La fecha de inicio debe tener un formato de fecha valido.',
+            'finish_date.date' => 'La fecha de fin debe tener un formato de fecha valido.',
+            'finish_date.required' => 'La fecha de fin es requerida.',
             'functions.required' => 'Las funciones son obligatorias.',
             'functions.string' => 'Las funciones deben ser una cadena de caracteres.',
             'functions.max' => 'Las funciones no deben exceder :max caracteres.',

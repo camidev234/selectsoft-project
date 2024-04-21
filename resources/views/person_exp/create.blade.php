@@ -14,30 +14,41 @@
     <main class="container">
         <form action="{{route('exp.store')}}" method="post" class="form">
             @csrf
-            <label for="company_experience">Empresa</label><br>
+            <label for="company_experience">Empresa <span class="ast">*</span></label><br>
             <input type="text" placeholder="Empresa" name="company_experience" value="{{old('company_experience')}}"><br>
             @error('company_experience')
             <span style="color:red;">{{$message}}</span>
             <br>
             @enderror
-            <label for="">Area de desempeño</label><br>
+            <label for="">Area de desempeño <span class="ast">*</span></label><br>
             <select name="work_area_id" id="">
                 @foreach($work_areas as $work_area)
                 <option value="{{$work_area->id}}">{{$work_area->work_area}}</option>
                 @endforeach
             </select>
-            <label for="">Cargo Desempeñado</label><br>
+            <label for="">Cargo Desempeñado <span class="ast">*</span></label><br>
 
-            <input type="text" placeholder="Cargo" name="job">
+            <input type="text" placeholder="Cargo" name="job" value="{{old('job')}}">
             @error('job')
             <span style="color: red;">{{$message}}</span><br>
             @enderror
-            <label for="months_experience">Meses de Experiencia</label><br>
-            <input type="text" name="months_experience" placeholder="meses de experiencia" value="{{old('months_experience')}}">
-            @error('months_experience')
-            <span style="color: red;">{{$message}}</span><br>
-            @enderror
-            <label for="">Funciones Desempeñadas</label><br>
+            <section class="dates">
+                <section class="startDate">
+                    <label for="months_experience">Fecha de Inicio <span class="ast">*</span></label><br>
+                    <input type="date" name="start_date" id="" value="{{old('start_date')}}">
+                    @error('start_date')
+                    <span style="color: red;">{{$message}}</span><br>
+                    @enderror
+                </section>
+                <section class="finishDate">
+                    <label for="months_experience">Fecha de Fin <span class="ast">*</span></label><br>
+                    <input type="date" name="finish_date" id="" value="{{old('finish_date')}}">
+                    @error('finish_date')
+                    <span style="color: red;">{{$message}}</span><br>
+                    @enderror
+                </section>
+            </section>
+            <label for="">Funciones Desempeñadas <span class="ast">*</span></label><br>
 
             <textarea type="text" name="functions" placeholder="Funciones" rows="15">{{old('functions')}}</textarea><br>
             @error('functions')

@@ -290,7 +290,9 @@
     color: black;
 }
 
-
+.ast {
+    color: red;
+}
 
 .actions button {
     padding: 8px 12px;

@@ -25,7 +25,7 @@
                 <thead>
                     <tr>
                         <th>Empresa</th>
-                        <th>Meses de experiencia</th>
+                        <th>Duracion</th>
                         <!-- <th>Funciones</th> -->
                         <th>Cargo</th>
                         <th>Acciones</th>
@@ -35,7 +35,7 @@
                     @forelse($experiencies as $experiencie)
                     <tr>
                         <td>{{$experiencie->company_experience}}</td>
-                        <td>{{$experiencie->months_experience}}</td>
+                        <td>{{$experiencie->start_date}} -- {{$experiencie->finish_date}}</td>
                         <!-- <td>{{$experiencie->functions}}</td> -->
                         <td>{{$experiencie->job}}</td>
                         <td class="actionstable">
@@ -47,7 +47,7 @@
                             <form action="{{route('exp.edit', ['person_experience' => $experiencie->id])}}" method="get">
                                 <button class="btnaction twoBtn"><i class="bi bi-pencil-fill bt"></i></button>
                             </form>
-                            <form action="">
+                            <form action="{{route('experience.show', ['person_experience' => $experiencie->id])}}">
                                 <button class="btnaction threeBtn"><i class="bi bi-eye-fill"></i></button>
                             </form>
                         </td>

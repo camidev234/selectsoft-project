@@ -41,5 +41,21 @@ body {
     background-color: #1e7fa0;
 }
 
+.dates {
+    /* background-color: #1e7fa0; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.dates .startDate, .finishDate {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.startDate input, .finishDate input {
+    width: 100%;
+}
+
 
 

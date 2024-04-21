@@ -98,6 +98,7 @@ Route::delete('/application/delete/{applications}', [ApplicationsController::cla
 Route::get('/user/updateUser/{user}', [UserController::class, 'edit'])->name('user.edit')->middleware('auth');
 Route::patch('/user/update/{user}', [UserController::class, 'update'])->name('user.update')->middleware('auth');
 Route::patch('/candidate/store/photo', [CandidateController::class, 'storeProfilePhoto'])->name('candidate.store_photo');
+Route::get('/experience/show/{person_experience}', [PersonExperienceController::class, 'show'])->name('experience.show')->middleware('auth');
 
 // files routes
 

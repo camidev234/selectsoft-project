@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('person_experiences', function (Blueprint $table) {
             $table->id();
             $table->string('company_experience',80);
-            $table->string('months_experience',45);
+            // $table->string('months_experience',45);
+            $table->date('start_date');
+            $table->date('finish_date');
             $table->string('functions', 900);
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('work_area_id')->references('id')->on('work_areas');

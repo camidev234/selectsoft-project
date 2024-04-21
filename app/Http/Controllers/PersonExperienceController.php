@@ -49,7 +49,9 @@ class PersonExperienceController extends Controller
         $newExperiencie = new Person_experience();
 
         $newExperiencie->company_experience = $request->company_experience;
-        $newExperiencie->months_experience = $request->months_experience;
+        // $newExperiencie->months_experience = $request->months_experience;
+        $newExperiencie->start_date = $request->start_date;
+        $newExperiencie->finish_date = $request->finish_date;
         $newExperiencie->functions = $request->functions;
         $user = Auth::user();
         $newExperiencie->user_id = $user->id;
@@ -66,6 +68,15 @@ class PersonExperienceController extends Controller
      */
     public function show(Person_experience $person_experience)
     {
+
+        $user = Auth::user();
+        $role_id = $user->role_id;
+
+        return view('person_exp.show', [
+            'user' => $user,
+            'role_id' => $role_id,
+            'experience' => $person_experience
+        ]);
     }
 
     /**
@@ -90,7 +101,9 @@ class PersonExperienceController extends Controller
     public function update(PersonExperiencieRequest $request, Person_experience $person_experience)
     {
         $person_experience->company_experience = $request->company_experience;
-        $person_experience->months_experience = $request->months_experience;
+        // $person_experience->months_experience = $request->months_experience;
+        $person_experience->start_date = $request->start_date;
+        $person_experience->finish_date = $request->finish_date;
         $person_experience->functions = $request->functions;
         $person_experience->work_area_id = $request->work_area_id;
         $person_experience->job = $request->job;
