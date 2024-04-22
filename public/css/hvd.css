@@ -200,10 +200,10 @@
 }
 
 .experiencesCandidate table {
-    max-width: 100%;
+    width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
-    background-color: #014968;
+    /* background-color: #014968; */
     word-wrap: break-word;
 }
 
@@ -211,6 +211,29 @@
 .experiencesCandidate th, .experiencesCandidate td {
     padding: 10px;
     border: 1px solid #ddd;
+}
+
+.actionsTable form {
+    /* background-color: #014968; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actionsTable button {
+    padding: 8px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #27812a;
+    color: white;
+    cursor: pointer;
+}
+
+.actionsTable button:hover {
+    background-color: #1b681d;
 }
 
 .skillsCandidate {
